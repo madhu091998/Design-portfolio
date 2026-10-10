@@ -57,7 +57,7 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
   display: grid; place-items: center;
   background: var(--tile); border: 1px solid var(--tile-border);
 }
-.avatar svg { width: 28px; height: 28px; }
+.avatar svg { width: 34px; height: 34px; }
 .who p { line-height: 1.45; }
 .who .name { color: var(--text); }
 
