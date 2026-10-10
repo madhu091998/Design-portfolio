@@ -57,7 +57,21 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
   display: grid; place-items: center;
   background: var(--tile); border: 1px solid var(--tile-border);
 }
-.avatar svg { width: 34px; height: 34px; }
+.avatar { position: relative; overflow: hidden; }
+.avatar svg {
+  position: absolute; width: 40px; height: 40px; right: -7px; bottom: -9px;
+  transform: rotate(-24deg); transform-origin: 70% 90%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .avatar svg { animation: peek 7s ease-in-out 0.8s infinite both; }
+  @keyframes peek {
+    0%, 100% { transform: translate(4px, 6px) rotate(-24deg); }
+    12%, 62% { transform: translate(0, 0) rotate(-24deg); }
+    34% { transform: translate(-1px, -1px) rotate(-30deg); }
+    48% { transform: translate(0, 0) rotate(-21deg); }
+    80% { transform: translate(4px, 6px) rotate(-24deg); }
+  }
+}
 .who p { line-height: 1.45; }
 .who .name { color: var(--text); }
 
