@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contracts · Madhumitha</title>
+  <meta name="description" content="How I redesigned the way companies send sales contracts at Everstage, with AI doing the lookup and a person checking every value.">
+  <meta property="og:title" content="Contracts · Madhumitha">
+  <meta property="og:description" content="Letting AI fill in sales contracts, with a person checking.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main>
+  <a class="back fade" href="../">← Madhumitha</a>
+
+  <header class="cs-head fade">
+    <h1>Contracts</h1>
+    <p>Letting AI fill in sales contracts, with a person checking</p>
+  </header>
+
+  <dl class="facts fade">
+    <div><dt>Role</dt><dd>Product designer</dd></div>
+    <div><dt>Company</dt><dd>Everstage</dd></div>
+    <div><dt>Year</dt><dd>2026</dd></div>
+  </dl>
+
+  <article class="prose fade">
+    <p>Every year, companies send each of their salespeople a pay agreement to sign. The wording is the same for everyone, but the numbers aren't: each person has their own quota, territory and target pay. One admin might send a few hundred of these at the start of the year, then more whenever someone joins, changes teams or gets a new target.</p>
+    <p>I redesigned how those contracts get made and sent. This is a short write-up of what was wrong, what we built, and a few decisions I'd make again.</p>
+
+    <h2>How it used to work</h2>
+    <p>Contracts were built in DocuSign, embedded inside our app. Admins marked the blanks there, downloaded a list of field names, and then went looking for every salesperson's numbers. Those went into a spreadsheet, which was uploaded back.</p>
+    <p>A value only reached the contract if the spreadsheet column matched the field name exactly. There was no preview. Mistakes usually showed up after sending, often spotted by the salesperson, and the fix was to cancel the contract and send a new one.</p>
+    <figure class="wide">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/journey-before-mobile.png">
+        <img src="../assets/contracts/journey-before-desktop.png" width="1030" height="248" loading="lazy" alt="The old flow: upload the contract, build it in DocuSign, copy numbers by hand, send without a preview, then the salesperson finds a mistake and it loops back to copying numbers.">
+      </picture>
+    </figure>
+    <p>The odd part was that most of those numbers already lived in Everstage. Admins weren't creating anything. They were looking it up by hand, a few hundred times over.</p>
+
+    <h2>The idea</h2>
+    <p>Looking things up is something AI does reasonably well, as long as someone checks the result. So the admin describes what each blank should contain, the AI finds the value for every person, and the admin reviews everything before it goes out.</p>
+    <figure class="wide">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/journey-after-mobile.png">
+        <img src="../assets/contracts/journey-after-desktop.png" width="1030" height="248" loading="lazy" alt="The new flow: upload the contract, describe each blank in plain words, AI fills it in for every person, the admin reviews and sends, and the contract is signed.">
+      </picture>
+    </figure>
+
+    <h2>How it works</h2>
+
+    <h3><span class="step-label">Step 1</span>Describe each blank</h3>
+    <p>The admin uploads the contract and, for each blank, writes what belongs there in plain words, like “this rep's Q1 quota”. Typing <strong>/</strong> lets them point at where the number lives, so the AI isn't guessing. Any blank can also be filled in by hand or set to one value for everyone.</p>
+    <figure class="screen">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/screen-1-mobile.png">
+        <img src="../assets/contracts/screen-1-desktop.png" width="714" height="446" loading="lazy" alt="A contract on the left with its blanks highlighted. On the right, the Q1 quota blank is set to be found by AI, described as this rep's Q1 2027 quota from the quota plan.">
+      </picture>
+    </figure>
+
+    <h3><span class="step-label">Step 2</span>Try it on a few people first</h3>
+    <p>Before sending to everyone, the admin picks a handful of people and generates a preview. Anything the AI couldn't find is marked as missing rather than guessed. When something is ambiguous, like a person with two quotas because they changed teams, it asks, and the admin answers in plain words.</p>
+    <figure class="screen">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/screen-2-mobile.png">
+        <img src="../assets/contracts/screen-2-desktop.png" width="714" height="309" loading="lazy" alt="A preview table where two quotas show as not found, next to the AI assistant asking which of two quotas to use.">
+      </picture>
+    </figure>
+
+    <h3><span class="step-label">Step 3</span>Review everyone in one table</h3>
+    <p>At send time, every value for every person sits in one table. Each cell shows whether the AI filled it or the admin changed it, and missing values stand out. Fixes happen right in the cell, or by pasting from a spreadsheet if that's quicker. Sending with a blank is still possible, but the admin is warned first.</p>
+    <figure class="screen">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/screen-3-mobile.png">
+        <img src="../assets/contracts/screen-3-desktop.png" width="714" height="318" loading="lazy" alt="A review table of every person's values. Dots mark values filled by AI, underlines mark values the admin changed, and one missing value is outlined.">
+      </picture>
+    </figure>
+
+    <h3><span class="step-label">Step 4</span>Follow through</h3>
+    <p>After sending, the admin can see who has signed and who it's waiting on: the salesperson, or their manager if they sign second. Reminders go out on the schedule the admin set, and signing happens inside Everstage, so there's no DocuSign step anymore.</p>
+    <figure class="screen">
+      <picture>
+        <source media="(max-width: 560px)" srcset="../assets/contracts/screen-4-mobile.png">
+        <img src="../assets/contracts/screen-4-desktop.png" width="714" height="308" loading="lazy" alt="A progress bar showing 172 of 248 contracts signed, above a list of each person's status and who it is waiting on.">
+      </picture>
+      <figcaption>Screens are recreated for this write-up. All names and numbers are made up.</figcaption>
+    </figure>
+
+    <h2>Deciding what the AI does</h2>
+    <p>Early on, I listed everything an admin did to send contracts and asked one question of each task: is this looking something up, or a decision someone is accountable for?</p>
+    <div class="split">
+      <div class="ai">
+        <h3>The AI does</h3>
+        <ul>
+          <li>Find each person's quota, territory and pay</li>
+          <li>Work out where each number lives, once per contract</li>
+          <li>Fill hundreds of contracts the same way</li>
+          <li>Flag anything it can't find</li>
+        </ul>
+      </div>
+      <div class="you">
+        <h3>The admin does</h3>
+        <ul>
+          <li>Decide what each blank should say</li>
+          <li>Check every value</li>
+          <li>Fix anything that looks off</li>
+          <li>Press send</li>
+        </ul>
+      </div>
+    </div>
+    <p>A couple of smaller decisions came out of that.</p>
+    <p><strong>The AI works out how to find each value once per contract, then reuses it.</strong> The same contract gives the same answer every time. Here, that matters more than being clever.</p>
+    <p><strong>It never fills a gap with a guess.</strong> A blank marked “missing” is a little annoying. A wrong number in a signed pay agreement is much worse.</p>
+
+    <h2>What changed</h2>
+    <p>Admins now describe a contract once instead of rebuilding a spreadsheet every time they send it. They see every value before anything goes out, and the whole thing, from building the contract to getting it signed, happens in Everstage.</p>
+
+    <h2>What I took away</h2>
+    <p>Getting the AI to produce an answer turned out to be the easy part. Most of the design work was helping people check it.</p>
+  </article>
+
+  <footer>
+    <a href="../">← Back</a>
+    <span>Madhumitha · 2026</span>
+  </footer>
+</main>
+</body>
+</html>
