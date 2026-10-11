@@ -238,7 +238,7 @@ blockquote {
 }
 .doodle-word:focus-visible { border-radius: 3px; box-shadow: 0 0 0 2px var(--you); }
 .doodle {
-  position: absolute; left: 50%; bottom: 100%; width: 48px; height: 48px; pointer-events: none;
+  position: absolute; left: 50%; bottom: 100%; width: 54px; height: 54px; pointer-events: none;
   opacity: 0; transform: translate(-50%, 8px) scale(0.7) rotate(0deg);
   transition: opacity 0.18s ease, transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
 }
