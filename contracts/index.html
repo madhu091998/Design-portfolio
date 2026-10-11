@@ -6,7 +6,7 @@
   <title>Contracts · Madhumitha</title>
   <meta name="description" content="How I redesigned the way companies send sales contracts at Everstage, with AI doing the lookup and a person checking every value.">
   <meta property="og:title" content="Contracts · Madhumitha">
-  <meta property="og:description" content="Letting AI fill in sales contracts, with a person checking.">
+  <meta property="og:description" content="Redesigning how admins send sales contracts at Everstage.">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
 
   <header class="cs-head fade">
     <h1>Contracts</h1>
-    <p>Letting AI fill in sales contracts, with a person checking</p>
+    <p>Redesigning how admins send sales contracts</p>
   </header>
 
   <dl class="facts fade">
@@ -31,7 +31,7 @@
 
   <article class="prose fade">
     <p>Every year, companies send each of their salespeople a pay agreement to sign. The wording is the same for everyone, but the numbers aren't: each person has their own quota, territory and target pay. One admin might send a few hundred of these at the start of the year, then more whenever someone joins, changes teams or gets a new target.</p>
-    <p>I redesigned how those contracts get made and sent. This is a short write-up of what was wrong, what we built, and a few decisions I'd make again.</p>
+    <p>I redesigned how those contracts get made and sent. Below is what was wrong with the old flow, what we built, and the main decisions behind it.</p>
 
     <h2>How it used to work</h2>
     <p>Contracts were built in DocuSign, embedded inside our app. Admins marked the blanks there, downloaded a list of field names, and then went looking for every salesperson's numbers. Those went into a spreadsheet, which was uploaded back.</p>
@@ -42,10 +42,10 @@
         <img src="../assets/contracts/journey-before-desktop.png" width="1030" height="248" loading="lazy" alt="The old flow: upload the contract, build it in DocuSign, copy numbers by hand, send without a preview, then the salesperson finds a mistake and it loops back to copying numbers.">
       </picture>
     </figure>
-    <p>The odd part was that most of those numbers already lived in Everstage. Admins weren't creating anything. They were looking it up by hand, a few hundred times over.</p>
+    <p>Most of those numbers were already in Everstage. Admins were looking them up by hand and retyping them.</p>
 
     <h2>The idea</h2>
-    <p>Looking things up is something AI does reasonably well, as long as someone checks the result. So the admin describes what each blank should contain, the AI finds the value for every person, and the admin reviews everything before it goes out.</p>
+    <p>That made it a good fit for AI, as long as someone checks the result. In the new flow, the admin describes what each blank should contain, the AI finds the value for every person, and the admin reviews everything before it goes out.</p>
     <figure class="wide">
       <picture>
         <source media="(max-width: 560px)" srcset="../assets/contracts/journey-after-mobile.png">
@@ -83,7 +83,7 @@
     </figure>
 
     <h3><span class="step-label">Step 4</span>Follow through</h3>
-    <p>After sending, the admin can see who has signed and who it's waiting on: the salesperson, or their manager if they sign second. Reminders go out on the schedule the admin set, and signing happens inside Everstage, so there's no DocuSign step anymore.</p>
+    <p>After sending, the admin can see who has signed and who it's waiting on: the salesperson, or their manager if they sign second. Reminders go out on the schedule the admin set, and signing happens inside Everstage, so DocuSign is no longer needed.</p>
     <figure class="screen">
       <picture>
         <source media="(max-width: 560px)" srcset="../assets/contracts/screen-4-mobile.png">
@@ -93,7 +93,7 @@
     </figure>
 
     <h2>Deciding what the AI does</h2>
-    <p>Early on, I listed everything an admin did to send contracts and asked one question of each task: is this looking something up, or a decision someone is accountable for?</p>
+    <p>Early on, I listed the tasks involved in sending contracts and split them into lookups, which the AI could take, and decisions, which stay with the admin.</p>
     <div class="split">
       <div class="ai">
         <h3>The AI does</h3>
@@ -114,15 +114,15 @@
         </ul>
       </div>
     </div>
-    <p>A couple of smaller decisions came out of that.</p>
-    <p><strong>The AI works out how to find each value once per contract, then reuses it.</strong> The same contract gives the same answer every time. Here, that matters more than being clever.</p>
-    <p><strong>It never fills a gap with a guess.</strong> A blank marked “missing” is a little annoying. A wrong number in a signed pay agreement is much worse.</p>
+    <p>Two other decisions followed from that.</p>
+    <p><strong>The AI works out how to find each value once per contract, then reuses it.</strong> That way the same contract gives the same answer every time.</p>
+    <p><strong>It doesn't guess.</strong> If a value can't be found, it's marked as missing so the admin can fill it in.</p>
 
     <h2>What changed</h2>
-    <p>Admins now describe a contract once instead of rebuilding a spreadsheet every time they send it. They see every value before anything goes out, and the whole thing, from building the contract to getting it signed, happens in Everstage.</p>
+    <p>Admins now describe a contract once instead of rebuilding a spreadsheet every time they send it. They see every value before anything goes out. Building, sending and signing all happen in Everstage.</p>
 
-    <h2>What I took away</h2>
-    <p>Getting the AI to produce an answer turned out to be the easy part. Most of the design work was helping people check it.</p>
+    <h2>What I learned</h2>
+    <p>Getting the AI to fill in values was the quicker part of the project. Most of the design time went into the review steps: the preview, the table and the warnings.</p>
   </article>
 
   <footer>
