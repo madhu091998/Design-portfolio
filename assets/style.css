@@ -265,6 +265,53 @@ blockquote {
 
 .say-hello { margin-top: 10px; color: var(--faint); }
 
+/* ---------- Contracts case study ---------- */
+.case { padding-top: 16px; }
+.kicker { font-size: 13px; color: var(--faint); letter-spacing: 0.01em; }
+.cs-head .kicker { margin-bottom: 6px; }
+.prose .kicker { margin-top: 48px; margin-bottom: -12px; }
+.prose .kicker + h2 { margin-top: 0; }
+.facts.four { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+@media (max-width: 520px) { .facts.four { grid-template-columns: 1fr; } }
+
+.versions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 6px; }
+.version {
+  display: grid; gap: 8px; align-content: start; padding: 14px; border-radius: 10px;
+  background: var(--tile); border: 1px solid var(--tile-border); font-size: 13.5px; line-height: 1.6;
+}
+.version:nth-child(2) { transform: rotate(-1deg); }
+.version:nth-child(3) { transform: rotate(1deg); }
+.v-head { color: var(--text); font-weight: 500; font-size: 13px; }
+.version b { color: var(--you); font-weight: 500; }
+.caption { font-size: 14px; color: var(--faint); margin-top: -6px; }
+@media (max-width: 560px) { .versions { grid-template-columns: 1fr; } .version { transform: none !important; } }
+
+.old-steps { list-style: none; counter-reset: s; margin: 6px 0 0; padding: 0; display: grid; gap: 0; }
+.old-steps li {
+  counter-increment: s; position: relative; padding: 10px 0 10px 40px; line-height: 1.5; color: var(--text);
+}
+.old-steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 9px; width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 13px; color: var(--muted);
+  border: 1px solid var(--tile-border); background: var(--tile); font-variant-numeric: tabular-nums;
+}
+.old-steps li:not(:last-child)::after {
+  content: ""; position: absolute; left: 13px; top: 37px; bottom: -8px; border-left: 1px dashed #333;
+}
+.old-steps li.bad { color: #f07c61; }
+.old-steps li.bad::before { color: #f07c61; border-color: rgba(240, 124, 97, 0.45); }
+
+.hmw {
+  margin: 8px 0 0; padding: 18px 20px; border: 0; border-radius: 12px;
+  background: var(--tile); border-left: 2px solid var(--you); color: var(--text); font-size: 17px; line-height: 1.55;
+}
+
+.ba { display: grid; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
+.ba-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-block: 11px; border-bottom: 1px solid var(--line); }
+.ba-row span:first-child { color: var(--faint); }
+.ba-row span:last-child { color: var(--text); }
+.ba-head span { font-size: 13px; color: var(--faint) !important; }
+
 /* ---------- Clickable cats ---------- */
 .cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
 .peeker-cat.cat-btn { background: none; border: 0; pointer-events: auto; }
