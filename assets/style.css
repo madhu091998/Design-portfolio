@@ -59,12 +59,12 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
 }
 .avatar { position: relative; overflow: hidden; }
 .avatar svg {
-  position: absolute; width: 46px; height: 46px; right: -13px; bottom: -11px;
+  position: absolute; width: 52px; height: 37px; right: -11px; bottom: -3px;
   transform: rotate(-12deg); transform-origin: 80% 100%;
 }
 @media (prefers-reduced-motion: no-preference) {
   .avatar svg { animation: lean 6s ease-in-out infinite; }
-  .avatar .eyes { transform-box: fill-box; transform-origin: center; animation: blink 5s ease-in-out infinite; }
+  .eyes { transform-box: fill-box; transform-origin: center; animation: blink 5s ease-in-out infinite; }
   @keyframes lean {
     0%, 100% { transform: rotate(-12deg); }
     50% { transform: translate(-1px, -1px) rotate(-16deg); }
@@ -73,6 +73,27 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
     0%, 92%, 100% { transform: scaleY(1); }
     95% { transform: scaleY(0.1); }
   }
+}
+
+/* ---------- Footer cat ---------- */
+/* Sits behind the footer's top rule and peeks over it once the footer scrolls into view. */
+footer { position: relative; }
+.peeker {
+  position: absolute; right: 6%; bottom: 100%;
+  width: 96px; height: 70px; overflow: hidden; pointer-events: none;
+}
+.peeker-cat svg { position: absolute; left: 0; bottom: 0; width: 96px; height: auto; display: block; }
+.peeker-cat { position: absolute; inset: 0; }
+.peeker.armed .peeker-cat { transform: translateY(100%); }
+.peeker.armed.in .peeker-cat {
+  transform: translateY(0);
+  transition: transform 0.9s cubic-bezier(0.3, 1.25, 0.5, 1);
+}
+.peeker.in .eyes { animation: glance 2.4s ease-in-out 1s 1, blink 5s ease-in-out 3.4s infinite; }
+@keyframes glance {
+  0%, 100% { transform: translate(0, 0); }
+  30%, 55% { transform: translate(-1.6px, -1.2px); }
+  70% { transform: translate(1.2px, -1px); }
 }
 .who p { line-height: 1.45; }
 .who .name { color: var(--text); }
