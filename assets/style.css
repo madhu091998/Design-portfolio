@@ -103,7 +103,7 @@ footer { position: relative; }
 /* Home: intro and Work at the top, footer pushed to the bottom of the first screen. */
 .home, #home { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; padding-bottom: 48px; }
 .home > footer, #home > footer { margin-top: auto; }
-.home > section, #home > section { margin-bottom: 96px; }
+.home > section:last-of-type, #home > section:last-of-type { margin-bottom: 96px; }
 
 /* ---------- Lists ---------- */
 section { margin-top: 72px; }
