@@ -301,6 +301,15 @@ blockquote {
 .old-steps li.bad { color: #f07c61; }
 .old-steps li.bad::before { color: #f07c61; border-color: rgba(240, 124, 97, 0.45); }
 
+/* Before / after chapter breaks in the case study */
+.prose .chapter { display: flex; align-items: center; gap: 12px; margin: 72px 0 0; }
+.prose .chapter + .kicker { margin-top: 28px; }
+.chapter::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+.chapter .chip { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid; }
+.chapter.then .chip { color: #f07c61; border-color: rgba(240, 124, 97, 0.4); background: rgba(240, 124, 97, 0.08); }
+.chapter.now .chip { color: var(--ai); border-color: rgba(63, 198, 160, 0.4); background: rgba(63, 198, 160, 0.08); }
+.chapter-title { font-size: 14px; color: var(--muted); }
+
 .hmw {
   margin: 8px 0 0; padding: 18px 20px; border: 0; border-radius: 12px;
   background: var(--tile); border-left: 2px solid var(--you); color: var(--text); font-size: 17px; line-height: 1.55;
