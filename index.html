@@ -16,6 +16,13 @@
 </head>
 <body>
 <main>
+  <div class="sweep" aria-hidden="true"></div>
+  <div class="sweep-glow" aria-hidden="true"></div>
+  <script>
+    document.querySelectorAll(".sweep, .sweep-glow").forEach(function (el) {
+      el.addEventListener("animationend", function () { el.remove(); });
+    });
+  </script>
   <header class="fade">
     <div class="who">
       <div class="avatar" aria-hidden="true">

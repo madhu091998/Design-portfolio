@@ -163,3 +163,34 @@ blockquote {
   .fade:nth-child(5) { animation-delay: 0.24s; }
   @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
 }
+
+/* ---------- Landing sweep ---------- */
+/* A tall gradient slides up once on load. Multiply tints the light text
+   and keeps the dark background dark; the glow layer adds a faint wash. */
+.sweep, .sweep-glow {
+  position: fixed; left: 0; right: 0; top: 0; height: 300vh;
+  pointer-events: none; z-index: 10;
+}
+.sweep {
+  mix-blend-mode: multiply;
+  background: linear-gradient(to bottom,
+    #000 0%, #000 33.3%,
+    #1d4ed8 37%, #3b82f6 41%, #ffd98a 45%, #ff9f43 49%,
+    #ff4d2e 53%, #ff4fa3 57.5%, #e3a3ff 62%, #fff 66.7%, #fff 100%);
+}
+.sweep-glow {
+  mix-blend-mode: screen; opacity: 0.08;
+  background: linear-gradient(to bottom,
+    transparent 33.3%, #1d4ed8 38%, #ff9f43 48%, #ff4d2e 53%,
+    #ff4fa3 58%, transparent 66.7%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sweep, .sweep-glow { animation: sweep 1.6s cubic-bezier(0.45, 0, 0.25, 1) 0.1s both; }
+  @keyframes sweep {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200vh); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sweep, .sweep-glow { display: none; }
+}
