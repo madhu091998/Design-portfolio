@@ -217,27 +217,34 @@ blockquote {
 }
 
 /* ---------- Landing sweep ---------- */
-/* An ellipse grows from the bottom centre on load. Multiply leaves the dark
-   background black and tints only the text and UI through vivid rings;
-   outside the ellipse everything is hidden. */
+/* Two ellipses grow from the bottom centre on load: a ring of vivid colour
+   leads, and a white disc follows a beat behind it. Multiply leaves the dark
+   background black, tints only the text and UI, and hides everything outside. */
+@property --sw-ring { syntax: "<number>"; inherits: false; initial-value: 1; }
+@property --sw-fill { syntax: "<number>"; inherits: false; initial-value: 1; }
 .sweep {
   position: fixed; left: 0; right: 0; top: 0; height: 200vh;
   pointer-events: none; z-index: 10;
   mix-blend-mode: multiply;
   background-color: #000;
   background-repeat: no-repeat; background-position: 50% 50%;
-  background-size: 1100vw 560vh;
-  background-image: radial-gradient(closest-side,
-    #fff 0%, #fff 58%, #d9b8ff 62%, #c86bff 65.5%, #ff2fb3 69.5%,
-    #ff3d2e 74%, #ff8a00 78.5%, #ffd23f 82.5%, #3ea0ff 87%,
-    #2b5cff 91.5%, #000 97%, #000 100%);
+  background-image:
+    radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(closest-side,
+      #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%,
+      #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, #000 100%);
+  background-size:
+    calc(var(--sw-fill) * 1100vw) calc(var(--sw-fill) * 560vh),
+    calc(var(--sw-ring) * 1100vw) calc(var(--sw-ring) * 560vh);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .sweep { animation: sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both; }
-  @keyframes sweep {
-    from { background-size: 0 0; }
-    to { background-size: 1100vw 560vh; }
+  .sweep {
+    animation:
+      sweep-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both,
+      sweep-fill 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.45s both;
   }
+  @keyframes sweep-ring { from { --sw-ring: 0; } to { --sw-ring: 1; } }
+  @keyframes sweep-fill { from { --sw-fill: 0; } to { --sw-fill: 1; } }
 }
 @media (prefers-reduced-motion: reduce) {
   .sweep { display: none; }
