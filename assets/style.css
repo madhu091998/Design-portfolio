@@ -64,6 +64,8 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
 }
 .site-header.scrolled { border-bottom-color: var(--line); }
 .site-header .brand { color: var(--text); font-weight: 500; text-decoration: none; }
+.site-header nav a[aria-current="page"] { color: var(--text); }
+.about-body { margin-top: 0; }
 .site-header nav { display: flex; gap: 20px; }
 .site-header nav a { color: var(--muted); text-decoration-color: transparent; }
 .site-header a:hover, .site-header a:focus-visible { color: var(--text); text-decoration-color: var(--faint); }
