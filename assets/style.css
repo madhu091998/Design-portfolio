@@ -263,6 +263,8 @@ blockquote {
 .about-photo { margin: 0 0 32px; }
 .about-photo img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--tile-border); }
 
+.say-hello { margin-top: 10px; color: var(--faint); }
+
 /* ---------- Clickable cats ---------- */
 .cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
 .peeker-cat.cat-btn { background: none; border: 0; pointer-events: auto; }
