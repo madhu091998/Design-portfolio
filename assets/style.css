@@ -247,16 +247,41 @@ blockquote {
 
 
 .section-lede { margin-bottom: 12px; }
-.jobs { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.jobs { position: relative; list-style: none; margin: 0; padding: 0 0 0 26px; }
+.jobs::before {
+  content: ""; position: absolute; left: 5px; top: 22px; bottom: 22px;
+  border-left: 1.5px solid var(--line);
+}
+.jobs.past::before { border-left-style: dashed; border-left-color: #333; }
 .jobs li {
-  display: grid; grid-template-columns: 1.1fr 1.1fr 0.9fr; gap: 4px 20px;
-  padding-block: 12px; border-bottom: 1px solid var(--line); line-height: 1.5;
+  position: relative; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 9.6em; gap: 2px 20px;
+  margin-left: -10px; padding: 11px 12px 11px 10px; border-radius: 10px; line-height: 1.5;
+  transition: background-color 0.2s ease;
+}
+.jobs li::before {
+  content: ""; position: absolute; left: -15.5px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px;
+  border-radius: 50%; background: var(--bg); border: 1.5px solid var(--faint);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s ease;
+}
+.jobs:not(.past) li::before { background: var(--faint); }
+.jobs li:hover { background: var(--tile); }
+.jobs li:hover::before { transform: scale(1.25); border-color: var(--text); }
+.jobs:not(.past) li:hover::before { background: var(--text); }
+.jobs li.current::before { background: var(--ai); border-color: var(--ai); }
+.jobs li.current::after {
+  content: ""; position: absolute; left: -15.5px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px;
+  border-radius: 50%; border: 1.5px solid var(--ai); box-sizing: border-box; opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .jobs li.current::after { animation: now-pulse 2.4s ease-out infinite; }
+  @keyframes now-pulse { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(2.6); } }
 }
 .job-co { color: var(--text); }
-.job-when { color: var(--faint); text-align: right; font-variant-numeric: tabular-nums; }
+.job-when { color: var(--faint); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.jobs li.current .job-when { color: var(--ai); }
 @media (max-width: 520px) {
   .jobs li { grid-template-columns: 1fr auto; }
-  .job-role { grid-column: 1; grid-row: 2; }
+  .job-role { grid-column: 1 / -1; grid-row: 2; }
   .job-when { grid-column: 2; grid-row: 1; }
 }
 
