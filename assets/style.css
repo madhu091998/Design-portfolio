@@ -185,36 +185,60 @@ blockquote {
   @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
 }
 
-/* ---------- Landing sweep ---------- */
-/* An ellipse grows from the bottom centre on load. Multiply tints the light
-   text through coloured rings and keeps the dark background dark; outside the
-   ellipse everything is black. The glow layer adds a faint wash of the rings. */
-.sweep, .sweep-glow {
-  position: fixed; left: 0; right: 0; top: 0; height: 200vh;
-  pointer-events: none; z-index: 10;
-  background-repeat: no-repeat; background-position: 50% 50%;
-  background-size: 1100vw 560vh;
-}
-.sweep {
-  mix-blend-mode: multiply;
-  background-color: #000;
-  background-image: radial-gradient(closest-side,
-    #fff 0%, #fff 60%, #e3a3ff 65%, #ff4fa3 70%, #ff4d2e 75%,
-    #ff9f43 80%, #ffd98a 84%, #3b82f6 89%, #1d4ed8 94%, #000 100%);
-}
-.sweep-glow {
-  mix-blend-mode: screen; opacity: 0.045;
-  background-image: radial-gradient(closest-side,
-    transparent 58%, #ff4fa3 68%, #ff4d2e 75%, #ff9f43 81%,
-    #3b82f6 89%, transparent 100%);
+/* ---------- Clickable cats ---------- */
+.cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
+.peeker-cat.cat-btn { background: none; border: 0; pointer-events: auto; }
+.cat-btn:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; }
+.who { position: relative; }
+.meow {
+  position: absolute; z-index: 2; pointer-events: none; white-space: nowrap;
+  font-size: 13px; font-style: italic; color: var(--text);
+  transform: translateX(-50%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .sweep, .sweep-glow { animation: sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both; }
+  .avatar.hop svg { animation: hop-corner 0.65s ease-in-out; }
+  .peeker-cat.hop svg { animation: hop-ledge 0.65s ease-in-out; }
+  .meow { animation: meow 1.1s ease-out forwards; }
+  @keyframes hop-corner {
+    0%, 100% { transform: rotate(-12deg); }
+    35% { transform: translate(5px, 12px) rotate(-12deg); }
+    70% { transform: translate(-1px, -2px) rotate(-18deg); }
+  }
+  @keyframes hop-ledge {
+    0%, 100% { transform: translateY(0); }
+    35% { transform: translateY(70%); }
+    70% { transform: translateY(-5%); }
+  }
+  @keyframes meow {
+    0% { opacity: 0; transform: translate(-50%, 4px) scale(0.85); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -24px) scale(1); }
+  }
+}
+
+/* ---------- Landing sweep ---------- */
+/* An ellipse grows from the bottom centre on load. Multiply leaves the dark
+   background black and tints only the text and UI through vivid rings;
+   outside the ellipse everything is hidden. */
+.sweep {
+  position: fixed; left: 0; right: 0; top: 0; height: 200vh;
+  pointer-events: none; z-index: 10;
+  mix-blend-mode: multiply;
+  background-color: #000;
+  background-repeat: no-repeat; background-position: 50% 50%;
+  background-size: 1100vw 560vh;
+  background-image: radial-gradient(closest-side,
+    #fff 0%, #fff 58%, #d9b8ff 62%, #c86bff 65.5%, #ff2fb3 69.5%,
+    #ff3d2e 74%, #ff8a00 78.5%, #ffd23f 82.5%, #3ea0ff 87%,
+    #2b5cff 91.5%, #000 97%, #000 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sweep { animation: sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both; }
   @keyframes sweep {
     from { background-size: 0 0; }
     to { background-size: 1100vw 560vh; }
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sweep, .sweep-glow { display: none; }
+  .sweep { display: none; }
 }
