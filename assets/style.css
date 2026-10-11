@@ -172,7 +172,7 @@ blockquote {
   position: fixed; left: 0; right: 0; top: 0; height: 200vh;
   pointer-events: none; z-index: 10;
   background-repeat: no-repeat; background-position: 50% 50%;
-  background-size: 700vw 560vh;
+  background-size: 1100vw 560vh;
 }
 .sweep {
   mix-blend-mode: multiply;
@@ -191,7 +191,7 @@ blockquote {
   .sweep, .sweep-glow { animation: sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both; }
   @keyframes sweep {
     from { background-size: 0 0; }
-    to { background-size: 700vw 560vh; }
+    to { background-size: 1100vw 560vh; }
   }
 }
 @media (prefers-reduced-motion: reduce) {
