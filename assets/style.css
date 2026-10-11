@@ -82,7 +82,7 @@ footer { position: relative; }
   position: absolute; right: 6%; bottom: 100%;
   width: 96px; height: 70px; overflow: hidden; pointer-events: none;
 }
-.peeker-cat svg { position: absolute; left: 0; bottom: 0; width: 96px; height: 61px; display: block; }
+.peeker-cat svg { position: absolute; left: 0; bottom: 0; width: 96px; height: 69px; display: block; }
 .peeker-cat { position: absolute; inset: 0; }
 .peeker.armed .peeker-cat { transform: translateY(100%); }
 .peeker.armed.in .peeker-cat {
