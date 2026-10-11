@@ -124,7 +124,19 @@ section > h2 { margin-bottom: 20px; }
 .item .text { display: grid; line-height: 1.5; }
 .item .title { color: var(--text); }
 .item:hover .tile { border-color: #444; }
-.item:hover .title { text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+.item .chev {
+  display: inline-block; width: 14px; height: 14px; margin-left: 4px; vertical-align: -1px;
+  color: var(--muted); opacity: 0; transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+.item:hover .chev, .item:focus-visible .chev { opacity: 1; transform: translateX(0); }
+.item .tile svg { transition: transform 0.35s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.item:hover .tile svg, .item:focus-visible .tile svg { transform: translateY(-2px) rotate(-6deg); }
+.item .sig { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .item:hover .sig, .item:focus-visible .sig { animation: sign-again 0.7s ease-out; }
+  @keyframes sign-again { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+}
 
 .soon { color: var(--faint); }
 
