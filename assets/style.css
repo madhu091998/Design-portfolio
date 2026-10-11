@@ -97,6 +97,13 @@ footer { position: relative; }
 }
 .who p { line-height: 1.45; }
 .who .name { color: var(--text); }
+.top-nav { margin-left: auto; align-self: flex-start; display: flex; gap: 18px; font-size: 14px; line-height: 1.45; padding-top: 2px; }
+.top-nav a { color: var(--muted); text-decoration-color: transparent; }
+.top-nav a:hover, .top-nav a:focus-visible { color: var(--text); text-decoration-color: var(--faint); }
+@media (max-width: 480px) {
+  .who { flex-wrap: wrap; }
+  .top-nav { order: -1; width: 100%; justify-content: flex-end; margin-bottom: 4px; }
+}
 
 .bio { display: grid; gap: 18px; }
 
