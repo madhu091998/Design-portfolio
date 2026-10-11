@@ -100,6 +100,10 @@ footer { position: relative; }
 
 .bio { display: grid; gap: 18px; }
 
+/* Home: intro at the top, Work and footer pushed to the bottom of the first screen. */
+.home, #home { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; padding-bottom: 48px; }
+.home > section, #home > section { margin-top: auto; padding-top: 72px; }
+
 /* ---------- Lists ---------- */
 section { margin-top: 72px; }
 section > h2 { margin-bottom: 20px; }
