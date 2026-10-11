@@ -85,7 +85,7 @@ section > h2 { margin-bottom: 20px; }
 
 .items { list-style: none; padding: 0; display: grid; gap: 22px; }
 .item {
-  display: flex; align-items: center; gap: 16px;
+  display: flex; align-items: flex-start; gap: 16px;
   text-decoration: none; color: inherit;
 }
 .item .tile {
