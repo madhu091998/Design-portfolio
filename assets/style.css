@@ -245,6 +245,20 @@ blockquote {
 .doodle-word:hover .doodle, .doodle-word:focus .doodle { opacity: 1; transform: translate(-50%, -2px) scale(1) rotate(-8deg); }
 
 
+.section-lede { margin-bottom: 12px; }
+.jobs { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.jobs li {
+  display: grid; grid-template-columns: 1.1fr 1.1fr 0.9fr; gap: 4px 20px;
+  padding-block: 12px; border-bottom: 1px solid var(--line); line-height: 1.5;
+}
+.job-co { color: var(--text); }
+.job-when { color: var(--faint); text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) {
+  .jobs li { grid-template-columns: 1fr auto; }
+  .job-role { grid-column: 1; grid-row: 2; }
+  .job-when { grid-column: 2; grid-row: 1; }
+}
+
 /* ---------- Clickable cats ---------- */
 .cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
 .peeker-cat.cat-btn { background: none; border: 0; pointer-events: auto; }
