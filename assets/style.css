@@ -134,6 +134,7 @@ footer { position: relative; }
 /* ---------- Lists ---------- */
 section { margin-top: 72px; }
 section > h2 { margin-bottom: 20px; }
+h2 .num { color: var(--faint); font-variant-numeric: tabular-nums; margin-right: 2px; }
 
 .items { list-style: none; padding: 0; display: grid; gap: 22px; }
 .item {
