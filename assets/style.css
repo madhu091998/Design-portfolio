@@ -165,30 +165,33 @@ blockquote {
 }
 
 /* ---------- Landing sweep ---------- */
-/* A tall gradient slides up once on load. Multiply tints the light text
-   and keeps the dark background dark; the glow layer adds a faint wash. */
+/* An ellipse grows from the bottom centre on load. Multiply tints the light
+   text through coloured rings and keeps the dark background dark; outside the
+   ellipse everything is black. The glow layer adds a faint wash of the rings. */
 .sweep, .sweep-glow {
-  position: fixed; left: 0; right: 0; top: 0; height: 300vh;
+  position: fixed; left: 0; right: 0; top: 0; height: 200vh;
   pointer-events: none; z-index: 10;
+  background-repeat: no-repeat; background-position: 50% 50%;
+  background-size: 700vw 560vh;
 }
 .sweep {
   mix-blend-mode: multiply;
-  background: linear-gradient(to bottom,
-    #000 0%, #000 33.3%,
-    #1d4ed8 37%, #3b82f6 41%, #ffd98a 45%, #ff9f43 49%,
-    #ff4d2e 53%, #ff4fa3 57.5%, #e3a3ff 62%, #fff 66.7%, #fff 100%);
+  background-color: #000;
+  background-image: radial-gradient(closest-side,
+    #fff 0%, #fff 60%, #e3a3ff 65%, #ff4fa3 70%, #ff4d2e 75%,
+    #ff9f43 80%, #ffd98a 84%, #3b82f6 89%, #1d4ed8 94%, #000 100%);
 }
 .sweep-glow {
-  mix-blend-mode: screen; opacity: 0.08;
-  background: linear-gradient(to bottom,
-    transparent 33.3%, #1d4ed8 38%, #ff9f43 48%, #ff4d2e 53%,
-    #ff4fa3 58%, transparent 66.7%);
+  mix-blend-mode: screen; opacity: 0.045;
+  background-image: radial-gradient(closest-side,
+    transparent 58%, #ff4fa3 68%, #ff4d2e 75%, #ff9f43 81%,
+    #3b82f6 89%, transparent 100%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .sweep, .sweep-glow { animation: sweep 1.6s cubic-bezier(0.45, 0, 0.25, 1) 0.1s both; }
+  .sweep, .sweep-glow { animation: sweep 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both; }
   @keyframes sweep {
-    from { transform: translateY(0); }
-    to { transform: translateY(-200vh); }
+    from { background-size: 0 0; }
+    to { background-size: 700vw 560vh; }
   }
 }
 @media (prefers-reduced-motion: reduce) {
