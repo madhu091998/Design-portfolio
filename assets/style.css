@@ -120,8 +120,13 @@ footer { position: relative; }
 .bio { display: grid; gap: 18px; }
 
 /* Home: intro and Work at the top, footer pushed to the bottom of the first screen. */
-.home, #home { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; padding-bottom: 48px; }
-.home > footer, #home > footer { margin-top: auto; }
+.home, #home { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; padding-bottom: 0; }
+.home > footer, #home > footer {
+  margin-top: auto; position: sticky; bottom: 0; z-index: 5;
+  margin-inline: -20px; padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
 .home > section:last-of-type, #home > section:last-of-type { margin-bottom: 96px; }
 
 /* ---------- Lists ---------- */
