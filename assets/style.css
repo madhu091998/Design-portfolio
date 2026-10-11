@@ -230,6 +230,50 @@ blockquote {
   @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
 }
 
+/* ---------- About ---------- */
+.about-head { display: flex; align-items: flex-end; gap: 28px; margin-bottom: 36px; }
+.about-intro { display: grid; gap: 6px; padding-bottom: 8px; }
+.about-intro h1 { font-size: 1.25rem; letter-spacing: -0.01em; }
+.hint { font-size: 14px; color: var(--faint); }
+.polaroid {
+  margin: 0; flex-shrink: 0; width: 200px; padding: 10px 10px 0; border-radius: 4px;
+  background: #ece9e2; transform: rotate(-3deg);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.polaroid img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.polaroid figcaption {
+  margin: 0; padding: 8px 2px 10px; text-align: center;
+  font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive; font-size: 19px; line-height: 1.2; color: #3a3833;
+}
+@media (max-width: 520px) {
+  .about-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .polaroid { width: 170px; }
+}
+
+.doodle-word {
+  position: relative; color: var(--text); cursor: default; outline: none;
+  text-decoration: underline dotted var(--faint); text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+}
+.doodle-word:focus-visible { border-radius: 3px; box-shadow: 0 0 0 2px var(--you); }
+.doodle {
+  position: absolute; left: 50%; bottom: 100%; width: 48px; height: 48px; pointer-events: none;
+  opacity: 0; transform: translate(-50%, 8px) scale(0.7) rotate(0deg);
+  transition: opacity 0.18s ease, transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.doodle svg { width: 100%; height: 100%; display: block; }
+.doodle-word:hover .doodle, .doodle-word:focus .doodle { opacity: 1; transform: translate(-50%, -2px) scale(1) rotate(-8deg); }
+
+.about-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 48px; }
+.fact { display: grid; gap: 4px; align-content: start; padding: 14px 16px; border: 1px solid var(--tile-border); border-radius: 12px; background: var(--tile); font-size: 15px; line-height: 1.45; }
+.fact-label { font-size: 13px; color: var(--faint); }
+.fact-value { color: var(--text); }
+.meter { display: block; height: 6px; margin-top: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.meter i { display: block; width: 3%; height: 100%; border-radius: 99px; background: var(--muted); }
+.fact-note { font-size: 13px; color: var(--faint); }
+@media (max-width: 520px) { .about-facts { grid-template-columns: 1fr; } }
+
 /* ---------- Clickable cats ---------- */
 .cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
 .peeker-cat.cat-btn { background: none; border: 0; pointer-events: auto; }
