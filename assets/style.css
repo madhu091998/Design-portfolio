@@ -8,6 +8,7 @@
   --tile-border: #2a2a2a;
   --ai: #3fc6a0;
   --you: #8197ff;
+  --bad: #f07c61;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   color-scheme: dark;
 }
@@ -311,6 +312,51 @@ blockquote {
 .ba-row span:first-child { color: var(--faint); }
 .ba-row span:last-child { color: var(--text); }
 .ba-head span { font-size: 13px; color: var(--faint) !important; }
+
+/* Signature stroke under the case study title */
+.cs-head h1 .signed { position: relative; display: inline-block; white-space: nowrap; }
+.cs-head h1 .signed svg { position: absolute; left: -2%; bottom: -0.42em; width: 104%; height: 0.6em; overflow: visible; }
+.sig-stroke { fill: none; stroke: var(--you); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .sig-stroke { stroke-dasharray: 520; stroke-dashoffset: 0; animation: sign 1.6s 0.4s ease-out backwards; }
+  @keyframes sign { from { stroke-dashoffset: 520; } to { stroke-dashoffset: 0; } }
+}
+
+/* Animated before/after journeys */
+.prose > * { min-width: 0; }
+.journey { margin: 6px 0 4px; min-width: 0; padding: 14px 10px 10px; border-radius: 12px; background: var(--tile); border: 1px solid var(--tile-border); }
+.journey .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.journey svg.j { display: block; width: 100%; height: auto; }
+.scroll-hint { display: none; }
+@media (max-width: 560px) {
+  .journey svg.j { min-width: 640px; }
+  .scroll-hint { display: inline; }
+  figcaption.scroll-hint { display: block; }
+}
+.journey figcaption { margin: 4px 6px 0; }
+.j text { font-family: var(--font); }
+.j-title { font-size: 17px; font-weight: 500; fill: var(--text); }
+.j-sub { font-size: 14.5px; fill: var(--faint); }
+.j-line { fill: none; stroke: #2a2a2a; stroke-width: 5; stroke-linecap: round; }
+.j-line.now { stroke: color-mix(in srgb, var(--you) 35%, #2a2a2a); }
+.j-loop { fill: none; stroke: var(--bad); stroke-width: 2; stroke-dasharray: 6 6; }
+.j-loop-text { font-size: 13.5px; fill: var(--bad); font-style: italic; }
+.j-dot { fill: var(--tile); stroke: var(--muted); stroke-width: 2.5; }
+.j-dot.bad { stroke: var(--bad); }
+.j-dot.good { stroke: var(--you); }
+.j-dot.ai { stroke: var(--ai); fill: color-mix(in srgb, var(--ai) 18%, var(--tile)); }
+.j-num { font-size: 12px; text-anchor: middle; fill: var(--text); font-weight: 500; }
+.j-ring { fill: none; stroke: var(--you); stroke-width: 1.4; stroke-dasharray: 3 4; }
+.j-ai-ring { fill: none; stroke: var(--ai); stroke-width: 1.4; stroke-dasharray: 3 4; }
+.j-signed { fill: var(--you); }
+.j-check { fill: none; stroke: var(--bg); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.j-ai-label { font-size: 11px; letter-spacing: 0.1em; fill: var(--ai); text-anchor: middle; }
+.j-you-label { font-size: 11px; letter-spacing: 0.1em; fill: var(--you); text-anchor: middle; }
+.env-body { fill: var(--tile); stroke: var(--text); stroke-width: 1.4; }
+.env-flap { fill: none; stroke: var(--text); stroke-width: 1.4; }
+.env-after .env-body, .env-after .env-flap { stroke: var(--you); }
+.envelope { display: none; }
+@media (prefers-reduced-motion: no-preference) { .envelope { display: inline; } }
 
 /* ---------- Clickable cats ---------- */
 .cat-btn { appearance: none; -webkit-appearance: none; font: inherit; color: inherit; cursor: pointer; padding: 0; }
