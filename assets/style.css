@@ -50,6 +50,25 @@ a:focus-visible { outline: 2px solid var(--you); outline-offset: 3px; border-rad
 
 ::selection { background: #2b3a8f; color: #fff; }
 
+/* ---------- Site header ---------- */
+/* Pinned to the top of the reading column; a blurred backdrop lets content slide underneath. */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin: 0 -20px 64px; padding: 14px 20px;
+  font-size: 14px; line-height: 1.4;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.site-header.scrolled { border-bottom-color: var(--line); }
+.site-header .brand { color: var(--text); font-weight: 500; text-decoration: none; }
+.site-header nav { display: flex; gap: 20px; }
+.site-header nav a { color: var(--muted); text-decoration-color: transparent; }
+.site-header a:hover, .site-header a:focus-visible { color: var(--text); text-decoration-color: var(--faint); }
+.home, #home { padding-top: 16px; }
+
 /* ---------- Intro ---------- */
 .who { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
 .avatar {
@@ -97,13 +116,6 @@ footer { position: relative; }
 }
 .who p { line-height: 1.45; }
 .who .name { color: var(--text); }
-.top-nav { margin-left: auto; align-self: flex-start; display: flex; gap: 18px; font-size: 14px; line-height: 1.45; padding-top: 2px; }
-.top-nav a { color: var(--muted); text-decoration-color: transparent; }
-.top-nav a:hover, .top-nav a:focus-visible { color: var(--text); text-decoration-color: var(--faint); }
-@media (max-width: 480px) {
-  .who { flex-wrap: wrap; }
-  .top-nav { order: -1; width: 100%; justify-content: flex-end; margin-bottom: 4px; }
-}
 
 .bio { display: grid; gap: 18px; }
 

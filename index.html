@@ -22,6 +22,15 @@
       el.addEventListener("animationend", function (e) { if (e.animationName === "sweep-fill") el.remove(); });
     });
   </script>
+  <div class="site-header">
+    <a class="brand" href="./">Madhu</a>
+    <!-- TODO: point these at the About page and resume PDF once they exist -->
+    <nav aria-label="Site">
+      <a href="#">About</a>
+      <a href="#">Resume</a>
+    </nav>
+  </div>
+
   <header class="fade">
     <div class="who">
       <img class="avatar" src="assets/img/madhu.jpg" width="44" height="44" alt="Madhu">
@@ -29,11 +38,6 @@
         <p class="name">Madhumitha</p>
         <p>Product Designer · 4+ years</p>
       </div>
-      <!-- TODO: point these at the About page and resume PDF once they exist -->
-      <nav class="top-nav" aria-label="More about me">
-        <a href="#">About</a>
-        <a href="#">Resume</a>
-      </nav>
     </div>
 
     <div class="bio">
@@ -78,6 +82,14 @@
     <span>2026</span>
   </footer>
   <script>
+    (function () {
+      var h = document.querySelector(".site-header");
+      if (!h) return;
+      function onScroll() { h.classList.toggle("scrolled", window.scrollY > 8); }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+
     (function () {
       var p = document.querySelector(".peeker");
       if (!p || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
