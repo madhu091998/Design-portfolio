@@ -49,6 +49,17 @@
     </div>
   </header>
 
+  <!-- Visuals reel: add a slide by copying a line below. Images go in assets/reel/, around 440px tall. -->
+  <section class="reel fade" aria-label="Some visuals I've worked on">
+    <div class="reel-track">
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-video.webp" width="782" height="440" alt="The opening frame of the contracts walkthrough: Redesigning how admins send sales contracts" loading="eager" decoding="async"></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-describe.webp" width="704" height="440" alt="Describing what a contract placeholder should contain, using the / data picker" loading="eager" decoding="async"></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-preview.webp" width="1017" height="440" alt="Previewing AI-filled values for a few sample salespeople" loading="eager" decoding="async"></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-review.webp" width="988" height="440" alt="A review table of every recipient’s values before sending" loading="eager" decoding="async"></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-signing.webp" width="1020" height="440" alt="Tracking who has signed and who it is waiting on" loading="eager" decoding="async"></a>
+    </div>
+  </section>
+
   <section class="fade" aria-labelledby="work">
     <h2 id="work"><span class="num">1/</span> Selected work</h2>
     <ul class="items">
@@ -119,6 +130,19 @@
       var c = document.querySelector(".peeker-cat");
       var foot = document.querySelector("footer");
       if (c && foot) c.addEventListener("click", function () { say(c, foot, { right: "calc(6% + 80px)", bottom: "64px" }); });
+    })();
+
+    (function () {
+      var reel = document.querySelector(".reel");
+      if (!reel || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var track = reel.querySelector(".reel-track");
+      Array.prototype.slice.call(track.children).forEach(function (el) {
+        var c = el.cloneNode(true);
+        c.setAttribute("aria-hidden", "true");
+        c.setAttribute("tabindex", "-1");
+        track.appendChild(c);
+      });
+      reel.classList.add("moving");
     })();
   </script>
 </main>

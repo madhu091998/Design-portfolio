@@ -399,3 +399,23 @@ img.avatar { display: block; object-fit: cover; }
 @media (prefers-reduced-motion: reduce) {
   .sweep { display: none; }
 }
+
+/* ---------- Visuals reel (home, first fold) ---------- */
+html, body { overflow-x: clip; }
+.reel {
+  margin: 40px calc(50% - 50vw) 0;
+  overflow-x: auto; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.reel::-webkit-scrollbar { display: none; }
+.reel + section { margin-top: 56px; }
+.reel-track { display: flex; gap: 12px; width: max-content; padding: 4px 6vw; }
+.reel.moving { overflow: hidden; }
+.reel.moving .reel-track { padding-inline: 0; animation: reel 55s linear infinite; }
+.reel.moving:hover .reel-track, .reel.moving:focus-within .reel-track { animation-play-state: paused; }
+@keyframes reel { to { transform: translateX(calc(-50% - 6px)); } }
+.reel-item { display: block; flex: none; border-radius: 12px; transition: transform 0.25s ease; }
+.reel-item img { display: block; height: 220px; width: auto; border-radius: 12px; border: 1px solid var(--tile-border); }
+.reel-item:hover { transform: translateY(-3px); }
+@media (max-width: 520px) { .reel-item img { height: 160px; } }
