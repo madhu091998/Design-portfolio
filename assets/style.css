@@ -304,7 +304,18 @@ blockquote {
 .old-steps li.bad::before { color: #f07c61; border-color: rgba(240, 124, 97, 0.45); }
 
 /* Before / after chapter breaks in the case study */
-.prose .chapter { display: flex; align-items: center; gap: 12px; margin: 72px 0 0; }
+.prose .part { display: grid; gap: 18px; }
+.prose .chapter {
+  position: sticky; top: 48px; z-index: 4;
+  display: flex; align-items: center; gap: 12px;
+  margin: 72px -20px 0; padding: 10px 20px;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent; transition: border-color 0.2s ease;
+}
+.prose .chapter.stuck { border-bottom-color: var(--line); }
+.prose .chapter.stuck::after { border-top-color: transparent; }
+.site-header.has-sub { border-bottom-color: transparent; }
 .prose .chapter + .kicker { margin-top: 28px; }
 .chapter::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
 .chapter .chip { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid; }

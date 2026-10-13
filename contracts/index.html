@@ -59,6 +59,7 @@
     </div>
     <p class="caption">Same agreement, different numbers for every person. Names and figures are made up.</p>
 
+    <div class="part">
     <div class="chapter then"><span class="chip">Before</span><span class="chapter-title">How it used to work</span></div>
 
     <p class="kicker">The previous experience</p>
@@ -75,6 +76,9 @@
     </ol>
     <p>It also depended on DocuSign itself. Every admin had to connect their own account with the right permissions, field definitions lived only in DocuSign, and when something broke, support often couldn't see why.</p>
 
+    </div>
+
+    <div class="part">
     <div class="chapter now"><span class="chip">After</span><span class="chapter-title">The new experience</span></div>
 
     <p class="kicker">Reframing the problem</p>
@@ -179,12 +183,36 @@
     <p>One thing this project made me think about was that designing an AI experience isn't just about what AI can do.</p>
     <p>It's also about helping people understand what it's doing, knowing when to step in, and giving them control when something doesn't look right.</p>
     <p>Sometimes, the most important part of designing with AI is figuring out what should still be left to people.</p>
+    </div>
   </article>
 
   <footer>
     <a href="../">← Back</a>
     <span>Madhumitha · 2026</span>
   </footer>
+  <script>
+    (function () {
+      var chs = document.querySelectorAll(".chapter");
+      if (!chs.length) return;
+      var r = chs[0];
+      while (r && !r.querySelector(":scope > .site-header")) r = r.parentElement;
+      var h = r && r.querySelector(":scope > .site-header");
+      if (!h) return;
+      function onScroll() {
+        var top = h.getBoundingClientRect().bottom, any = false;
+        h.classList.toggle("scrolled", window.scrollY > 8);
+        chs.forEach(function (c) {
+          var r = c.getBoundingClientRect(), stuck = r.top <= top + 1 && c.parentElement.getBoundingClientRect().bottom > r.bottom + 1;
+          c.classList.toggle("stuck", stuck);
+          any = any || stuck;
+        });
+        h.classList.toggle("has-sub", any);
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    })();
+  </script>
 </main>
 </body>
 </html>
