@@ -49,14 +49,14 @@
     </div>
   </header>
 
-  <!-- Visuals reel: add a card by copying a line below (the figcaption is the handwritten note). Images go in assets/reel/, around 440px tall. -->
+  <!-- Visuals reel: add a card by copying a line below (the reel-note is the handwritten caption). Images go in assets/reel/, around 440px tall. -->
   <section class="reel fade" aria-label="Some visuals I've worked on">
     <div class="reel-track">
-      <figure class="reel-item"><img src="assets/reel/contracts-video.webp" width="782" height="440" alt="The opening frame of the contracts walkthrough: Redesigning how admins send sales contracts" decoding="async"><figcaption>the whole story, in motion</figcaption></figure>
-      <figure class="reel-item"><img src="assets/reel/contracts-describe.webp" width="704" height="440" alt="Describing what a contract placeholder should contain, using the / data picker" decoding="async"><figcaption>describing a field in plain words</figcaption></figure>
-      <figure class="reel-item"><img src="assets/reel/contracts-preview.webp" width="1017" height="440" alt="Previewing AI-filled values for a few sample salespeople, with the AI asking which quota to use" decoding="async"><figcaption>AI asks when it isn’t sure</figcaption></figure>
-      <figure class="reel-item"><img src="assets/reel/contracts-review.webp" width="988" height="440" alt="A review table of every recipient’s values before sending" decoding="async"><figcaption>checking everyone’s values at once</figcaption></figure>
-      <figure class="reel-item"><img src="assets/reel/contracts-signing.webp" width="1020" height="440" alt="Tracking who has signed and who it is waiting on" decoding="async"><figcaption>watching the signatures come in</figcaption></figure>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-video.webp" width="782" height="440" alt="The opening frame of the contracts walkthrough: Redesigning how admins send sales contracts" decoding="async"><span class="reel-note">the whole story, in motion</span></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-describe.webp" width="704" height="440" alt="Describing what a contract placeholder should contain, using the / data picker" decoding="async"><span class="reel-note">describing a field in plain words</span></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-preview.webp" width="1017" height="440" alt="Previewing AI-filled values for a few sample salespeople, with the AI asking which quota to use" decoding="async"><span class="reel-note">AI asks when it isn’t sure</span></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-review.webp" width="988" height="440" alt="A review table of every recipient’s values before sending" decoding="async"><span class="reel-note">checking everyone’s values at once</span></a>
+      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-signing.webp" width="1020" height="440" alt="Tracking who has signed and who it is waiting on" decoding="async"><span class="reel-note">watching the signatures come in</span></a>
     </div>
   </section>
 
@@ -139,6 +139,7 @@
       Array.prototype.slice.call(track.children).forEach(function (el) {
         var c = el.cloneNode(true);
         c.setAttribute("aria-hidden", "true");
+        c.setAttribute("tabindex", "-1");
         track.appendChild(c);
       });
       reel.classList.add("moving");
