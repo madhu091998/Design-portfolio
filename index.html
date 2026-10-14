@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500&display=swap">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -49,14 +49,20 @@
     </div>
   </header>
 
-  <!-- Visuals reel: add a slide by copying a line below. Images go in assets/reel/, around 440px tall. -->
-  <section class="reel fade" aria-label="Some visuals I've worked on">
-    <div class="reel-track">
-      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-video.webp" width="782" height="440" alt="The opening frame of the contracts walkthrough: Redesigning how admins send sales contracts" loading="eager" decoding="async"></a>
-      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-describe.webp" width="704" height="440" alt="Describing what a contract placeholder should contain, using the / data picker" loading="eager" decoding="async"></a>
-      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-preview.webp" width="1017" height="440" alt="Previewing AI-filled values for a few sample salespeople" loading="eager" decoding="async"></a>
-      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-review.webp" width="988" height="440" alt="A review table of every recipient’s values before sending" loading="eager" decoding="async"></a>
-      <a class="reel-item" href="contracts/"><img src="assets/reel/contracts-signing.webp" width="1020" height="440" alt="Tracking who has signed and who it is waiting on" loading="eager" decoding="async"></a>
+  <!-- Visuals deck: add a card by copying a line below (data-note is the handwritten caption). Images go in assets/reel/, around 440px tall. -->
+  <section class="deck-wrap fade" aria-label="Some visuals I've worked on">
+    <button class="deck" type="button" aria-label="Shuffle to the next visual">
+      <span class="card" data-note="the whole story, in motion"><img src="assets/reel/contracts-video.webp" width="782" height="440" alt="The opening frame of the contracts walkthrough: Redesigning how admins send sales contracts" decoding="async"></span>
+      <span class="card" data-note="describing a field in plain words"><img src="assets/reel/contracts-describe.webp" width="704" height="440" alt="Describing what a contract placeholder should contain, using the / data picker" decoding="async"></span>
+      <span class="card" data-note="AI asks when it isn’t sure"><img src="assets/reel/contracts-preview.webp" width="1017" height="440" alt="Previewing AI-filled values for a few sample salespeople, with the AI asking which quota to use" decoding="async"></span>
+      <span class="card" data-note="checking everyone’s values at once"><img src="assets/reel/contracts-review.webp" width="988" height="440" alt="A review table of every recipient’s values before sending" decoding="async"></span>
+      <span class="card" data-note="watching the signatures come in"><img src="assets/reel/contracts-signing.webp" width="1020" height="440" alt="Tracking who has signed and who it is waiting on" decoding="async"></span>
+    </button>
+    <div class="deck-note">
+      <span class="deck-count" aria-hidden="true">01 / 05</span>
+      <span class="deck-text" aria-live="polite">the whole story, in motion</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <a class="deck-link" href="contracts/">From Contracts&nbsp;&rarr;</a>
     </div>
   </section>
 
@@ -133,16 +139,51 @@
     })();
 
     (function () {
-      var reel = document.querySelector(".reel");
-      if (!reel || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var track = reel.querySelector(".reel-track");
-      Array.prototype.slice.call(track.children).forEach(function (el) {
-        var c = el.cloneNode(true);
-        c.setAttribute("aria-hidden", "true");
-        c.setAttribute("tabindex", "-1");
-        track.appendChild(c);
-      });
-      reel.classList.add("moving");
+      var deck = document.querySelector(".deck");
+      if (!deck) return;
+      var cards = Array.prototype.slice.call(deck.querySelectorAll(".card"));
+      var text = document.querySelector(".deck-text"), count = document.querySelector(".deck-count");
+      var tilt = [-3, 2.5, -1.5, 3.5, -2.5, 1.5];
+      var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var order = cards.slice(), n = cards.length, busy = false, timer = null;
+      cards.forEach(function (c, i) { c.dataset.i = i; });
+      function pad(x) { return (x < 10 ? "0" : "") + x; }
+      function place(c, k) {
+        var t = tilt[c.dataset.i % tilt.length];
+        c.style.zIndex = n - k;
+        c.style.opacity = k < 3 ? 1 : 0;
+        c.style.transform = "translate(" + k * 18 + "px," + -k * 10 + "px) rotate(" + (k ? t * 1.6 : t * 0.4) + "deg) scale(" + (1 - k * 0.05) + ")";
+        c.style.filter = k ? "brightness(" + (1 - k * 0.22) + ")" : "none";
+      }
+      function layout() {
+        order.forEach(place);
+        var top = order[0];
+        text.textContent = top.dataset.note;
+        count.textContent = pad(+top.dataset.i + 1) + " / " + pad(n);
+      }
+      function next() {
+        if (busy || n < 2) return;
+        busy = true;
+        var top = order.shift();
+        top.style.zIndex = n + 1;
+        top.style.transform = "translate(-38%, 26px) rotate(-16deg) scale(0.92)";
+        top.style.opacity = 0;
+        order.forEach(place);
+        text.textContent = order[0].dataset.note;
+        count.textContent = pad(+order[0].dataset.i + 1) + " / " + pad(n);
+        setTimeout(function () { order.push(top); layout(); busy = false; }, still ? 0 : 420);
+      }
+      function start() { if (!still && !timer) timer = setInterval(next, 3600); }
+      function stop() { clearInterval(timer); timer = null; }
+      deck.classList.add("live");
+      layout();
+      deck.addEventListener("click", function () { stop(); next(); start(); });
+      deck.addEventListener("mouseenter", stop);
+      deck.addEventListener("mouseleave", start);
+      deck.addEventListener("focus", stop);
+      deck.addEventListener("blur", start);
+      document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+      start();
     })();
   </script>
 </main>
