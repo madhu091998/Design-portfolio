@@ -96,11 +96,75 @@
   <section class="meadow-wrap" aria-label="A few cats and a pig to pet">
     <p class="meadow-note">You made it all the way down. Here, pet a cat.</p>
     <div class="meadow">
+      <svg class="ink-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+        <filter id="inkm" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
+        <filter id="wash" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="8"/><feDisplacementMap in="SourceGraphic" scale="3.6"/><feGaussianBlur stdDeviation="0.35"/></filter>
+      </defs></svg>
+      <svg class="ground" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 9 C120 7.6 220 10.4 340 8.6 S560 10.2 680 8.4 S880 9.8 1000 8.2"/><path d="M6 10.2 C150 9.4 260 11.2 400 9.6 S620 10.8 760 9.2 S920 10.4 994 9.6" class="sketch"/></svg>
       <div class="tufts" aria-hidden="true"></div>
-      <button class="critter cat" type="button" style="left:8%;--s:1.0" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body"><path class="tail" d="M33 35c5 .5 7.5-2.5 6-7.5"/><path d="M9 37c-1.5-8.5.5-14.5 5-17.5l-1.2-8.6 5.6 4.6c2.2-.6 4.6-.6 6.8 0l5.6-4.6-1.2 8.6c4.5 3 6.5 9 5 17.5z" class="fill"/><path d="M27.2 15.6l3.4-2.8-.6 4.6" class="patch"/><g class="eyes"><ellipse cx="18" cy="25" rx="1" ry="1.3"/><ellipse cx="26" cy="25" rx="1" ry="1.3"/></g><path d="M21 28.2c.5.5 1.1.5 1.6 0" class="thin"/><path d="M15 28l-3.6-.6M15 29.6l-3.4.6M29 28l3.6-.6M29 29.6l3.4.6" class="thin"/><path d="M15 37v-2.4M19 37v-2.4M25 37v-2.4M29 37v-2.4" class="thin"/></g></svg></span></span></button>
-      <button class="critter pig" type="button" style="left:31%;--s:1.05" aria-label="Pet the pig"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body"><path class="tail" d="M35 31c3 0 3.5-2.6 1.6-3.2-1.6-.5-1.8 1.8.2 2"/><path d="M12.5 17l-2-6.5 6 3.4M31.5 17l2-6.5-6 3.4" class="fill pink"/><path d="M22 13.5c8 0 13.5 5.5 13.5 12S30 37 22 37 8.5 32 8.5 25.5 14 13.5 22 13.5z" class="fill pink"/><g class="eyes"><ellipse cx="17" cy="23" rx="1" ry="1.3"/><ellipse cx="27" cy="23" rx="1" ry="1.3"/></g><ellipse cx="22" cy="29" rx="4.6" ry="3.2" class="fill snout"/><g class="eyes nostrils"><ellipse cx="20.4" cy="29" rx=".6" ry=".9"/><ellipse cx="23.6" cy="29" rx=".6" ry=".9"/></g><path d="M12.5 27.5l1.6-1M31.5 27.5l-1.6-1" class="thin blush"/></g></svg></span></span></button>
-      <button class="critter cat" type="button" style="left:55%;--s:0.9" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body"><path class="tail" d="M33 35c5 .5 7.5-2.5 6-7.5"/><path d="M9 37c-1.5-8.5.5-14.5 5-17.5l-1.2-8.6 5.6 4.6c2.2-.6 4.6-.6 6.8 0l5.6-4.6-1.2 8.6c4.5 3 6.5 9 5 17.5z" class="fill"/><path d="M27.2 15.6l3.4-2.8-.6 4.6" class="patch"/><g class="eyes"><ellipse cx="18" cy="25" rx="1" ry="1.3"/><ellipse cx="26" cy="25" rx="1" ry="1.3"/></g><path d="M21 28.2c.5.5 1.1.5 1.6 0" class="thin"/><path d="M15 28l-3.6-.6M15 29.6l-3.4.6M29 28l3.6-.6M29 29.6l3.4.6" class="thin"/><path d="M15 37v-2.4M19 37v-2.4M25 37v-2.4M29 37v-2.4" class="thin"/></g></svg></span></span></button>
-      <button class="critter cat" type="button" style="left:78%;--s:1.1" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body"><path class="tail" d="M33 35c5 .5 7.5-2.5 6-7.5"/><path d="M9 37c-1.5-8.5.5-14.5 5-17.5l-1.2-8.6 5.6 4.6c2.2-.6 4.6-.6 6.8 0l5.6-4.6-1.2 8.6c4.5 3 6.5 9 5 17.5z" class="fill"/><path d="M27.2 15.6l3.4-2.8-.6 4.6" class="patch"/><g class="eyes"><ellipse cx="18" cy="25" rx="1" ry="1.3"/><ellipse cx="26" cy="25" rx="1" ry="1.3"/></g><path d="M21 28.2c.5.5 1.1.5 1.6 0" class="thin"/><path d="M15 28l-3.6-.6M15 29.6l-3.4.6M29 28l3.6-.6M29 29.6l3.4.6" class="thin"/><path d="M15 37v-2.4M19 37v-2.4M25 37v-2.4M29 37v-2.4" class="thin"/></g></svg></span></span></button>
+      <button class="critter cat" type="button" style="left:8%;--s:1.0" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body">
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="base"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="wash" style="--w:#dfe4f2" transform="translate(1.6 1.3)"/>
+<g class="ink">
+<path class="tail" d="M33 35.5c4.6.8 7.4-1.6 6.4-6.4-.3-1.4-1.3-2.2-2.4-2"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6" class="sketch" transform="translate(.8 -.5) rotate(1 22 30)"/>
+<path d="M14.6 13.6l2.4 2.6M29.4 13.6l-2.4 2.6" class="fine"/>
+<path d="M27.8 14.9l2.2-1.6M28 16.6l1.8-1.4M28.5 18.2l1.1-.9" class="fine"/>
+<g class="eyes"><ellipse cx="18" cy="25" rx="1.05" ry="1.35"/><ellipse cx="26.2" cy="24.8" rx="1" ry="1.3"/></g>
+<path d="M21 28.1c.4.6 1.1.7 1.5.1.4.6 1.1.5 1.5-.1" class="fine"/>
+<path d="M15.2 27.6l-4.4-.9M15 29.4l-3.9.7M29 27.4l4.6-1M29.2 29.3l4 .8" class="fine"/>
+<path d="M13.4 30.2l1.2.9M30.6 30.1l-1.2.9" class="blush"/>
+<path d="M15.4 37l-.2-2.6M19 37.1v-2.2M25.2 37.1l.1-2.3M28.8 37l.3-2.5" class="fine"/>
+</g></g></svg></span></span></button>
+      <button class="critter pig" type="button" style="left:31%;--s:1.05" aria-label="Pet the pig"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body">
+<path d="M22 13.4c8.2-.2 13.8 5.6 13.6 12.2-.2 6.8-6 11.4-13.6 11.4S8.6 32.5 8.4 25.6C8.2 19 13.8 13.6 22 13.4z" class="base"/>
+<path d="M12.4 17.4l-2.2-6.8 6.4 3.6M31.6 17.4l2.2-6.8-6.4 3.6" class="base"/>
+<path d="M22 13.4c8.2-.2 13.8 5.6 13.6 12.2-.2 6.8-6 11.4-13.6 11.4S8.6 32.5 8.4 25.6C8.2 19 13.8 13.6 22 13.4z" class="wash" style="--w:#f4b9c3" transform="translate(1.7 1.4)"/>
+<path d="M12.4 17.4l-2.2-6.8 6.4 3.6zM31.6 17.4l2.2-6.8-6.4 3.6z" class="wash" style="--w:#f4b9c3" transform="translate(1.2 1)"/>
+<g class="ink">
+<path class="tail" d="M35.2 31.2c2.8.4 3.8-2 2.2-3-1.6-.9-2.4 1.6-.4 2.2 1.4.4 2.6-.6 2.8-1.8"/>
+<path d="M12.4 17.4l-2.2-6.8 6.4 3.6M31.6 17.4l2.2-6.8-6.4 3.6"/>
+<path d="M12 13.4l1.4 2.4M32 13.4l-1.4 2.4" class="fine"/>
+<path d="M22 13.4c8.2-.2 13.8 5.6 13.6 12.2-.2 6.8-6 11.4-13.6 11.4S8.6 32.5 8.4 25.6C8.2 19 13.8 13.6 22 13.4z"/>
+<path d="M22 13.4c8.2-.2 13.8 5.6 13.6 12.2-.2 6.8-6 11.4-13.6 11.4S8.6 32.5 8.4 25.6C8.2 19 13.8 13.6 22 13.4z" class="sketch" transform="translate(-.7 .6) rotate(-1 22 26)"/>
+<g class="eyes"><ellipse cx="17" cy="23" rx="1.05" ry="1.35"/><ellipse cx="27.1" cy="22.8" rx="1" ry="1.3"/></g>
+<ellipse cx="22" cy="29" rx="4.8" ry="3.3" class="snout"/>
+<path d="M18.6 30.6l1.4-1.6M19.8 31.6l2-2.2M21.6 32.1l2-2.2M23.6 31.8l1.6-1.8" class="fine hatch"/>
+<g class="eyes nostrils"><ellipse cx="20.5" cy="28.6" rx=".65" ry=".95"/><ellipse cx="23.6" cy="28.6" rx=".65" ry=".95"/></g>
+<path d="M11.8 27.4l1.4-1.1M12.6 28.8l1.4-1.1M32.2 27.4l-1.4-1.1M31.4 28.8l-1.4-1.1" class="blush"/>
+<path d="M16.4 36.6l-.2-2M27.6 36.6l.2-2" class="fine"/>
+</g></g></svg></span></span></button>
+      <button class="critter cat" type="button" style="left:55%;--s:0.9" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body">
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="base"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="wash" style="--w:#f1e2c8" transform="translate(1.6 1.3)"/>
+<g class="ink">
+<path class="tail" d="M33 35.5c4.6.8 7.4-1.6 6.4-6.4-.3-1.4-1.3-2.2-2.4-2"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6" class="sketch" transform="translate(.8 -.5) rotate(1 22 30)"/>
+<path d="M14.6 13.6l2.4 2.6M29.4 13.6l-2.4 2.6" class="fine"/>
+<path d="M27.8 14.9l2.2-1.6M28 16.6l1.8-1.4M28.5 18.2l1.1-.9" class="fine"/>
+<g class="eyes"><path d="M16.8 25.4c.7-.9 1.8-.9 2.4 0M25 25.2c.7-.9 1.8-.9 2.4 0" class="lid"/></g>
+<path d="M21 28.1c.4.6 1.1.7 1.5.1.4.6 1.1.5 1.5-.1" class="fine"/>
+<path d="M15.2 27.6l-4.4-.9M15 29.4l-3.9.7M29 27.4l4.6-1M29.2 29.3l4 .8" class="fine"/>
+<path d="M13.4 30.2l1.2.9M30.6 30.1l-1.2.9" class="blush"/>
+<path d="M15.4 37l-.2-2.6M19 37.1v-2.2M25.2 37.1l.1-2.3M28.8 37l.3-2.5" class="fine"/>
+</g></g></svg></span></span></button>
+      <button class="critter cat" type="button" style="left:78%;--s:1.1" aria-label="Pet the cat"><span class="flip"><span class="bob"><svg viewBox="0 0 44 40" aria-hidden="true"><g class="body">
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="base"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6z" class="wash" style="--w:#e9e3df" transform="translate(1.6 1.3)"/>
+<g class="ink">
+<path class="tail" d="M33 35.5c4.6.8 7.4-1.6 6.4-6.4-.3-1.4-1.3-2.2-2.4-2"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6"/>
+<path d="M9 37c-1.6-8.6.4-14.6 5-17.6l-1.4-8.8 5.8 4.8c2.2-.7 4.6-.7 6.8 0l5.8-4.8-1.4 8.8c4.6 3 6.6 9 5 17.6" class="sketch" transform="translate(.8 -.5) rotate(1 22 30)"/>
+<path d="M14.6 13.6l2.4 2.6M29.4 13.6l-2.4 2.6" class="fine"/>
+<path d="M27.8 14.9l2.2-1.6M28 16.6l1.8-1.4M28.5 18.2l1.1-.9" class="fine"/>
+<g class="eyes"><ellipse cx="18" cy="25" rx="1.05" ry="1.35"/><ellipse cx="26.2" cy="24.8" rx="1" ry="1.3"/></g>
+<path d="M21 28.1c.4.6 1.1.7 1.5.1.4.6 1.1.5 1.5-.1" class="fine"/>
+<path d="M15.2 27.6l-4.4-.9M15 29.4l-3.9.7M29 27.4l4.6-1M29.2 29.3l4 .8" class="fine"/>
+<path d="M13.4 30.2l1.2.9M30.6 30.1l-1.2.9" class="blush"/>
+<path d="M15.4 37l-.2-2.6M19 37.1v-2.2M25.2 37.1l.1-2.3M28.8 37l.3-2.5" class="fine"/>
+</g></g></svg></span></span></button>
     </div>
   </section>
 
@@ -166,7 +230,7 @@
     // Scatter tiny grass tufts and flowers along the ground (same layout every visit)
     var tufts = meadow.querySelector(".tufts"), seed = 7;
     function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-    var cols = ["#cc313d", "#7b9acc", "#b9cc12", "#e58aa0"];
+    var cols = ["#e58aa0", "#9fb4dc", "#d6e36a", "#f2b48a"];
     for (var i = 0; i < 26; i++) {
       var t = document.createElement("span"), flower = rnd() < 0.32;
       t.className = flower ? "tuft flower" : "tuft";
@@ -174,8 +238,8 @@
       t.style.bottom = (rnd() * 3).toFixed(0) + "px";
       if (flower) t.style.setProperty("--c", cols[(rnd() * cols.length) | 0]);
       t.innerHTML = flower
-        ? '<svg viewBox="0 0 12 16"><path d="M6 16V8" /><circle cx="6" cy="5.5" r="2.6" /></svg>'
-        : '<svg viewBox="0 0 14 10"><path d="M2 10c0-3 .6-5 1.6-7M7 10V1.5M12 10c0-3-.6-5-1.6-7" /></svg>';
+        ? '<svg viewBox="0 0 14 18"><circle cx="7.8" cy="6.2" r="2.8" class="dab"/><g filter="url(#inkm)"><path d="M7 18c-.4-3.4.2-6.6.4-9.4M7.2 12.4c1.6-.8 2.8-.6 3.6.2"/><path d="M7 3.4c1.6-.4 2.8.8 2.6 2.4 1.4.6 1.4 2.6-.2 3-.4 1.4-2.4 1.6-3 .2-1.6.2-2.4-1.6-1.2-2.6-.6-1.4.6-2.8 1.8-3z" class="petal"/></g></svg>'
+        : '<svg viewBox="0 0 18 12"><g filter="url(#inkm)"><path d="M3 12c-.2-3 .6-6 2.2-8.6M8.6 12c.2-3.6-.2-7 .4-10.4M14 12c.2-2.6-.6-5.2-2.2-7.4M11.4 12c.4-1.8 1.2-3 2.4-3.8"/></g></svg>';
       tufts.appendChild(t);
     }
     var crits = Array.prototype.slice.call(meadow.querySelectorAll(".critter"));
