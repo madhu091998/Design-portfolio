@@ -334,8 +334,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 /* ---------- Footer ---------- */
 .site-foot { margin-top: 160px; padding-top: 72px; border-top: 1px solid var(--line); }
-.foot-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .7fr) minmax(0, .7fr); gap: 32px; }
-.foot-quote { margin: 0; max-width: 380px; font: italic 400 clamp(26px, 2.4vw, 34px)/1.15 "Instrument Serif", Georgia, serif; color: var(--ink); text-wrap: balance; }
+.foot-top { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, .7fr); gap: 32px; }
+.foot-quote { margin: 0; max-width: 380px; font: 400 clamp(26px, 2.4vw, 34px)/1.15 "Instrument Serif", Georgia, serif; color: var(--ink); text-wrap: balance; }
+.foot-quote em { font-style: italic; color: var(--accent); }
 .foot-made { margin: 16px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
 .foot-col { display: grid; align-content: start; gap: 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
 .foot-h { margin: 0 0 6px; color: var(--ink); font-weight: 500; }
