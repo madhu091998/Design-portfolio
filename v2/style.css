@@ -341,7 +341,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .foot-h { margin: 0 0 6px; color: var(--ink); font-weight: 500; }
 .foot-col a { color: var(--muted); text-decoration: none; justify-self: start; transition: color 0.2s ease; }
 .foot-col a:hover, .foot-col a:focus-visible { color: var(--ink); }
-.site-foot .meadow-wrap { margin-top: 88px; }
+.site-foot .meadow-wrap { margin-top: 40px; }
 .foot-base { margin-top: 20px; padding-bottom: 8px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
 @media (max-width: 760px) {
   .site-foot { margin-top: 100px; padding-top: 48px; }
