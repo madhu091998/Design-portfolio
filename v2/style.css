@@ -165,8 +165,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
      The page starts washed out, the colours pass through the content, and black (no change) follows. */
   mix-blend-mode: screen; background: #fff;
   --ring: radial-gradient(closest-side,
-      #000 0%, #1d4a48 38%, #2b9a93 52%, #95d5d1 61%, #c74f86 70%,
-      #a52a62 78%, #e58cb4 86%, #c8ece9 93%, rgba(255, 255, 255, 0) 100%);
+      #000 0%, #2a1fa8 36%, #3a5cff 48%, #1fb6ff 56%, #2fd4c8 63%, #a45cff 70%,
+      #ff3fa4 78%, #ff7a2e 86%, #ffc93c 93%, rgba(255, 255, 255, 0) 100%);
   --disc: radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%);
   --sw-dur: 1.9s; --sw-lag: 0.32s;
 }
