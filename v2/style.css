@@ -54,7 +54,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   padding: 26px 28px; font-size: 15px; pointer-events: none;
 }
 .topbar > * { pointer-events: auto; }
-.wordmark { color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+.wordmark .avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 1px var(--line); transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.wordmark:hover .avatar { transform: rotate(-6deg) scale(1.06); }
 .wordmark:hover { color: var(--ink); }
 .theme {
   width: 32px; height: 32px; display: grid; place-items: center;
