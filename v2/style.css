@@ -44,7 +44,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .wordmark .avatar { position: relative; width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex: none; display: block; box-shadow: 0 0 0 1px var(--line); transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
 /* The photo is a touch larger than the circle, so it can sit 1px right of centre and still fill it */
 .wordmark .avatar img { position: absolute; left: -1px; top: -1.25px; width: 32px; height: 32px; max-width: none; object-fit: cover; display: block; }
-.wordmark:hover .avatar { transform: rotate(-6deg) scale(1.06); }
+.wordmark:hover .avatar { transform: scale(1.06); }
 .wordmark:hover { color: var(--ink); }
 
 /* ---------- Side nav ---------- */
