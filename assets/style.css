@@ -148,6 +148,10 @@ h2 .num { color: var(--faint); font-variant-numeric: tabular-nums; margin-right:
   transition: border-color 0.2s ease;
 }
 .item .tile svg { width: 38px; height: 38px; }
+/* A tile that shows a screenshot instead of an icon (same height, game-screen shape) */
+.item .tile.shot { width: 103px; overflow: hidden; background: #000; }
+.item .tile.shot img { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; transition: transform 0.35s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.item:hover .tile.shot img, .item:focus-visible .tile.shot img { transform: scale(1.08); }
 .item .text { display: grid; line-height: 1.5; }
 .item .title { color: var(--text); }
 .item:hover .tile { border-color: #444; }
