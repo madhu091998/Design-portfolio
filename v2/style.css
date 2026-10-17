@@ -53,8 +53,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 .hero h1 {
   position: relative; margin: 0; max-width: 900px;
-  font: 500 clamp(46px, 5.2vw, 82px)/1.04 "Geist", system-ui, sans-serif;
-  letter-spacing: -0.045em; color: var(--ink);
+  font: 400 clamp(56px, 6.6vw, 104px)/1 "Instrument Serif", Georgia, serif;
+  letter-spacing: -0.015em; color: var(--ink);
 }
 .hero h1 em { font-style: italic; }
 .hero h1 .w { display: inline-block; opacity: 0; transform: translateY(12px); animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
@@ -199,7 +199,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
   .corner { right: 16px; }
   .perch { width: 72px; height: 52px; }
   .perch-cat svg { width: 72px; }
-  .hero h1 { font-size: min(44px, 11.6vw); }
+  .hero h1 { font-size: min(60px, 15vw); }
   .hero .sub { font-size: 18px; margin-top: 16px; }
   .hero h1 .sq { position: relative; display: inline-block; left: 0; bottom: 0; width: 8px; height: 8px; margin-left: 8px; vertical-align: 0.1em; }
   .now br { display: none; }
