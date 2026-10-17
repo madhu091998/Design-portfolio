@@ -76,7 +76,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .sidenav a.on::before { transform: scale(1); }
 
 /* ---------- Page ---------- */
-.page { max-width: 1240px; margin: 0 auto; padding: 270px 64px 120px 355px; }
+.page { max-width: 1240px; margin: 0 auto; padding: 270px 64px 120px 260px; }
 
 .hero h1 {
   position: relative; margin: 0; max-width: 900px;
@@ -147,7 +147,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
 
 /* ---------- Smaller screens ---------- */
 @media (max-width: 1100px) {
-  .page { padding: 200px 40px 100px 200px; }
+  .page { padding: 200px 40px 100px 170px; }
   .sidenav { top: 200px; }
   .now, .about { grid-template-columns: 1fr 1fr; }
 }
