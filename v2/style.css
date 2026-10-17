@@ -19,11 +19,17 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* A very subtle grey paper-grain overlay across the whole page */
-body::after {
-  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: 0.52;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+/* Subtle grey paper grain: on the page background and over pictures, but never over text */
+:root { --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); --grain-o: 0.52; }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  opacity: var(--grain-o); background-image: var(--grain);
 }
+.tile .art::after, .wordmark .avatar::after, .photo-wrap::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: var(--grain-o); background-image: var(--grain); border-radius: inherit;
+}
+.tile .art .label { position: relative; z-index: 2; }
 a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
@@ -176,7 +182,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 /* ---------- About ---------- */
 .about { margin-top: 180px; display: grid; grid-template-columns: 280px 1fr; gap: 24px; scroll-margin-top: 120px; }
 .about h2 { margin: 0; font: 500 30px/1.15 "Geist", system-ui, sans-serif; letter-spacing: -0.03em; color: var(--ink); }
-.about .photo { margin: 24px 0 0; width: 220px; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 4px; }
+.photo-wrap { position: relative; display: block; margin: 24px 0 0; width: 220px; border-radius: 4px; overflow: hidden; }
+.about .photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
 .about .body { max-width: 540px; font-size: 16px; }
 .about .body p { margin: 0 0 16px; }
 .jobs { list-style: none; margin: 36px 0 0; padding: 0; border-top: 1px solid var(--line); }
@@ -216,7 +223,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
   .work { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; }
   .tile.tall .art { aspect-ratio: 4 / 4.4; }
   .about { grid-template-columns: 1fr; margin-top: 110px; }
-  .about .photo { width: 100%; }
+  .photo-wrap { width: 100%; }
   .jobs li { grid-template-columns: 1fr auto; }
   .jobs .when { grid-column: 1 / -1; margin-top: -8px; text-align: left; }
   .jobs .when:empty { display: none; }
