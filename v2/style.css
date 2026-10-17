@@ -11,31 +11,6 @@
   --card: #ffffff;
   color-scheme: light;
 }
-:root[data-theme="dark"] {
-  --bg: #14161b;
-  --ink: #eef0f5;
-  --text: #a9afbd;
-  --muted: #6e7483;
-  --line: #262a33;
-  --accent: #e5504e;
-  --link: #8fabd8;
-  --card: #20232b;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14161b;
-    --ink: #eef0f5;
-    --text: #a9afbd;
-    --muted: #6e7483;
-    --line: #262a33;
-    --accent: #e5504e;
-    --link: #8fabd8;
-    --card: #20232b;
-    color-scheme: dark;
-  }
-}
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -60,13 +35,6 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .wordmark .avatar img { position: absolute; left: -1px; top: -1.25px; width: 32px; height: 32px; max-width: none; object-fit: cover; display: block; }
 .wordmark:hover .avatar { transform: rotate(-6deg) scale(1.06); }
 .wordmark:hover { color: var(--ink); }
-.theme {
-  width: 32px; height: 32px; display: grid; place-items: center;
-  border: 0; border-radius: 50%; background: none; color: var(--muted); cursor: pointer;
-  transition: color 0.2s ease, transform 0.4s ease;
-}
-.theme:hover { color: var(--ink); transform: rotate(45deg); }
-.theme svg { width: 17px; height: 17px; }
 
 /* ---------- Side nav ---------- */
 /* Nudged right so the red marker, not the words, lines up with the photo above */
@@ -185,19 +153,6 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 }
 .sweep::before { background: var(--ring); }
 .sweep::after { background: var(--disc); }
-/* Dark: the version 1 colours */
-:root[data-theme="dark"] .sweep {
-  mix-blend-mode: multiply; background: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
-  --ring: radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, rgba(0, 0, 0, 0) 100%);
-  --disc: radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .sweep {
-    mix-blend-mode: multiply; background: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
-    --ring: radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, rgba(0, 0, 0, 0) 100%);
-    --disc: radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
-  }
-}
 @media (prefers-reduced-motion: no-preference) {
   .sweep::before { animation: sweep-ring var(--sw-dur) cubic-bezier(0.32, 0, 0.18, 1) 0.1s both; }
   .sweep::after { animation: sweep-fill var(--sw-dur) cubic-bezier(0.32, 0, 0.18, 1) calc(0.1s + var(--sw-lag)) both; }
