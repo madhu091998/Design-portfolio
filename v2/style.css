@@ -1,13 +1,14 @@
 /* Version 2: light, minimal, serif-led. */
 :root {
-  /* Palette: Zambezi & Pear, Brick red & Pink, Polo blue & Snow, East Bay & Hawkes blue */
-  --bg: #fcfbf8;
-  --ink: #2f3442;
-  --text: #50586c;
-  --muted: #9198a8;
-  --line: #e7eaf1;
-  --accent: #cc313d;
-  --link: #7b9acc;
+  /* Palette: seafoam #95D5D1 with raspberry #A52A62, on a cool paper white */
+  --bg: #f8faf9;
+  --ink: #1f2b2d;
+  --text: #4a585c;
+  --muted: #869699;
+  --line: #dde8e7;
+  --accent: #a52a62;
+  --seafoam: #95d5d1;
+  --link: #5fb8b2;
   --card: #ffffff;
   color-scheme: light;
 }
@@ -110,9 +111,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile:hover .art > * { transform: scale(1.025); }
 /* Each tile is one of the palette's pairs */
 .pear { background: #d6ed17; --t: #606060; }
-.pink { background: #f7c5cc; --t: #cc313d; }
-.snow { background: #fcf6f5; --t: #5d7cb0; box-shadow: inset 0 0 0 1px #f2e8e6; }
-.hawkes { background: #dce2f0; --t: #50586c; }
+.pink { background: var(--seafoam); --t: var(--accent); }
+.snow { background: #f6dde8; --t: var(--accent); }
+.hawkes { background: #d4eeec; --t: #2d5e5b; }
 .tile .label {
   color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px; text-wrap: balance;
   font: 500 clamp(19px, 1.7vw, 25px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.02em;
@@ -164,8 +165,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
      The page starts washed out, the colours pass through the content, and black (no change) follows. */
   mix-blend-mode: screen; background: #fff;
   --ring: radial-gradient(closest-side,
-      #000 0%, #2a1fa8 38%, #3a5cff 52%, #1fb6ff 61%, #a45cff 70%,
-      #ff3fa4 78%, #ff7a2e 86%, #ffc93c 93%, rgba(255, 255, 255, 0) 100%);
+      #000 0%, #1d4a48 38%, #2b9a93 52%, #95d5d1 61%, #c74f86 70%,
+      #a52a62 78%, #e58cb4 86%, #c8ece9 93%, rgba(255, 255, 255, 0) 100%);
   --disc: radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%);
   --sw-dur: 1.9s; --sw-lag: 0.32s;
 }
@@ -211,7 +212,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 /* Monoline marker doodles: one ink colour, broken lines, solid calico spots */
 .meadow-wrap { margin-top: 0; }
 .meadow-note { margin: 0; font-size: 15px; color: var(--muted); }
-.meadow { position: relative; height: 130px; margin-top: 8px; --ink-line: #50586c; }
+.meadow { position: relative; height: 130px; margin-top: 8px; --ink-line: #4a585c; }
 .ground { position: absolute; left: 0; right: 0; bottom: -4px; width: 100%; height: 10px; overflow: visible; }
 .ground { filter: url(#marker-still); }
 .ground path { fill: none; stroke: var(--ink-line); stroke-width: 1.2; stroke-linecap: round; vector-effect: non-scaling-stroke; }
@@ -224,7 +225,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tuft.yarn path { stroke-width: 1.1; }
 .tuft.yarn circle + path, .tuft.yarn circle + path + path, .tuft.yarn circle + path + path + path { stroke: var(--bg); }
 .critter {
-  position: absolute; bottom: -1px; width: calc(100px * var(--s, 1)); padding: 0; border: 0; background: none; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg fill='%2324272c' stroke='%23fcfbf8' stroke-width='1.4'%3E%3Cellipse cx='14' cy='18.5' rx='6' ry='5'/%3E%3Ccircle cx='6.6' cy='11.4' r='2.5'/%3E%3Ccircle cx='11.4' cy='7' r='2.5'/%3E%3Ccircle cx='16.8' cy='7' r='2.5'/%3E%3Ccircle cx='21.4' cy='11.4' r='2.5'/%3E%3C/g%3E%3C/svg%3E") 14 14, grab;
+  position: absolute; bottom: -1px; width: calc(100px * var(--s, 1)); padding: 0; border: 0; background: none; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cg fill='%2324272c' stroke='%23f8faf9' stroke-width='1.4'%3E%3Cellipse cx='14' cy='18.5' rx='6' ry='5'/%3E%3Ccircle cx='6.6' cy='11.4' r='2.5'/%3E%3Ccircle cx='11.4' cy='7' r='2.5'/%3E%3Ccircle cx='16.8' cy='7' r='2.5'/%3E%3Ccircle cx='21.4' cy='11.4' r='2.5'/%3E%3C/g%3E%3C/svg%3E") 14 14, grab;
   color: var(--ink-line); -webkit-tap-highlight-color: transparent; transform: translateX(-50%);
   transition-property: left; transition-timing-function: linear;
 }
@@ -238,8 +239,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .critter .spot { fill: url(#hatch); stroke: currentColor; stroke-width: .75; }
 .critter .shades .spot, .critter .fr .spot[d^="M74 27.6"], .critter .fr .spot[d^="M86.4"] { fill: currentColor; }
 .critter .fine { stroke-width: .85; }
-.critter .blush { stroke: #e58aa0; }
-.critter .tongue { fill: #f2a0ae; stroke-width: 1.1; opacity: 0; transform: translateY(-1.6px); transition: opacity 0.15s ease, transform 0.2s ease; }
+.critter .blush { stroke: #d77aa2; }
+.critter .tongue { fill: #e898ba; stroke-width: 1.1; opacity: 0; transform: translateY(-1.6px); transition: opacity 0.15s ease, transform 0.2s ease; }
 .critter .body, .critter .tail, .critter .eyes, .critter .shades, .critter .zz { transform-box: fill-box; }
 .critter .body { transform-origin: 50% 100%; }
 .critter .tail { transform-origin: 0% 100%; animation: swish 3.8s ease-in-out infinite; }
