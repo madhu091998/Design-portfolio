@@ -19,7 +19,15 @@
     }
     .back { position: fixed; top: 12px; left: 16px; color: var(--muted); text-decoration: none; font-size: 13px; }
     .back:hover { color: var(--text); }
-    #wrap { width: min(100%, 960px, calc((100dvh - var(--reserve, 90px)) * 320 / 224)); }
+    #wrap { width: min(100%, 960px, calc((100dvh - var(--reserve, 90px)) * 320 / 224)); position: relative; }
+    /* CRT look: one dark scanline per game pixel row, plus a soft vignette. T toggles it. */
+    #wrap.crt::after {
+      content: ""; position: absolute; inset: 0; border-radius: 6px; pointer-events: none;
+      background:
+        radial-gradient(ellipse at center, transparent 62%, rgba(0, 0, 0, .45) 100%),
+        linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, .3) 55%) 0 0 / 100% calc(100% / 224);
+    }
+    #wrap.crt canvas { filter: saturate(1.15) contrast(1.06); }
     canvas {
       display: block; width: 100%; aspect-ratio: 320 / 224; background: #000; border-radius: 6px;
       image-rendering: pixelated; image-rendering: crisp-edges; touch-action: none;
@@ -44,8 +52,8 @@
 </head>
 <body>
   <a class="back" href="../../">← Back</a>
-  <div id="wrap"><canvas id="game" width="320" height="224" aria-label="Dash Deluxe game"></canvas></div>
-  <p class="help keys"><kbd>←</kbd> <kbd>→</kbd> move · <kbd>↑</kbd> jump · hold <kbd>Shift</kbd> run · <kbd>X</kbd> fire · <kbd>Z</kbd> jetpack (<kbd>↑</kbd> <kbd>↓</kbd> to fly) · <kbd>P</kbd> pause · <kbd>M</kbd> mute</p>
+  <div id="wrap" class="crt"><canvas id="game" width="320" height="224" aria-label="Dash Deluxe game"></canvas></div>
+  <p class="help keys"><kbd>←</kbd> <kbd>→</kbd> move · <kbd>↑</kbd> jump · hold <kbd>Shift</kbd> run · <kbd>X</kbd> fire · <kbd>Z</kbd> jetpack (<kbd>↑</kbd> <kbd>↓</kbd> to fly) · <kbd>P</kbd> pause · <kbd>M</kbd> music/sound · <kbd>T</kbd> scanlines</p>
   <div class="pad" aria-hidden="true">
     <div>
       <button class="big" data-act="left">◀</button>
@@ -216,6 +224,41 @@
     const s = ac.createBufferSource(), g = ac.createGain();
     s.buffer = buf; g.gain.value = vol; s.connect(g).connect(ac.destination); s.start();
   }
+  /* ---------- Chiptune soundtrack (original tunes) ----------
+     One step = an eighth note. Notes like "E5", "-" is a rest. */
+  const SONGS = {
+    day: { bpm: 150,
+      lead: "E5 G5 C6 G5 A5 G5 E5 - F5 A5 D6 A5 G5 - - - E5 G5 C6 E6 D6 C6 A5 G5 F5 E5 D5 G5 C5 - - -",
+      bass: "C3 - G3 - C3 - G3 - D3 - A3 - G2 - D3 - C3 - G3 - F3 - C3 - G2 - B2 - C3 - G2 -" },
+    cave: { bpm: 120,
+      lead: "A4 - C5 E5 D5 - C5 B4 A4 - E4 - G4 A4 B4 - C5 - E5 A5 G5 - E5 D5 E5 - B4 - A4 - - -",
+      bass: "A2 - A2 - F2 - F2 - A2 - E2 - G2 - G2 - A2 - A2 - C3 - C3 - E2 - E2 - A2 - E2 -" },
+  };
+  const NOTE = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+  const hz = n => n === "-" ? 0 : 440 * Math.pow(2, (NOTE[n[0]] + (+n[n.length - 1] + 1) * 12 - 69) / 12);
+  for (const k in SONGS) { SONGS[k].lead = SONGS[k].lead.split(" ").map(hz); SONGS[k].bass = SONGS[k].bass.split(" ").map(hz); }
+  let soundMode = 0; // 0 music + sound, 1 sound only, 2 silent
+  let song = null, songStep = 0, nextNoteAt = 0;
+  function blip(type, f, at, dur, vol) {
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(vol, at); g.gain.setValueAtTime(vol, at + dur * 0.7); g.gain.linearRampToValueAtTime(0, at + dur);
+    o.connect(g).connect(ac.destination); o.start(at); o.stop(at + dur + 0.01);
+  }
+  function tickMusic(want) {
+    if (!ac || soundMode !== 0 || !want) { song = null; return; }
+    if (song !== SONGS[want]) { song = SONGS[want]; songStep = 0; nextNoteAt = ac.currentTime + 0.05; }
+    const step = 60 / song.bpm / 2;
+    if (nextNoteAt < ac.currentTime - 0.2) nextNoteAt = ac.currentTime + 0.02;
+    while (nextNoteAt < ac.currentTime + 0.12) {
+      const i = songStep % song.lead.length, l = song.lead[i], b = song.bass[i];
+      let len = 1; while (song.lead[(i + len) % song.lead.length] === 0 && len < 4 && i + len < song.lead.length) len++;
+      if (l) blip("square", l, nextNoteAt, step * len * 0.9, 0.022);
+      if (b) blip("triangle", b, nextNoteAt, step * 1.8, 0.07);
+      songStep++; nextNoteAt += step;
+    }
+  }
+
   const SFX = {
     jump: () => slide(260, 620, 0.12),
     gem: () => notes([880, 1320], 0.12),
@@ -359,32 +402,66 @@
     if (!open) { px(6, 8, 4, 4, "#b9bfd0"); px(7, 6, 2, 1, "#b9bfd0"); px(6, 7, 1, 1, "#b9bfd0"); px(9, 7, 1, 1, "#b9bfd0"); px(7, 9, 2, 2, "#4a4f60"); }
   }
 
-  /* Our hero: green beanie, orange jacket. 12x16, drawn facing right and mirrored for left. */
+  /* Our hero, Dash: a chunky 8-bit adventurer. Pom-pom beanie with goggles, a scarf that
+     flaps when running, big eyes, gloves and boots. 12x16 sprites, facing right; mirrored for left. */
+  const HERO_PAL = {
+    k: "#1a1020", g: "#2e9e5b", G: "#6fdc6a", o: "#8a8f99", c: "#7fe3ff", s: "#f7c79a", S: "#d48d5c",
+    e: "#ffffff", n: "#e8796a", j: "#f07a2a", J: "#ffb066", r: "#d8324a", R: "#ff6b7f", h: "#f4f0e6",
+    p: "#3557c9", P: "#5c80f0", f: "#6b3a1a", y: "#e0a820", Y: "#fff1a8", w: "#fffbe0",
+  };
+  const HEAD = {
+    beanie: [
+      "....kkk.....",
+      "...kGGGk....",
+      "..kgggggkk..",
+      ".kgocckoccok",
+      ".kGGGGGGGGk.",
+    ],
+    helmet: [
+      "............",
+      "...kkkkkk...",
+      "..kyyyyykwk.",
+      ".kyYyyyykwwk",
+      ".kkkkkkkkkk.",
+    ],
+  };
+  const FACE = [
+    "..ksssseksk.",
+    "..kssssekssk",
+    "..kSssnsssnk",
+    "...kkSSskkk.",
+  ];
+  const SCARF = ["rRkrrrrrrk..", ".rkrrrrrrk.."];
+  const BODY = {
+    stand: [".kjjJjjjjhk.", ".kjjJjjjkhk.", "..kpPppppk..", "..kppkkppk..", ".kffk..kffk.", ".kkkk..kkkk."],
+    walk1: [".kjjJjjjjhk.", ".kjjJjjjkhk.", "..kpPppppk..", ".kppk.kppk..", "kffk...kffk.", "kkkk...kkkk."],
+    walk2: [".kjjJjjjjhk.", ".kjjJjjjkhk.", "..kpPppppk..", "...kpppk....", "...kfffk....", "...kkkkk...."],
+    jump:  [".kjjJjjjjk..", ".kjjJjjjjk..", "..kpPppppk..", ".kppk.kppkk.", "kffk...kffk.", "kkk.....kkk."],
+  };
+  const POSES = ["stand", "walk1", "walk2", "jump"];
+  const heroCache = {};
+  function heroSprite(pose, face, helmet, flap) {
+    const key = pose + face + helmet + flap;
+    if (heroCache[key]) return heroCache[key];
+    const rows = [...HEAD[helmet ? "helmet" : "beanie"], ...FACE, SCARF[flap], ...BODY[POSES[pose]]];
+    if (pose === 3) rows[8] = "...kkSSskhk."; // arm up when jumping
+    return heroCache[key] = canvasOf(12, 16, () => rows.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (HERO_PAL[ch]) px(face > 0 ? x : 11 - x, y, 1, 1, HERO_PAL[ch]);
+    })));
+  }
   function drawHero(x, y, face, pose, jet, gun, t, helmet) {
     OX = x; OY = y;
     const P = (a, b, w, h, c) => px(face > 0 ? a : 12 - a - w, b, w, h, c);
     if (jet) {
-      P(0, 7, 2, 6, "#b8c2cc"); P(0, 7, 1, 6, "#e3e9ee");
-      const fl = 2 + ((t * 20) | 0) % 3; P(0, 13, 2, fl, "#ff8a1f"); P(0, 13, 2, 1, "#ffe066");
+      P(-1, 8, 3, 6, "#1a1020"); P(0, 9, 2, 4, "#b8c2cc"); P(0, 9, 1, 4, "#e3e9ee");
+      const fl = 2 + ((t * 20) | 0) % 3; P(0, 14, 2, fl, "#ff8a1f"); P(0, 14, 2, 1, "#ffe066");
     }
-    if (helmet) {
-      P(4, 0, 5, 1, "#ffd23a"); P(3, 1, 7, 2, "#e0a820"); P(4, 1, 1, 1, "#fff1a8");
-      P(8, 1, 2, 2, "#fffbe0"); P(2, 3, 10, 1, "#c28a12");
-    } else {
-      P(4, 0, 5, 1, "#2e9e5b"); P(3, 1, 7, 2, "#2e9e5b"); P(5, 0, 1, 1, "#ffd23a");
-      P(3, 3, 9, 1, "#1f7040");
-    }
-    P(3, 4, 6, 4, "#f2c38b"); P(3, 4, 1, 2, "#4a2a12"); P(7, 5, 1, 1, "#111"); P(7, 7, 2, 1, "#c4744a");
-    P(2, 8, 8, 4, "#f07a2a"); P(5, 8, 1, 3, "#ffd2a0"); P(2, 11, 8, 1, "#5a3a1a");
-    if (gun) { P(9, 9, 1, 2, "#f2c38b"); P(10, 9, 2, 1, "#555b66"); }
-    else P(9, 9, 1, 2, "#f2c38b");
-    P(3, 12, 6, 2, "#3557c9");
-    if (pose === 1) { P(2, 14, 2, 1, "#3557c9"); P(8, 14, 2, 1, "#3557c9"); P(1, 15, 3, 1, "#5b3416"); P(8, 15, 3, 1, "#5b3416"); }
-    else if (pose === 2) { P(4, 14, 2, 1, "#3557c9"); P(6, 14, 2, 1, "#3557c9"); P(4, 15, 3, 1, "#5b3416"); P(6, 15, 3, 1, "#5b3416"); }
-    else if (pose === 3) { P(3, 14, 6, 1, "#3557c9"); P(2, 15, 3, 1, "#5b3416"); P(8, 14, 3, 1, "#5b3416"); }
-    else { P(3, 14, 2, 1, "#3557c9"); P(7, 14, 2, 1, "#3557c9"); P(3, 15, 3, 1, "#5b3416"); P(7, 15, 3, 1, "#5b3416"); }
+    const flap = pose === 1 || pose === 2 || pose === 3 ? ((t * 8) | 0) % 2 : 0;
+    ctx.drawImage(heroSprite(pose, face, helmet ? 1 : 0, flap), x, y);
+    OX = x; OY = y;
+    if (gun) { P(10, 10, 3, 2, "#1a1020"); P(10, 10, 2, 1, "#8d97a3"); }
   }
-  const HERO_BIG = canvasOf(12, 16, () => drawHero(0, 0, 1, 0, false, false, 0));
+  const HERO_BIG = heroSprite(0, 1, 0, 0);
 
   function drawOrb(e, sx, sy, t) {
     const cx = Math.round(sx), cy = Math.round(sy);
@@ -416,7 +493,7 @@
     KeyX: "fire", ControlLeft: "fire", ControlRight: "fire", KeyF: "fire",
     KeyZ: "jet", KeyJ: "jet", AltLeft: "jet", AltRight: "jet",
     ShiftLeft: "run", ShiftRight: "run", KeyC: "run",
-    KeyP: "pause", Escape: "pause", KeyM: "mute", Enter: "start",
+    KeyP: "pause", Escape: "pause", KeyM: "mute", KeyT: "crt", Enter: "start",
   };
   function press(a) { if (!keys[a]) pressed[a] = true; keys[a] = true; audio(); }
   function release(a) { keys[a] = false; }
@@ -470,7 +547,7 @@
     camX = targetCam();
     message = ""; msgT = 0; lockedT = 0;
     particles = []; popups = [];
-    state = "play"; stateT = 0;
+    state = "card"; stateT = 0;
   }
   function respawn() {
     Object.assign(player, { x: spawn.x, y: spawn.y, vx: 0, vy: 0, face: 1, jet: false, onGround: false, inv: 1.5, jbuf: 0, coyote: 0 });
@@ -570,11 +647,20 @@
   /* ---------- Update ---------- */
   function update(dt) {
     T += dt; stateT += dt;
-    if (pressed.mute) { muted = !muted; }
+    if (pressed.mute) {
+      soundMode = (soundMode + 1) % 3; muted = soundMode === 2;
+      say(["MUSIC AND SOUND ON", "MUSIC OFF", "ALL SOUND OFF"][soundMode], 1.5);
+    }
+    if (pressed.crt) document.getElementById("wrap").classList.toggle("crt");
+    tickMusic(paused || state === "over" || state === "win" || state === "card" ? null : state === "title" || state === "interlude" ? "day" : sky);
     if (state === "title" || state === "over" || state === "win") {
       if (state === "win" && Math.random() < dt * 3) burst(40 + Math.random() * 240, 40 + Math.random() * 80, ["#ffd23a", "#ff3b5c", "#3fa9ff", "#7be07f", "#fff"], 30, 70);
       updParticles(dt);
       if (stateT > 0.6 && (pressed.start || pressed.up || pressed.fire)) startGame();
+      return;
+    }
+    if (state === "card") {
+      if (stateT > 2.2 || (stateT > 0.5 && (pressed.start || pressed.up || pressed.fire))) { state = "play"; stateT = 0; }
       return;
     }
     if (state === "interlude") {
@@ -776,6 +862,7 @@
     ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
     if (state === "title") return renderTitle();
     if (state === "interlude") return renderInterlude();
+    if (state === "card") return renderCard();
     if (state === "over") return renderEnd("GAME OVER", "#ff3b5c");
     if (state === "win") return renderEnd("YOU DID IT!", "#ffd23a");
     renderWorld();
@@ -869,7 +956,7 @@
     }
     let m = msgT > 0 ? message : player.trophy && state === "play" ? "FIND THE DOOR!" : "";
     if (m && !(msgT <= 0 && ((T * 2) | 0) % 2)) text(m, (x + W) / 2, H - 11, player.trophy && msgT <= 0 ? "#ffd23a" : "#fff", 1, "center");
-    if (muted) text("MUTE", W - 6, H - 11, "#8b88b0", 1, "right");
+    if (soundMode) text(soundMode === 2 ? "MUTE" : "NO MUSIC", W - 6, H - 11, "#8b88b0", 1, "right");
   }
 
   function renderTitle() {
@@ -890,8 +977,17 @@
     drawItem("d", 248, 108, T, 1); text("500", 266, 113, "#8b88b0");
     text("< > MOVE  ^ JUMP  SHIFT RUN  X FIRE  Z JET", W / 2, 136, "#8b88b0", 1, "center");
     text("P PAUSE   M SOUND", W / 2, 146, "#8b88b0", 1, "center");
-    if (((T * 2) | 0) % 2 === 0) shadowText("PRESS ENTER OR TAP TO START", W / 2, 168, "#7be07f", 1, "center");
-    text("HIGH SCORE " + String(hiScore).padStart(6, "0"), W / 2, 188, "#8b88b0", 1, "center");
+    if (((T * 2) | 0) % 2 === 0) shadowText("PUSH START", W / 2, 168, "#7be07f", 1, "center");
+    text("ENTER OR TAP", W / 2, 178, "#4a4870", 1, "center");
+    text("HI " + String(hiScore).padStart(6, "0"), W / 2, 190, "#8b88b0", 1, "center");
+  }
+
+  function renderCard() {
+    text("STAGE " + (levelIdx + 1), W / 2, 74, "#fff", 2, "center");
+    text(LEVELS[levelIdx].name, W / 2, 98, LEVELS[levelIdx].sky === "day" ? "#7cc4ff" : "#a24bff", 1, "center");
+    drawHero(138, 120, 1, 0, false, false, T, player.helmet);
+    text("X " + lives, 158, 125, "#fff");
+    text("SCORE " + String(score).padStart(6, "0"), W / 2, 160, "#8b88b0", 1, "center");
   }
 
   function renderInterlude() {
