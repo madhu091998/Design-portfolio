@@ -15,7 +15,6 @@
 </head>
 <body>
 <div class="sweep" aria-hidden="true"></div>
-<div class="sweep wash" aria-hidden="true"></div>
 <script>
   document.querySelectorAll(".sweep").forEach(function (el) {
     el.addEventListener("animationend", function (e) { if (e.animationName === "sweep-fill") el.remove(); });

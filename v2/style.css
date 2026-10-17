@@ -165,24 +165,12 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   mix-blend-mode: screen;
   background-color: #fff;
   background-image:
-    radial-gradient(closest-side, #000 0%, #000 50%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%),
     radial-gradient(closest-side,
-      #000 0%, #3a1cff 38%, #2b7bff 50%, #00c2ff 58%, #8a4dff 65%, #ff2fb3 72%,
-      #ff3d2e 79%, #ff8a00 86%, #ffd23f 93%, #fff 100%);
+      #000 0%, #10205e 38%, #2b5cff 54%, #3ea0ff 63%, #b77cff 72%,
+      #ff5fae 80%, #ff9a3c 88%, #ffe9d6 96%, #fff 100%);
   --sw-dur: 2.8s; --sw-lag: 0.55s;
 }
-/* Light only: a soft colour wash over the white page that travels with the arc */
-.sweep.wash {
-  mix-blend-mode: multiply; opacity: 0.55;
-  background-color: #fff;
-  background-image:
-    radial-gradient(closest-side, #fff 0%, #fff 50%, rgba(255, 255, 255, 0) 100%),
-    radial-gradient(closest-side,
-      #fff 0%, #fff 36%, #a9c4ff 50%, #8fe3ff 58%, #c9a8ff 65%, #ff9fd6 72%,
-      #ffa08f 79%, #ffc380 86%, #ffe68a 93%, #fff 100%);
-}
-:root[data-theme="dark"] .sweep.wash { display: none; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sweep.wash { display: none; } }
 /* Dark: the version 1 sweep, unchanged */
 :root[data-theme="dark"] .sweep {
   mix-blend-mode: multiply; background-color: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
