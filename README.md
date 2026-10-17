@@ -5,6 +5,7 @@ A small static portfolio site. There's no build step: plain HTML and CSS.
 - `index.html`: home page
 - `contracts/`: the Contracts case study
 - `play/`: Daring Dash, a tiny retro platformer (one self-contained HTML file)
+- `play/deluxe/`: Dash Deluxe, a remix with stomping, bonus boxes, coins and a power helmet
 - `assets/style.css`: shared styles
 - `assets/contracts/`: case study images (recreated screens, fictional data)
 
