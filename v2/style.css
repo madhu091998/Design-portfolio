@@ -76,7 +76,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .sidenav a.on::before { transform: scale(1); }
 
 /* ---------- Page ---------- */
-.page { max-width: 1240px; margin: 0 auto; padding: 270px 64px 120px 260px; }
+.page { max-width: 1320px; padding: 270px 64px 120px 200px; }
 
 .hero h1 {
   position: relative; margin: 0; max-width: 900px;
@@ -99,7 +99,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 /* ---------- Work grid ---------- */
 .work { margin-top: 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
-.col { position: relative; display: grid; gap: 44px; min-width: 0; }
+.col { display: grid; gap: 44px; min-width: 0; }
 .tile { display: block; color: inherit; text-decoration: none; }
 .tile .art { position: relative; overflow: hidden; display: grid; place-items: center; aspect-ratio: 16 / 10.5; border-radius: 4px; }
 .tile.tall .art { aspect-ratio: 4 / 5.1; }
@@ -125,8 +125,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile video { display: block; width: 100%; height: auto; border-radius: 9px; }
 
 /* ---------- The cat ---------- */
-/* Hides behind the top edge of the first tile and peeks over it once it scrolls into view. */
-.perch { position: absolute; right: 28px; top: -66px; z-index: 2; width: 92px; height: 66px; overflow: hidden; }
+/* Lives in the bottom-right corner of the window and peeks up from the bottom edge. */
+.corner { position: fixed; right: 40px; bottom: 0; z-index: 20; }
+.perch { position: relative; width: 92px; height: 66px; overflow: hidden; }
 .perch-cat {
   position: absolute; inset: 0; padding: 0; border: 0; background: none; cursor: pointer;
   color: var(--text); -webkit-tap-highlight-color: transparent;
@@ -140,7 +141,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 @keyframes blink { 0%, 92%, 100% { transform: none; } 95% { transform: scaleY(0.1); } }
 .perch .eyes { transform-box: fill-box; transform-origin: center; }
 .meow {
-  position: absolute; right: 74px; top: -84px; z-index: 3; pointer-events: none; white-space: nowrap;
+  position: absolute; left: 30px; bottom: 72px; z-index: 3; pointer-events: none; white-space: nowrap;
   font: italic 22px/1 "Instrument Serif", Georgia, serif; color: var(--accent);
   animation: meow 1.1s ease-out forwards;
 }
@@ -149,32 +150,47 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 @keyframes hop { 0%, 100% { transform: none; } 35% { transform: translateY(70%); } 70% { transform: translateY(-5%); } }
 
 /* ---------- Landing sweep (from version 1) ---------- */
-/* An ellipse grows from the bottom centre on load: a ring of vivid colour leads and a white
-   disc follows a beat behind. On the white page, multiply shows the colours as a passing arc. */
+/* An ellipse grows from the bottom centre on load: a ring of colour leads and the settled page follows a beat behind. */
 @property --sw-ring { syntax: "<number>"; inherits: false; initial-value: 1; }
 @property --sw-fill { syntax: "<number>"; inherits: false; initial-value: 1; }
 .sweep {
-  --sw-out: #fff;
   position: fixed; left: 0; right: 0; top: 0; height: 200vh;
-  pointer-events: none; z-index: 60; mix-blend-mode: multiply;
-  background-color: var(--sw-out);
+  pointer-events: none; z-index: 60;
   background-repeat: no-repeat; background-position: 50% 50%;
-  background-image:
-    radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
-    radial-gradient(closest-side,
-      #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%,
-      #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, var(--sw-out) 100%);
   background-size:
     calc(var(--sw-fill) * 1100vw) calc(var(--sw-fill) * 560vh),
     calc(var(--sw-ring) * 1100vw) calc(var(--sw-ring) * 560vh);
+  /* Light: screen keeps the white page white and only tints the text and UI.
+     The page starts washed out, the colours pass through the content, and black (no change) follows. */
+  mix-blend-mode: screen;
+  background-color: #fff;
+  background-image:
+    radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(closest-side,
+      #000 0%, #10205e 38%, #2b5cff 54%, #3ea0ff 63%, #b77cff 72%,
+      #ff5fae 80%, #ff9a3c 88%, #ffe9d6 96%, #fff 100%);
+  --sw-dur: 2.8s; --sw-lag: 0.55s;
 }
-:root[data-theme="dark"] .sweep { --sw-out: #000; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sweep { --sw-out: #000; } }
+/* Dark: the version 1 sweep, unchanged */
+:root[data-theme="dark"] .sweep {
+  mix-blend-mode: multiply; background-color: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
+  background-image:
+    radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, #000 100%);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .sweep {
+    mix-blend-mode: multiply; background-color: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
+    background-image:
+      radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
+      radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, #000 100%);
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .sweep {
     animation:
-      sweep-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.1s both,
-      sweep-fill 1.8s cubic-bezier(0.4, 0, 0.6, 1) 0.45s both;
+      sweep-ring var(--sw-dur) cubic-bezier(0.4, 0, 0.6, 1) 0.1s both,
+      sweep-fill var(--sw-dur) cubic-bezier(0.4, 0, 0.6, 1) calc(0.1s + var(--sw-lag)) both;
   }
   @keyframes sweep-ring { from { --sw-ring: 0; } to { --sw-ring: 1; } }
   @keyframes sweep-fill { from { --sw-fill: 0; } to { --sw-fill: 1; } }
@@ -207,7 +223,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
 
 /* ---------- Smaller screens ---------- */
 @media (max-width: 1100px) {
-  .page { padding: 200px 40px 100px 170px; }
+  .page { padding: 200px 40px 100px 150px; }
   .sidenav { top: 200px; }
   .now, .about { grid-template-columns: 1fr 1fr; }
 }
@@ -216,6 +232,9 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
   .sidenav { top: 62px; left: 0; right: 0; display: flex; gap: 18px; padding: 6px 16px 12px; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .sidenav a::before { left: -8px; }
   .page { padding: 150px 16px 80px; }
+  .corner { right: 16px; }
+  .perch { width: 72px; height: 52px; }
+  .perch-cat svg { width: 72px; }
   .hero h1 { font-size: 46px; }
   .hero h1 .sq { position: relative; display: inline-block; left: 0; bottom: 0; width: 8px; height: 8px; margin-left: 8px; vertical-align: 0.1em; }
   .now br { display: none; }
