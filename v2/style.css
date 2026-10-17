@@ -1,45 +1,40 @@
 /* Version 2: light, minimal, serif-led. */
 :root {
-  --bg: #fbf9f4;
+  /* Palette: latte, cherry, butter yellow, rainy day, seafoam, wisteria, apricot jam, matcha */
+  --bg: #f7f1e8;
   --grain: 0.55;
-  --ink: #1f2124;
-  --text: #63666b;
-  --muted: #a2a4a8;
-  --line: #ecebe8;
-  --accent: #e5562c;
-  --peach: #f6ece5;
-  --mist: #eef2f5;
-  --sand: #f4f1ea;
+  --ink: #2a2522;
+  --text: #6a625b;
+  --muted: #a39a90;
+  --line: #e8dfd2;
+  --accent: #c62a29;
+  --link: #f0a351;
   --card: #ffffff;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: #121212;
+  --bg: #171513;
   --grain: 0.12;
   --ink: #f0eee9;
   --text: #a8a6a1;
   --muted: #6f6e6b;
-  --line: #242423;
-  --accent: #f0683f;
-  --peach: #1f1b19;
-  --mist: #191c1f;
-  --sand: #1c1b18;
-  --card: #222222;
+  --line: #2a2724;
+  --accent: #e5504e;
+  --link: #f0a351;
+  --card: #262320;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121212;
+    --bg: #171513;
   --grain: 0.12;
     --ink: #f0eee9;
     --text: #a8a6a1;
     --muted: #6f6e6b;
-    --line: #242423;
-    --accent: #f0683f;
-    --peach: #1f1b19;
-    --mist: #191c1f;
-    --sand: #1c1b18;
-    --card: #222222;
+    --line: #2a2724;
+    --accent: #e5504e;
+    --link: #f0a351;
+    --card: #262320;
     color-scheme: dark;
   }
 }
@@ -107,7 +102,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 }
 .now h2 { margin: 0 0 4px; font: inherit; color: var(--muted); }
 .now p { margin: 0; color: var(--text); }
-.now a { text-decoration-color: var(--line); text-underline-offset: 3px; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+.now a { text-decoration-color: var(--link); text-underline-offset: 3px; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
 .now a:hover { color: var(--ink); text-decoration-color: currentColor; }
 
 /* ---------- Work grid ---------- */
@@ -118,21 +113,23 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile.tall .art { aspect-ratio: 4 / 5.1; }
 .tile .art > * { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .tile:hover .art > * { transform: scale(1.025); }
-.peach { background: var(--peach); }
-.mist { background: var(--mist); }
-.sand { background: var(--sand); }
+/* Each tile pairs a soft fill with a deeper ink from the same palette */
+.butter { background: #fed57d; --t: #c62a29; }
+.rainy { background: #b3dfeb; --t: #1f4f63; }
+.seafoam { background: #e7f5f9; --t: #6b7130; }
+.wisteria { background: #e6e3f7; --t: #a85f17; }
 .tile .label {
-  color: var(--ink); text-align: center; padding: 0 32px; max-width: 420px;
+  color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px;
   font: 400 clamp(24px, 2.3vw, 34px)/1.15 "Instrument Serif", Georgia, serif; letter-spacing: -0.01em;
 }
-.soon .label { color: var(--muted); }
+.soon .label small { opacity: 0.75; }
 .soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Instrument Sans", sans-serif; letter-spacing: 0.02em; }
 .cap { margin: 12px 0 0; font-size: 14px; color: var(--ink); }
 .cap b { font-weight: 400; }
 .cap span { color: var(--muted); }
 .cap span::before { content: "/"; margin: 0 8px; color: var(--line); }
 .tile:hover .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
-.tile .card { width: 74%; padding: 6px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.tile .card { width: 74%; padding: 6px; border-radius: 14px; background: var(--card); }
 .tile video { display: block; width: 100%; height: auto; border-radius: 9px; }
 
 /* ---------- About ---------- */
