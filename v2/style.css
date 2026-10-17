@@ -1,40 +1,37 @@
 /* Version 2: light, minimal, serif-led. */
 :root {
-  /* Palette: latte, cherry, butter yellow, rainy day, seafoam, wisteria, apricot jam, matcha */
-  --bg: #f7f1e8;
-  --grain: 0.55;
-  --ink: #2a2522;
-  --text: #6a625b;
-  --muted: #a39a90;
-  --line: #e8dfd2;
-  --accent: #c62a29;
-  --link: #f0a351;
+  /* Palette: Zambezi & Pear, Brick red & Pink, Polo blue & Snow, East Bay & Hawkes blue */
+  --bg: #ffffff;
+  --ink: #2f3442;
+  --text: #50586c;
+  --muted: #9198a8;
+  --line: #e7eaf1;
+  --accent: #cc313d;
+  --link: #7b9acc;
   --card: #ffffff;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: #171513;
-  --grain: 0.12;
-  --ink: #f0eee9;
-  --text: #a8a6a1;
-  --muted: #6f6e6b;
-  --line: #2a2724;
+  --bg: #14161b;
+  --ink: #eef0f5;
+  --text: #a9afbd;
+  --muted: #6e7483;
+  --line: #262a33;
   --accent: #e5504e;
-  --link: #f0a351;
-  --card: #262320;
+  --link: #8fabd8;
+  --card: #20232b;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #171513;
-  --grain: 0.12;
-    --ink: #f0eee9;
-    --text: #a8a6a1;
-    --muted: #6f6e6b;
-    --line: #2a2724;
+    --bg: #14161b;
+    --ink: #eef0f5;
+    --text: #a9afbd;
+    --muted: #6e7483;
+    --line: #262a33;
     --accent: #e5504e;
-    --link: #f0a351;
-    --card: #262320;
+    --link: #8fabd8;
+    --card: #20232b;
     color-scheme: dark;
   }
 }
@@ -43,14 +40,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font: 400 16px/1.6 "Instrument Sans", system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.6 "Google Sans", "Product Sans", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-/* Very light beige paper noise */
-body::before {
-  content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: var(--grain);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .72 0 0 0 0 .64 0 0 0 0 .52 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
@@ -113,17 +105,17 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile.tall .art { aspect-ratio: 4 / 5.1; }
 .tile .art > * { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .tile:hover .art > * { transform: scale(1.025); }
-/* Each tile pairs a soft fill with a deeper ink from the same palette */
-.butter { background: #fed57d; --t: #c62a29; }
-.rainy { background: #b3dfeb; --t: #1f4f63; }
-.seafoam { background: #e7f5f9; --t: #6b7130; }
-.wisteria { background: #e6e3f7; --t: #a85f17; }
+/* Each tile is one of the palette's pairs */
+.pear { background: #d6ed17; --t: #606060; }
+.pink { background: #f7c5cc; --t: #cc313d; }
+.snow { background: #fcf6f5; --t: #5d7cb0; box-shadow: inset 0 0 0 1px #f2e8e6; }
+.hawkes { background: #dce2f0; --t: #50586c; }
 .tile .label {
   color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px;
   font: 400 clamp(24px, 2.3vw, 34px)/1.15 "Instrument Serif", Georgia, serif; letter-spacing: -0.01em;
 }
 .soon .label small { opacity: 0.75; }
-.soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Instrument Sans", sans-serif; letter-spacing: 0.02em; }
+.soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Google Sans", sans-serif; letter-spacing: 0.02em; }
 .cap { margin: 12px 0 0; font-size: 14px; color: var(--ink); }
 .cap b { font-weight: 400; }
 .cap span { color: var(--muted); }
