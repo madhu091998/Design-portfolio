@@ -15,7 +15,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font: 400 16px/1.6 "Google Sans", "Product Sans", system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.6 "Geist", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -91,11 +91,11 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .snow { background: #fcf6f5; --t: #5d7cb0; box-shadow: inset 0 0 0 1px #f2e8e6; }
 .hawkes { background: #dce2f0; --t: #50586c; }
 .tile .label {
-  color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px;
+  color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px; text-wrap: balance;
   font: 400 clamp(20px, 1.9vw, 28px)/1.2 "Ovo", Georgia, serif; letter-spacing: -0.005em;
 }
 .soon .label small { opacity: 0.75; }
-.soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Google Sans", sans-serif; letter-spacing: 0.02em; }
+.soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Geist", sans-serif; letter-spacing: 0.02em; }
 .cap { margin: 12px 0 0; font-size: 14px; color: var(--ink); }
 .cap b { font-weight: 400; }
 .cap span { color: var(--muted); }
