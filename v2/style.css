@@ -56,8 +56,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .topbar > * { pointer-events: auto; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
 .wordmark .avatar { position: relative; width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex: none; display: block; box-shadow: 0 0 0 1px var(--line); transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
-/* The photo is a touch larger than the circle, so it can sit 2px right of centre and still fill it */
-.wordmark .avatar img { position: absolute; left: 0; top: -2px; width: 32px; height: 32px; max-width: none; object-fit: cover; display: block; }
+/* The photo is a touch larger than the circle, so it can sit 1px right of centre and still fill it */
+.wordmark .avatar img { position: absolute; left: -1px; top: -2px; width: 32px; height: 32px; max-width: none; object-fit: cover; display: block; }
 .wordmark:hover .avatar { transform: rotate(-6deg) scale(1.06); }
 .wordmark:hover { color: var(--ink); }
 .theme {
