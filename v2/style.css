@@ -155,50 +155,44 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 @keyframes hop { 0%, 100% { transform: none; } 35% { transform: translateY(70%); } 70% { transform: translateY(-5%); } }
 
 /* ---------- Landing sweep (from version 1) ---------- */
-/* An ellipse grows from the bottom centre on load: a ring of colour leads and the settled page follows a beat behind. */
-@property --sw-ring { syntax: "<number>"; inherits: false; initial-value: 1; }
-@property --sw-fill { syntax: "<number>"; inherits: false; initial-value: 1; }
+/* An ellipse grows from the bottom centre on load: a ring of colour leads and the settled page follows
+   a beat behind. Both layers grow with transform (scale), which the GPU animates smoothly. */
 .sweep {
-  position: fixed; left: 0; right: 0; top: 0; height: 200vh;
-  pointer-events: none; z-index: 60;
-  background-repeat: no-repeat; background-position: 50% 50%;
-  background-size:
-    calc(var(--sw-fill) * 1100vw) calc(var(--sw-fill) * 560vh),
-    calc(var(--sw-ring) * 1100vw) calc(var(--sw-ring) * 560vh);
+  position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 60;
   /* Light: screen keeps the white page white and only tints the text and UI.
      The page starts washed out, the colours pass through the content, and black (no change) follows. */
-  mix-blend-mode: screen;
-  background-color: #fff;
-  background-image:
-    radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%),
-    radial-gradient(closest-side,
+  mix-blend-mode: screen; background: #fff;
+  --ring: radial-gradient(closest-side,
       #000 0%, #2a1fa8 38%, #3a5cff 52%, #1fb6ff 61%, #a45cff 70%,
-      #ff3fa4 78%, #ff7a2e 86%, #ffc93c 93%, #fff 100%);
-  --sw-dur: 2.8s; --sw-lag: 0.55s;
+      #ff3fa4 78%, #ff7a2e 86%, #ffc93c 93%, rgba(255, 255, 255, 0) 100%);
+  --disc: radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%);
+  --sw-dur: 1.9s; --sw-lag: 0.32s;
 }
-/* Dark: the version 1 sweep, unchanged */
+.sweep::before, .sweep::after {
+  content: ""; position: absolute; left: 50%; top: 100%;
+  width: 110vw; height: 56vh; margin: -28vh 0 0 -55vw;
+  transform: scale(0); will-change: transform; backface-visibility: hidden;
+}
+.sweep::before { background: var(--ring); }
+.sweep::after { background: var(--disc); }
+/* Dark: the version 1 colours */
 :root[data-theme="dark"] .sweep {
-  mix-blend-mode: multiply; background-color: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
-  background-image:
-    radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
-    radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, #000 100%);
+  mix-blend-mode: multiply; background: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
+  --ring: radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, rgba(0, 0, 0, 0) 100%);
+  --disc: radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .sweep {
-    mix-blend-mode: multiply; background-color: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
-    background-image:
-      radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%),
-      radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, #000 100%);
+    mix-blend-mode: multiply; background: #000; --sw-dur: 1.8s; --sw-lag: 0.35s;
+    --ring: radial-gradient(closest-side, #eadcff 0%, #c86bff 22%, #ff2fb3 38%, #ff3d2e 53%, #ff8a00 66%, #ffd23f 77%, #3ea0ff 86%, #2b5cff 93%, rgba(0, 0, 0, 0) 100%);
+    --disc: radial-gradient(closest-side, #fff 0%, #fff 78%, rgba(255, 255, 255, 0) 100%);
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .sweep {
-    animation:
-      sweep-ring var(--sw-dur) cubic-bezier(0.4, 0, 0.6, 1) 0.1s both,
-      sweep-fill var(--sw-dur) cubic-bezier(0.4, 0, 0.6, 1) calc(0.1s + var(--sw-lag)) both;
-  }
-  @keyframes sweep-ring { from { --sw-ring: 0; } to { --sw-ring: 1; } }
-  @keyframes sweep-fill { from { --sw-fill: 0; } to { --sw-fill: 1; } }
+  .sweep::before { animation: sweep-ring var(--sw-dur) cubic-bezier(0.32, 0, 0.18, 1) 0.1s both; }
+  .sweep::after { animation: sweep-fill var(--sw-dur) cubic-bezier(0.32, 0, 0.18, 1) calc(0.1s + var(--sw-lag)) both; }
+  @keyframes sweep-ring { from { transform: scale(0); } to { transform: scale(10); } }
+  @keyframes sweep-fill { from { transform: scale(0); } to { transform: scale(10); } }
 }
 @media (prefers-reduced-motion: reduce) {
   .sweep, .meow { display: none; }
