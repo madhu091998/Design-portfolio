@@ -76,7 +76,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .sidenav a.on::before { transform: scale(1); }
 
 /* ---------- Page ---------- */
-.page { max-width: 1320px; padding: 270px 64px 120px 200px; }
+.page { padding: 270px clamp(64px, 17.75vw, 400px) 120px clamp(200px, 17.75vw, 400px); }
 
 .hero h1 {
   position: relative; margin: 0; max-width: 900px;
