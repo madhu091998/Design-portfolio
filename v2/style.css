@@ -172,8 +172,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   background-image:
     radial-gradient(closest-side, #000 0%, #000 58%, rgba(0, 0, 0, 0) 100%),
     radial-gradient(closest-side,
-      #000 0%, #10205e 38%, #2b5cff 54%, #3ea0ff 63%, #b77cff 72%,
-      #ff5fae 80%, #ff9a3c 88%, #ffe9d6 96%, #fff 100%);
+      #000 0%, #2a1fa8 38%, #3a5cff 52%, #1fb6ff 61%, #a45cff 70%,
+      #ff3fa4 78%, #ff7a2e 86%, #ffc93c 93%, #fff 100%);
   --sw-dur: 2.8s; --sw-lag: 0.55s;
 }
 /* Dark: the version 1 sweep, unchanged */
