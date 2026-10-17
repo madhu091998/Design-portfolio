@@ -211,16 +211,16 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 /* Monoline marker doodles: one ink colour, broken lines, solid calico spots */
 .meadow-wrap { margin-top: 160px; }
 .meadow-note { margin: 0; font-size: 15px; color: var(--muted); }
-.meadow { position: relative; height: 130px; margin-top: 8px; --ink-line: #24272c; }
+.meadow { position: relative; height: 130px; margin-top: 8px; --ink-line: #50586c; }
 .ground { position: absolute; left: 0; right: 0; bottom: -4px; width: 100%; height: 10px; overflow: visible; }
 .ground { filter: url(#marker-still); }
-.ground path { fill: none; stroke: var(--ink-line); stroke-width: 1.6; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.ground path { fill: none; stroke: var(--ink-line); stroke-width: 1.2; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .tuft { position: absolute; pointer-events: none; color: var(--ink-line); }
-.tuft svg { filter: url(#marker-still); display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.tuft svg { filter: url(#marker-still); display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
 .tuft.grass { width: 16px; height: 10px; }
 .tuft.star { width: 13px; height: 13px; }
 .tuft.yarn { width: 34px; height: 18px; }
-.tuft .ball { fill: var(--ink-line); }
+.tuft .ball { fill: url(#hatch); stroke: var(--ink-line); stroke-width: .8; }
 .tuft.yarn path { stroke-width: 1.1; }
 .tuft.yarn circle + path, .tuft.yarn circle + path + path, .tuft.yarn circle + path + path + path { stroke: var(--bg); }
 .critter {
@@ -231,10 +231,13 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .critter:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
 .critter .flip { display: block; transform: scaleX(var(--face, 1)); }
 .critter .bob { display: block; }
-.critter svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; filter: url(#marker); }
+.critter svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; filter: url(#marker); }
 .critter .base { fill: var(--bg); stroke: none; }
-.critter .spot, .critter .dot { fill: currentColor; stroke: none; }
-.critter .fine { stroke-width: 1.1; }
+.critter .dot { fill: currentColor; stroke: none; }
+/* patches are pen-hatched with a light outline, like the corner cat */
+.critter .spot { fill: url(#hatch); stroke: currentColor; stroke-width: .75; }
+.critter .shades .spot, .critter .fr .spot[d^="M74 27.6"], .critter .fr .spot[d^="M86.4"] { fill: currentColor; }
+.critter .fine { stroke-width: .85; }
 .critter .blush { stroke: #e58aa0; }
 .critter .tongue { fill: #f2a0ae; stroke-width: 1.1; opacity: 0; transform: translateY(-1.6px); transition: opacity 0.15s ease, transform 0.2s ease; }
 .critter .body, .critter .tail, .critter .eyes, .critter .shades, .critter .zz { transform-box: fill-box; }
@@ -304,8 +307,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 }
 .yarn-ball svg { display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: currentColor; stroke-linecap: round; filter: url(#marker-still); }
 .yarn-ball .spin { transform-box: fill-box; transform-origin: center; transform: rotate(var(--spin, 0deg)); transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.3, 1); }
-.yarn-ball .ball { fill: currentColor; stroke: none; }
-.yarn-ball .thread { stroke: var(--bg); stroke-width: 1.1; }
+.yarn-ball .ball { fill: url(#hatch); stroke: currentColor; stroke-width: .9; }
+.yarn-ball .thread { stroke: currentColor; stroke-width: .8; }
 .yarn-ball .tail-thread { stroke-width: 1.1; }
 .yarn-ball:hover .spin { transform: rotate(calc(var(--spin, 0deg) - 20deg)); }
 .yarn-ball:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
