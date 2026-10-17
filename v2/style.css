@@ -41,6 +41,15 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   padding: 26px 28px; font-size: 15px; pointer-events: none;
 }
 .topbar > * { pointer-events: auto; }
+.resume-btn {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px 7px 15px; border-radius: 999px;
+  font-size: 14px; color: var(--ink); text-decoration: none;
+  background: color-mix(in srgb, var(--bg) 70%, #fff); border: 1px solid var(--line);
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.resume-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.resume-btn:hover, .resume-btn:focus-visible { border-color: var(--accent); color: var(--accent); }
+.resume-btn:hover svg, .resume-btn:focus-visible svg { transform: translateY(2px); }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
 .wordmark .avatar { position: relative; width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex: none; display: block; box-shadow: 0 0 0 1px var(--line); transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
 /* The photo is a touch larger than the circle, so it can sit 1px right of centre and still fill it */
