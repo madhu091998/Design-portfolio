@@ -209,7 +209,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 /* ---------- The meadow at the end of the page ---------- */
 /* Monoline marker doodles: one ink colour, broken lines, solid calico spots */
-.meadow-wrap { margin-top: 160px; }
+.meadow-wrap { margin-top: 0; }
 .meadow-note { margin: 0; font-size: 15px; color: var(--muted); }
 .meadow { position: relative; height: 130px; margin-top: 8px; --ink-line: #50586c; }
 .ground { position: absolute; left: 0; right: 0; bottom: -4px; width: 100%; height: 10px; overflow: visible; }
@@ -332,7 +332,23 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .corner.away { opacity: 0; transform: translateY(20px); pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .critter .tail { animation: none; } .critter { transition: none; } }
 
-footer { margin-top: 20px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+/* ---------- Footer ---------- */
+.site-foot { margin-top: 160px; padding-top: 72px; border-top: 1px solid var(--line); }
+.foot-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .7fr) minmax(0, .7fr); gap: 32px; }
+.foot-quote { margin: 0; max-width: 380px; font: italic 400 clamp(26px, 2.4vw, 34px)/1.15 "Instrument Serif", Georgia, serif; color: var(--ink); text-wrap: balance; }
+.foot-made { margin: 16px 0 0; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); }
+.foot-col { display: grid; align-content: start; gap: 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.foot-h { margin: 0 0 6px; color: var(--ink); font-weight: 500; }
+.foot-col a { color: var(--muted); text-decoration: none; justify-self: start; transition: color 0.2s ease; }
+.foot-col a:hover, .foot-col a:focus-visible { color: var(--ink); }
+.site-foot .meadow-wrap { margin-top: 88px; }
+.foot-base { margin-top: 20px; padding-bottom: 8px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+@media (max-width: 760px) {
+  .site-foot { margin-top: 100px; padding-top: 48px; }
+  .foot-top { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .foot-sign { grid-column: 1 / -1; }
+  .site-foot .meadow-wrap { margin-top: 64px; }
+}
 
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
