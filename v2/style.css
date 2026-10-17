@@ -69,7 +69,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .theme svg { width: 17px; height: 17px; }
 
 /* ---------- Side nav ---------- */
-.sidenav { position: fixed; left: 28px; top: 280px; z-index: 10; display: grid; gap: 4px; font-size: 15px; }
+/* Nudged right so the red marker, not the words, lines up with the photo above */
+.sidenav { position: fixed; left: 40px; top: 280px; z-index: 10; display: grid; gap: 4px; font-size: 15px; }
 .sidenav a { position: relative; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
 .sidenav a:hover { color: var(--ink); }
 .sidenav a::before {
@@ -237,7 +238,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
 }
 @media (max-width: 760px) {
   .topbar { padding: 18px 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
-  .sidenav { top: 62px; left: 0; right: 0; display: flex; gap: 18px; padding: 6px 16px 12px; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .sidenav { top: 62px; left: 0; right: 0; display: flex; gap: 18px; padding: 6px 16px 12px 24px; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .sidenav a::before { left: -8px; }
   .page { padding: 150px 16px 80px; }
   .corner { right: 16px; }
