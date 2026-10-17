@@ -80,28 +80,22 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 .hero h1 {
   position: relative; margin: 0; max-width: 900px;
-  font: 400 clamp(52px, 5.6vw, 88px)/1 "Instrument Serif", Georgia, serif;
+  font: 400 clamp(56px, 6.6vw, 104px)/1 "Instrument Serif", Georgia, serif;
   letter-spacing: -0.015em; color: var(--ink);
 }
 .hero h1 em { font-style: italic; }
 .hero h1 .w { display: inline-block; opacity: 0; transform: translateY(12px); animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 .hero h1 .sq { position: absolute; left: -32px; bottom: 0.3em; width: 10px; height: 10px; background: var(--accent); }
-/* Subheading and "Currently" sit side by side, so the intro reads as two calm columns instead of one tall stack */
-.intro {
-  /* Same two columns and gap as the work grid below, so the intro lines up with the tiles */
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start;
-  margin-top: 28px;
-}
 .hero .sub {
-  margin: 0; text-wrap: pretty;
-  font: 400 clamp(22px, 1.9vw, 28px)/1.25 "Instrument Serif", Georgia, serif; letter-spacing: -0.005em;
+  margin: 22px 0 0; max-width: 760px; text-wrap: balance;
+  font: 400 clamp(26px, 2.5vw, 40px)/1.22 "Instrument Serif", Georgia, serif; letter-spacing: -0.01em;
   color: var(--text); opacity: 0; transform: translateY(10px); animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s forwards;
 }
 
 .now {
-  max-width: 400px; font-size: 15px; line-height: 1.6; padding-top: 4px;
-  opacity: 0; transform: translateY(8px); animation: rise 0.9s ease 0.6s forwards;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 56px; max-width: 470px;
+  font-size: 15px; line-height: 1.6; opacity: 0; transform: translateY(8px); animation: rise 0.9s ease 0.6s forwards;
 }
 .now h2 { margin: 0 0 4px; font: inherit; color: var(--muted); }
 .now p { margin: 0; color: var(--text); text-wrap: pretty; }
@@ -230,7 +224,7 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
 @media (max-width: 1100px) {
   .page { padding: 200px 40px 100px 150px; }
   .sidenav { top: 200px; }
-  .about { grid-template-columns: 1fr 1fr; }
+  .now, .about { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
   .topbar { padding: 18px 16px; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
@@ -241,10 +235,10 @@ footer { margin-top: 140px; display: flex; justify-content: space-between; font-
   .perch { width: 72px; height: 52px; }
   .perch-cat svg { width: 72px; }
   .hero h1 { font-size: 60px; }
-  .intro { grid-template-columns: 1fr; gap: 32px; margin-top: 18px; }
-  .hero .sub { font-size: 24px; }
+  .hero .sub { font-size: 26px; margin-top: 16px; }
   .hero h1 .sq { position: relative; display: inline-block; left: 0; bottom: 0; width: 8px; height: 8px; margin-left: 8px; vertical-align: 0.1em; }
   .now br { display: none; }
+  .now { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
   .work { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; }
   .tile.tall .art { aspect-ratio: 4 / 4.4; }
   .about { grid-template-columns: 1fr; margin-top: 110px; }
