@@ -275,6 +275,20 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .critter.zoom .bob { animation: zoom 0.22s ease-in-out 7; }
 @keyframes zoom { 25% { transform: translate(-5px, -3px) rotate(-6deg); } 75% { transform: translate(5px, -3px) rotate(6deg); } }
 .critter.hop2 .body { animation: hop2 0.85s cubic-bezier(0.3, 0.9, 0.4, 1) 2; }
+/* rigged walkers: one drawn pose visible at a time */
+.critter .fr { display: none; }
+.critter .fr.on { display: inline; }
+.critter .limb { fill: var(--bg); }
+.critter .tailp { fill: none; }
+.critter .fr .tongue { opacity: 1; transform: none; }
+.critter[data-rig].walking .bob { animation: none; }
+.critter[data-rig] .tail { transform-box: fill-box; transform-origin: 100% 100%; }
+.critter[data-rig]:not(.walking) .tail { animation: swish 3.8s ease-in-out infinite; }
+.critter.shades .tail, .critter.piglet .tail { transform-origin: 100% 0%; }
+.critter[data-rig] .far .limb { fill: color-mix(in srgb, var(--bg) 92%, var(--ink-line)); }
+/* the lying-down ones breathe slowly */
+.critter.sleepy:not(.peek):not(.melt) .body, .critter.loaf:not(.purr):not(.melt) .body { animation: breathe 3.6s ease-in-out infinite; }
+@keyframes breathe { 50% { transform: scale(1.012, 1.03); } }
 /* the yarn toy */
 .yarn-ball {
   position: absolute; bottom: -2px; width: 36px; height: 20px; padding: 0; border: 0; background: none; transform: translateX(-50%);
@@ -300,7 +314,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 @keyframes pop-up { 0% { opacity: 0; transform: translate(-50%, 6px) scale(0.7) rotate(-6deg); } 20% { opacity: 1; transform: translate(-50%, -4px) scale(1.05) rotate(2deg); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -20px) scale(1); } }
 .critter.walking .bob { animation: walk 0.34s ease-in-out infinite; }
 @keyframes walk { 50% { transform: translateY(-2px) rotate(-2deg); } }
-@media (max-width: 760px) { .critter { width: calc(70px * var(--s, 1)); } .yarn-ball { display: none; } .pop { font-size: 15px; } }
+@media (max-width: 760px) { .critter { width: calc(64px * var(--s, 1)); } .critter.loaf { left: 76% !important; --s: .82 !important; } .yarn-ball { display: none; } .pop { font-size: 15px; } }
 @media (prefers-reduced-motion: reduce) { .critter .tail, .critter .zz, .critter .eyes { animation: none !important; } .critter { transition: none; } .critter.hop .body, .critter.purr .body { animation: none; } }
 /* The corner cat steps aside when the meadow is on screen */
 .corner { transition: opacity 0.4s ease, transform 0.4s ease; }
