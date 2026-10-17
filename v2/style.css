@@ -130,6 +130,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile:hover .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .tile .card { width: 74%; padding: 6px; border-radius: 14px; background: var(--card); }
 .tile video { display: block; width: 100%; height: auto; border-radius: 9px; }
+/* Game screenshots sit on the tile like a small screen */
+.tile .shot { width: 72%; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 14px 30px rgba(40, 30, 60, 0.18); }
+.tile .shot img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
 
 /* ---------- The cat ---------- */
 /* Lives in the bottom-right corner of the window and peeks up from the bottom edge. */
