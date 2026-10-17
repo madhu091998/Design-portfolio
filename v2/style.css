@@ -199,7 +199,55 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .photo-wrap { position: relative; display: block; border-radius: 4px; overflow: hidden; }
 .about .photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
 
-footer { margin-top: 140px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+/* ---------- The meadow at the end of the page ---------- */
+.meadow-wrap { margin-top: 160px; }
+.meadow-note { margin: 0; font-size: 15px; color: var(--muted); }
+.meadow { position: relative; height: 110px; margin-top: 8px; border-bottom: 1px solid var(--line); }
+.tuft { position: absolute; width: 14px; height: 10px; color: color-mix(in srgb, var(--muted) 70%, transparent); pointer-events: none; }
+.tuft svg, .tuft.flower svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; }
+.tuft.flower { width: 10px; height: 14px; }
+.tuft.flower circle { fill: var(--c); stroke: none; }
+.critter {
+  position: absolute; bottom: -1px; width: calc(60px * var(--s, 1)); padding: 0; border: 0; background: none; cursor: grab;
+  color: var(--text); -webkit-tap-highlight-color: transparent; transform: translateX(-50%);
+  transition-property: left; transition-timing-function: linear;
+}
+.critter:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+.critter .flip { display: block; transform: scaleX(var(--face, 1)); }
+.critter .bob { display: block; }
+.critter svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.critter .fill { fill: var(--bg); }
+.critter .fill.pink { fill: #f7c5cc; }
+.critter .fill.snout { fill: #f2aab6; }
+.critter .patch { stroke-width: 1; }
+.critter .thin { stroke-width: .9; }
+.critter .blush { stroke: #e58aa0; }
+.critter .eyes ellipse { fill: currentColor; stroke: none; }
+.critter .eyes, .critter .body, .critter .tail { transform-box: fill-box; }
+.critter .eyes { transform-origin: center; }
+.critter .body { transform-origin: 50% 100%; }
+.critter .tail { transform-origin: 0% 100%; animation: swish 3.6s ease-in-out infinite; }
+@keyframes swish { 0%, 70%, 100% { transform: rotate(0); } 80% { transform: rotate(-14deg); } 90% { transform: rotate(6deg); } }
+/* Reactions */
+.critter.blink .eyes:not(.nostrils) { animation: blink2 0.5s ease-in-out 2; }
+@keyframes blink2 { 50% { transform: scaleY(0.1); } }
+.critter.stretch .body { animation: stretch 0.9s cubic-bezier(0.3, 1.4, 0.5, 1); }
+@keyframes stretch { 40% { transform: scale(1.22, 0.82); } 70% { transform: scale(0.95, 1.06); } }
+.critter.roll .body { animation: roll 0.85s cubic-bezier(0.5, 0, 0.3, 1); transform-origin: 50% 60%; }
+@keyframes roll { 0% { transform: none; } 30% { transform: translateY(-10px) rotate(120deg); } 60% { transform: translateY(-4px) rotate(300deg); } 100% { transform: rotate(360deg); } }
+.pet-heart {
+  position: absolute; left: 50%; top: -6px; pointer-events: none; color: var(--accent); font-size: 14px; line-height: 1;
+  animation: heart-up 1.1s ease-out forwards;
+}
+@keyframes heart-up { 0% { opacity: 0; transform: translate(-50%, 6px) scale(0.6); } 25% { opacity: 1; transform: translate(-50%, -4px) scale(1.1); } 100% { opacity: 0; transform: translate(-50%, -26px) scale(1); } }
+.critter.walking .bob { animation: walk 0.36s ease-in-out infinite; }
+@keyframes walk { 50% { transform: translateY(-2px) rotate(-2deg); } }
+/* The corner cat steps aside when the meadow is on screen */
+.corner { transition: opacity 0.4s ease, transform 0.4s ease; }
+.corner.away { opacity: 0; transform: translateY(20px); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .critter .tail { animation: none; } .critter { transition: none; } }
+
+footer { margin-top: 20px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
 
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
