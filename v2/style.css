@@ -1,7 +1,7 @@
 /* Version 2: light, minimal, serif-led. */
 :root {
   /* Palette: Zambezi & Pear, Brick red & Pink, Polo blue & Snow, East Bay & Hawkes blue */
-  --bg: #ffffff;
+  --bg: #fcfbf8;
   --ink: #2f3442;
   --text: #50586c;
   --muted: #9198a8;
@@ -21,7 +21,7 @@ body {
 }
 /* A very subtle grey paper-grain overlay across the whole page */
 body::after {
-  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: 0.42;
+  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: 0.52;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 a { color: inherit; }
