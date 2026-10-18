@@ -9,9 +9,10 @@
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../case.css">
+  <link rel="stylesheet" href="ui.css">
 </head>
 <body class="case">
 <div class="topbar">
@@ -96,29 +97,28 @@
 
     <figure class="fig reveal">
       <div class="board sea">
-        <ol class="steps">
+        <ol class="steps mini-steps">
           <li>
             <p class="lbl" style="margin:0"><span>01</span>Select the element</p>
             <div class="pane rel" aria-hidden="true">
-              <div class="wire sel"><i></i><i></i><i></i></div>
-              <svg class="cursor" viewBox="0 0 16 20"><path d="M1 1v15l4-4 3 7 3-1.4-3-6.6h6z"/></svg>
+              <div class="ppx" style="width:100%;max-width:220px;position:relative"><div class="ppx-card hover"><div class="k"><i></i>Total payouts</div><div class="v">$412,860</div><div class="d">↗ 8.4% <span>vs last quarter</span></div></div><span class="ppx-cursor" style="right:28%;bottom:-8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z"/></svg></span></div>
             </div>
           </li>
           <li>
             <p class="lbl" style="margin:0"><span>02</span>Change it on the page</p>
             <div class="pane" aria-hidden="true">
-              <div><div class="wire sel pad"><i></i><i></i><i></i></div><div class="val"><span>padding</span><span><s>16</s> → 24</span></div></div>
+              <div class="ppx dark"><div class="plbl">Padding<span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></span></div><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><span class="ppx-in"><span class="pre"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18"/><path d="M20 3v18"/><path d="M9.5 12h5"/></svg></span><span class="pv">24px</span></span><span class="ppx-in focus"><span class="pre"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18"/><path d="M21 20H3"/><path d="M12 9.5v5"/></svg></span><span class="pv">24px<i class="caret"></i></span></span></div></div>
             </div>
           </li>
           <li>
-            <p class="lbl" style="margin:0"><span>03</span>Copy the instruction</p>
+            <p class="lbl" style="margin:0"><span>03</span>Copy the prompt</p>
             <div class="pane" aria-hidden="true">
-              <div style="display:grid"><div class="mini-prompt"><i></i><i></i><i></i><i></i></div><span class="copied">Copied</span></div>
+              <div class="ppx dark"><span class="ppx-copy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2"/></svg>Copied</span></div>
             </div>
           </li>
         </ol>
       </div>
-      <figcaption><b>Select, edit, copy</b>A simplified sketch of the flow.</figcaption>
+      <figcaption><b>Select, edit, copy</b>Pieces of the real interface, rebuilt.</figcaption>
     </figure>
   </section>
 
@@ -132,22 +132,44 @@
       <div class="prose reveal">
         <p>Select any element on a live page, adjust its styles and see the result instantly. When it looks right, copy a prompt with the element, the new values and matching design-system tokens, ready for Claude or Cursor.</p>
       </div>
-      <ul class="chips reveal" aria-label="Inspector sections">
-        <li>Layout</li><li>Fill</li><li>Stroke</li><li>Typography</li><li>Appearance</li>
-      </ul>
-      <!-- MEDIA: inspector recording at assets/peek-and-poke/inspector.mp4 -->
-      <figure class="media missing reveal">
-        <div class="frame wide">
-          <video src="../../assets/peek-and-poke/inspector.mp4" autoplay muted loop playsinline preload="metadata"
-            aria-label="Element inspector: hovering and selecting a card, changing its padding from 16px to 24px, choosing All 6, and copying the prompt"></video>
-          <div class="ph" aria-hidden="true">
-            <span class="tag">Placeholder</span>
-            <b>Element inspector recording</b>
-            <span>Hover and select a card, change padding 16px → 24px and see it live, pick “All 6”, then copy the prompt.</span>
-            <code>assets/peek-and-poke/inspector.mp4</code>
+      <!-- A recording can go here later: assets/peek-and-poke/inspector.mp4 -->
+      <figure class="fig reveal">
+        <div class="board">
+          <div class="scene">
+            <div class="stage">
+              <div class="ppx ppx-page">
+                <div class="crumb">Workspace / <b>Commission plans</b></div>
+                <div class="row"><div><h4>Commission plans</h4><p class="lede">Quota attainment and payouts for Q4 FY26.</p></div><div class="row" style="gap:8px"><span class="ppx-btn ghost">Export</span><span class="ppx-btn ">+ New plan</span></div></div>
+                <div class="ppx-cards"><div class="ppx-card active" style="padding:18px;background:#F9FAFB"><div class="k"><i></i>Total payouts</div><div class="v">$412,860</div><div class="d">↗ 8.4% <span>vs last quarter</span></div></div><div class="ppx-card peer"><div class="k"><i></i>Avg. attainment</div><div class="v">87%</div><div class="d">↗ 3% <span>vs target</span></div></div><div class="ppx-card peer"><div class="k"><i></i>Reps on plan</div><div class="v">48</div><div class="d">↗ 4 <span>joined this month</span></div></div></div>
+              </div>
+              <div class="ppx ppx-tb" aria-hidden="true"><span class="grip"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor"><circle cx="4" cy="4" r="1.2"/><circle cx="8" cy="4" r="1.2"/><circle cx="4" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="4" cy="12" r="1.2"/><circle cx="8" cy="12" r="1.2"/></svg></span><div class="group"><span class="b on"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z"/></svg></span><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span></div><span class="sep"></span><div class="group switch m-inspect"><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="b inspect"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V6a2 2 0 0 1 2-2h3"/><path d="M15 4h3a2 2 0 0 1 2 2v3"/><path d="M20 15v3a2 2 0 0 1-2 2h-3"/><path d="M9 20H6a2 2 0 0 1-2-2v-3"/><line x1="12" y1="9.5" x2="12" y2="14.5"/><line x1="9.5" y1="12" x2="14.5" y2="12"/></svg></span></div><span class="sep"></span><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/></svg></span></div>
+            </div>
+            <div class="ppx ppx-panel" aria-hidden="true">
+                <div class="head">
+                  <div class="top"><span class="ttl">Element inspector</span><span class="badge">5</span><span class="sp"></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg></span><span class="ib dis"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h4"/></svg></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
+                  <div class="el"><div><div class="t">article</div><div class="s mono">article.card.stat</div></div><div class="state"><span class="ppx-chip">Resting</span><span class="ib "><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div></div>
+                </div>
+                <div class="scope"><span class="on">All 3</span><span>This one</span></div>
+                <div class="psec">
+                  <div class="sh"><b>Auto layout</b></div>
+                  <div class="ctl"><div class="plbl">Flow</div><div class="ppx-seg"><span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="16" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="16" rx="1.8"/></svg></span><span class="on"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.8"/></svg></span></div></div>
+                  <div class="ctl"><div class="plbl">Dimensions</div><div class="g2"><span class="ppx-in"><span class="pre">W</span><span class="pv">342px</span><span class="unit"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></span><span class="ppx-in"><span class="pre">H</span><span class="pv">169px</span><span class="unit"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></span></div></div>
+                  <div class="ctl"><div class="plbl">Padding<span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></span></div><div class="g2"><span class="ppx-in"><span class="pre"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18"/><path d="M20 3v18"/><path d="M9.5 12h5"/></svg></span><span class="pv">24px</span></span><span class="ppx-in focus"><span class="pre"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18"/><path d="M21 20H3"/><path d="M12 9.5v5"/></svg></span><span class="pv">24px<i class="caret"></i></span></span></div></div>
+                </div>
+                <div class="psec">
+                  <div class="sh"><b>Fill</b><span class="acts"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></div>
+                  <div class="fr"><span class="ppx-in"><span class="sw" style="background:#F9FAFB"></span><span class="pv">base-50</span></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 7.5H8a4.5 4.5 0 0 0 0 9h2.5"/><path d="M13.5 7.5H16a4.5 4.5 0 0 1 0 9h-2.5"/></svg></span></div>
+                </div>
+                <div class="psec">
+                  <div class="sh"><b>Stroke</b><span class="acts"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8" r="2.4"/><circle cx="8" cy="16" r="2.4"/><circle cx="16" cy="16" r="2.4"/></svg></span></div>
+                  <div class="ctl"><span class="ppx-in"><span class="sw" style="background:#EBEBE8"></span><span class="pv">EBEBE8</span><span class="div"></span><span>100</span><span class="unit">%</span></span></div>
+                  <div class="ctl g2"><div><div class="plbl">Style</div><span class="ppx-in"><span class="pv">Solid</span><span class="unit"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></span></div><div><div class="plbl">Weight</div><span class="ppx-in"><span class="pv">1px</span></span></div></div>
+                </div>
+                <div class="foot"><span>Reset</span><span class="copy"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2"/></svg>Copy prompt (5)</span></div>
+              </div>
           </div>
         </div>
-        <figcaption><b>Element inspector</b>Changes preview on the page. The code only changes once the prompt is handed over.</figcaption>
+        <figcaption><b>Element inspector</b>The toolbar and inspector, rebuilt from the extension. Changes preview on the page; the code only changes once the prompt is handed over.</figcaption>
       </figure>
     </div>
 
@@ -157,19 +179,26 @@
       <div class="prose reveal">
         <p>Feedback on a live build used to mean screenshots and explaining which element I meant. In Annotator mode, I click an element, type or say a note, and send it all to Figma with each note pinned in place.</p>
       </div>
-      <!-- MEDIA: annotator recording at assets/peek-and-poke/annotator.mp4 -->
-      <figure class="media missing reveal">
-        <div class="frame wide">
-          <video src="../../assets/peek-and-poke/annotator.mp4" autoplay muted loop playsinline preload="metadata"
-            aria-label="Annotator: recording a note on a button, the numbered marker on the page, and the notes pinned to their elements in Figma"></video>
-          <div class="ph" aria-hidden="true">
-            <span class="tag">Placeholder</span>
-            <b>Annotator recording</b>
-            <span>Leave or record a note on an element, the numbered marker on the page, then the screenshot and pinned notes in Figma.</span>
-            <code>assets/peek-and-poke/annotator.mp4</code>
+      <!-- A recording can go here later: assets/peek-and-poke/annotator.mp4 -->
+      <figure class="fig reveal">
+        <div class="board">
+          <div class="scene note-scene">
+            <div class="stage">
+              <div class="ppx ppx-page">
+                <div class="crumb">Workspace / <b>Commission plans</b></div>
+                <div class="row"><div><h4>Commission plans</h4><p class="lede">Quota attainment and payouts for Q4 FY26.</p></div><div class="row" style="gap:8px"><span class="ppx-btn ghost">Export</span><span class="ppx-btn marked">+ New plan</span></div></div>
+                <div class="ppx-cards"><div class="ppx-card marked"><div class="k"><i></i>Total payouts</div><div class="v">$412,860</div><div class="d">↗ 8.4% <span>vs last quarter</span></div></div><div class="ppx-card hover-a"><div class="k"><i></i>Avg. attainment</div><div class="v">87%</div><div class="d">↗ 3% <span>vs target</span></div></div><div class="ppx-card "><div class="k"><i></i>Reps on plan</div><div class="v">48</div><div class="d">↗ 4 <span>joined this month</span></div></div></div>
+              </div>
+              <div class="ppx ppx-tb" aria-hidden="true"><span class="grip"><svg width="12" height="16" viewBox="0 0 12 16" fill="currentColor"><circle cx="4" cy="4" r="1.2"/><circle cx="8" cy="4" r="1.2"/><circle cx="4" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="4" cy="12" r="1.2"/><circle cx="8" cy="12" r="1.2"/></svg></span><div class="group"><span class="b on"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z"/></svg></span><span class="b send"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>Send to Figma<span class="count">2</span></span><span class="b"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12"/><path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg></span></div><span class="sep"></span><div class="group switch m-annotate"><span class="b annotate"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V6a2 2 0 0 1 2-2h3"/><path d="M15 4h3a2 2 0 0 1 2 2v3"/><path d="M20 15v3a2 2 0 0 1-2 2h-3"/><path d="M9 20H6a2 2 0 0 1-2-2v-3"/><line x1="12" y1="9.5" x2="12" y2="14.5"/><line x1="9.5" y1="12" x2="14.5" y2="12"/></svg></span></div><span class="sep"></span><span class="b"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/></svg></span></div>
+            </div>
+            <div class="ppx ppx-note" aria-hidden="true">
+              <div class="nh"><b>Add a note</b><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+              <div class="ta">The bar is hard to read at a glance. Could it show the target too?<i class="caret" style="display:inline-block;width:1px;height:13px;margin-left:1px;vertical-align:-2px;background:#1d2129"></i></div>
+              <div class="na"><span class="nb"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/></svg>Record<span class="hint">⌘⇧M</span></span><div class="grp"><span class="nb">Cancel</span><span class="nb primary">Save</span></div></div>
+            </div>
           </div>
         </div>
-        <figcaption><b>Annotator</b>Needs a local relay and a Figma plugin, set up once.</figcaption>
+        <figcaption><b>Annotator</b>Green outlines are saved notes. Sending to Figma needs a local relay and a Figma plugin, set up once.</figcaption>
       </figure>
       <p class="note reveal"><b>Two tools, one gesture.</b> Annotator and the inspector started as separate experiments. Both begin with pointing at an element, so I merged them into one toolbar with two modes.</p>
     </div>
@@ -187,26 +216,21 @@
       </div>
       <figure class="fig reveal">
         <div class="board">
-          <div class="scope-demo" id="scope-demo">
-            <div class="scope-bar">
-              <span>Apply to</span>
-              <span class="seg" role="group" aria-label="Scope">
-                <button type="button" data-scope="all" aria-pressed="true">All 6</button>
-                <button type="button" data-scope="one" aria-pressed="false">This one</button>
-              </span>
+          <div class="scope-demo scene" id="scope-demo">
+            <div class="stage" style="justify-items:stretch">
+              <div class="ppx ppx-cards" aria-hidden="true" style="margin:0"><div class="ppx-card active"><div class="k"><i></i>Enterprise AE · FY26</div><div class="v">$148,200</div><div class="d">14 reps</div></div><div class="ppx-card peer"><div class="k"><i></i>Mid-market AE</div><div class="v">$96,450</div><div class="d">11 reps</div></div><div class="ppx-card peer"><div class="k"><i></i>SDR accelerator</div><div class="v">$41,300</div><div class="d">9 reps</div></div><div class="ppx-card peer"><div class="k"><i></i>Partner referrals</div><div class="v">$58,900</div><div class="d">6 reps</div></div><div class="ppx-card peer"><div class="k"><i></i>Customer success</div><div class="v">$38,210</div><div class="d">5 reps</div></div><div class="ppx-card peer"><div class="k"><i></i>Enterprise SE overlay</div><div class="v">$29,800</div><div class="d">3 reps</div></div></div>
+              <p class="scope-line" aria-live="polite"><b>Scope:</b> <span data-line>all 6 instances — edit the shared component, not one call site.</span></p>
             </div>
-            <div class="cards6" aria-hidden="true">
-              <div class="wire sel"><i></i><i></i><i></i></div>
-              <div class="wire match"><i></i><i></i><i></i></div>
-              <div class="wire match"><i></i><i></i><i></i></div>
-              <div class="wire match"><i></i><i></i><i></i></div>
-              <div class="wire match"><i></i><i></i><i></i></div>
-              <div class="wire match"><i></i><i></i><i></i></div>
+            <div class="ppx ppx-panel">
+              <div class="head">
+                  <div class="top"><span class="ttl">Element inspector</span><span class="sp"></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg></span><span class="ib dis"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h4"/></svg></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
+                  <div class="el"><div><div class="t">article</div><div class="s mono">article.card.stat</div></div><div class="state"><span class="ppx-chip">Resting</span><span class="ib "><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div></div>
+                </div>
+              <div class="scope" role="group" aria-label="Scope"><button type="button" data-scope="all" aria-pressed="true">All 6</button><button type="button" data-scope="one" aria-pressed="false">This one</button></div>
             </div>
-            <p class="scope-line" aria-live="polite"><b>Scope:</b> <span data-line>all 6 instances — edit the shared component, not one call site.</span></p>
           </div>
         </div>
-        <figcaption><b>Try it</b>Matches are found by component, appearance and container, not just class names.</figcaption>
+        <figcaption><b>Try it</b>Switch between All 6 and This one. Matches are found by component, appearance and container, not just class names.</figcaption>
       </figure>
     </article>
 
@@ -218,37 +242,40 @@
       </div>
       <figure class="fig reveal">
         <div class="board pink">
-          <ol class="iters">
+          <ol class="pins">
             <li>
-              <p class="lbl" style="margin:0"><span>V1</span>Keyboard locks</p>
-              <div class="pane" aria-hidden="true">
-                <div class="row"><span class="key">H</span><span class="pill">to lock</span></div>
-                <div class="wire"><span class="pill dark">Hover locked</span><i></i><i></i><i></i></div>
-                <div class="wire"><span class="pill dark">Hover locked</span><i></i><i></i><i></i></div>
+              <p class="lbl" style="margin:0"><span>V1</span>Lock with a shortcut</p>
+              <div class="pane ppx" aria-hidden="true">
+                <div class="ppx-card locked" style="position:relative"><span class="tag" style="background:#1e1e1e;color:#fff">Hover locked</span><div class="k"><i></i>Total payouts</div><div class="v">$412,860</div></div>
+                <div class="ppx-card locked" style="position:relative"><span class="tag" style="background:#1e1e1e;color:#fff">Hover locked</span><div class="k"><i></i>Avg. attainment</div><div class="v">87%</div></div>
               </div>
               <p class="verdict"><b>Too noisy.</b> A tag on every lock, and locks that outlived the session.</p>
             </li>
             <li>
               <p class="lbl" style="margin:0"><span>V2</span>Padlock and a counter</p>
-              <div class="pane" aria-hidden="true">
-                <div class="row"><span class="pill"><svg class="lock" viewBox="0 0 12 12"><rect x="2" y="5.5" width="8" height="5.5" rx="1.2"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>Lock hover</span></div>
-                <div class="wire"><i></i><i></i><i></i></div>
-                <div class="row"><span class="pill dark">2 hover locked ✕</span></div>
+              <div class="pane ppx" aria-hidden="true">
+                <div class="ppx-panel"><div class="head">
+                  <div class="top"><span class="ttl">Element inspector</span><span class="sp"></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg></span><span class="ib dis"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h4"/></svg></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
+                  <div class="el"><div><div class="t">article</div><div class="s mono">article.card.stat</div></div><div class="state"><span class="ppx-chip">Resting</span><span class="ib lock-on"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div></div>
+                </div></div>
+                <div class="ppx-tb"><div class="group"><span class="b on"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.04 4.69a.5.5 0 0 1 .65-.65l16 6.5a.5.5 0 0 1-.06.95l-6.12 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.12a.5.5 0 0 1-.95.06z"/></svg></span></div><span class="sep"></span><span class="b" style="background:rgba(245,158,11,.18);color:#f7bf60">2 hover locked <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
               </div>
               <p class="verdict"><b>Still too much.</b> Easier to find, but the counter needed explaining.</p>
             </li>
             <li>
               <p class="lbl" style="margin:0"><span>V3</span>One pin at a time</p>
-              <div class="pane" aria-hidden="true">
-                <div class="row"><span class="pill blue"><svg class="lock" viewBox="0 0 12 12"><rect x="2" y="5.5" width="8" height="5.5" rx="1.2"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"/></svg>Hover · pinned</span></div>
-                <div class="wire sel"><i></i><i></i><i></i></div>
-                <div class="wire dim"><i></i><i></i><i></i></div>
+              <div class="pane ppx" aria-hidden="true">
+                <div class="ppx-panel"><div class="head">
+                  <div class="top"><span class="ttl">Element inspector</span><span class="sp"></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></svg></span><span class="ib dis"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m15 14 5-5-5-5"/><path d="M20 9H9a5 5 0 0 0 0 10h4"/></svg></span><span class="ib"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
+                  <div class="el"><div><div class="t">article</div><div class="s mono">article.card.stat</div></div><div class="state"><span class="ppx-chip pinned">Hover · pinned</span><span class="ib lock-on"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span></div></div>
+                </div></div>
+                <div class="ppx-card locked"><div class="k"><i></i>Total payouts</div><div class="v">$412,860</div></div>
               </div>
               <p class="verdict"><b>Simple.</b> Pin one. Pinning or selecting another releases it.</p>
             </li>
           </ol>
         </div>
-        <figcaption><b>Three versions</b>Sketches, not screenshots.</figcaption>
+        <figcaption><b>Three versions</b>V1 and V2 rebuilt from my notes; V3 is how it works now.</figcaption>
       </figure>
     </article>
 
@@ -259,28 +286,35 @@
         <p>I didn't want prompts that sneak random hex codes or type styles into the product. The inspector knows our tokens and text styles, so when a value matches one, the prompt uses the token instead of a hardcoded value.</p>
       </div>
       <!-- Sanitised example: token names only, no internal file paths. -->
-      <div class="ba fig reveal">
-        <figure>
-          <p class="lbl" style="margin:0"><span>Before</span>Raw values</p>
-<pre class="code"><span class="c">### div.plan-card</span>
+      <figure class="fig reveal">
+        <div class="board">
+          <div class="ds-grid">
+            <div class="ppx ppx-picker" aria-hidden="true">
+              <div class="ph-h"><b>Colour styles</b><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+              <div class="search">Search</div>
+              <div class="list">
+                <div class="grp">Primary</div><div class="it"><span class="sw" style="background:#1E55F9"></span><span class="n">primary</span><span class="m mono">#1E55F9</span></div><div class="it"><span class="sw" style="background:#1946CF"></span><span class="n">primary-hover</span><span class="m mono">#1946CF</span></div><div class="it"><span class="sw" style="background:#D9E2FE"></span><span class="n">primary-ring</span><span class="m mono">#D9E2FE</span></div><div class="it"><span class="sw" style="background:#F2F5FE"></span><span class="n">primary-lite</span><span class="m mono">#F2F5FE</span></div>
+                <div class="grp">Base</div><div class="it"><span class="sw" style="background:#FFFFFF"></span><span class="n">base</span><span class="m mono">#FFFFFF</span></div><div class="it"><span class="sw" style="background:#FFFFFF"></span><span class="n">base-25</span><span class="m mono">#FFFFFF</span></div><div class="it on"><span class="sw" style="background:#F9FAFB"></span><span class="n">base-50</span><span class="m mono">#F9FAFB</span></div><div class="it"><span class="sw" style="background:#F3F4F6"></span><span class="n">base-100</span><span class="m mono">#F3F4F6</span></div>
+              </div>
+            </div>
+            <div class="ds-prompts">
+              <div><p class="lbl"><span>Before</span>What I'd have typed</p>
+<pre class="code">Make the stat cards a bit roomier and give them a light grey background.</pre></div>
+              <div><p class="lbl"><span>After</span>What Peek &amp; poke copies</p>
+<pre class="code">Apply these style changes. The element is already identified — don't search for alternatives or ask which one is meant.
 
-- padding: <span class="warn">24px</span>
-- background-color: <span class="warn">#F2F5FE</span></pre>
-        </figure>
-        <figure>
-          <p class="lbl" style="margin:0"><span>After</span>Tokens it already uses</p>
-<pre class="code"><span class="c">### PlanCard `div.plan-card` — "Q1 FY26 — AE"</span>
-Scope: all 6 instances — edit the shared
-component, not one call site.
+<span class="c">### `article.card.stat` — "Total payouts $412,860"</span>
+Scope: all 3 instances — edit the shared component, not one call site.
 
-- padding: 16px → 24px (<mark>p-6</mark>)
-- background-color: base → #F2F5FE
-  (<mark>bg-ever-primary-lite</mark>)
+- padding: 20px → 24px (<mark>p-6</mark>)
+- background-color: base → #F9FAFB (<mark>bg-ever-base-50</mark>)
 
-<span class="c">Never invent a hex or inline text style.</span></pre>
-        </figure>
-      </div>
-      <p class="fig" style="margin:12px 0 0;font-size:14px;color:var(--muted)">Highlighted: design-system tokens. Trimmed, from a made-up page.</p>
+<span class="c">Never invent a hex or inline text style.</span></pre></div>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>Tokens, not hex codes</b>Fills are picked from the design system's colour styles, and the prompt names them. Trimmed, from a made-up page.</figcaption>
+      </figure>
     </article>
   </section>
 
