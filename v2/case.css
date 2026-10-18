@@ -278,12 +278,11 @@
   transition: background-size 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s ease;
 }
 .try .try-cta:hover, .try .try-cta:focus-visible { background-size: 100% 100%, 100% 1px; color: var(--accent); }
-.t-icon { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); transition: background-color 0.25s ease, box-shadow 0.25s ease; }
-.t-icon svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.t-icon { display: inline-grid; place-items: center; width: 16px; height: 16px; }
+.t-icon svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .t-check { stroke-dasharray: 12; stroke-dashoffset: 12; opacity: 0; }
 .try-cta:hover .t-arrow { animation: t-drop 0.9s ease-in-out infinite; }
 @keyframes t-drop { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(1.5px); } }
-.try-cta.done .t-icon { background: var(--accent); box-shadow: none; color: #fff; }
 .try-cta.done .t-arrow, .try-cta.done .t-tray { opacity: 0; animation: none; }
 .try-cta.done .t-check { opacity: 1; animation: t-tick 0.45s ease-out 0.05s forwards; }
 @keyframes t-tick { to { stroke-dashoffset: 0; } }
