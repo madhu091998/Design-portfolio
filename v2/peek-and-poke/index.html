@@ -36,7 +36,7 @@
     <a class="cs-back" href="../#built">← Back to everything</a>
     <p class="eyebrow">Personal project · Design tooling · AI-assisted development</p>
     <h1><span class="w" style="animation-delay:0.08s">Peek</span> <span class="w" style="animation-delay:0.15s">&amp;</span> <span class="w" style="animation-delay:0.22s"><em>poke</em></span><span class="sq" aria-hidden="true"></span></h1>
-    <p class="sub">A Chrome extension for designers to make UI changes directly in the browser and turn them into instructions for AI coding tools.</p>
+    <p class="sub">A Chrome extension that lets designers edit UI right in the browser, then hand the change to an AI coding tool as a precise prompt.</p>
     <dl class="facts">
       <div><dt>Role</dt><dd>Product design, interaction design, visual design</dd></div>
       <div><dt>Built with</dt><dd>Claude Code, Chrome extension, Figma plugin</dd></div>
@@ -57,17 +57,16 @@
         <code>assets/peek-and-poke/peek-and-poke.mp4</code>
       </div>
     </div>
-    <figcaption><b>The film</b>A quick look at both modes, on a made-up “Commission plans” page.</figcaption>
+    <figcaption><b>The film</b>Both modes, on a made-up page.</figcaption>
   </figure>
 
   <!-- 02 · The problem -->
   <section class="sec" id="problem" aria-labelledby="problem-h">
     <p class="sec-h reveal"><span>01</span>The problem</p>
-    <h2 class="cs-h2 reveal" id="problem-h">It started with a lot of back and forth.</h2>
+    <h2 class="cs-h2 reveal" id="problem-h">Too much back and forth.</h2>
     <div class="prose reveal">
-      <p>I've been using AI coding tools to prototype and make UI changes. While they've made building things much faster, explaining exactly what needs to change can still take a few tries.</p>
-      <p>A simple request like “increase the padding on this card” can lead to more questions. Which card? By how much? Should it change everywhere or just here?</p>
-      <p>And sometimes, the tool makes the change, just not quite where or how I intended.</p>
+      <p>I use AI coding tools to prototype and tweak UI. They're fast, but describing a change in words still takes a few rounds.</p>
+      <p>“Increase the padding on this card.” Which card? By how much? Just this one, or all of them? And sometimes the change lands, just not where I meant.</p>
     </div>
 
     <figure class="fig reveal">
@@ -77,24 +76,22 @@
           <p class="reply" style="margin:0"><span class="who">AI coding tool</span><q>Which card are you referring to?</q></p>
         </div>
         <ol class="gaps" aria-label="What the request leaves open">
-          <li><b><span>1</span>Element</b>Which card? There could be dozens on the page.</li>
-          <li><b><span>2</span>Property</b>Padding inside it, around it, or between things?</li>
-          <li><b><span>3</span>Value</b>By how much, and is there a token for it?</li>
-          <li><b><span>4</span>Scope</b>Just this one, or every card like it?</li>
+          <li><b><span>1</span>Element</b>Which card?</li>
+          <li><b><span>2</span>Property</b>Inside, around or between?</li>
+          <li><b><span>3</span>Value</b>How much? Which token?</li>
+          <li><b><span>4</span>Scope</b>This one, or all of them?</li>
         </ol>
       </div>
-      <figcaption><b>An example</b>Not a real transcript, but a pretty typical exchange.</figcaption>
+      <figcaption><b>Illustrative</b>Not a real transcript.</figcaption>
     </figure>
   </section>
 
   <!-- 03 · The idea -->
   <section class="sec" id="idea" aria-labelledby="idea-h">
     <p class="sec-h reveal"><span>02</span>The idea</p>
-    <h2 class="cs-h2 reveal" id="idea-h">What if I could just point at what I wanted to change?</h2>
+    <h2 class="cs-h2 reveal" id="idea-h">What if I could just point at it?</h2>
     <div class="prose reveal">
-      <p>The browser already knows which element I'm looking at and what styles it's using.</p>
-      <p>So I started wondering if I could make changes directly on the page and pass those details to an AI coding tool, instead of explaining everything from scratch.</p>
-      <p>That became the starting point for Peek &amp; poke.</p>
+      <p>The browser already knows which element I'm looking at and which styles it uses. So instead of describing a change, I could make it on the page and pass those details straight to the AI tool.</p>
     </div>
 
     <figure class="fig reveal">
@@ -121,7 +118,7 @@
           </li>
         </ol>
       </div>
-      <figcaption><b>Select, edit, copy</b>A simplified sketch of the flow. The recordings below show the real thing.</figcaption>
+      <figcaption><b>Select, edit, copy</b>A simplified sketch of the flow.</figcaption>
     </figure>
   </section>
 
@@ -131,10 +128,9 @@
 
     <div class="sub-sec">
       <p class="kick reveal" style="--c:var(--blue)"><span class="mode" aria-hidden="true"></span>Element inspector</p>
-      <h3 class="cs-h2 reveal">Making UI changes right where I see them.</h3>
+      <h3 class="cs-h2 reveal">Edit on the page, copy a prompt.</h3>
       <div class="prose reveal">
-        <p>With the Element inspector, I can select an element on a live page, change its styles, and see the result immediately.</p>
-        <p>Once I'm happy with the changes, the extension creates a prompt with the element details, updated values, and relevant design-system tokens that I can pass to Claude or Cursor.</p>
+        <p>Select any element on a live page, adjust its styles and see the result instantly. When it looks right, copy a prompt with the element, the new values and matching design-system tokens, ready for Claude or Cursor.</p>
       </div>
       <ul class="chips reveal" aria-label="Inspector sections">
         <li>Layout</li><li>Fill</li><li>Stroke</li><li>Typography</li><li>Appearance</li>
@@ -151,16 +147,15 @@
             <code>assets/peek-and-poke/inspector.mp4</code>
           </div>
         </div>
-        <figcaption><b>Element inspector</b>A floating toolbar and an on-page inspector. Changes preview on the page; the code only changes when I hand over the prompt.</figcaption>
+        <figcaption><b>Element inspector</b>Changes preview on the page. The code only changes once the prompt is handed over.</figcaption>
       </figure>
     </div>
 
     <div class="sub-sec">
       <p class="kick reveal" style="--c:var(--violet)"><span class="mode" aria-hidden="true"></span>Annotator</p>
-      <h3 class="cs-h2 reveal">And while I was at it, I wanted to make feedback easier too.</h3>
+      <h3 class="cs-h2 reveal">Feedback, pinned to the element.</h3>
       <div class="prose reveal">
-        <p>Another thing I found inconvenient was leaving feedback on live builds. I'd usually have to take a screenshot, explain which element I was referring to, and move that feedback into Figma.</p>
-        <p>So I added an Annotator mode where I can click an element, leave a note or record one, and send everything to Figma with the annotations pinned to the right places.</p>
+        <p>Feedback on a live build used to mean screenshots and explaining which element I meant. In Annotator mode, I click an element, type or say a note, and send it all to Figma with each note pinned in place.</p>
       </div>
       <!-- MEDIA: annotator recording at assets/peek-and-poke/annotator.mp4 -->
       <figure class="media missing reveal">
@@ -174,9 +169,9 @@
             <code>assets/peek-and-poke/annotator.mp4</code>
           </div>
         </div>
-        <figcaption><b>Annotator</b>Sending to Figma goes through a small local relay and a companion Figma plugin, so it needs a one-time setup.</figcaption>
+        <figcaption><b>Annotator</b>Needs a local relay and a Figma plugin, set up once.</figcaption>
       </figure>
-      <p class="note reveal"><b>Two experiments, one tool.</b> Voice Annotator and Style Inspector started as separate experiments. I brought them together into Peek &amp; poke after noticing that both begin with the same gesture: pointing at an element. The shared toolbar has two modes: Element inspector and Annotator.</p>
+      <p class="note reveal"><b>Two tools, one gesture.</b> Annotator and the inspector started as separate experiments. Both begin with pointing at an element, so I merged them into one toolbar with two modes.</p>
     </div>
   </section>
 
@@ -186,12 +181,9 @@
 
     <article class="decision" aria-labelledby="d1-h">
       <p class="kick reveal">Scope</p>
-      <h3 class="cs-h2 reveal" id="d1-h">Changing one thing isn't always changing just one thing.</h3>
+      <h3 class="cs-h2 reveal" id="d1-h">One card is rarely just one card.</h3>
       <div class="prose reveal">
-        <p>When I select a card, there might be five more cards using the same component.</p>
-        <p>Changing the selected card doesn't necessarily communicate whether I want to update just that instance or the shared component.</p>
-        <p>I introduced two options: “All” and “This one”, with “All” selected by default when matching elements are found.</p>
-        <p>This makes the scope visible in the browser and clear in the prompt, so the coding tool knows whether the change should affect a shared component or a single instance.</p>
+        <p>A selected card often shares a component with five others, and editing it doesn't say which I mean. So the inspector asks: <b>All</b> or <b>This one</b>. All is the default when there are matches, the matches get dashed outlines, and the choice goes into the prompt.</p>
       </div>
       <figure class="fig reveal">
         <div class="board">
@@ -214,17 +206,15 @@
             <p class="scope-line" aria-live="polite"><b>Scope:</b> <span data-line>all 6 instances — edit the shared component, not one call site.</span></p>
           </div>
         </div>
-        <figcaption><b>Try it</b>A sketch of the scope options: the dashed outlines are the other matches. Finding those isn't a plain class match; it looks at the component, how things actually look, and what they sit in, so unrelated elements don't get grouped and variants don't get missed.</figcaption>
+        <figcaption><b>Try it</b>Matches are found by component, appearance and container, not just class names.</figcaption>
       </figure>
     </article>
 
     <article class="decision" aria-labelledby="d2-h">
       <p class="kick reveal">Hover states</p>
-      <h3 class="cs-h2 reveal" id="d2-h">A small interaction that took a few tries.</h3>
+      <h3 class="cs-h2 reveal" id="d2-h">Hover lock took three tries.</h3>
       <div class="prose reveal">
-        <p>One issue I ran into was inspecting hover states. The moment I moved my cursor towards the inspector, the selected element would return to its default state.</p>
-        <p>I tried a few ways of keeping hover states active. Earlier versions supported locking multiple elements, but that introduced extra controls and made things more complicated than they needed to be.</p>
-        <p>I eventually simplified it to one pinned element at a time, with the current state clearly labelled in the inspector.</p>
+        <p>Moving the cursor to the inspector dropped the element's hover state, so I couldn't read it. Early versions let me lock several elements, which needed extra UI just to manage. The final one pins one element at a time and labels the state in the inspector.</p>
       </div>
       <figure class="fig reveal">
         <div class="board pink">
@@ -236,7 +226,7 @@
                 <div class="wire"><span class="pill dark">Hover locked</span><i></i><i></i><i></i></div>
                 <div class="wire"><span class="pill dark">Hover locked</span><i></i><i></i><i></i></div>
               </div>
-              <p class="verdict"><b>Too noisy.</b> Any number of elements, a tag on each, and the locks stayed on after sending to Figma.</p>
+              <p class="verdict"><b>Too noisy.</b> A tag on every lock, and locks that outlived the session.</p>
             </li>
             <li>
               <p class="lbl" style="margin:0"><span>V2</span>Padlock and a counter</p>
@@ -245,7 +235,7 @@
                 <div class="wire"><i></i><i></i><i></i></div>
                 <div class="row"><span class="pill dark">2 hover locked ✕</span></div>
               </div>
-              <p class="verdict"><b>Still too much UI.</b> Easier to find, and it released after sending, but the counter and chip still needed explaining.</p>
+              <p class="verdict"><b>Still too much.</b> Easier to find, but the counter needed explaining.</p>
             </li>
             <li>
               <p class="lbl" style="margin:0"><span>V3</span>One pin at a time</p>
@@ -254,21 +244,19 @@
                 <div class="wire sel"><i></i><i></i><i></i></div>
                 <div class="wire dim"><i></i><i></i><i></i></div>
               </div>
-              <p class="verdict"><b>Simpler.</b> Pinning another element, or selecting a different one, releases the last. The padlock is the whole UI.</p>
+              <p class="verdict"><b>Simple.</b> Pin one. Pinning or selecting another releases it.</p>
             </li>
           </ol>
         </div>
-        <figcaption><b>Three versions</b>Sketched from my notes, not screenshots of each build.</figcaption>
+        <figcaption><b>Three versions</b>Sketches, not screenshots.</figcaption>
       </figure>
     </article>
 
     <article class="decision" aria-labelledby="d3-h">
       <p class="kick reveal">Design-system consistency</p>
-      <h3 class="cs-h2 reveal" id="d3-h">Making sure the changes still belong to the product.</h3>
+      <h3 class="cs-h2 reveal" id="d3-h">Stay on the design system.</h3>
       <div class="prose reveal">
-        <p>I also wanted to avoid generating instructions that introduce random colours or typography styles into the product.</p>
-        <p>So I connected the inspector to our existing design-system tokens and text styles. When a value matches one of them, the generated prompt uses that token or component instead of introducing another hardcoded value.</p>
-        <p>That way, the changes are more consistent with how the product is already built.</p>
+        <p>I didn't want prompts that sneak random hex codes or type styles into the product. The inspector knows our tokens and text styles, so when a value matches one, the prompt uses the token instead of a hardcoded value.</p>
       </div>
       <!-- Sanitised example: token names only, no internal file paths. -->
       <div class="ba fig reveal">
@@ -292,41 +280,33 @@ component, not one call site.
 <span class="c">Never invent a hex or inline text style.</span></pre>
         </figure>
       </div>
-      <p class="fig" style="margin:12px 0 0;font-size:14px;color:var(--muted)">From a generated prompt, trimmed and on a made-up page. The highlighted bits are design-system tokens.</p>
+      <p class="fig" style="margin:12px 0 0;font-size:14px;color:var(--muted)">Highlighted: design-system tokens. Trimmed, from a made-up page.</p>
     </article>
   </section>
 
   <!-- 06 · Building with AI -->
   <section class="sec" id="building" aria-labelledby="building-h">
     <p class="sec-h reveal"><span>05</span>Building with AI</p>
-    <h2 class="cs-h2 reveal" id="building-h">Designing it, and figuring out how to build it.</h2>
+    <h2 class="cs-h2 reveal" id="building-h">Designed by me, built with Claude Code.</h2>
     <div class="prose reveal">
-      <p>I built Peek &amp; poke with Claude Code.</p>
-      <p>I worked on the problem, the interactions, the visual design, and the decisions along the way, while Claude helped turn those ideas into a working extension.</p>
-      <p>There was quite a bit of trial and error, especially around interactions that behaved differently on real web pages.</p>
-      <p>It's been an interesting way to work because I could try out ideas in the actual browser, see what wasn't working, and keep refining them.</p>
+      <p>I owned the problem, the interactions, the visual design and the decisions. Claude Code wrote the implementation.</p>
+      <p>Most of the work was trial and error on real pages: try an idea in the browser, see what breaks, refine.</p>
     </div>
-    <dl class="split reveal">
-      <div><dt>Me</dt><dd>The problem, the interactions, the visual design, and what to change after using it</dd></div>
-      <div><dt>Claude Code</dt><dd>The implementation</dd></div>
-    </dl>
   </section>
 
   <!-- 07 · Outcome and reflection -->
   <section class="sec" id="outcome" aria-labelledby="outcome-h">
     <p class="sec-h reveal"><span>06</span>Outcome</p>
-    <h2 class="cs-h2 reveal" id="outcome-h">A small tool that's still evolving.</h2>
+    <h2 class="cs-h2 reveal" id="outcome-h">Still evolving.</h2>
     <div class="prose reveal">
-      <p>Peek &amp; poke started as something I wanted for my own workflow and eventually became a tool I could share with other designers.</p>
-      <p>There are still things I'd like to improve, especially around making it easier to work with existing design-system components.</p>
-      <p>For now, it's been a useful experiment in how designers can work a little more directly with the products they're building.</p>
+      <p>It started as a tool for my own workflow and is now something I share with other designers. Next, I'd like it to work better with existing design-system components.</p>
     </div>
     <div class="ideas reveal">
-      <h3>Ideas for later, not built yet</h3>
+      <h3>Ideas, not built yet</h3>
       <ul>
-        <li>Recognise existing design-system components and swap to them</li>
-        <li>Generate token mappings from the design system automatically</li>
-        <li>Publish the extension to the Chrome Web Store</li>
+        <li>Detect and swap to design-system components</li>
+        <li>Generate token mappings automatically</li>
+        <li>Publish on the Chrome Web Store</li>
       </ul>
     </div>
   </section>
