@@ -67,8 +67,15 @@
     <p class="sec-h reveal"><span>02</span>Annotator</p>
     <h2 class="cs-h2 reveal" id="annotator-h">Feedback, pinned to the element.</h2>
     <dl class="pi reveal">
-      <div><dt>The problem</dt><dd>Feedback on a live build usually means a screenshot, a paragraph explaining which button I meant, and then moving it all into Figma.</dd></div>
-      <div><dt>The solution</dt><dd>Click an element, type or say a note, and send everything to Figma with each note pinned to the element it’s about.</dd></div>
+      <div><dt>The problem</dt><dd>
+        <p>During design QA, we'd have to take screenshots from Chrome, paste them into Figma, create a frame, and then add annotations using the Figma plugin. This often took longer than adding the feedback itself.</p>
+        <p>We faced the same issue when annotating edge cases in coded prototypes to explain expected behaviours and flows to developers.</p>
+      </dd></div>
+      <div><dt>The solution</dt><dd>
+        <p>To make this easier, I added an Annotator to Peek &amp; poke that connects Chrome and Figma.</p>
+        <p>Designers can click on any element on a live page and either type or speak their feedback. They can add as many annotations as needed and, once done, click <b>Send to Figma</b>.</p>
+        <p>The screenshot is automatically sent to Figma with all the annotations placed in the right positions, saving the manual effort of capturing and setting everything up.</p>
+      </dd></div>
     </dl>
     <!-- TODO: swap in the Annotator recording (assets/peek-and-poke/annotator.mp4) when it is ready -->
     <figure class="media reveal" style="--c:var(--violet)">

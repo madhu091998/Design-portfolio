@@ -241,3 +241,4 @@
   .case .hero h1 { font-size: min(48px, 12vw); }
   .case .hero .sub { font-size: 16px; }
 }
+.pi dd b { font-weight: 500; color: var(--ink); }
