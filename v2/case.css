@@ -13,6 +13,7 @@
 .cs-back:hover { color: var(--ink); }
 .eyebrow { margin: 0 0 22px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .case .hero h1 .sq { bottom: 0.32em; }
+.case .hero h1 em { color: inherit; }
 .case .hero .sub { max-width: 760px; }
 .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 56px 0 0; max-width: 900px; font-size: 15px; line-height: 1.5; }
 .facts div { border-top: 1px solid var(--line); padding-top: 14px; }

@@ -77,7 +77,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   font: 400 clamp(56px, 6.6vw, 104px)/1 "Instrument Serif", Georgia, serif;
   letter-spacing: -0.015em; color: var(--ink);
 }
-.hero h1 em { font-style: italic; }
+.hero h1 em { font-style: italic; color: var(--accent); }
 .hero h1 .nowrap { white-space: nowrap; }
 .hero h1 .w { display: inline-block; opacity: 0; transform: translateY(12px); animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
