@@ -127,8 +127,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
   color: var(--t, var(--ink)); text-align: center; padding: 0 32px; max-width: 420px; text-wrap: balance;
   font: 500 clamp(19px, 1.7vw, 25px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.02em;
 }
-.soon .label small { opacity: 0.75; }
-.soon .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Geist", sans-serif; letter-spacing: 0.02em; }
+.tile .label small { opacity: 0.75; }
+.tile .label small { display: block; margin-top: 8px; font: 400 13px/1.4 "Geist", sans-serif; letter-spacing: 0.02em; }
 .cap { margin: 12px 0 0; font-size: 14px; color: var(--ink); }
 .cap b { font-weight: 400; }
 .cap span { color: var(--muted); }
