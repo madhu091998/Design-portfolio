@@ -247,3 +247,8 @@
 .cs-sub { max-width: 680px; margin: 14px 0 0; font-size: 18px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
 .case .media + .pi { margin-top: 48px; }
 @media (max-width: 760px) { .cs-sub { font-size: 16px; } }
+
+/* Closing note */
+.cs-end p { max-width: 680px; margin: 0; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.case .cs-end + .cs-foot { margin-top: 120px; }
+@media (max-width: 760px) { .cs-end p { font-size: 18px; } }
