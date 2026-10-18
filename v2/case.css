@@ -234,8 +234,8 @@
 
 /* Case-study titles run a size below the landing page's */
 .case .hero h1 { font-size: clamp(44px, 5vw, 80px); line-height: 1.04; text-wrap: balance; }
-.case .hero .sub { font-size: clamp(17px, 1.3vw, 20px); max-width: 700px; }
+.case .hero .sub { font-size: clamp(16px, 1.15vw, 18px); max-width: 640px; }
 @media (max-width: 760px) {
   .case .hero h1 { font-size: min(48px, 12vw); }
-  .case .hero .sub { font-size: 17px; }
+  .case .hero .sub { font-size: 16px; }
 }
