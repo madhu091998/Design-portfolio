@@ -200,3 +200,12 @@
   .ph b { font-size: 15px; }
   .ph span { font-size: 13px; }
 }
+
+/* Problem / idea pair under each feature heading */
+.pi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 900px; margin: 32px 0 0; }
+.pi div { border-top: 1px solid var(--line); padding-top: 14px; }
+.pi dt { font-size: 14px; color: var(--muted); }
+.pi dd { margin: 6px 0 0; font-size: 17px; line-height: 1.6; color: var(--text); text-wrap: pretty; }
+.case .media { margin-top: 48px; }
+.case .media video { object-fit: cover; }
+@media (max-width: 760px) { .pi { grid-template-columns: 1fr; gap: 20px; } .pi dd { font-size: 16px; } }
