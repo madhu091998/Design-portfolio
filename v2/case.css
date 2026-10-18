@@ -213,16 +213,17 @@
 @media (max-width: 760px) { .pi { grid-template-columns: 1fr; gap: 20px; } .pi dd { font-size: 16px; } }
 
 /* Hero facts with two items, and the download */
-.facts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; margin-top: 48px; }
+.facts.two { display: flex; flex-wrap: wrap; gap: 20px 72px; max-width: 820px; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); }
+.facts.two div { border-top: 0; padding-top: 0; }
 .facts .heart { display: inline-block; width: 15px; height: 15px; margin-left: 3px; vertical-align: -2px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linejoin: round; }
-.try { max-width: 820px; margin: 36px 0 0; font-size: 17px; line-height: 1.65; color: var(--text); text-wrap: pretty; }
+.try { max-width: 680px; margin: 28px 0 0; font-size: 17px; line-height: 1.65; color: var(--text); text-wrap: pretty; }
 .try a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; white-space: nowrap; transition: color 0.2s ease; }
 .try a:hover { color: var(--accent); }
 .try a svg { display: inline-block; width: 13px; height: 13px; margin-left: 4px; vertical-align: -1px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
 .try a:hover svg { transform: translateY(2px); }
 .try .meta { font-size: 14px; color: var(--muted); white-space: nowrap; }
 @media (max-width: 760px) {
-  .facts.two { grid-template-columns: 1fr 1fr; margin-top: 36px; }
+  .facts.two { gap: 20px 48px; margin-top: 40px; }
   .try { font-size: 16px; }
 }
 
@@ -252,3 +253,5 @@
 .cs-end p { max-width: 680px; margin: 0; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .case .cs-end + .cs-foot { margin-top: 120px; }
 @media (max-width: 760px) { .cs-end p { font-size: 18px; } }
+.cs-end .try { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.65; letter-spacing: 0; color: var(--text); }
+@media (max-width: 760px) { .cs-end .try { font-size: 16px; } }
