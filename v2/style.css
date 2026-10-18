@@ -42,14 +42,18 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 }
 .topbar > * { pointer-events: auto; }
 .resume-btn {
-  display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px 7px 15px; border-radius: 999px;
-  font-size: 14px; color: var(--ink); text-decoration: none;
-  background: color-mix(in srgb, var(--bg) 70%, #fff); border: 1px solid var(--line);
-  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 12px 0 14px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; letter-spacing: -0.005em; color: var(--ink); text-decoration: none;
+  background: #fff; border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(31, 43, 45, 0.06);
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
-.resume-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1); }
-.resume-btn:hover, .resume-btn:focus-visible { border-color: var(--accent); color: var(--accent); }
+.resume-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.resume-btn:hover, .resume-btn:focus-visible { border-color: color-mix(in srgb, var(--ink) 22%, var(--line)); box-shadow: 0 2px 8px rgba(31, 43, 45, 0.08); }
 .resume-btn:hover svg, .resume-btn:focus-visible svg { transform: translateY(2px); }
+/* The one filled button: same shape, ink fill */
+.resume-btn.solid { color: #fff; background: var(--ink); border-color: var(--ink); box-shadow: 0 1px 2px rgba(31, 43, 45, 0.18); }
+.resume-btn.solid:hover, .resume-btn.solid:focus-visible { background: color-mix(in srgb, var(--ink) 88%, #fff); border-color: transparent; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
 .wordmark .avatar { position: relative; width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex: none; display: block; box-shadow: 0 0 0 1px var(--line); transition: transform 0.3s cubic-bezier(0.3, 1.4, 0.5, 1); }
 /* The photo is a touch larger than the circle, so it can sit 1px right of centre and still fill it */
