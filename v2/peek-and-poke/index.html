@@ -42,8 +42,16 @@
     <p class="sec-h reveal"><span>01</span>Element inspector</p>
     <h2 class="cs-h2 reveal" id="inspector-h">Point at the UI, get the exact change.</h2>
     <dl class="pi reveal">
-      <div><dt>The problem</dt><dd>Asking an AI coding tool to “add more padding to this card” usually starts a back and forth. Which card? How much? Just this one, or every card like it?</dd></div>
-      <div><dt>The idea</dt><dd>Edit the element right on the page and see it change. Then copy a prompt that names the exact element, the new values, the design-system tokens and whether the change is for one card or all of them.</dd></div>
+      <div><dt>The problem</dt><dd>
+        <p>One thing I found tedious while designing directly in code was making small visual changes. Even for something as simple as spacing or colour, I'd have to guess the value, find the right design system token, prompt Claude or Cursor, and wait to see how it looked.</p>
+        <p>Most of the time, I didn't know the exact value I wanted. I just wanted to tweak things visually and see the changes immediately, instead of going through the same prompt-and-check loop.</p>
+      </dd></div>
+      <div><dt>The solution</dt><dd>
+        <p>That's where Peek &amp; poke came in.</p>
+        <p>It's a lightweight, Figma-like inspector that lets me select elements on a live page and tweak things like spacing, colours, and typography directly on the UI.</p>
+        <p>I also connected it to our design system, so I can see which tokens are being used and pick from the available ones without having to remember them.</p>
+        <p>Once I'm happy with the changes, I can copy a generated prompt with the exact changes and pass it to Claude or Cursor to update the actual code.</p>
+      </dd></div>
     </dl>
     
     <figure class="media reveal" style="--c:var(--blue)">
@@ -60,7 +68,7 @@
     <h2 class="cs-h2 reveal" id="annotator-h">Feedback, pinned to the element.</h2>
     <dl class="pi reveal">
       <div><dt>The problem</dt><dd>Feedback on a live build usually means a screenshot, a paragraph explaining which button I meant, and then moving it all into Figma.</dd></div>
-      <div><dt>The idea</dt><dd>Click an element, type or say a note, and send everything to Figma with each note pinned to the element it’s about.</dd></div>
+      <div><dt>The solution</dt><dd>Click an element, type or say a note, and send everything to Figma with each note pinned to the element it’s about.</dd></div>
     </dl>
     <!-- TODO: swap in the Annotator recording (assets/peek-and-poke/annotator.mp4) when it is ready -->
     <figure class="media reveal" style="--c:var(--violet)">
