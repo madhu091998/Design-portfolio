@@ -1,9 +1,10 @@
 /* Case-study pages for version 2. Loaded after style.css and built from the same tokens. */
-/* Case studies use their own palette ("making a wish"): shooting star, birthday candle, clover,
-   dandelion puff, wishing well and the moon */
+/* Figures inside case studies use a softened "making a wish" palette (shooting star, birthday candle,
+   clover, dandelion puff, wishing well, the moon). Site chrome keeps the maroon and turquoise accents. */
 .case {
-  --star: #d9e4ee; --candle: #e6c3f2; --clover: #74b9af; --puff: #f8f2df; --well: #bedff4; --moon: #3f518f;
-  --accent: var(--moon); --seafoam: var(--clover); --tint: var(--star);
+  --star: #ebf0f6; --candle: #f4e5f9; --clover: #a9d4ce; --clover-lt: #e6f2f0; --puff: #fbf8ee; --well: #e1f0fa;
+  --moon: #3f518f; --moon-lt: #e7eaf4; --moon-mid: #c9cfe5;
+  --tint: var(--star);
   --blue: #009cff; --violet: #8b5cf6;
 }
 
@@ -36,7 +37,7 @@
 }
 .media.missing .ph { display: grid; }
 .media.missing video { visibility: hidden; }
-.ph .tag { padding: 3px 9px; border-radius: 999px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid currentColor; }
+.ph .tag { padding: 3px 9px; border-radius: 999px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--moon); border: 1px solid var(--moon-mid); }
 .ph b { font-weight: 500; font-size: 17px; color: var(--ink); }
 .ph span { max-width: 460px; font-size: 14px; line-height: 1.5; color: var(--text); text-wrap: balance; }
 .ph code { font: 12px/1.5 ui-monospace, "SF Mono", Menlo, monospace; color: var(--muted); word-break: break-all; }
@@ -79,12 +80,12 @@
 .ask .who { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .ask q { quotes: "“" "”"; font: 400 clamp(22px, 2.3vw, 32px)/1.35 "Geist", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); }
 .ask .reply q { color: var(--text); }
-.ask mark { background: none; color: inherit; text-decoration: underline 1.5px var(--accent); text-underline-offset: 7px; }
-.ask sup { margin-left: 2px; font-size: 0.42em; font-weight: 500; letter-spacing: 0; color: var(--accent); vertical-align: 1.5em; }
+.ask mark { background: none; color: inherit; text-decoration: underline 1.5px var(--clover); text-underline-offset: 7px; }
+.ask sup { margin-left: 2px; font-size: 0.42em; font-weight: 500; letter-spacing: 0; vertical-align: 1.5em; color: var(--moon); }
 .gaps { list-style: none; margin: 40px 0 0; padding: 24px 0 0; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; font-size: 14px; line-height: 1.5; }
 .gaps li { display: grid; gap: 4px; color: var(--text); }
 .gaps b { font-weight: 500; color: var(--ink); }
-.gaps b span { margin-right: 8px; color: var(--accent); }
+.gaps b span { margin-right: 8px; color: var(--moon); }
 
 /* Shared wireframe pieces */
 .wire { display: grid; gap: 7px; padding: 14px; border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent); }
@@ -110,10 +111,10 @@
 .pane.rel { position: relative; }
 .val { display: flex; justify-content: space-between; margin-top: 12px; padding: 7px 10px; border-radius: 6px; font: 12px/1.4 ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink); background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent); }
 .val s { color: var(--muted); }
-.mini-prompt { display: grid; gap: 6px; padding: 14px; border-radius: 6px; background: var(--moon); }
-.mini-prompt i { display: block; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.22); }
-.mini-prompt i:nth-child(1) { width: 70%; } .mini-prompt i:nth-child(2) { width: 90%; } .mini-prompt i:nth-child(3) { width: 55%; background: var(--puff); } .mini-prompt i:nth-child(4) { width: 76%; }
-.copied { justify-self: start; margin-top: 10px; padding: 4px 10px; border-radius: 999px; font-size: 12px; color: #fff; background: var(--moon); }
+.mini-prompt { display: grid; gap: 6px; padding: 14px; border-radius: 6px; background: var(--moon-lt); box-shadow: 0 0 0 1px var(--moon-mid); }
+.mini-prompt i { display: block; height: 6px; border-radius: 3px; background: var(--moon-mid); }
+.mini-prompt i:nth-child(1) { width: 70%; } .mini-prompt i:nth-child(2) { width: 90%; } .mini-prompt i:nth-child(3) { width: 55%; background: var(--clover); } .mini-prompt i:nth-child(4) { width: 76%; }
+.copied { justify-self: start; margin-top: 10px; padding: 4px 10px; border-radius: 999px; font-size: 12px; color: var(--moon); background: var(--moon-lt); box-shadow: 0 0 0 1px var(--moon-mid); }
 
 /* 04: inspector sections */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
@@ -129,8 +130,8 @@
 .seg button[aria-pressed="true"] { color: #fff; background: var(--blue); }
 .cards6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .scope-demo.one .wire.match { outline-color: transparent; }
-.scope-line { margin: 0; padding: 12px 14px; border-radius: 6px; font: 13px/1.5 ui-monospace, "SF Mono", Menlo, monospace; color: #e4e9f6; background: var(--moon); }
-.scope-line b { font-weight: 400; color: var(--puff); }
+.scope-line { margin: 0; padding: 12px 14px; border-radius: 6px; font: 13px/1.5 ui-monospace, "SF Mono", Menlo, monospace; color: var(--moon); background: var(--moon-lt); }
+.scope-line b { font-weight: 500; color: var(--moon); }
 
 .iters { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .iters li { display: grid; grid-template-rows: auto 1fr auto; gap: 14px; }
@@ -142,7 +143,7 @@
 .iters .verdict b { font-weight: 500; color: var(--ink); }
 .pill { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 3px 9px; border-radius: 999px; font-size: 11px; line-height: 1.4; color: var(--ink); background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .pill.blue { color: #fff; background: var(--blue); box-shadow: none; }
-.pill.dark { color: #fff; background: var(--moon); box-shadow: none; }
+.pill.dark { color: var(--moon); background: var(--moon-lt); box-shadow: 0 0 0 1px var(--moon-mid); }
 .key { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 4px; font: 500 11px/1 "Geist", sans-serif; color: var(--ink); background: #fff; box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .lock { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -156,11 +157,11 @@
 .ba .lbl span::after { content: "/"; margin: 0 8px; }
 .code {
   margin: 0; padding: 18px 20px; border-radius: 6px; overflow-x: auto; white-space: pre-wrap;
-  font: 13px/1.65 ui-monospace, "SF Mono", Menlo, monospace; color: #e4e9f6; background: var(--moon);
+  font: 13px/1.65 ui-monospace, "SF Mono", Menlo, monospace; color: var(--moon); background: var(--moon-lt);
 }
-.code .c { color: #a9b4d8; }
-.code mark { padding: 1px 4px; border-radius: 3px; color: var(--moon); background: var(--puff); }
-.code .warn { color: var(--candle); }
+.code .c { color: #7f8bb5; }
+.code mark { padding: 1px 4px; border-radius: 3px; color: var(--moon); background: var(--clover); }
+.code .warn { color: #b0499a; }
 
 /* 06: who did what */
 .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 760px; margin: 40px 0 0; }
