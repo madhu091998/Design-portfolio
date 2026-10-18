@@ -22,7 +22,7 @@
 
 <nav class="sidenav" aria-label="On this page">
   <a href="#top" class="on">Overview</a>
-  <a href="#inspector">Inspector</a>
+  <a href="#inspector">Element inspector</a>
   <a href="#annotator">Annotator</a>
 </nav>
 
@@ -32,7 +32,7 @@
     <h1><span class="w" style="animation-delay:0.08s">Making</span> <span class="w" style="animation-delay:0.15s">it</span> <span class="w" style="animation-delay:0.22s">easier</span> <span class="w" style="animation-delay:0.29s">to</span> <span class="w" style="animation-delay:0.36s">design</span> <span class="w" style="animation-delay:0.43s">directly</span> <span class="nowrap"><span class="w" style="animation-delay:0.50s"><em>in</em></span> <span class="w" style="animation-delay:0.57s"><em>code.</em></span><span class="sq" aria-hidden="true"></span></span></h1>
     <p class="sub">Peek &amp; poke is a little browser tool I built to help designers turn UI changes into precise prompts for AI coding tools and send feedback from live pages to Figma.</p>
     <dl class="facts two">
-      <div><dt>Built with</dt><dd>Claude Code <svg class="heart" viewBox="0 0 24 24" aria-label="with love" role="img"><path d="M12 20.3s-7.6-4.6-9.3-9.4C1.6 7.6 3.8 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.2 0 5.4 3.1 4.3 6.4-1.7 4.8-9.3 9.4-9.3 9.4z"/></svg></dd></div>
+      <div><dt>Built with</dt><dd>Claude Code</dd></div>
       <div><dt>Type</dt><dd>Self-initiated project</dd></div>
     </dl>
   </header>
@@ -46,7 +46,6 @@
         <video src="../../assets/peek-and-poke/element-inspector.mp4" poster="../../assets/peek-and-poke/element-inspector-poster.jpg" width="1600" height="900" controls autoplay muted loop playsinline preload="metadata"
           aria-label="Element inspector walkthrough: selecting a stat card, changing its padding and fill in the inspector, copying the prompt and pasting it into a coding agent, which updates the shared component"></video>
       </div>
-      <figcaption><b>Element inspector</b>Selecting a card, changing its padding and fill, and handing the prompt to a coding agent.</figcaption>
     </figure>
     <dl class="pi reveal">
       <div><dt>The problem</dt><dd>
@@ -71,7 +70,6 @@
         <video src="../../assets/peek-and-poke/element-inspector.mp4" poster="../../assets/peek-and-poke/element-inspector-poster.jpg" width="1600" height="900" controls autoplay muted loop playsinline preload="metadata"
           aria-label="Peek and poke walkthrough (the Annotator recording is coming soon)"></video>
       </div>
-      <figcaption><b>Annotator</b>Its own recording is on the way. For now, this is the inspector.</figcaption>
     </figure>
     <dl class="pi reveal">
       <div><dt>The problem</dt><dd>
@@ -88,18 +86,27 @@
 
   <section class="sec cs-end reveal" aria-label="Where it is now">
     <p>What started as a small tool for my own workflow is now being used by other designers at Everstage too. It's been nice to see them finding it useful.</p>
-    <p class="try">If you're a designer who also works directly in code and has run into similar frustrations, you might find this useful. <a href="../../assets/peek-and-poke/Peek-and-poke-1.0.0.zip" download>Give it a try!<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 10.7l3.5-3.5M3 13.5h10"/></svg></a> <span class="meta">.zip, 97 KB</span></p>
+    <p class="try">If you're a designer who also works directly in code and has run into similar frustrations, you might find this useful. <a class="try-cta" href="../../assets/peek-and-poke/Peek-and-poke-1.0.0.zip" download><span class="t-label" data-done="On its way. Enjoy!">Give it a try!</span><span class="t-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path class="t-arrow" d="M8 2.5v7.5M4.8 6.9 8 10.1l3.2-3.2"/><path class="t-tray" d="M3 13.5h10"/><path class="t-check" d="M4 8.4 6.8 11 12 5.2"/></svg></span></a> <span class="meta">.zip, 97 KB</span></p>
   </section>
 
   <footer class="cs-foot">
-    <p class="foot-quote"><a href="../#work">Thanks for reading. <em>Back to everything →</em></a></p>
-    <nav class="foot-col" aria-label="Say hi">
-      <p class="foot-h">Say hi</p>
-      <!-- TODO: replace with your real email and LinkedIn -->
-      <a href="mailto:hello@example.com">Email</a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="../../assets/Madhumitha-Resume.pdf" download>Resume</a>
-    </nav>
+    <div class="cs-foot-top">
+      <div class="cs-foot-sign">
+        <p class="foot-quote">That's all for this one.</p>
+        <a class="cs-foot-more" href="../#work">See what else I've been up to<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </div>
+      <nav class="foot-col" aria-label="Elsewhere">
+        <p class="foot-h">Elsewhere</p>
+        <!-- TODO: replace with your real email and LinkedIn -->
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../../assets/Madhumitha-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+    <div class="cs-foot-next">
+      <p class="foot-h">Up next</p>
+      <a href="../../contracts/">Making contracts a little less complicated<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    </div>
   </footer>
 </main>
 
@@ -120,6 +127,19 @@
       function ok() { fig.classList.remove("missing"); }
       if (v.readyState >= 2) ok(); else v.addEventListener("loadeddata", ok);
       if (still) { v.autoplay = false; v.pause(); }
+    });
+  })();
+
+  (function () {
+    var cta = document.querySelector(".try-cta");
+    if (!cta) return;
+    var label = cta.querySelector(".t-label"), idle = label.textContent, t;
+    // A little thank-you once the download starts, then back to normal
+    cta.addEventListener("click", function () {
+      cta.classList.remove("done"); void cta.offsetWidth; cta.classList.add("done");
+      label.textContent = label.getAttribute("data-done");
+      clearTimeout(t);
+      t = setTimeout(function () { cta.classList.remove("done"); label.textContent = idle; }, 3200);
     });
   })();
 
