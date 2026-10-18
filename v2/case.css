@@ -242,3 +242,8 @@
   .case .hero .sub { font-size: 16px; }
 }
 .pi dd b { font-weight: 500; color: var(--ink); }
+
+/* Subheading under each feature heading; the problem/solution sits below the video */
+.cs-sub { max-width: 680px; margin: 14px 0 0; font-size: 18px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
+.case .media + .pi { margin-top: 48px; }
+@media (max-width: 760px) { .cs-sub { font-size: 16px; } }

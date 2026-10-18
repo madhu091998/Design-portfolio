@@ -40,51 +40,49 @@
 
   <section class="sec" id="inspector" aria-labelledby="inspector-h">
     <p class="sec-h reveal"><span>01</span>Element inspector</p>
-    <h2 class="cs-h2 reveal" id="inspector-h">Point at the UI, get the exact change.</h2>
-    <dl class="pi reveal">
-      <div><dt>The problem</dt><dd>
-        <p>One thing I found tedious while designing directly in code was making small visual changes. Even for something as simple as spacing or colour, I'd have to guess the value, find the right design system token, prompt Claude or Cursor, and wait to see how it looked.</p>
-        <p>Most of the time, I didn't know the exact value I wanted. I just wanted to tweak things visually and see the changes immediately, instead of going through the same prompt-and-check loop.</p>
-      </dd></div>
-      <div><dt>The solution</dt><dd>
-        <p>That's where Peek &amp; poke came in.</p>
-        <p>It's a lightweight, Figma-like inspector that lets me select elements on a live page and tweak things like spacing, colours, and typography directly on the UI.</p>
-        <p>I also connected it to our design system, so I can see which tokens are being used and pick from the available ones without having to remember them.</p>
-        <p>Once I'm happy with the changes, I can copy a generated prompt with the exact changes and pass it to Claude or Cursor to update the actual code.</p>
-      </dd></div>
-    </dl>
-    
-    <figure class="media reveal" style="--c:var(--blue)">
+    <h2 class="cs-h2 reveal" id="inspector-h">Making UI changes without all the back and forth.</h2>
+    <p class="cs-sub reveal">Tweak things visually, see what works, and pass the exact changes to Claude or Cursor.</p>
+    <figure class="media reveal">
       <div class="frame">
         <video src="../../assets/peek-and-poke/element-inspector.mp4" poster="../../assets/peek-and-poke/element-inspector-poster.jpg" width="1600" height="900" controls autoplay muted loop playsinline preload="metadata"
           aria-label="Element inspector walkthrough: selecting a stat card, changing its padding and fill in the inspector, copying the prompt and pasting it into a coding agent, which updates the shared component"></video>
       </div>
       <figcaption><b>Element inspector</b>Selecting a card, changing its padding and fill, and handing the prompt to a coding agent.</figcaption>
     </figure>
+    <dl class="pi reveal">
+      <div><dt>The problem</dt><dd>
+        <p>Making small visual changes while designing in code was tedious. Even for something like spacing or colour, I'd guess a value, find the right design system token, prompt Claude or Cursor, and wait to see how it looked.</p>
+        <p>Most of the time, I didn't know the exact value I wanted. I just wanted to tweak things and see them change right away, without the prompt-and-check loop.</p>
+      </dd></div>
+      <div><dt>The solution</dt><dd>
+        <p>That's where Peek &amp; poke came in. It's a lightweight, Figma-like inspector that lets me select elements on a live page and tweak spacing, colours and typography right on the UI.</p>
+        <p>It's connected to our design system, so I can see which tokens are used and pick from the available ones. Once I'm happy, I copy a generated prompt with the exact changes and pass it to Claude or Cursor to update the code.</p>
+      </dd></div>
+    </dl>
   </section>
 
   <section class="sec" id="annotator" aria-labelledby="annotator-h">
     <p class="sec-h reveal"><span>02</span>Annotator</p>
-    <h2 class="cs-h2 reveal" id="annotator-h">Feedback, pinned to the element.</h2>
-    <dl class="pi reveal">
-      <div><dt>The problem</dt><dd>
-        <p>During design QA, we'd have to take screenshots from Chrome, paste them into Figma, create a frame, and then add annotations using the Figma plugin. This often took longer than adding the feedback itself.</p>
-        <p>We faced the same issue when annotating edge cases in coded prototypes to explain expected behaviours and flows to developers.</p>
-      </dd></div>
-      <div><dt>The solution</dt><dd>
-        <p>To make this easier, I added an Annotator to Peek &amp; poke that connects Chrome and Figma.</p>
-        <p>Designers can click on any element on a live page and either type or speak their feedback. They can add as many annotations as needed and, once done, click <b>Send to Figma</b>.</p>
-        <p>The screenshot is automatically sent to Figma with all the annotations placed in the right positions, saving the manual effort of capturing and setting everything up.</p>
-      </dd></div>
-    </dl>
+    <h2 class="cs-h2 reveal" id="annotator-h">Making design feedback a little less tedious.</h2>
+    <p class="cs-sub reveal">Leave feedback directly on live pages and send everything to Figma, without the usual screenshot and annotation setup.</p>
     <!-- TODO: swap in the Annotator recording (assets/peek-and-poke/annotator.mp4) when it is ready -->
-    <figure class="media reveal" style="--c:var(--violet)">
+    <figure class="media reveal">
       <div class="frame">
         <video src="../../assets/peek-and-poke/element-inspector.mp4" poster="../../assets/peek-and-poke/element-inspector-poster.jpg" width="1600" height="900" controls autoplay muted loop playsinline preload="metadata"
           aria-label="Peek and poke walkthrough (the Annotator recording is coming soon)"></video>
       </div>
       <figcaption><b>Annotator</b>Its own recording is on the way. For now, this is the inspector.</figcaption>
     </figure>
+    <dl class="pi reveal">
+      <div><dt>The problem</dt><dd>
+        <p>During design QA, we'd take screenshots from Chrome, paste them into Figma, create a frame, and then add annotations with a Figma plugin. It often took longer than writing the feedback itself.</p>
+        <p>The same happened when annotating edge cases in coded prototypes to explain behaviours and flows to developers.</p>
+      </dd></div>
+      <div><dt>The solution</dt><dd>
+        <p>So I added an Annotator to Peek &amp; poke that connects Chrome and Figma. Designers can click any element on a live page, type or speak their feedback, add as many notes as needed, and click <b>Send to Figma</b>.</p>
+        <p>The screenshot lands in Figma with every annotation in the right place, without any of the manual setup.</p>
+      </dd></div>
+    </dl>
   </section>
 
   <footer class="cs-foot">
