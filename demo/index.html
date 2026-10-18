@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commission plans · Ledgerly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f6f4;
+    --surface: #ffffff;
+    --surface-muted: #fafaf9;
+    --border: #ebebe8;
+    --border-strong: #dcdcd8;
+    --text: #18181b;
+    --text-muted: #6b6b70;
+    --text-subtle: #9a9aa0;
+    --accent: #f05a28;
+    --accent-soft: #fff1ea;
+    --green: #16a34a;
+    --green-soft: #ecfdf3;
+    --amber: #d97706;
+    --amber-soft: #fff7e8;
+    --red: #e11d48;
+    --gray-soft: #f2f2f0;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --shadow: 0 1px 2px rgba(24, 24, 27, .04), 0 1px 1px rgba(24, 24, 27, .02);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input { font: inherit; color: inherit; }
+  svg { display: block; flex-shrink: 0; }
+
+  .app {
+    display: grid;
+    grid-template-columns: 248px 1fr;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-4);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0 var(--space-2);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    background: var(--text);
+    color: #fff;
+  }
+  .nav-group { display: flex; flex-direction: column; gap: 2px; }
+  .nav-label {
+    padding: 0 var(--space-2) var(--space-2);
+    font-size: 12px;
+    color: var(--text-subtle);
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .nav-item:hover { background: var(--gray-soft); color: var(--text); }
+  .nav-item.is-active {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 500;
+    box-shadow: var(--shadow), 0 0 0 1px var(--border);
+  }
+  .nav-item .count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-subtle);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .sidebar-footer { margin-top: auto; }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+  }
+  .user-name { font-weight: 500; }
+  .user-role { font-size: 12px; color: var(--text-subtle); }
+
+  /* Main */
+  .main { display: flex; flex-direction: column; min-width: 0; }
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    height: 60px;
+    padding: 0 var(--space-8);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .crumbs { display: flex; align-items: center; gap: var(--space-2); color: var(--text-subtle); }
+  .crumbs strong { color: var(--text); font-weight: 500; }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: 280px;
+    margin-left: auto;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface-muted);
+    color: var(--text-subtle);
+  }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; }
+  .kbd {
+    padding: 1px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 11px;
+    background: var(--surface);
+  }
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-8);
+  }
+
+  .page-head { display: flex; align-items: flex-end; gap: var(--space-4); }
+  .page-head h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+  .page-head p { margin: var(--space-1) 0 0; color: var(--text-muted); }
+  .actions { display: flex; gap: var(--space-2); margin-left: auto; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn-primary { border-color: var(--text); background: var(--text); color: #fff; }
+
+  /* Stat cards */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+  .stat-label { display: flex; align-items: center; gap: var(--space-2); color: var(--text-muted); }
+  .stat-icon {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: var(--gray-soft);
+  }
+  .stat-value {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+  .stat-foot { display: flex; align-items: center; gap: var(--space-2); font-size: 12px; color: var(--text-subtle); }
+  .delta { display: inline-flex; align-items: center; gap: 2px; font-weight: 500; }
+  .delta.up { color: var(--green); }
+  .delta.down { color: var(--red); }
+  .bars { display: flex; gap: 3px; height: 28px; align-items: stretch; }
+  .bars span { flex: 1; border-radius: 2px; background: var(--border); }
+  .bars span.on { background: var(--accent); }
+  .spark { height: 28px; width: 100%; }
+
+  /* Table card */
+  .table-card { overflow-x: auto; }
+  .table-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border);
+  }
+  .table-toolbar h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .tabs {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 10px;
+    background: var(--gray-soft);
+  }
+  .tab {
+    padding: 5px var(--space-3);
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .tab.is-active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: var(--shadow); }
+  .table-toolbar .search { width: 220px; margin-left: auto; background: var(--surface); }
+
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: var(--space-3) var(--space-4); text-align: left; white-space: nowrap; }
+  th {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-subtle);
+    background: var(--surface-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  td { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: var(--surface-muted); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .check { width: 16px; height: 16px; margin: 0; accent-color: var(--text); }
+  .plan { display: flex; flex-direction: column; }
+  .plan-name { font-weight: 500; }
+  .plan-id { font-size: 12px; color: var(--text-subtle); }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .pill-active { background: var(--green-soft); color: var(--green); }
+  .pill-review { background: var(--amber-soft); color: var(--amber); }
+  .pill-draft { background: var(--gray-soft); color: var(--text-muted); }
+
+  .owner { display: flex; align-items: center; gap: var(--space-2); }
+  .avatar {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .avatar-lg { width: 32px; height: 32px; font-size: 12px; }
+
+  .attain { display: flex; align-items: center; gap: var(--space-3); }
+  .meter { width: 80px; height: 6px; border-radius: 999px; background: var(--gray-soft); overflow: hidden; }
+  .meter span { display: block; height: 100%; border-radius: inherit; background: var(--text); }
+  .meter span.hi { background: var(--accent); }
+  .attain-value { width: 40px; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+  .muted { color: var(--text-muted); }
+
+  .table-foot {
+    display: flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-5);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .pager { display: flex; gap: var(--space-2); margin-left: auto; }
+  .pager .btn { padding: 4px var(--space-3); font-size: 13px; }
+  .empty { padding: var(--space-8); text-align: center; color: var(--text-subtle); }
+
+  @media (max-width: 1100px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content, .topbar { padding-left: var(--space-4); padding-right: var(--space-4); }
+    .topbar .search { display: none; }
+    .page-head { flex-direction: column; align-items: flex-start; }
+    .actions { margin-left: 0; }
+    .stats { grid-template-columns: 1fr; }
+    .table-toolbar { flex-wrap: wrap; }
+    .table-toolbar .search { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 19 19 5M9 5h10v10"/></svg>
+      </span>
+      Ledgerly
+    </div>
+
+    <nav class="nav-group">
+      <span class="nav-label">Workspace</span>
+      <a class="nav-item" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Overview
+      </a>
+      <a class="nav-item is-active" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Commission plans
+        <span class="count">12</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.2 2.5 3.5 5.5"/></svg>
+        Reps
+        <span class="count">48</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+        Payouts
+      </a>
+      <a class="nav-item" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        Reports
+      </a>
+    </nav>
+
+    <nav class="nav-group">
+      <span class="nav-label">Teams</span>
+      <a class="nav-item" href="#"><span class="dot" style="background:#f05a28"></span>Enterprise</a>
+      <a class="nav-item" href="#"><span class="dot" style="background:#6366f1"></span>Mid-market</a>
+      <a class="nav-item" href="#"><span class="dot" style="background:#16a34a"></span>Partnerships</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a class="nav-item" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        Settings
+      </a>
+      <div class="user">
+        <span class="avatar avatar-lg" style="background:#18181b">MS</span>
+        <div>
+          <div class="user-name">Maya Shah</div>
+          <div class="user-role">Revenue ops</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="crumbs">
+        <span>Workspace</span><span>/</span><strong>Commission plans</strong>
+      </div>
+      <label class="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" placeholder="Search anything" aria-label="Search anything">
+        <span class="kbd">⌘K</span>
+      </label>
+      <button class="icon-btn" aria-label="Notifications">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+      </button>
+    </header>
+
+    <div class="content">
+      <section class="page-head">
+        <div>
+          <h1>Commission plans</h1>
+          <p>Track quota attainment and payouts across every active plan for Q4 FY26.</p>
+        </div>
+        <div class="actions">
+          <button class="btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12m0 0-4-4m4 4 4-4M4 20h16"/></svg>
+            Export
+          </button>
+          <button class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            New plan
+          </button>
+        </div>
+      </section>
+
+      <section class="stats">
+        <article class="card stat">
+          <div class="stat-label">
+            <span class="stat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+            Total payouts
+          </div>
+          <div class="stat-value">$412,860</div>
+          <div class="stat-foot"><span class="delta up">↗ 8.4%</span> vs last quarter</div>
+        </article>
+
+        <article class="card stat">
+          <div class="stat-label">
+            <span class="stat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            Avg. attainment
+          </div>
+          <div class="stat-value">87%</div>
+          <div class="bars" aria-hidden="true">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="card stat">
+          <div class="stat-label">
+            <span class="stat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/></svg></span>
+            Reps on plan
+          </div>
+          <div class="stat-value">48</div>
+          <div class="stat-foot"><span class="delta up">↗ 4</span> joined this month</div>
+        </article>
+
+        <article class="card stat">
+          <div class="stat-label">
+            <span class="stat-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            Days to close
+          </div>
+          <div class="stat-value">14</div>
+          <svg class="spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true">
+            <polyline fill="none" stroke="#f05a28" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+              points="0,22 20,18 40,20 60,12 80,14 100,8 120,11 140,6 160,9 180,5 200,7"/>
+          </svg>
+        </article>
+      </section>
+
+      <section class="card table-card">
+        <div class="table-toolbar">
+          <h2>All plans</h2>
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" data-filter="all">All</button>
+            <button class="tab" data-filter="active">Active</button>
+            <button class="tab" data-filter="review">In review</button>
+            <button class="tab" data-filter="draft">Draft</button>
+          </div>
+          <label class="search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="plan-search" type="text" placeholder="Search plans" aria-label="Search plans">
+          </label>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th><input class="check" type="checkbox" aria-label="Select all"></th>
+              <th>Plan</th>
+              <th>Status</th>
+              <th>Owner</th>
+              <th>Region</th>
+              <th class="num">Reps</th>
+              <th>Attainment</th>
+              <th class="num">Payout</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody id="plan-rows"></tbody>
+        </table>
+
+        <div class="table-foot">
+          <span id="row-count">Showing 7 of 12 plans</span>
+          <div class="pager">
+            <button class="btn">Previous</button>
+            <button class="btn">Next</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script>
+  const plans = [
+    { name: "Enterprise AE · FY26", id: "PLN-2041", status: "active", owner: "Priya Nair", color: "#f05a28", region: "North America", reps: 14, attain: 112, payout: 148200, updated: "2h ago" },
+    { name: "Mid-market AE", id: "PLN-2038", status: "active", owner: "Daniel Okoro", color: "#6366f1", region: "EMEA", reps: 11, attain: 94, payout: 96450, updated: "Yesterday" },
+    { name: "SDR accelerator", id: "PLN-2035", status: "review", owner: "Lena Fischer", color: "#0ea5e9", region: "Global", reps: 9, attain: 78, payout: 41300, updated: "Oct 15" },
+    { name: "Partner referrals", id: "PLN-2031", status: "active", owner: "Marco Rossi", color: "#16a34a", region: "APAC", reps: 6, attain: 101, payout: 58900, updated: "Oct 14" },
+    { name: "Customer success expansion", id: "PLN-2027", status: "active", owner: "Aiko Tanaka", color: "#d946ef", region: "North America", reps: 5, attain: 83, payout: 38210, updated: "Oct 12" },
+    { name: "Q1 spiff · Analytics add-on", id: "PLN-2024", status: "draft", owner: "Sam Carter", color: "#71717a", region: "Global", reps: 0, attain: 0, payout: 0, updated: "Oct 10" },
+    { name: "Enterprise SE overlay", id: "PLN-2019", status: "review", owner: "Priya Nair", color: "#f05a28", region: "EMEA", reps: 3, attain: 69, payout: 29800, updated: "Oct 8" }
+  ];
+
+  const statusLabel = { active: "Active", review: "In review", draft: "Draft" };
+  const money = n => n ? "$" + n.toLocaleString("en-US") : "—";
+  const initials = name => name.split(" ").map(p => p[0]).join("");
+
+  const tbody = document.getElementById("plan-rows");
+  const rowCount = document.getElementById("row-count");
+  const search = document.getElementById("plan-search");
+  let filter = "all";
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const rows = plans.filter(p =>
+      (filter === "all" || p.status === filter) &&
+      (!q || (p.name + p.owner + p.region + p.id).toLowerCase().includes(q))
+    );
+
+    tbody.innerHTML = rows.length ? rows.map(p => `
+      <tr>
+        <td><input class="check" type="checkbox" aria-label="Select ${p.name}"></td>
+        <td><div class="plan"><span class="plan-name">${p.name}</span><span class="plan-id">${p.id}</span></div></td>
+        <td><span class="pill pill-${p.status}">${statusLabel[p.status]}</span></td>
+        <td><div class="owner"><span class="avatar" style="background:${p.color}">${initials(p.owner)}</span>${p.owner}</div></td>
+        <td class="muted">${p.region}</td>
+        <td class="num">${p.reps}</td>
+        <td>
+          <div class="attain">
+            <div class="meter"><span class="${p.attain >= 100 ? "hi" : ""}" style="width:${Math.min(p.attain, 100)}%"></span></div>
+            <span class="attain-value">${p.attain ? p.attain + "%" : "—"}</span>
+          </div>
+        </td>
+        <td class="num">${money(p.payout)}</td>
+        <td class="muted">${p.updated}</td>
+      </tr>`).join("")
+      : `<tr><td colspan="9" class="empty">No plans match your filters.</td></tr>`;
+
+    rowCount.textContent = `Showing ${rows.length} of 12 plans`;
+  }
+
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelector(".tab.is-active").classList.remove("is-active");
+      tab.classList.add("is-active");
+      filter = tab.dataset.filter;
+      render();
+    });
+  });
+  search.addEventListener("input", render);
+  render();
+</script>
+</body>
+</html>
