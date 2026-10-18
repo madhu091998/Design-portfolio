@@ -262,10 +262,10 @@
 @media (max-width: 760px) { .cs-sub { font-size: 16px; } }
 
 /* Closing note */
-.cs-end p { max-width: 680px; margin: 0; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.cs-end p { max-width: 680px; margin: 0; font-size: clamp(18px, 1.35vw, 20px); line-height: 1.55; letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .case .cs-end + .cs-foot { margin-top: 120px; }
 @media (max-width: 760px) { .cs-end p { font-size: 18px; } }
-.cs-end .try { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.65; letter-spacing: 0; color: var(--text); }
+.cs-end .try { margin-top: 20px; font-size: 17px; line-height: 1.65; letter-spacing: 0; color: var(--text); }
 @media (max-width: 760px) { .cs-end .try { font-size: 16px; } }
 
 
