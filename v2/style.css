@@ -114,6 +114,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 /* A tile that is just a looping clip, shown at the clip's own shape */
 .tile .art.clip { aspect-ratio: 1080 / 850; background: #eef0f6; }
 .tile.tall .card { width: 80%; }
+.tile.tall .shot { width: 84%; }
 .tile .art.clip video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .tile .art > * { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .tile:hover .art > * { transform: scale(1.025); }
