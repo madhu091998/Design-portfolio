@@ -226,3 +226,11 @@
   .try { grid-template-columns: 1fr; padding: 18px; }
   .try-act { justify-items: start; }
 }
+
+/* Breadcrumb in the top bar, in place of the wordmark */
+.crumbs { display: flex; align-items: center; gap: 8px; min-height: 28px; font-size: 15px; color: var(--ink); }
+.crumbs a { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+.crumbs a:hover { color: var(--ink); }
+.crumbs svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
+.crumbs a:hover svg { transform: translateX(-2px); }
+.crumbs > span[aria-hidden] { color: var(--line); color: color-mix(in srgb, var(--muted) 55%, transparent); }
