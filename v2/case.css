@@ -211,9 +211,9 @@
 @media (max-width: 760px) { .pi { grid-template-columns: 1fr; gap: 20px; } .pi dd { font-size: 16px; } }
 
 /* Hero facts with two items, and the download */
-.facts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; margin-top: 48px; }
+.facts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; margin-top: 48px; }
 .facts .heart { display: inline-block; width: 15px; height: 15px; margin-left: 3px; vertical-align: -2px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linejoin: round; }
-.try { max-width: 640px; margin: 36px 0 0; font-size: 17px; line-height: 1.65; color: var(--text); text-wrap: pretty; }
+.try { max-width: 820px; margin: 36px 0 0; font-size: 17px; line-height: 1.65; color: var(--text); text-wrap: pretty; }
 .try a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; white-space: nowrap; transition: color 0.2s ease; }
 .try a:hover { color: var(--accent); }
 .try a svg { display: inline-block; width: 13px; height: 13px; margin-left: 4px; vertical-align: -1px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
@@ -234,7 +234,7 @@
 
 /* Case-study titles run a size below the landing page's */
 .case .hero h1 { font-size: clamp(44px, 5vw, 80px); line-height: 1.04; text-wrap: balance; }
-.case .hero .sub { font-size: clamp(16px, 1.15vw, 18px); max-width: 640px; }
+.case .hero .sub { font-size: clamp(16px, 1.15vw, 18px); max-width: 820px; text-wrap: pretty; }
 @media (max-width: 760px) {
   .case .hero h1 { font-size: min(48px, 12vw); }
   .case .hero .sub { font-size: 16px; }
