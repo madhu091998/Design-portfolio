@@ -414,3 +414,9 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 @media (max-width: 760px) { .grid.work .tile.tall { grid-column: auto; grid-row: auto; } }
 @media (max-width: 760px) { .sec-head { margin-bottom: 24px; } .sec-head h2 { font-size: 24px; } .sec-head p { font-size: 16px; } }
 @media (max-width: 760px) { .sidenav { overflow-x: auto; scrollbar-width: none; white-space: nowrap; } .sidenav::-webkit-scrollbar { display: none; } }
+
+/* Craft: the tall game tile holds the left column while the others stack on the right */
+.grid.craft { grid-auto-flow: row dense; }
+.grid.craft .tile.tall { grid-column: 1; grid-row: 1 / span 2; }
+.tile .art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 760px) { .grid.craft .tile.tall { grid-column: auto; grid-row: auto; } }
