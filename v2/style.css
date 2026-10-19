@@ -411,7 +411,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 
 /* Work: the tall walkthrough holds the right column while the other projects stack on the left */
 .grid.work { grid-auto-flow: row dense; }
-.grid.work .tile.tall { grid-column: 2; grid-row: 1 / span 2; }
+.grid.work .tile.tall { grid-column: 2; grid-row: span 2; }
 @media (max-width: 760px) { .grid.work .tile.tall { grid-column: auto; grid-row: auto; } }
 @media (max-width: 760px) { .sec-head { margin-bottom: 24px; } .sec-head h2 { font-size: 16px; } .sec-head p { font-size: 16px; } }
 @media (max-width: 760px) { .sidenav { overflow-x: auto; scrollbar-width: none; white-space: nowrap; } .sidenav::-webkit-scrollbar { display: none; } }
