@@ -156,5 +156,14 @@
     onScroll();
   })();
 </script>
+<script>
+  (function () {
+    var bar = document.querySelector(".topbar");
+    if (!bar) return;
+    function onScroll() { bar.classList.toggle("scrolled", window.scrollY > 8); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 </body>
 </html>

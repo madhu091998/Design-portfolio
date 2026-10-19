@@ -420,3 +420,17 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .grid.craft .tile.tall { grid-column: 1; grid-row: 1 / span 2; }
 .tile .art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 760px) { .grid.craft .tile.tall { grid-column: auto; grid-row: auto; } }
+
+/* Frosted top bar: content scrolls under a soft blur that fades out at the bottom edge */
+@media (min-width: 761px) {
+  .topbar { isolation: isolate; }
+  .topbar::before {
+    content: ""; position: absolute; inset: 0 0 -28px; z-index: -1; pointer-events: none;
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .topbar.scrolled::before { opacity: 1; }
+}
