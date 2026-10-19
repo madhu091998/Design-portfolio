@@ -418,14 +418,5 @@
     if (corner) new IntersectionObserver(function (es) { corner.classList.toggle("away", es[0].isIntersecting); }, { threshold: 0.3 }).observe(meadow);
   })();
 </script>
-<script>
-  (function () {
-    var bar = document.querySelector(".topbar");
-    if (!bar) return;
-    function onScroll() { bar.classList.toggle("scrolled", window.scrollY > 8); }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
 </body>
 </html>
