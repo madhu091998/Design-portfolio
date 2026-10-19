@@ -314,8 +314,8 @@
 @media (max-width: 760px) { .ds-row { flex-direction: column; } .tall-shot img { max-width: 100%; border-radius: 20px; } }
 
 /* Shipped status and links to the live product */
-.facts .live { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; vertical-align: 0.1em; background: #2fa36b; box-shadow: 0 0 0 3px color-mix(in srgb, #2fa36b 18%, transparent); }
-.refs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin: 24px 0 0; font-size: 15px; color: var(--muted); }
+.live { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; vertical-align: 0.1em; background: #2fa36b; box-shadow: 0 0 0 3px color-mix(in srgb, #2fa36b 18%, transparent); }
+.refs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin: 28px 0 0; font-size: 15px; color: var(--muted); }
 .refs a { display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color 0.2s ease; }
 .refs a:hover { color: var(--accent); }
 .refs svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
@@ -324,3 +324,7 @@
 .sub-h { margin-top: 96px; }
 .sub-h + .cs-sub { margin-top: 12px; }
 @media (max-width: 760px) { .sub-h { margin-top: 64px; } }
+.refs .live-pill { display: inline-flex; align-items: center; padding: 4px 11px 4px 10px; border-radius: 999px; font-size: 14px; color: #1f7a4f; background: color-mix(in srgb, #2fa36b 12%, transparent); }
+.refs .live-pill .live { margin-right: 7px; box-shadow: none; animation: live-pulse 2.4s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, #2fa36b 40%, transparent); } 50% { box-shadow: 0 0 0 4px color-mix(in srgb, #2fa36b 0%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .refs .live-pill .live { animation: none; } }
