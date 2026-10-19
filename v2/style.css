@@ -112,7 +112,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .sec-h span::after { content: "/"; margin: 0 8px; color: var(--muted); }
 /* Section heading with an optional line of context */
 .sec-head { margin: 0 0 32px; max-width: 760px; }
-.sec-head h2 { margin: 0; font: 500 clamp(20px, 1.6vw, 24px)/1.25 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
+.sec-head h2 { margin: 0; font: 500 17px/1.35 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
 .sec-head h2 span { color: var(--muted); }
 .sec-head h2 span::after { content: "/"; margin: 0 0.3em; font-weight: 200; }
 .sec-head p { margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
@@ -413,7 +413,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .grid.work { grid-auto-flow: row dense; }
 .grid.work .tile.tall { grid-column: 2; grid-row: 1 / span 2; }
 @media (max-width: 760px) { .grid.work .tile.tall { grid-column: auto; grid-row: auto; } }
-@media (max-width: 760px) { .sec-head { margin-bottom: 24px; } .sec-head h2 { font-size: 20px; } .sec-head p { font-size: 16px; } }
+@media (max-width: 760px) { .sec-head { margin-bottom: 24px; } .sec-head h2 { font-size: 16px; } .sec-head p { font-size: 16px; } }
 @media (max-width: 760px) { .sidenav { overflow-x: auto; scrollbar-width: none; white-space: nowrap; } .sidenav::-webkit-scrollbar { display: none; } }
 
 /* Craft: the tall game tile holds the left column while the others stack on the right */
