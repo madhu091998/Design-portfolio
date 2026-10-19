@@ -312,3 +312,15 @@
 .ds-row figure { flex: var(--r) 1 0; margin: 0; min-width: 0; }
 .ds-row img { display: block; width: 100%; height: auto; border-radius: 4px; }
 @media (max-width: 760px) { .ds-row { flex-direction: column; } .tall-shot img { max-width: 100%; border-radius: 20px; } }
+
+/* Shipped status and links to the live product */
+.facts .live { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; vertical-align: 0.1em; background: #2fa36b; box-shadow: 0 0 0 3px color-mix(in srgb, #2fa36b 18%, transparent); }
+.refs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin: 24px 0 0; font-size: 15px; color: var(--muted); }
+.refs a { display: inline-flex; align-items: center; gap: 4px; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color 0.2s ease; }
+.refs a:hover { color: var(--accent); }
+.refs svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
+.refs a:hover svg { transform: translate(1px, -1px); }
+/* A second heading inside a section */
+.sub-h { margin-top: 96px; }
+.sub-h + .cs-sub { margin-top: 12px; }
+@media (max-width: 760px) { .sub-h { margin-top: 64px; } }
