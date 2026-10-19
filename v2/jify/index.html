@@ -67,15 +67,21 @@
 <div class="scrolly" id="home-scroll">
       <div class="scrolly-stick">
         <div class="scrolly-stage">
+          <ol class="scrolly-notes" aria-hidden="true">
+            <li data-at="0"><span>01</span><b>My Salary</b><p>Earned wage access comes first, on its own green card with this month’s earnings.</p></li>
+            <li data-at="0.14"><span>02</span><b>My Loan</b><p>The credit line sits just below, on blue, so the two never blur together.</p></li>
+            <li data-at="0.38"><span>03</span><b>My Money</b><p>Gold and card balances, one tap away.</p></li>
+            <li data-at="0.62"><span>04</span><b>Rewards and new</b><p>Curated offers and updates to round it off.</p></li>
+          </ol>
           <div class="phone-lg" aria-label="The full redesigned homepage, scrolling as you scroll: a KYC reminder, the My Salary card with this month's earnings, the My Loan card with a credit limit, My Money, rewards and offers, and what's new" role="img">
             <span class="island" aria-hidden="true"></span>
             <div class="screen"><img src="../../assets/jify/homepage.webp" width="947" height="4096" alt="" loading="lazy"></div>
           </div>
-          <ol class="scrolly-notes" aria-hidden="true">
-            <li data-at="0"><b>My Salary</b>Earned wage access up top, in green, with this month's earnings.</li>
-            <li data-at="0.14"><b>My Loan</b>The credit line sits on its own blue card, just below.</li>
-            <li data-at="0.38"><b>My Money</b>Gold and card balances, one tap away.</li>
-            <li data-at="0.62"><b>Rewards and new</b>Curated offers and updates to round it off.</li>
+          <ol class="scrolly-steps" aria-hidden="true">
+            <li><i></i>My Salary</li>
+            <li><i></i>My Loan</li>
+            <li><i></i>My Money</li>
+            <li><i></i>Rewards and new</li>
           </ol>
         </div>
       </div>
@@ -143,6 +149,7 @@
     if (sc) {
       var img = sc.querySelector(".screen img"), screen = sc.querySelector(".screen");
       var notes = Array.prototype.slice.call(sc.querySelectorAll(".scrolly-notes li"));
+      var steps = Array.prototype.slice.call(sc.querySelectorAll(".scrolly-steps li"));
       var tick = false;
       function paint() {
         tick = false;
@@ -152,6 +159,7 @@
         img.style.transform = "translateY(" + (-p * max) + "px)";
         var cur = 0; notes.forEach(function (n, i) { if (p >= +n.getAttribute("data-at")) cur = i; });
         notes.forEach(function (n, i) { n.classList.toggle("on", i === cur); });
+        steps.forEach(function (n, i) { n.classList.toggle("on", i === cur); n.classList.toggle("past", i < cur); });
       }
       function req() { if (!tick) { tick = true; requestAnimationFrame(paint); } }
       if (!still) { window.addEventListener("scroll", req, { passive: true }); window.addEventListener("resize", req); img.addEventListener("load", req); }

@@ -332,50 +332,60 @@
 .hero .sub + .refs { margin-top: 32px; }
 .hero .refs + .facts.two { margin-top: 40px; }
 
-/* Jify homepage: the phone holds still while its screen scrolls with the page */
-.scrolly { position: relative; height: 230vh; margin-top: 40px; }
+/* Jify homepage: the phone holds still while its screen scrolls with the page.
+   The note for the part in view sits on the left; a small index tracks progress on the right. */
+.scrolly { position: relative; height: 240vh; margin-top: 24px; }
 .scrolly-stick { position: sticky; top: 0; height: 100vh; display: grid; align-items: center; }
-.scrolly-stage {
-  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 80px);
-  padding: clamp(28px, 4vw, 56px); border-radius: 4px; background: linear-gradient(160deg, #e9f5f1 0%, #d6ece5 100%);
+.scrolly-stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: clamp(28px, 4vw, 72px); }
+.scrolly-stage::before {
+  content: ""; position: absolute; left: 50%; top: 50%; z-index: -1; width: min(620px, 60vw); aspect-ratio: 1; transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--seafoam) 42%, transparent), transparent); filter: blur(10px);
 }
 .phone-lg {
-  position: relative; width: clamp(220px, 21vw, 300px); aspect-ratio: 9 / 19; padding: 8px; border-radius: 40px;
-  background: #14191b; box-shadow: 0 14px 40px rgba(20, 45, 40, 0.1), 0 1px 3px rgba(20, 45, 40, 0.08);
+  position: relative; width: clamp(220px, 20vw, 290px); aspect-ratio: 9 / 19; padding: 7px; border-radius: 40px;
+  background: #14191b; box-shadow: 0 12px 36px rgba(20, 45, 40, 0.08), 0 1px 2px rgba(20, 45, 40, 0.08);
 }
-.phone-lg .screen { position: relative; height: 100%; overflow: hidden; border-radius: 32px; background: #fff; }
+.phone-lg .screen { position: relative; height: 100%; overflow: hidden; border-radius: 33px; background: #fff; container-type: size; }
 .phone-lg .screen img { display: block; width: 100%; height: auto; will-change: transform; }
-.phone-lg .island { position: absolute; top: 18px; left: 50%; z-index: 2; width: 30%; height: 18px; margin-left: -15%; border-radius: 999px; background: #14191b; }
-.scrolly-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; max-width: 340px; }
-.scrolly-notes li { display: grid; gap: 4px; padding-left: 16px; border-left: 2px solid transparent; font-size: 15px; line-height: 1.5; color: var(--muted); transition: color 0.35s ease, border-color 0.35s ease; }
-.scrolly-notes b { font-weight: 500; color: var(--muted); transition: color 0.35s ease; }
-.scrolly-notes li.on { color: var(--text); border-color: #2e9d7d; }
-.scrolly-notes li.on b { color: var(--ink); }
+.phone-lg .island { position: absolute; top: 17px; left: 50%; z-index: 2; width: 30%; height: 18px; margin-left: -15%; border-radius: 999px; background: #14191b; }
+.scrolly-notes { position: relative; list-style: none; margin: 0; padding: 0; min-height: 160px; justify-self: end; width: min(100%, 300px); }
+.scrolly-notes li { position: absolute; inset: 0 0 auto; opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.scrolly-notes li.on { opacity: 1; transform: none; }
+.scrolly-notes span { display: block; font-size: 13px; color: var(--muted); }
+.scrolly-notes b { display: block; margin-top: 10px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
+.scrolly-notes p { margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
+.scrolly-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; justify-self: start; font-size: 14px; color: var(--muted); }
+.scrolly-steps li { display: flex; align-items: center; gap: 12px; transition: color 0.3s ease; }
+.scrolly-steps i { width: 16px; height: 1px; background: currentColor; opacity: 0.5; transition: width 0.35s ease, opacity 0.3s ease, background-color 0.3s ease; }
+.scrolly-steps li.past { color: var(--text); }
+.scrolly-steps li.on { color: var(--ink); }
+.scrolly-steps li.on i { width: 32px; opacity: 1; background: var(--accent); }
+@media (max-width: 1100px) { .scrolly-steps { display: none; } .scrolly-stage { grid-template-columns: minmax(0, 1fr) auto; } }
 @media (max-width: 760px) {
   .scrolly { height: auto; }
-  .scrolly-stick { position: static; height: auto; }
+  .scrolly-stick { position: static; height: auto; padding: 24px 0; }
   .scrolly-stage { grid-template-columns: 1fr; justify-items: center; }
-  .phone-lg { width: min(260px, 70vw); }
+  .phone-lg { width: min(250px, 66vw); }
   .phone-lg .screen img { animation: screen-pan 18s ease-in-out infinite alternate; }
   .scrolly-notes { display: none; }
 }
 @keyframes screen-pan { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(calc(-100% + 100cqh - 40px)); } }
-.phone-lg .screen { container-type: size; }
 @media (prefers-reduced-motion: reduce) {
   .scrolly { height: auto; } .scrolly-stick { position: static; height: auto; }
   .phone-lg .screen { overflow-y: auto; } .phone-lg .screen img { animation: none; }
+  .scrolly-notes li { position: static; opacity: 1; transform: none; margin-bottom: 20px; } .scrolly-notes { min-height: 0; }
 }
 
-/* Jify design system: a slow, endless strip of components on Jify blue */
+/* Jify design system: a slow, endless strip of components */
 .ds-marquee {
-  position: relative; margin-top: 32px; padding: clamp(24px, 3vw, 40px) 0; border-radius: 4px; overflow: hidden; background: #22457d;
+  position: relative; margin-top: 32px; padding: clamp(24px, 3vw, 40px) 0; border-radius: 4px; overflow: hidden; background: #eaefee;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 .ds-track { display: flex; width: max-content; animation: ds-move 60s linear infinite; }
 .ds-marquee:hover .ds-track { animation-play-state: paused; }
 .ds-set { display: flex; gap: 16px; padding-right: 16px; }
-.ds-set img { display: block; height: clamp(240px, 26vw, 380px); width: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0, 10, 40, 0.25); }
+.ds-set img { display: block; height: clamp(240px, 26vw, 380px); width: auto; filter: drop-shadow(0 4px 12px rgba(31, 43, 45, 0.06)); }
 @keyframes ds-move { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .ds-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
