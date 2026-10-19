@@ -345,7 +345,7 @@
   position: relative; width: clamp(220px, 20vw, 290px); aspect-ratio: 9 / 19; padding: 7px; border-radius: 40px;
   background: #14191b; box-shadow: 0 12px 36px rgba(20, 45, 40, 0.08), 0 1px 2px rgba(20, 45, 40, 0.08);
 }
-.phone-lg .screen { position: relative; height: 100%; overflow: hidden; border-radius: 33px; background: #fff; container-type: size; }
+.phone-lg .screen { position: relative; height: 100%; overflow: hidden; border-radius: 33px; background: #f1f8f6; container-type: size; }
 .phone-lg .screen img { display: block; width: 100%; height: auto; will-change: transform; }
 .phone-lg .island { position: absolute; top: 17px; left: 50%; z-index: 2; width: 30%; height: 18px; margin-left: -15%; border-radius: 999px; background: #14191b; }
 .scrolly-notes { position: relative; list-style: none; margin: 0; padding: 0; min-height: 160px; justify-self: end; width: min(100%, 300px); }
@@ -369,7 +369,7 @@
   .phone-lg .screen img { animation: screen-pan 18s ease-in-out infinite alternate; }
   .scrolly-notes { display: none; }
 }
-@keyframes screen-pan { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(calc(-100% + 100cqh - 40px)); } }
+@keyframes screen-pan { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(calc(-100% + 100cqh)); } }
 @media (prefers-reduced-motion: reduce) {
   .scrolly { height: auto; } .scrolly-stick { position: static; height: auto; }
   .phone-lg .screen { overflow-y: auto; } .phone-lg .screen img { animation: none; }
@@ -393,5 +393,11 @@
   .ds-set { padding: 0 24px; }
 }
 /* keep the top of the screen clear for the notch, like a status bar */
-.phone-lg .screen::before { content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 40px; background: #f1f8f6; }
-.phone-lg .screen img { margin-top: 40px; }
+/* The status bar from the screen stays put, a little below the rounded corner, while the rest scrolls under it */
+.phone-lg .screen { --top: 12px; }
+.phone-lg .screen img { margin-top: var(--top); }
+.phone-lg .status {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: calc(var(--top) + 11.1cqw);
+  background: #f1f8f6 url("../assets/jify/homepage.webp") 0 var(--top) / 100% auto no-repeat;
+}
+@keyframes screen-pan { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(calc(-100% + 100cqh - var(--top))); } }
