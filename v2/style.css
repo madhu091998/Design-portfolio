@@ -423,3 +423,15 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile .art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 760px) { .grid.craft .tile.tall { grid-column: auto; grid-row: auto; } }
 
+
+/* Simple phone mockup: a slim dark frame rising from the bottom of the tile */
+.tile .art.mock { aspect-ratio: 1080 / 850; align-items: start; place-items: start center; overflow: hidden; }
+.mint { background: linear-gradient(160deg, #e3f3ee 0%, #cfe9e1 100%); }
+.tile .art.mock .phone {
+  position: relative; width: 44%; margin-top: 9%; padding: 7px 7px 0; border-radius: 34px 34px 0 0;
+  background: #14191b; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 24px 60px rgba(20, 45, 40, 0.22), 0 4px 14px rgba(20, 45, 40, 0.12);
+}
+.tile .art.mock .phone img { display: block; width: 100%; height: auto; border-radius: 28px 28px 0 0; }
+.tile .art.mock .island { position: absolute; top: 14px; left: 50%; z-index: 1; width: 30%; height: 14px; margin-left: -15%; border-radius: 999px; background: #14191b; }
+.tile .art.mock > * { transform-origin: 50% 100%; }
+.tile:hover .art.mock > * { transform: translateY(-6px); }
