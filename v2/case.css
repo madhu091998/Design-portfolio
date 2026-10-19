@@ -393,5 +393,5 @@
   .ds-set { padding: 0 24px; }
 }
 /* keep the top of the screen clear for the notch, like a status bar */
-.phone-lg .screen::before { content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 40px; background: #f3f9f7; }
+.phone-lg .screen::before { content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 40px; background: #f1f8f6; }
 .phone-lg .screen img { margin-top: 40px; }
