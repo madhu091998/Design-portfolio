@@ -439,3 +439,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile.tall .art.mock { aspect-ratio: 4 / 5.1; }
 .tile.tall .art.mock .phone { width: 52%; margin-top: 14%; }
 @media (max-width: 760px) { .tile.tall .art.mock { aspect-ratio: 4 / 4.4; } .tile.tall .art.mock .phone { width: 48%; margin-top: 10%; } }
+/* Placeholder screen until the MBO thumbnail is ready */
+.tile .card.mbo-ph { display: grid; place-items: center; aspect-ratio: 16 / 10; color: var(--muted); font-size: 15px; text-align: center; }
+.tile .card.mbo-ph small { display: block; margin-top: 4px; font-size: 12px; }
+.tile.soon { cursor: default; }
