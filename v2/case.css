@@ -331,3 +331,57 @@
 /* Status line sits under the intro, above the details */
 .hero .sub + .refs { margin-top: 32px; }
 .hero .refs + .facts.two { margin-top: 40px; }
+
+/* Jify homepage: the phone holds still while its screen scrolls with the page */
+.scrolly { position: relative; height: 230vh; margin-top: 40px; }
+.scrolly-stick { position: sticky; top: 0; height: 100vh; display: grid; align-items: center; }
+.scrolly-stage {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 80px);
+  padding: clamp(28px, 4vw, 56px); border-radius: 4px; background: linear-gradient(160deg, #e9f5f1 0%, #d6ece5 100%);
+}
+.phone-lg {
+  position: relative; width: clamp(220px, 21vw, 300px); aspect-ratio: 9 / 19; padding: 8px; border-radius: 40px;
+  background: #14191b; box-shadow: 0 14px 40px rgba(20, 45, 40, 0.1), 0 1px 3px rgba(20, 45, 40, 0.08);
+}
+.phone-lg .screen { position: relative; height: 100%; overflow: hidden; border-radius: 32px; background: #fff; }
+.phone-lg .screen img { display: block; width: 100%; height: auto; will-change: transform; }
+.phone-lg .island { position: absolute; top: 18px; left: 50%; z-index: 2; width: 30%; height: 18px; margin-left: -15%; border-radius: 999px; background: #14191b; }
+.scrolly-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; max-width: 340px; }
+.scrolly-notes li { display: grid; gap: 4px; padding-left: 16px; border-left: 2px solid transparent; font-size: 15px; line-height: 1.5; color: var(--muted); transition: color 0.35s ease, border-color 0.35s ease; }
+.scrolly-notes b { font-weight: 500; color: var(--muted); transition: color 0.35s ease; }
+.scrolly-notes li.on { color: var(--text); border-color: #2e9d7d; }
+.scrolly-notes li.on b { color: var(--ink); }
+@media (max-width: 760px) {
+  .scrolly { height: auto; }
+  .scrolly-stick { position: static; height: auto; }
+  .scrolly-stage { grid-template-columns: 1fr; justify-items: center; }
+  .phone-lg { width: min(260px, 70vw); }
+  .phone-lg .screen img { animation: screen-pan 18s ease-in-out infinite alternate; }
+  .scrolly-notes { display: none; }
+}
+@keyframes screen-pan { 0%, 8% { transform: translateY(0); } 92%, 100% { transform: translateY(calc(-100% + 100cqh - 40px)); } }
+.phone-lg .screen { container-type: size; }
+@media (prefers-reduced-motion: reduce) {
+  .scrolly { height: auto; } .scrolly-stick { position: static; height: auto; }
+  .phone-lg .screen { overflow-y: auto; } .phone-lg .screen img { animation: none; }
+}
+
+/* Jify design system: a slow, endless strip of components on Jify blue */
+.ds-marquee {
+  position: relative; margin-top: 32px; padding: clamp(24px, 3vw, 40px) 0; border-radius: 4px; overflow: hidden; background: #22457d;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.ds-track { display: flex; width: max-content; animation: ds-move 60s linear infinite; }
+.ds-marquee:hover .ds-track { animation-play-state: paused; }
+.ds-set { display: flex; gap: 16px; padding-right: 16px; }
+.ds-set img { display: block; height: clamp(240px, 26vw, 380px); width: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0, 10, 40, 0.25); }
+@keyframes ds-move { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ds-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .ds-track { animation: none; } .ds-set[aria-hidden] { display: none; }
+  .ds-set { padding: 0 24px; }
+}
+/* keep the top of the screen clear for the notch, like a status bar */
+.phone-lg .screen::before { content: ""; position: absolute; top: 0; left: 0; right: 0; z-index: 1; height: 40px; background: #f3f9f7; }
+.phone-lg .screen img { margin-top: 40px; }
