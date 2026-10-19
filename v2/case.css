@@ -220,7 +220,7 @@
 
 /* Problem / idea pair under each feature heading */
 .pi { display: grid; grid-template-columns: 1fr; gap: 36px; max-width: 680px; margin: 32px 0 0; }
-.pi div { border-top: 1px solid var(--line); padding-top: 14px; }
+.pi div { border-top: 0; padding-top: 0; }
 .pi dt { font-size: 14px; color: var(--muted); }
 .pi dd p { margin: 0 0 14px; }
 .pi dd p:last-child { margin-bottom: 0; }
