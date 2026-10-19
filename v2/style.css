@@ -435,3 +435,7 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .tile .art.mock .island { position: absolute; top: 12px; left: 50%; z-index: 1; width: 28%; height: 13px; margin-left: -14%; border-radius: 999px; background: #14191b; }
 .tile .art.mock > * { transform-origin: 50% 100%; }
 .tile:hover .art.mock > * { transform: translateY(-6px); }
+/* Jify as the tall tile beside Precision Leagues */
+.tile.tall .art.mock { aspect-ratio: 4 / 5.1; }
+.tile.tall .art.mock .phone { width: 52%; margin-top: 14%; }
+@media (max-width: 760px) { .tile.tall .art.mock { aspect-ratio: 4 / 4.4; } .tile.tall .art.mock .phone { width: 48%; margin-top: 10%; } }
