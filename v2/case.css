@@ -301,3 +301,4 @@
 .shot + .shot { margin-top: 20px; }
 .hero-shot { margin-top: 64px; }
 .case .sec .pi:first-of-type { margin-top: 32px; }
+.shot video { display: block; width: 100%; height: auto; border-radius: 4px; }

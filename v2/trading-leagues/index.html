@@ -40,7 +40,7 @@
   </header>
 
   <figure class="shot hero-shot reveal">
-    <img src="../../assets/trading-leagues/cover.webp" width="1800" height="1200" alt="The Precision Leagues game screen on a phone, floating between two rocks">
+    <video src="../../assets/trading-leagues/precision-leagues-clip.mp4" poster="../../assets/trading-leagues/precision-leagues-clip-poster.jpg" width="1080" height="850" autoplay muted loop playsinline preload="metadata" aria-label="Precision Leagues on a phone: dragging the price line on the candlestick chart, paying the entry fee, then the game card with its countdown and leaderboard"></video>
   </figure>
 
   <section class="sec" id="brief" aria-labelledby="brief-h">
@@ -129,6 +129,7 @@
       }, { threshold: 0.12 });
       items.forEach(function (el) { io.observe(el); });
     }
+    if (still) document.querySelectorAll("video").forEach(function (v) { v.autoplay = false; v.pause(); });
   })();
 
   (function () {
