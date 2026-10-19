@@ -113,7 +113,8 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 /* Section heading with an optional line of context */
 .sec-head { margin: 0 0 32px; max-width: 760px; }
 .sec-head h2 { margin: 0; font: 500 clamp(24px, 2.1vw, 32px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
-.sec-head h2 span { margin-right: 0.35em; color: var(--muted); }
+.sec-head h2 span { color: var(--muted); }
+.sec-head h2 span::after { content: "/"; margin: 0 0.3em; }
 .sec-head p { margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 20px; align-items: start; }
 .grid > * { min-width: 0; }
