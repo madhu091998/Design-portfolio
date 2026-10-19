@@ -328,3 +328,6 @@
 .refs .live-pill .live { margin-right: 7px; box-shadow: none; animation: live-pulse 2.4s ease-in-out infinite; }
 @keyframes live-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, #2fa36b 40%, transparent); } 50% { box-shadow: 0 0 0 4px color-mix(in srgb, #2fa36b 0%, transparent); } }
 @media (prefers-reduced-motion: reduce) { .refs .live-pill .live { animation: none; } }
+/* Status line sits under the intro, above the details */
+.hero .sub + .refs { margin-top: 20px; }
+.hero .refs + .facts.two { margin-top: 40px; }
