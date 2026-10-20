@@ -504,3 +504,9 @@
 .blog .cs-h2::before { content: ""; position: absolute; left: -20px; top: 0.55em; width: 6px; height: 6px; background: var(--accent); }
 @media (max-width: 760px) { .blog .cs-h2::before { left: -11px; width: 5px; height: 5px; } }
 .blog .cs-h2 .n { font-weight: 400; color: var(--muted); }
+/* Blog layout: project facts under the title */
+.blog .cs-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 28px 0 0; }
+.blog .cs-facts dt { font-size: 14px; color: var(--muted); }
+.blog .cs-facts dd { margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 760px) { .blog .cs-facts { grid-template-columns: 1fr 1fr; row-gap: 20px; } }
+.blog .cs-facts + .prose.intro { margin-top: 36px; }
