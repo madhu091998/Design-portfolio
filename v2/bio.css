@@ -24,3 +24,16 @@
 /* Hide the top-left wordmark while the intro's own photo and name are on screen */
 .bio-home .wordmark { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s, color 0.2s ease; }
 .bio-home.past-intro .wordmark { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s, color 0.2s ease; }
+
+/* Compact, centred column: the intro, sections and footer all share one narrow reading width */
+@media (min-width: 761px) {
+  .bio-home .page {
+    padding-left: max(210px, calc((100% - 680px) / 2));
+    padding-right: max(32px, calc((100% - 680px) / 2));
+  }
+  /* Selected work as a single column of full-width tiles, in reading order */
+  .bio-home .grid.work { grid-template-columns: 1fr; gap: 48px; }
+  .bio-home .grid.work .col { display: contents; }
+  .bio-home .grid.work .tile { order: var(--o); }
+  .bio-home .grid.work .tile.tall .art { aspect-ratio: 1080 / 850; }
+}
