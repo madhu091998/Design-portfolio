@@ -46,7 +46,19 @@
     </figure>
     <div class="prose reveal">
       <p>Previously, we used DocuSign to create and send these contracts.</p>
-      <p>Admins had to build a template in DocuSign, download a CSV containing its fields, manually fill in the values for every salesperson, and upload it back into Everstage.</p>
+    </div>
+    <figure class="fig reveal">
+      <ol class="flow" aria-label="How admins created contracts before">
+        <li><span class="f-n">1</span><p>Build the contract template in DocuSign, embedded within Everstage through an iframe.</p><span class="f-tag">DocuSign</span></li>
+        <li><span class="f-n">2</span><p>Download the list of fields as a CSV file.</p><span class="f-tag">CSV</span></li>
+        <li><span class="f-n">3</span><p>Collect and enter values for each salesperson in a spreadsheet.</p><span class="f-tag">Spreadsheet</span></li>
+        <li><span class="f-n">4</span><p>Upload the spreadsheet back into Everstage to populate the contracts.</p><span class="f-tag">Everstage</span></li>
+        <li class="warn"><span class="f-n">5</span><p>Send contracts without being able to preview the completed documents.</p><span class="f-tag">No preview</span></li>
+        <li class="warn"><span class="f-n">6</span><p>Discover mistakes after sending, often requiring admins to void and resend contracts.</p><span class="f-tag">Void and resend</span></li>
+      </ol>
+      <figcaption>How admins created contracts before.</figcaption>
+    </figure>
+    <div class="prose reveal">
       <p>The bigger problem was that most of this information already existed in Everstage. Admins were spending time collecting and entering data that the product already had.</p>
       <p>There was also no way to preview how each person's contract would look before sending it. If something was wrong, admins often found out only after sending the contract, which meant voiding it and sending another one.</p>
       <p>On top of this, we were dependent on DocuSign for templates, permissions, and signing.</p>

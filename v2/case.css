@@ -480,3 +480,18 @@
 .blog .cs-h2 + .prose { margin-top: 12px; }
 .blog .prose + .cs-h3 { margin-top: 40px; }
 .blog .shot + .cs-h3 { margin-top: 48px; }
+
+/* Contracts: the old six-step flow, as connected cards on the figure panel */
+.flow { list-style: none; margin: 0; padding: clamp(16px, 3vw, 32px); border-radius: 4px; background: #e9eff6; display: grid; gap: 10px; }
+.flow li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgba(31, 43, 45, 0.05), 0 6px 18px rgba(31, 43, 45, 0.05); }
+.flow li + li::before { content: ""; position: absolute; left: 29px; top: -11px; width: 1px; height: 12px; background: #b9c6dd; }
+.flow .f-n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #eef2ff; color: #3858d6; font-size: 13px; font-weight: 500; }
+.flow p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink); }
+.flow .f-tag { justify-self: end; padding: 3px 8px; border-radius: 999px; background: #f2f4f7; color: var(--text); font-size: 12px; white-space: nowrap; }
+.flow li.warn .f-n { background: #fdecec; color: #c2413b; }
+.flow li.warn .f-tag { background: #fdecec; color: #c2413b; }
+@media (max-width: 760px) {
+  .flow li { grid-template-columns: 28px minmax(0, 1fr); row-gap: 8px; align-items: start; }
+  .flow p { padding-top: 4px; }
+  .flow .f-tag { grid-column: 2; justify-self: start; }
+}
