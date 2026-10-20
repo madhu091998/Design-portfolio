@@ -477,9 +477,6 @@
 @media (max-width: 760px) { .blog .page { padding: 88px 16px 64px; } .blog .hero h1 { font-size: 26px; } .blog .cs-h2 { font-size: 20px; } .blog .prose, .blog .hero .sub { font-size: 16px; } }
 .blog .prose.intro { margin-top: 28px; }
 .blog .prose ul, .blog .prose ol { margin: 0 0 18px; padding-left: 20px; display: grid; gap: 8px; }
-.blog .cs-h2 + .prose { margin-top: 12px; }
-.blog .prose + .cs-h3 { margin-top: 40px; }
-.blog .shot + .cs-h3 { margin-top: 48px; }
 
 /* Contracts: the old six-step flow, as connected cards on the figure panel */
 .flow { list-style: none; margin: 0; padding: clamp(16px, 3vw, 32px); border-radius: 4px; background: #e9eff6; display: grid; gap: 10px; }
@@ -510,3 +507,19 @@
 .blog .cs-facts dd { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: var(--ink); }
 @media (max-width: 760px) { .blog .cs-facts { grid-template-columns: 1fr; } }
 .blog .cs-facts + .prose.intro { margin-top: 36px; }
+
+/* Blog layout: one spacing scale for the reading flow.
+   Sections 72px apart, h2 to text 16px, h3 40px above and 8px below, paragraphs 16px,
+   a lead-in line sits 8px above its list, figures 32px from text and 48px from the next heading. */
+.blog .sec { margin-top: 72px; }
+.blog .cs-h2 + .prose { margin-top: 16px; }
+.blog .cs-h2 + .cs-h3 { margin-top: 28px; }
+.blog .cs-h3 { margin-top: 40px; }
+.blog .cs-h3 + .prose { margin-top: 8px; }
+.blog .prose p { margin-bottom: 16px; }
+.blog .prose p:has(+ ul), .blog .prose p:has(+ ol) { margin-bottom: 8px; }
+.blog .prose ul, .blog .prose ol { margin: 0 0 16px; padding-left: 20px; gap: 6px; }
+.blog .prose ul:last-child, .blog .prose ol:last-child { margin-bottom: 0; }
+.blog .prose li { padding-left: 4px; }
+.blog .prose + .shot, .blog .shot + .shot { margin-top: 32px; }
+.blog .shot + .cs-h3 { margin-top: 48px; }
