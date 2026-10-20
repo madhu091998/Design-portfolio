@@ -86,7 +86,7 @@
     </div>
     <blockquote class="hmw reveal">How might we help admins prepare personalized contracts using the data they already have, without losing control over what gets sent?</blockquote>
 
-    <h3 class="cs-h3 sub-h reveal">Figuring out what AI should actually do.</h3>
+    <h3 class="cs-h3 reveal">Figuring out what AI should actually do.</h3>
     <div class="prose reveal">
       <p>AI could help find and fill values from data already available in Everstage. But contracts contain sensitive information, and a wrong number could mean sending someone the wrong compensation details.</p>
       <p>So the challenge wasn't just getting AI to fill the values. It was designing an experience where admins could understand, review, and correct those values before sending anything out.</p>
@@ -100,11 +100,12 @@
   </section>
 
   <section class="sec" id="decisions" aria-labelledby="decisions-h">
-    <p class="sec-h reveal" id="decisions-h"><span>04</span>Design decisions</p>
+    <p class="sec-h reveal"><span>04</span>Design decisions</p>
+    <h2 class="cs-h2 reveal" id="decisions-h">Design decisions</h2>
 
     <article class="decision" aria-labelledby="d1-h">
-      <p class="kick reveal">Let admins describe what they need</p>
-      <h3 class="cs-h2 reveal" id="d1-h">From configuring fields to describing them.</h3>
+      <p class="kick reveal">Decision 1 · Let admins describe what they need</p>
+      <h3 class="cs-h3 reveal" id="d1-h">From configuring fields to describing them.</h3>
       <div class="prose reveal">
         <p>Previously, admins had to make sure their spreadsheet columns matched the fields in DocuSign.</p>
         <p>With the new experience, they could instead describe what each placeholder needed in plain language, like “Q2 quota from the New Business category”. Eva would use that description and the available data in Everstage to find the appropriate value.</p>
@@ -119,8 +120,8 @@
     </article>
 
     <article class="decision" aria-labelledby="d2-h">
-      <p class="kick reveal">Let admins check AI's work before committing</p>
-      <h3 class="cs-h2 reveal" id="d2-h">Making room to check before creating the template.</h3>
+      <p class="kick reveal">Decision 2 · Let admins check AI's work before committing</p>
+      <h3 class="cs-h3 reveal" id="d2-h">Making room to check before creating the template.</h3>
       <div class="prose reveal">
         <p>Just because AI finds a value doesn't mean the admin should have to trust it immediately.</p>
         <p>We introduced a preview step where admins could select a few salespeople, see the values populated for each of them, and check how the final documents would look. If something was missing or incorrect, they could fix it before confirming the template.</p>
@@ -135,8 +136,8 @@
     </article>
 
     <article class="decision" aria-labelledby="d3-h">
-      <p class="kick reveal">Make reviewing hundreds of contracts manageable</p>
-      <h3 class="cs-h2 reveal" id="d3-h">Reviewing at scale, without losing the details.</h3>
+      <p class="kick reveal">Decision 3 · Make reviewing hundreds of contracts manageable</p>
+      <h3 class="cs-h3 reveal" id="d3-h">Reviewing at scale, without losing the details.</h3>
       <div class="prose reveal">
         <p>Previewing a few contracts helps validate a template. But admins may eventually need to send contracts to hundreds of people.</p>
         <p>So we also needed a way for them to review everyone's values together, spot missing information, and make corrections before sending.</p>
@@ -151,8 +152,8 @@
     </article>
 
     <article class="decision" aria-labelledby="d4-h">
-      <p class="kick reveal">When AI isn't enough</p>
-      <h3 class="cs-h2 reveal" id="d4-h">Not everything needs to be handled by AI.</h3>
+      <p class="kick reveal">Decision 4 · When AI isn't enough</p>
+      <h3 class="cs-h3 reveal" id="d4-h">Not everything needs to be handled by AI.</h3>
       <div class="prose reveal">
         <p>There would always be cases where information wasn't available, a value needed correcting, or an admin already knew exactly what to enter.</p>
         <p>Rather than forcing everything through AI, we kept other ways to provide values and made missing information visible before sending.</p>
@@ -161,8 +162,8 @@
     </article>
 
     <article class="decision" aria-labelledby="d5-h">
-      <p class="kick reveal">Bringing it into Everstage</p>
-      <h3 class="cs-h2 reveal" id="d5-h">One less tool to depend on.</h3>
+      <p class="kick reveal">Decision 5 · Bringing it into Everstage</p>
+      <h3 class="cs-h3 reveal" id="d5-h">One less tool to depend on.</h3>
       <div class="prose reveal">
         <p>Alongside rethinking how values were populated, we also moved contract creation and signing into Everstage.</p>
         <p>Admins no longer needed to connect individual DocuSign accounts or manage templates in an external editor. Templates, fields, envelopes, and signing could now be handled within the product, and a template can be cloned for the next plan year.</p>
@@ -189,7 +190,7 @@
       <div class="cmp-row" role="row"><span role="cell">Mistakes discovered after sending</span><span role="cell">Missing and incorrect values caught and corrected beforehand</span></div>
     </div>
 
-    <h3 class="cs-h3 sub-h reveal">A few things I took away.</h3>
+    <h3 class="cs-h3 reveal">A few things I took away.</h3>
     <div class="prose reveal">
       <p>One thing this project made me think about was that designing an AI experience isn't just about what AI can do.</p>
       <p>It's also about helping people understand what it's doing, knowing when to step in, and giving them control when something doesn't look right.</p>
