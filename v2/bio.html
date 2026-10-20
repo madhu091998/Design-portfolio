@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="bio.css">
 </head>
-<body>
+<body class="bio-home">
 <div class="sweep" aria-hidden="true"></div>
 <script>
   document.querySelectorAll(".sweep").forEach(function (el) {
@@ -440,6 +440,16 @@
     }, 5200);
     var corner = document.querySelector(".corner");
     if (corner) new IntersectionObserver(function (es) { corner.classList.toggle("away", es[0].isIntersecting); }, { threshold: 0.3 }).observe(meadow);
+  })();
+</script>
+<script>
+  // The intro already shows the photo and name, so the top-left wordmark only appears once it scrolls away
+  (function () {
+    var who = document.querySelector(".intro .who");
+    if (!who || !("IntersectionObserver" in window)) { document.body.classList.add("past-intro"); return; }
+    new IntersectionObserver(function (es) {
+      document.body.classList.toggle("past-intro", !es[0].isIntersecting);
+    }, { rootMargin: "-72px 0px 0px 0px" }).observe(who);
   })();
 </script>
 </body>

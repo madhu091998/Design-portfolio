@@ -20,3 +20,7 @@
   .intro .bio { font-size: 16px; margin-top: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .intro { animation: none; opacity: 1; transform: none; } }
+
+/* Hide the top-left wordmark while the intro's own photo and name are on screen */
+.bio-home .wordmark { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s, color 0.2s ease; }
+.bio-home.past-intro .wordmark { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s, color 0.2s ease; }
