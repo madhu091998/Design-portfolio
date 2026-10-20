@@ -495,3 +495,7 @@
   .flow p { padding-top: 4px; }
   .flow .f-tag { grid-column: 2; justify-self: start; }
 }
+
+/* Blog layout: the side nav only shows when there's room beside the centred column */
+.blog .sidenav { top: 50%; transform: translateY(-50%); }
+@media (max-width: 1180px) { .blog .sidenav { display: none; } }
