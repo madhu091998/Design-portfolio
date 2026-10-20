@@ -35,30 +35,8 @@
     <h2 class="cs-h2 reveal" id="problem-h">The problem</h2>
     <div class="prose reveal">
       <p>Companies send compensation agreements to their salespeople whenever they join, change roles, or start a new sales year. Each agreement contains information specific to that person, like their quota, commission plan, and compensation details.</p>
-    </div>
-    <figure class="fig reveal">
-      <div class="versions" role="img" aria-label="Three copies of the same agreement, each with a different name, quota and target pay.">
-        <div class="version"><span class="v-head">Sales Agreement 2026</span><p>This agreement is between Northwind and <b>Aria Patel</b>. Your Q2 quota is <b>$450,000</b> and your annual target pay is <b>$160,000</b>.</p></div>
-        <div class="version"><span class="v-head">Sales Agreement 2026</span><p>This agreement is between Northwind and <b>Leo Martins</b>. Your Q2 quota is <b>$425,000</b> and your annual target pay is <b>$145,000</b>.</p></div>
-        <div class="version"><span class="v-head">Sales Agreement 2026</span><p>This agreement is between Northwind and <b>Nina Okafor</b>. Your Q2 quota is <b>$310,000</b> and your annual target pay is <b>$138,000</b>.</p></div>
-      </div>
-      <figcaption>Same agreement, different numbers for every person. Names and figures are made up.</figcaption>
-    </figure>
-    <div class="prose reveal">
       <p>Previously, we used DocuSign to create and send these contracts.</p>
-    </div>
-    <figure class="fig reveal">
-      <ol class="flow" aria-label="How admins created contracts before">
-        <li><span class="f-n">1</span><p>Build the contract template in DocuSign, embedded within Everstage through an iframe.</p><span class="f-tag">DocuSign</span></li>
-        <li><span class="f-n">2</span><p>Download the list of fields as a CSV file.</p><span class="f-tag">CSV</span></li>
-        <li><span class="f-n">3</span><p>Collect and enter values for each salesperson in a spreadsheet.</p><span class="f-tag">Spreadsheet</span></li>
-        <li><span class="f-n">4</span><p>Upload the spreadsheet back into Everstage to populate the contracts.</p><span class="f-tag">Everstage</span></li>
-        <li class="warn"><span class="f-n">5</span><p>Send contracts without being able to preview the completed documents.</p><span class="f-tag">No preview</span></li>
-        <li class="warn"><span class="f-n">6</span><p>Discover mistakes after sending, often requiring admins to void and resend contracts.</p><span class="f-tag">Void and resend</span></li>
-      </ol>
-      <figcaption>How admins created contracts before.</figcaption>
-    </figure>
-    <div class="prose reveal">
+      <p>Admins had to build a template in DocuSign, download a CSV containing its fields, manually fill in the values for every salesperson, and upload it back into Everstage.</p>
       <p>The bigger problem was that most of this information already existed in Everstage. Admins were spending time collecting and entering data that the product already had.</p>
       <p>There was also no way to preview how each person's contract would look before sending it. If something was wrong, admins often found out only after sending the contract, which meant voiding it and sending another one.</p>
       <p>On top of this, we were dependent on DocuSign for templates, permissions, and signing.</p>
