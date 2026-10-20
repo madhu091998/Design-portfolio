@@ -22,14 +22,14 @@
 
 <nav class="sidenav" aria-label="On this page">
   <a href="#top" class="on">Overview</a>
-  <a href="#problem">The problem</a>
-  <a href="#understanding">Understanding</a>
-  <a href="#working">Working through it</a>
-  <a href="#designed">What I designed</a>
+  <a href="#before">How it worked before</a>
+  <a href="#needs">What customers needed</a>
+  <a href="#approaches">Early approaches</a>
+  <a href="#ai">Bringing in AI</a>
+  <a href="#experience">The new experience</a>
   <a href="#ai-wrong">When AI is wrong</a>
-  <a href="#other">Other iterations</a>
   <a href="#changed">What changed</a>
-  <a href="#learned">What I learned</a>
+  <a href="#takeaway">What I took away</a>
 </nav>
 
 <main class="page" id="top">
@@ -37,82 +37,98 @@
     <h1>Simplifying contract management with AI</h1>
     <p class="meta">2025–2026 · Everstage · Product Design</p>
     <div class="prose intro">
-      <p>I worked on the end-to-end design of Contracts at Everstage, alongside our product manager and engineers.</p>
-      <p>Contracts lets companies create and send personalized sales compensation agreements to their salespeople.</p>
-      <p>The project started as an effort to simplify a workflow that relied on DocuSign and a lot of manual data preparation. We eventually moved contract creation and signing into Everstage, with Eva, our AI assistant, helping populate contracts using data already available in the product.</p>
+      <p>I worked on the end-to-end design of the Contracts admin experience at Everstage, alongside our product manager and engineers.</p>
+      <p>Contracts lets companies create, send, and manage personalized sales compensation agreements for their salespeople.</p>
+      <p>The project started as an effort to simplify the existing DocuSign-based workflow. We eventually brought contract creation and signing into Everstage, with Eva, our AI assistant, helping reduce the manual work involved in preparing contracts.</p>
     </div>
   </header>
 
-  <section class="sec" id="problem" aria-labelledby="problem-h">
-    <h2 class="cs-h2 reveal" id="problem-h">The problem</h2>
+  <section class="sec" id="before" aria-labelledby="before-h">
+    <h2 class="cs-h2 reveal" id="before-h"><span class="n">01 /</span> How contracts worked before</h2>
     <div class="prose reveal">
-      <p>Previously, Contracts relied on DocuSign, which was embedded inside Everstage.</p>
-      <p>Admins would upload a PDF, configure recipients, and use the DocuSign editor to place fields on the document.</p>
-      <p>But creating the template was only half the work.</p>
-      <p>Once the template was ready, admins still had to:</p>
+      <p>Previously, Contracts relied on DocuSign, embedded within Everstage through an iframe.</p>
+      <p>Admins could upload a document, configure recipients, and place fields using DocuSign. But creating the template was only half the work.</p>
+      <p>Once the template was ready, they still had to:</p>
       <ol>
         <li>Download a CSV containing the contract fields.</li>
-        <li>Collect each salesperson's details from different sources and fill the CSV.</li>
-        <li>Upload that data into a Datasheet within Everstage.</li>
-        <li>Load the Datasheet into the contract and send the envelopes.</li>
+        <li>Collect each salesperson's details and fill the CSV manually.</li>
+        <li>Upload the data into a Datasheet in Everstage.</li>
+        <li>Return to the contract, load the Datasheet, and send the envelopes.</li>
       </ol>
-      <p>Most of this information, like quotas, commission details, and employee information, already existed in Everstage.</p>
-      <p>Admins also had to manually provide recipient emails and email content, and there was no way to preview each person's completed contract before sending it.</p>
-      <p>If something was wrong, they could end up voiding and resending the contracts.</p>
+      <p>Most of this information, like quotas, commission details, and employee data, already existed in Everstage.</p>
+      <p>Admins also had to manually enter recipient emails and email content. And there was no way to preview each person's completed contract before sending it.</p>
+      <p>If something was wrong, they often had to void and resend the contract.</p>
     </div>
   </section>
 
-  <section class="sec" id="understanding" aria-labelledby="understanding-h">
-    <h2 class="cs-h2 reveal" id="understanding-h">Understanding the existing experience</h2>
+  <section class="sec" id="needs" aria-labelledby="needs-h">
+    <h2 class="cs-h2 reveal" id="needs-h"><span class="n">02 /</span> Understanding what customers actually needed</h2>
     <div class="prose reveal">
-      <p>I started by going through the entire workflow in the product, reviewing documentation and customer feedback, and studying how an existing customer configured their templates, recipients, and data.</p>
-      <p>We also worked with our customer success, implementation, and solution architecture teams to understand common customer setups.</p>
-      <p>A few things became clearer. Most contracts went to salespeople and their managers, recipient combinations varied by customer, and email content often followed common patterns.</p>
-      <p>These findings helped shape how we approached recipient selection, template reuse, and email customization.</p>
+      <p>I started by going through the existing flow myself, reviewing customer feedback, and studying how customers configured templates, recipients, and placeholder data.</p>
+      <p>Alongside our PM, we also gathered inputs from customer success, implementation, and solution architects.</p>
+      <p>A few things became clearer:</p>
+      <ul>
+        <li>Most contracts went to salespeople, their reporting managers, and sometimes compensation admins.</li>
+        <li>Customers often reused the same agreements throughout the year.</li>
+        <li>Email content was usually common across recipients or varied by role, though some customers needed unique messages.</li>
+        <li>Not all contract values came from the same data source.</li>
+      </ul>
+      <p>These findings helped us rethink the workflow beyond just replacing DocuSign.</p>
     </div>
   </section>
 
-  <section class="sec" id="working" aria-labelledby="working-h">
-    <h2 class="cs-h2 reveal" id="working-h">Working through the design</h2>
+  <section class="sec" id="approaches" aria-labelledby="approaches-h">
+    <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">03 /</span> The first few approaches we explored</h2>
+    <h3 class="cs-h3 reveal">One contract flow or reusable templates?</h3>
     <div class="prose reveal">
-      <p>I started exploring the high-level flow and reviewing different directions with the PM and engineers.</p>
+      <p>We initially explored combining template creation and sending into a single flow.</p>
+      <p>But what happens when someone joins midway through the year and needs the same contract?</p>
+      <p>With this approach, admins would have to clone the entire contract just to send it to one more person.</p>
+      <p>So we kept templates and envelopes separate. Admins could create a template once, reuse it for different batches, and track all the envelopes sent from it.</p>
     </div>
-    <h3 class="cs-h3 reveal">Why we kept templates and envelopes separate</h3>
+    <h3 class="cs-h3 reveal">Figuring out roles and recipients</h3>
     <div class="prose reveal">
-      <p>One of our early ideas was to combine everything into a single contract creation flow.</p>
-      <p>But customers often needed to send the same contract to new salespeople joining midway through the year. With that approach, they'd have to clone the entire contract each time, even to send it to one person.</p>
-      <p>So we kept templates reusable, with the ability to create and track multiple envelopes from the same template.</p>
+      <p>I also explored defining recipient roles after selecting the primary recipients, thinking that this would make the concept of roles easier to understand.</p>
+      <p>But feedback from a solution architect and other designers showed that experienced admins wanted to define roles upfront, while new users needed more context about what those roles meant.</p>
+      <p>After a few iterations, we kept role configuration in the template and recipient selection in the envelope flow.</p>
     </div>
-    <h3 class="cs-h3 reveal">Rethinking data mapping</h3>
+    <h3 class="cs-h3 reveal">Why manual data mapping wasn't enough</h3>
     <div class="prose reveal">
       <p>Data mapping was one of the biggest unknowns when we started.</p>
-      <p>Initially, we explored letting admins select a data source and configure the fields and filters for every placeholder.</p>
-      <p>But some values weren't straightforward. For example, someone might need the ramp-adjusted quota for Q1 of 2026 from a particular quota category.</p>
-      <p>Supporting all these conditions manually would mean a lot of configuration.</p>
-      <p>Around the same time, our engineering team was developing the Contracts AI agent. Once it became reliable enough to generate queries from natural-language instructions, we started designing around that capability.</p>
-      <p>Instead of asking admins to configure every lookup, we could let them describe what they needed.</p>
-      <p>The challenge then became figuring out how admins would check whether AI had understood them correctly.</p>
+      <p>Our initial approach was to let admins manually choose a data source, column, and filters for every placeholder.</p>
+      <p>But consider something like "Ramp-adjusted quota for Q1 2026 from the New Business category."</p>
+      <p>Supporting such values would require multiple filters and configurations. This could quickly become complicated.</p>
+      <p>We needed a simpler way for admins to tell the system what data they wanted.</p>
     </div>
   </section>
 
-  <section class="sec" id="designed" aria-labelledby="designed-h">
-    <h2 class="cs-h2 reveal" id="designed-h">What I designed</h2>
+  <section class="sec" id="ai" aria-labelledby="ai-h">
+    <h2 class="cs-h2 reveal" id="ai-h"><span class="n">04 /</span> Bringing AI into the workflow</h2>
     <div class="prose reveal">
-      <p>The new experience has two main parts: creating a reusable contract template and sending envelopes using that template.</p>
+      <p>Around this time, engineering was developing the Contracts AI agent.</p>
+      <p>Once Eva became capable of reliably generating data queries from natural-language instructions, we started exploring a different approach.</p>
+      <p>Instead of making admins configure every data source and filter, what if they could just describe the value they needed?</p>
+      <p>Eva could interpret the description, identify the relevant data, and generate a query to fetch values for each salesperson.</p>
+      <p>But this introduced another design problem.</p>
+      <p>How would admins know whether AI had fetched the right information? And what could they do if it hadn't?</p>
+      <p>A lot of the design work went into answering those questions.</p>
     </div>
-    <h3 class="cs-h3 reveal">1. Creating a template</h3>
+  </section>
+
+  <section class="sec" id="experience" aria-labelledby="experience-h">
+    <h2 class="cs-h2 reveal" id="experience-h"><span class="n">05 /</span> How the new experience works</h2>
+    <h3 class="cs-h3 reveal">Creating a reusable template</h3>
     <div class="prose reveal">
-      <p>Admins can create a new template or clone an existing one, upload their document, and configure recipient roles, signing order, and reminders.</p>
-      <p>We also made recipient assignment easier. Instead of manually entering every recipient's email, admins can configure roles like reporting manager or a fixed compensation admin.</p>
-      <p>These recipients can then be populated automatically when sending contracts.</p>
+      <p>Admins can create a new template or clone an existing one, upload their document, and configure recipients, signing order, and reminders.</p>
+      <p>We also introduced ways to automatically assign recipients, like a salesperson's reporting manager or a fixed compensation admin, using information Everstage already has.</p>
     </div>
-    <h3 class="cs-h3 reveal">2. Populating fields with Eva</h3>
+    <h3 class="cs-h3 reveal">Letting Eva find the values</h3>
     <div class="prose reveal">
-      <p>We used the native document editor developed by another internal team and extended the experience to support Contracts-specific data fields.</p>
-      <p>Admins can place placeholders on the document and describe what each one should contain.</p>
+      <p>We used the native document editor developed by our CPQ team and adapted it for Contracts-specific data fields.</p>
+      <p>Admins can place placeholders and describe what each should contain in plain language.</p>
       <p>For example, "Q2 quota from the New Business category."</p>
-      <p>Eva interprets these instructions, finds the relevant data sources, and generates a reusable query to fetch the values for each salesperson.</p>
-      <p>We also introduced pre-mapped fields as starting points, along with suggestions to help admins write better instructions.</p>
+      <p>Eva uses these instructions to generate a reusable query that fetches values from Everstage data.</p>
+      <p>We also added pre-mapped fields as starting points and guidance to help admins write better instructions.</p>
     </div>
     <figure class="shot screen-shot reveal">
       <picture>
@@ -120,14 +136,13 @@
         <img src="../../assets/contracts/screen-1-desktop.png" width="1428" height="892" loading="lazy" alt="A contract on the left with its placeholders highlighted. On the right, a quota placeholder is set to be found by AI, with a plain-language description that points at the quota plan using the / picker.">
       </picture>
     </figure>
-    <h3 class="cs-h3 reveal">3. Previewing and correcting AI results</h3>
+    <h3 class="cs-h3 reveal">Checking AI results before confirming</h3>
     <div class="prose reveal">
-      <p>One thing I spent time thinking through was how admins would know whether Eva had fetched the right values.</p>
-      <p>We introduced a preview step where admins can select sample salespeople and see the populated values in a table.</p>
-      <p>If something looks wrong, they can ask Eva to use a different source, add more context, or clarify what they need.</p>
-      <p>Eva can also ask follow-up questions when the instruction is unclear.</p>
-      <p>Admins can then preview the completed document to check both the values and the placement of placeholders before confirming the template.</p>
-      <p>The confirmed query is saved with the template and reused when sending contracts.</p>
+      <p>Admins can select sample salespeople and preview the values Eva has fetched for each placeholder.</p>
+      <p>If something looks wrong, they can chat with Eva, provide more context, or ask it to use a different data source.</p>
+      <p>Eva can also ask clarifying questions when it needs more information.</p>
+      <p>Admins can preview the populated document as well, checking both the values and the placement of placeholders.</p>
+      <p>Once confirmed, the query is saved with the template for future use.</p>
     </div>
     <figure class="shot screen-shot reveal">
       <picture>
@@ -135,19 +150,13 @@
         <img src="../../assets/contracts/screen-2-desktop.png" width="1428" height="618" loading="lazy" alt="A preview of values for a few sample salespeople, where two quotas show as not found, next to the AI assistant asking which of two quotas to use.">
       </picture>
     </figure>
-    <h3 class="cs-h3 reveal">4. Creating and sending envelopes</h3>
+    <h3 class="cs-h3 reveal">Preparing and sending envelopes</h3>
     <div class="prose reveal">
-      <p>Once the template is ready, admins can select the salespeople they want to send contracts to.</p>
-      <p>Other recipients, like their reporting managers, are automatically populated based on the rules configured earlier.</p>
-      <p>The saved query is then used to fetch placeholder values for everyone.</p>
-      <p>Admins can review the values in a table, make changes, and preview the documents before sending.</p>
-      <p>We also simplified email customization based on common customer use cases:</p>
-      <ul>
-        <li>Same email for everyone.</li>
-        <li>Different email for each recipient role.</li>
-        <li>Unique email for each recipient.</li>
-      </ul>
-      <p>Once sent, admins can track the contracts and see whose action is still pending.</p>
+      <p>When it's time to send contracts, admins select the primary recipients. Other recipients are automatically populated based on the rules configured in the template.</p>
+      <p>Eva then uses the saved query to fetch placeholder values for everyone.</p>
+      <p>Admins can review the values in a table, make corrections, and preview the contracts before sending.</p>
+      <p>We also simplified email customization around three customer needs: the same email for everyone, different emails by role, or unique emails for individual recipients.</p>
+      <p>After sending, admins can track the contracts and see whose action is pending.</p>
     </div>
     <figure class="shot screen-shot reveal">
       <picture>
@@ -165,68 +174,59 @@
   </section>
 
   <section class="sec" id="ai-wrong" aria-labelledby="ai-wrong-h">
-    <h2 class="cs-h2 reveal" id="ai-wrong-h">Designing for when AI doesn't get it right</h2>
+    <h2 class="cs-h2 reveal" id="ai-wrong-h"><span class="n">06 /</span> What happens when AI doesn't get it right?</h2>
     <div class="prose reveal">
       <p>This was one of the more interesting parts of the project for me.</p>
-      <p>Eva can't always fetch the correct value, and there are different reasons why something might go wrong.</p>
-      <p>Sometimes the source has no matching data. Sometimes Eva needs more context. Sometimes the lookup itself fails. And sometimes the admin has intentionally chosen to enter the value manually.</p>
-      <p>We couldn't treat all these cases the same way.</p>
+      <p>Eva won't always return the right value. Sometimes it needs more context, sometimes the data doesn't exist, and sometimes the lookup itself fails.</p>
+      <p>We had to think through these cases rather than assuming AI would always work.</p>
     </div>
-    <h3 class="cs-h3 reveal">Giving admins ways to correct AI</h3>
+    <h3 class="cs-h3 reveal">When Eva fetches the wrong value</h3>
     <div class="prose reveal">
-      <p>Admins can ask Eva to fetch values from a different source or modify how a value is calculated.</p>
-      <p>For example, they can ask Eva to divide the variable pay by 10 and regenerate the values.</p>
-      <p>But we didn't want admins to depend entirely on AI.</p>
-      <p>They can also edit values directly, copy and paste from spreadsheets, or look up values from an existing Datasheet.</p>
-      <p>For bulk updates, we let them match records using recipient email addresses and validate the values before applying them.</p>
+      <p>Admins can ask Eva to use a different source or change how a value is calculated.</p>
+      <p>For example, they can ask it to divide the variable pay by 10 and regenerate the values.</p>
     </div>
-    <h3 class="cs-h3 reveal">Handling missing and outdated values</h3>
+    <h3 class="cs-h3 reveal">When Eva can't fetch a value</h3>
     <div class="prose reveal">
-      <p>Another case we had to consider was what happens when admins prepare contracts but send them a few days later.</p>
-      <p>The underlying compensation data might have changed in the meantime.</p>
-      <p>So we differentiated between missing and outdated values, with indicators, filters, and options to refresh the data.</p>
-      <p>We also allowed admins to proceed with missing values, but warned them that those placeholders might be blank in the final documents.</p>
-      <p>The idea was to make problems visible and give admins ways to resolve them without forcing them to start over.</p>
+      <p>We didn't want admins to depend entirely on AI.</p>
+      <p>They can manually edit values, copy and paste data from spreadsheets, or look up values from an existing Datasheet.</p>
+      <p>For bulk updates, we let them match records using recipient email addresses and validate the results before applying them.</p>
+      <p>We also accounted for cases like multiple matching records, rather than silently choosing a value.</p>
     </div>
-  </section>
-
-  <section class="sec" id="other" aria-labelledby="other-h">
-    <h2 class="cs-h2 reveal" id="other-h">Other things we worked through</h2>
+    <h3 class="cs-h3 reveal">When values become outdated</h3>
     <div class="prose reveal">
-      <p>There were quite a few iterations that didn't make it to the final experience.</p>
-      <p>One was how we configured roles and recipients. I explored asking for recipient roles later in the flow, once admins had selected the people receiving contracts.</p>
-      <p>But feedback from a solution architect and other designers showed that the approach introduced confusion and made some bulk-recipient scenarios harder.</p>
-      <p>We eventually kept role configuration at the template level and recipient selection at the envelope level.</p>
-      <p>Another change came midway through the project, when we moved from retaining DocuSign to using native e-signing. This meant revisiting parts of the experience and adapting the shared editor for Contracts.</p>
-      <p>A lot of the work involved balancing what would make the experience simpler with what was technically possible.</p>
+      <p>What if an admin prepares contracts but returns to send them a few days later?</p>
+      <p>The source data might have changed.</p>
+      <p>We introduced indicators for missing and outdated values, filters to find affected records, and options to refresh the data.</p>
+      <p>Admins can still proceed with missing values, but we warn them that those placeholders may appear blank in the final documents.</p>
+      <p>The idea was to make problems visible and give admins ways to resolve them without starting over.</p>
     </div>
   </section>
 
   <section class="sec" id="changed" aria-labelledby="changed-h">
-    <h2 class="cs-h2 reveal" id="changed-h">What changed</h2>
+    <h2 class="cs-h2 reveal" id="changed-h"><span class="n">07 /</span> What changed with the redesign</h2>
     <div class="prose reveal">
-      <p>With the redesigned experience:</p>
+      <p>The new experience brings contract creation, sending, signing, and tracking into Everstage.</p>
+      <p>Admins can now:</p>
       <ul>
-        <li>Contract creation and signing no longer depend on DocuSign.</li>
-        <li>Admins can reuse templates instead of recreating them for every batch.</li>
-        <li>Recipient relationships can be populated using existing Everstage data.</li>
-        <li>Eva can fetch contract values without admins manually preparing a CSV for every send.</li>
-        <li>Admins can review, correct, and preview values before sending.</li>
-        <li>Manual options remain available when AI can't provide the required information.</li>
-        <li>Contracts can be sent and tracked within Everstage.</li>
+        <li>Create reusable templates without DocuSign.</li>
+        <li>Automatically populate recipients using existing relationships.</li>
+        <li>Use Eva to fetch values instead of manually preparing everything in a CSV.</li>
+        <li>Preview and correct values before sending contracts.</li>
+        <li>Use manual alternatives when AI can't fetch the required information.</li>
+        <li>Track the signing progress of their contracts.</li>
       </ul>
-      <p>The new experience was introduced through a phased rollout.</p>
-      <p>The recipient-side signing experience was developed by another team. Recipients can review, sign, and download their completed contracts through Everstage.</p>
+      <p>The new Contracts experience was introduced through a phased rollout.</p>
+      <p>The recipient-facing signing experience was built by another team. Recipients can review, sign, and download their completed contracts directly through Everstage.</p>
     </div>
   </section>
 
-  <section class="sec" id="learned" aria-labelledby="learned-h">
-    <h2 class="cs-h2 reveal" id="learned-h">What I learned</h2>
+  <section class="sec" id="takeaway" aria-labelledby="takeaway-h">
+    <h2 class="cs-h2 reveal" id="takeaway-h"><span class="n">08 /</span> What I took away</h2>
     <div class="prose reveal">
-      <p>This project changed how I think about designing experiences that involve AI.</p>
-      <p>It's one thing to design how someone asks AI to do something. It's another to think through what happens when AI misunderstands the request, returns the wrong information, or can't complete the task.</p>
-      <p>A lot of my time went into those cases: how people review the output, understand what went wrong, correct it, and continue without losing their work.</p>
-      <p>It also made me more conscious of where AI should help and where people still need control.</p>
+      <p>This project made me think more about what it means to design an experience involving AI.</p>
+      <p>The challenge wasn't just letting admins describe what they needed and having Eva fetch it.</p>
+      <p>It was also figuring out what happens when AI misunderstands something, returns incorrect information, or can't complete the task.</p>
+      <p>A lot of the work went into making sure admins could review what AI had done, correct it when needed, and still get their work done without depending entirely on it.</p>
     </div>
   </section>
 

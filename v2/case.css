@@ -503,3 +503,4 @@
 .blog .cs-h2 { position: relative; }
 .blog .cs-h2::before { content: ""; position: absolute; left: -20px; top: 0.55em; width: 6px; height: 6px; background: var(--accent); }
 @media (max-width: 760px) { .blog .cs-h2::before { left: -11px; width: 5px; height: 5px; } }
+.blog .cs-h2 .n { font-weight: 400; color: var(--muted); }
