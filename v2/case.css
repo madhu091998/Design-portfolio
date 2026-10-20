@@ -437,7 +437,7 @@
 /* ---------- Blog-style reading layout (Contracts first) ----------
    Four levels only: title, section heading, sub-heading, body. Everything else is a quiet grey label. */
 .blog .page { max-width: 700px; margin: 0 auto; padding: 112px 24px 96px; }
-.blog .hero h1 { font: 600 32px/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
+.blog .hero h1 { font: 600 28px/1.25 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
 .blog .hero h1 .sq { display: none; }
 .blog .meta { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
 .blog .hero .sub { margin-top: 28px; max-width: none; font-size: 16px; line-height: 1.7; color: var(--text); animation: none; opacity: 1; transform: none; }
