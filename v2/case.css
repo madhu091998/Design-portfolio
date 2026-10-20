@@ -499,3 +499,7 @@
 /* Blog layout: the side nav only shows when there's room beside the centred column */
 .blog .sidenav { top: 50%; transform: translateY(-50%); }
 @media (max-width: 1180px) { .blog .sidenav { display: none; } }
+/* Blog layout: a small maroon square hangs before each section heading, echoing the side nav */
+.blog .cs-h2 { position: relative; }
+.blog .cs-h2::before { content: ""; position: absolute; left: -20px; top: 0.55em; width: 6px; height: 6px; background: var(--accent); }
+@media (max-width: 760px) { .blog .cs-h2::before { left: -11px; width: 5px; height: 5px; } }
