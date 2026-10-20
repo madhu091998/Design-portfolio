@@ -433,3 +433,33 @@
 .cmp-head { font-size: 13px; color: var(--muted); }
 .cmp-head span:last-child { color: var(--accent); }
 @media (max-width: 760px) { .versions, .split { grid-template-columns: 1fr; } .cmp-row { gap: 14px; font-size: 14px; } }
+
+/* ---------- Blog-style reading layout (Contracts first) ---------- */
+.blog .page { max-width: 720px; margin: 0 auto; padding: 112px 24px 96px; }
+.blog .hero h1 { font: 500 30px/1.25 "Inter", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); max-width: none; text-wrap: balance; }
+.blog .hero h1 .sq { display: none; }
+.blog .meta { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+.blog .hero .sub { margin-top: 32px; max-width: none; font-size: 17px; line-height: 1.7; color: var(--text); animation: none; opacity: 1; transform: none; }
+.blog .facts.two { display: grid; grid-template-columns: max-content 1fr; gap: 6px 20px; margin-top: 24px; padding-top: 0; border-top: 0; max-width: none; font-size: 15px; }
+.blog .facts.two div { display: contents; }
+.blog .facts dt { color: var(--muted); }
+.blog .facts dd { margin: 0; color: var(--text); }
+.blog .hero-shot, .blog .shot { margin-top: 32px; }
+.blog .sec { margin-top: 64px; }
+.blog .sec-h { display: none; }
+.blog .cs-h2, .blog .decision .cs-h2 { font: 600 20px/1.35 "Inter", system-ui, sans-serif; letter-spacing: -0.01em; max-width: none; }
+.blog .cs-h3, .blog .sub-h { margin-top: 48px; font: 600 17px/1.4 "Inter", system-ui, sans-serif; letter-spacing: -0.005em; }
+.blog .kick { margin: 0 0 6px; font-size: 13px; color: var(--muted); }
+.blog .decision { margin-top: 48px; }
+.blog .decision:first-of-type { margin-top: 0; }
+.blog .prose { max-width: none; margin-top: 16px; font-size: 17px; line-height: 1.7; }
+.blog .prose p { margin-bottom: 20px; }
+.blog .old-steps, .blog .split, .blog .cmp { max-width: none; margin-top: 24px; }
+.blog .old-steps li { padding: 10px 0; font-size: 16px; }
+.blog .hmw { margin: 28px 0 0; padding-left: 18px; border-left: 2px solid var(--accent); font: 500 18px/1.55 "Inter", system-ui, sans-serif; color: var(--ink); }
+.blog .hmw::before, .blog .hmw::after { content: none; }
+.blog .versions, .blog .screen-shot picture { padding: 16px; }
+.blog .reveal { opacity: 1; transform: none; transition: none; }
+.blog .cs-foot { margin-top: 96px; }
+@media (max-width: 1100px) { .blog .page { padding: 104px 24px 80px; } }
+@media (max-width: 760px) { .blog .page { padding: 88px 16px 64px; } .blog .hero h1 { font-size: 26px; } .blog .prose, .blog .hero .sub { font-size: 16px; } }
