@@ -440,7 +440,7 @@
 .blog .hero h1 { font: 600 32px/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
 .blog .hero h1 .sq { display: none; }
 .blog .meta { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
-.blog .hero .sub { margin-top: 28px; max-width: none; font-size: 17px; line-height: 1.7; color: var(--text); animation: none; opacity: 1; transform: none; }
+.blog .hero .sub { margin-top: 28px; max-width: none; font-size: 16px; line-height: 1.7; color: var(--text); animation: none; opacity: 1; transform: none; }
 .blog .facts.two { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin-top: 24px; padding: 0; border: 0; max-width: none; font-size: 14px; line-height: 1.55; }
 .blog .facts.two div { display: contents; }
 .blog .facts dt { color: var(--muted); }
@@ -455,7 +455,7 @@
 .blog .kick + .cs-h3 { margin-top: 0; }
 .blog .decision { margin-top: 48px; }
 .blog .cs-h2 + .decision { margin-top: 24px; }
-.blog .prose { max-width: none; margin-top: 12px; font-size: 17px; line-height: 1.7; color: var(--text); }
+.blog .prose { max-width: none; margin-top: 12px; font-size: 16px; line-height: 1.7; color: var(--text); }
 .blog .prose p { margin: 0 0 18px; }
 .blog .prose p:last-child { margin-bottom: 0; }
 .blog .prose b { font-weight: 600; color: var(--ink); }
