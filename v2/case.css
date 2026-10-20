@@ -475,3 +475,8 @@
 .blog .cs-foot { margin-top: 96px; }
 @media (max-width: 1100px) { .blog .page { padding: 104px 24px 80px; } }
 @media (max-width: 760px) { .blog .page { padding: 88px 16px 64px; } .blog .hero h1 { font-size: 26px; } .blog .cs-h2 { font-size: 20px; } .blog .prose, .blog .hero .sub { font-size: 16px; } }
+.blog .prose.intro { margin-top: 28px; }
+.blog .prose ul { margin: 0 0 18px; padding-left: 20px; display: grid; gap: 8px; }
+.blog .cs-h2 + .prose { margin-top: 12px; }
+.blog .prose + .cs-h3 { margin-top: 40px; }
+.blog .shot + .cs-h3 { margin-top: 48px; }
