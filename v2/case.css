@@ -48,10 +48,10 @@
 /* ---------- Sections ---------- */
 .case .sec { margin-top: 150px; }
 .cs-h2 {
-  margin: 0; max-width: 760px; font: 500 clamp(28px, 2.7vw, 40px)/1.15 "Geist", system-ui, sans-serif;
+  margin: 0; max-width: 760px; font: 500 clamp(28px, 2.7vw, 40px)/1.15 "Inter", system-ui, sans-serif;
   letter-spacing: -0.03em; color: var(--ink); text-wrap: balance;
 }
-.cs-h3 { margin: 0; max-width: 680px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); text-wrap: balance; }
+.cs-h3 { margin: 0; max-width: 680px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); text-wrap: balance; }
 .kick { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
 .kick .mode { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; vertical-align: 0.05em; background: var(--c); }
 .prose { max-width: 640px; margin-top: 24px; font-size: 17px; line-height: 1.65; color: var(--text); }
@@ -78,7 +78,7 @@
 /* 02: the request, annotated */
 .ask { display: grid; gap: 28px; max-width: 760px; }
 .ask .who { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.ask q { quotes: "“" "”"; font: 400 clamp(22px, 2.3vw, 32px)/1.35 "Geist", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); }
+.ask q { quotes: "“" "”"; font: 400 clamp(22px, 2.3vw, 32px)/1.35 "Inter", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); }
 .ask .reply q { color: var(--text); }
 .ask mark { background: none; color: inherit; text-decoration: underline 1.5px var(--clover); text-underline-offset: 7px; }
 .ask sup { margin-left: 2px; font-size: 0.42em; font-weight: 500; letter-spacing: 0; vertical-align: 1.5em; color: var(--moon); }
@@ -126,7 +126,7 @@
 .scope-demo { display: grid; gap: 24px; }
 .scope-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
 .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent); }
-.seg button { padding: 6px 14px; border: 0; border-radius: 999px; font: 500 13px/1.2 "Geist", system-ui, sans-serif; color: var(--text); background: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.seg button { padding: 6px 14px; border: 0; border-radius: 999px; font: 500 13px/1.2 "Inter", system-ui, sans-serif; color: var(--text); background: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
 .seg button[aria-pressed="true"] { color: #fff; background: var(--blue); }
 .cards6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .scope-demo.one .wire.match { outline-color: transparent; }
@@ -144,7 +144,7 @@
 .pill { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 3px 9px; border-radius: 999px; font-size: 11px; line-height: 1.4; color: var(--ink); background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .pill.blue { color: #fff; background: var(--blue); box-shadow: none; }
 .pill.dark { color: var(--moon); background: var(--moon-lt); box-shadow: 0 0 0 1px var(--moon-mid); }
-.key { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 4px; font: 500 11px/1 "Geist", sans-serif; color: var(--ink); background: #fff; box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
+.key { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 4px; font: 500 11px/1 "Inter", sans-serif; color: var(--ink); background: #fff; box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .lock { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .iters .wire { position: relative; }
@@ -171,7 +171,7 @@
 
 /* 07: ideas */
 .ideas { max-width: 640px; margin: 40px 0 0; }
-.ideas h3 { margin: 0 0 4px; font: 400 14px/1.4 "Geist", system-ui, sans-serif; color: var(--muted); }
+.ideas h3 { margin: 0 0 4px; font: 400 14px/1.4 "Inter", system-ui, sans-serif; color: var(--muted); }
 .ideas ul { list-style: none; margin: 0; padding: 0; }
 .ideas li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink); }
 
@@ -352,7 +352,7 @@
 .scrolly-notes li { position: absolute; inset: 0 0 auto; opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .scrolly-notes li.on { opacity: 1; transform: none; }
 .scrolly-notes span { display: block; font-size: 13px; color: var(--muted); }
-.scrolly-notes b { display: block; margin-top: 10px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
+.scrolly-notes b { display: block; margin-top: 10px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
 .scrolly-notes p { margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
 .scrolly-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; justify-self: start; font-size: 14px; color: var(--muted); }
 .scrolly-steps li { display: flex; align-items: center; gap: 12px; transition: color 0.3s ease; }
