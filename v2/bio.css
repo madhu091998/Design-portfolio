@@ -34,5 +34,6 @@
   .bio-home .grid.work { grid-template-columns: 1fr; gap: 48px; }
   .bio-home .grid.work .col { display: contents; }
   .bio-home .grid.work .tile { order: var(--o); }
-  .bio-home .grid.work .tile.tall .art { aspect-ratio: 1080 / 850; }
+  /* Shorter tiles so each project doesn't fill the whole screen */
+  .bio-home .grid.work .tile .art { aspect-ratio: 16 / 10; }
 }
