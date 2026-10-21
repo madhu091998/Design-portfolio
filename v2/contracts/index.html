@@ -81,27 +81,28 @@
   </section>
 
   <section class="sec" id="approaches" aria-labelledby="approaches-h">
-    <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">03 /</span> The first few approaches we explored</h2>
+    <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">03 /</span> Some of the approaches we explored</h2>
+    <div class="prose reveal">
+      <p>We went through quite a few iterations during the redesign. Some ideas worked, while others had to be reconsidered as we understood the use cases better.</p>
+    </div>
     <h3 class="cs-h3 reveal">One contract flow or reusable templates?</h3>
     <div class="prose reveal">
-      <p>We initially explored combining template creation and sending into a single flow.</p>
-      <p>But what happens when someone joins midway through the year and needs the same contract?</p>
-      <p>With this approach, admins would have to clone the entire contract just to send it to one more person.</p>
-      <p>So we kept templates and envelopes separate. Admins could create a template once, reuse it for different batches, and track all the envelopes sent from it.</p>
+      <p>We initially explored combining contract creation and sending into a single flow.</p>
+      <p>But what if a new salesperson joined midway through the year and needed the same contract? Admins would have to recreate or copy the entire contract just to send it to one more person.</p>
+      <p>So we kept templates and sending separate, allowing admins to create a template once, reuse it for different groups of people, and track the contracts sent from it.</p>
     </div>
-    <h3 class="cs-h3 reveal">Figuring out roles and recipients</h3>
+    <h3 class="cs-h3 reveal">Figuring out who receives the contracts</h3>
     <div class="prose reveal">
-      <p>I also explored defining recipient roles after selecting the primary recipients, thinking that this would make the concept of roles easier to understand.</p>
-      <p>But feedback from a solution architect and other designers showed that experienced admins wanted to define roles upfront, while new users needed more context about what those roles meant.</p>
-      <p>After a few iterations, we kept role configuration in the template and recipient selection in the envelope flow.</p>
+      <p>I explored asking admins to select the people receiving the contracts first, and then define who else needed to sign them.</p>
+      <p>But feedback from others showed that these roles needed to be defined upfront, while first-time users needed more context to understand them.</p>
+      <p>After a few iterations, we decided to let admins define who needs to sign while creating the template, and select the actual recipients when sending the contracts.</p>
     </div>
     <h3 class="cs-h3 reveal">Why manual data mapping wasn't enough</h3>
     <div class="prose reveal">
-      <p>Data mapping was one of the biggest unknowns when we started.</p>
-      <p>Our initial approach was to let admins manually choose a data source, column, and filters for every placeholder.</p>
-      <p>But consider something like "Ramp-adjusted quota for Q1 2026 from the New Business category."</p>
-      <p>Supporting such values would require multiple filters and configurations. This could quickly become complicated.</p>
-      <p>We needed a simpler way for admins to tell the system what data they wanted.</p>
+      <p>Our initial approach was to let admins manually choose where each piece of contract information should come from and set the conditions for finding it.</p>
+      <p>But what if someone needed a salesperson's sales target for a specific quarter, adjusted based on when they joined the company?</p>
+      <p>Fetching that value could involve multiple conditions and calculations, making manual configuration complicated.</p>
+      <p>We needed a simpler way for admins to describe the information they wanted.</p>
     </div>
   </section>
 
