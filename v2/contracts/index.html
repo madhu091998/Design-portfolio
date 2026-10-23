@@ -77,28 +77,27 @@
   <section class="sec" id="approaches" aria-labelledby="approaches-h">
     <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">02 /</span> Some of the approaches we explored</h2>
     <div class="prose reveal">
-      <p>We went through quite a few iterations during the redesign. Some ideas worked, while others had to be reconsidered as we understood the use cases better.</p>
+      <p>We tried a few different approaches during the redesign. Some didn't work as expected, so we had to rethink them as we learned more.</p>
     </div>
-    <h3 class="cs-h3 reveal">One contract flow or reusable templates?</h3>
+    <h3 class="cs-h3 reveal">One flow or reusable templates?</h3>
     <div class="prose reveal">
-      <p>We initially explored combining contract creation and sending into a single flow.</p>
-      <p>But what if a new salesperson joined midway through the year and needed the same contract? Admins would have to recreate or copy the entire contract just to send it to one more person.</p>
-      <p>So we kept templates and sending separate, allowing admins to create a template once, reuse it for different groups of people, and track the contracts sent from it.</p>
+      <p>We initially thought of combining contract creation and sending into a single flow.</p>
+      <p>But if a new salesperson joined midway through the year, admins would have to recreate the contract just to send it to one more person.</p>
+      <p>So we kept templates separate from sending, allowing admins to create a template once, reuse it whenever needed, and track the contracts sent from it.</p>
     </div>
     <h3 class="cs-h3 reveal">Figuring out who receives the contracts</h3>
     <div class="prose reveal">
-      <p>I explored asking admins to select the people receiving the contracts first, and then define who else needed to sign them.</p>
-      <p>But feedback from others showed that these roles needed to be defined upfront, while first-time users needed more context to understand them.</p>
-      <p>After a few iterations, we decided to let admins define who needs to sign while creating the template, and select the actual recipients when sending the contracts.</p>
+      <p>I explored letting admins select the people receiving contracts first, and then decide who else needed to sign.</p>
+      <p>But feedback from others showed that admins usually knew who needed to sign while setting up the contract. First-time users also needed more clarity on how this worked.</p>
+      <p>So we decided to configure who needs to sign while creating the template, and select the actual people when sending contracts.</p>
     </div>
-    <h3 class="cs-h3 reveal">Why manual data mapping wasn't enough</h3>
+    <h3 class="cs-h3 reveal">Figuring out how to fill contract details</h3>
     <div class="prose reveal">
-      <p>One of the biggest challenges when we started the redesign was figuring out how to get the right information into each person's contract. We didn't have a clear solution for this initially.</p>
-      <p>Most of the data already existed in Everstage, but it was spread across different places, and fetching the right value wasn't always straightforward.</p>
-      <p>Our first idea was to let admins manually choose where each piece of information should come from and set the conditions for finding it.</p>
-      <p>But what if someone needed a salesperson's sales target for a particular quarter, adjusted based on when they joined the company?</p>
-      <p>Getting that value could involve multiple conditions and calculations. Supporting all these cases would mean asking admins to go through a lot of configuration, which defeated the purpose of simplifying the workflow.</p>
-      <p>This was one of the parts we had to rethink as the project progressed, especially as the AI capabilities were being developed alongside the redesign.</p>
+      <p>This was one of the biggest challenges, and we didn't have a clear solution when we started.</p>
+      <p>Even though most of the information was already in Everstage, finding the right values wasn't always simple.</p>
+      <p>We first thought of letting admins choose where each value should come from and set the conditions manually.</p>
+      <p>But what if they needed a salesperson's sales target for a specific quarter, adjusted based on when they joined? This would require several settings and calculations.</p>
+      <p>We realised this could become too complicated, so we needed a simpler approach. Around the same time, the AI capabilities were being developed, which opened up another way to solve this.</p>
     </div>
   </section>
 
