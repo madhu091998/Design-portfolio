@@ -540,3 +540,7 @@
 .blog .prose b { font-weight: 500; color: var(--ink); }
 .blog .prose ul, .blog .prose ol { gap: 10px; }
 .blog .cs-h3 + .prose { margin-top: 10px; }
+/* Sub-headings follow the serif too (one heading family, sized down), so a bold sans never out-shouts the section title */
+.blog .cs-h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 20px; line-height: 1.3; letter-spacing: -0.005em; color: #2c3a3d; }
+.blog .cs-h3 + .prose { margin-top: 8px; }
+@media (max-width: 760px) { .blog .cs-h3 { font-size: 19px; } }
