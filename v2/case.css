@@ -523,3 +523,6 @@
 .blog .prose li { padding-left: 4px; }
 .blog .prose + .shot, .blog .shot + .shot { margin-top: 32px; }
 .blog .shot + .cs-h3 { margin-top: 48px; }
+.blog .shot figcaption { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.blog .old-flow video { box-shadow: 0 0 0 1px var(--line); }
+.blog .shot + .prose { margin-top: 32px; }
