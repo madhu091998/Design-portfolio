@@ -576,3 +576,6 @@
 .blog .ss-text .prose p { margin-bottom: 12px; }
 .blog .ss-text .prose p:last-child { margin-bottom: 0; }
 @media (max-width: 760px) { .blog .ss-text .prose { font-size: 16px; } }
+/* Side text back to 16px, with the heading at the same size */
+.blog .ss-text .prose { font-size: 16px; line-height: 1.65; }
+.blog .ss-text .cs-h3 { font-size: 16px; line-height: 1.5; }
