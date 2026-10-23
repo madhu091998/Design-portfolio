@@ -581,3 +581,8 @@
 .blog .ss-text .cs-h3 { font-size: 16px; line-height: 1.5; }
 /* No label: the screen starts near the top so the whole step list, down to Preview and send, shows */
 .blog .ss-screen { top: 20px; }
+/* Template screen under its text, full column width so the steps read clearly */
+.blog .ss-frame.wide { margin-top: 28px; aspect-ratio: 16 / 10; padding: 0; }
+.blog .ss-frame.wide .ss-screen { left: 32px; top: 32px; width: 112%; }
+.blog .ss-frame.wide + .cs-h3 { margin-top: 56px; }
+@media (max-width: 760px) { .blog .ss-frame.wide { aspect-ratio: 4 / 3; } .blog .ss-frame.wide .ss-screen { left: 16px; top: 16px; width: 150%; } }
