@@ -522,7 +522,7 @@
 .blog .old-flow video { box-shadow: 0 0 0 1px var(--line); }
 .blog .shot + .prose { margin-top: 32px; }
 /* Blog layout: the reading column scales with the screen, about half its width (like the reference), never narrower than before */
-.blog .page { max-width: calc(clamp(652px, 48vw, 1000px) + 48px); }
+.blog .page { max-width: calc(clamp(640px, 43vw, 880px) + 48px); }
 /* Blog layout: title and section headings in a bookish serif (Source Serif 4, close in feel to Libre Baskerville) */
 .blog .hero h1, .blog .cs-h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 400; color: #2c3a3d; }
 .blog .hero h1 { font-size: 34px; line-height: 1.2; letter-spacing: -0.015em; }
@@ -546,5 +546,3 @@
 /* Page title: 40px Source Serif Medium */
 .blog .hero h1 { font-size: 40px; font-weight: 500; line-height: 1.15; }
 @media (max-width: 760px) { .blog .hero h1 { font-size: 32px; } }
-/* Blog layout: text keeps the column's left edge but stops at a comfortable line length; figures and videos still use the full column */
-.blog .hero h1, .blog .cs-facts, .blog .prose, .blog .cs-h2, .blog .cs-h3 { max-width: 720px; }
