@@ -529,3 +529,5 @@
 /* The old-workflow video breaks out of the reading column so its small UI is legible, clearing the side nav */
 .blog .old-flow { position: relative; left: 50%; transform: translateX(-50%); width: max(100%, min(960px, calc(100vw - 520px))); }
 @media (max-width: 1180px) { .blog .old-flow { width: max(100%, min(960px, calc(100vw - 48px))); } }
+/* Blog layout: the reading column scales with the screen, about half its width (like the reference), never narrower than before */
+.blog .page { max-width: calc(clamp(652px, 48vw, 1000px) + 48px); }
