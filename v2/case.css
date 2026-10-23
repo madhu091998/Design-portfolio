@@ -526,3 +526,6 @@
 .blog .shot figcaption { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
 .blog .old-flow video { box-shadow: 0 0 0 1px var(--line); }
 .blog .shot + .prose { margin-top: 32px; }
+/* The old-workflow video breaks out of the reading column so its small UI is legible, clearing the side nav */
+.blog .old-flow { position: relative; left: 50%; transform: translateX(-50%); width: max(100%, min(960px, calc(100vw - 520px))); }
+@media (max-width: 1180px) { .blog .old-flow { width: max(100%, min(960px, calc(100vw - 48px))); } }
