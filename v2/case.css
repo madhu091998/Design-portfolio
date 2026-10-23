@@ -529,3 +529,14 @@
 .blog .cs-h2 { font-size: 26px; line-height: 1.25; letter-spacing: -0.01em; }
 .blog .cs-h2::before { top: 0.5em; }
 @media (max-width: 760px) { .blog .hero h1 { font-size: 30px; } .blog .cs-h2 { font-size: 23px; } }
+/* Blog layout balance with the serif headings:
+   the section number becomes a quiet Inter label so it doesn't compete with the title,
+   bold lead-ins in lists drop to medium so they don't outweigh the regular-weight serif headings,
+   and the heading gets a little more air before its text. */
+.blog .sec { margin-top: 80px; }
+.blog .cs-h2 .n { font: 400 15px/1 "Inter", system-ui, sans-serif; letter-spacing: 0; color: var(--muted); vertical-align: 0.3em; margin-right: 4px; }
+.blog .cs-h2::before { top: 0.55em; }
+.blog .cs-h2 + .prose { margin-top: 20px; }
+.blog .prose b { font-weight: 500; color: var(--ink); }
+.blog .prose ul, .blog .prose ol { gap: 10px; }
+.blog .cs-h3 + .prose { margin-top: 10px; }
