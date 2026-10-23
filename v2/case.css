@@ -589,3 +589,7 @@
 /* Right-anchored variant: the screen's right edge stays in view and it runs off the left */
 .blog .ss-frame.wide.right .ss-screen { left: auto; right: 32px; border-radius: 0 12px 0 0; }
 @media (max-width: 760px) { .blog .ss-frame.wide.right .ss-screen { right: 16px; width: 140%; } }
+/* Data mapping panel: show the whole panel height (down to the Datasheet field), anchored right, bleeding off the bottom edge only */
+.blog .ss-frame.wide.right { aspect-ratio: auto; padding: 32px 32px 0 0; }
+.blog .ss-frame.wide.right .ss-screen { position: relative; right: auto; top: auto; left: auto; width: 82%; margin-left: auto; border-radius: 0 12px 0 0; }
+@media (max-width: 760px) { .blog .ss-frame.wide.right { padding: 16px 16px 0 0; } .blog .ss-frame.wide.right .ss-screen { width: 92%; } }
