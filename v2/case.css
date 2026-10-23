@@ -546,3 +546,16 @@
 /* Page title: 40px Source Serif Medium */
 .blog .hero h1 { font-size: 40px; font-weight: 500; line-height: 1.15; }
 @media (max-width: 760px) { .blog .hero h1 { font-size: 32px; } }
+/* Screen on the left, its explanation on the right. Breaks out of the reading column on wide screens, clear of the side nav */
+.blog .split-shot { position: relative; left: 50%; transform: translateX(-50%); width: max(100%, min(1180px, calc(100vw - 460px))); margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.blog .split-shot + .cs-h3 { margin-top: 64px; }
+.blog .ss-frame { margin: 0; position: relative; overflow: hidden; aspect-ratio: 4 / 3; padding: 28px 0 0 28px; border: 1px solid var(--line); border-radius: 4px; background: linear-gradient(180deg, #e9eded, #eef1f0); }
+.blog .ss-label { margin: 0 0 22px; font-size: 18px; color: var(--muted); }
+.blog .ss-screen { position: absolute; left: 28px; top: 76px; width: 118%; border-radius: 12px 0 0 0; overflow: hidden; background: #fff; box-shadow: 0 1px 2px rgba(31,43,45,.06), 0 18px 40px rgba(31,43,45,.12); }
+.blog .ss-screen img { display: block; width: 100%; height: auto; }
+.blog .ss-text { padding-bottom: 12px; }
+.blog .ss-text .cs-h3 { margin-top: 0; }
+@media (max-width: 1180px) {
+  .blog .split-shot { left: 0; transform: none; width: 100%; grid-template-columns: 1fr; gap: 24px; }
+  .blog .ss-text { order: -1; padding: 0; }
+}
