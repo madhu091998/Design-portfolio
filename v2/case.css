@@ -436,7 +436,7 @@
 
 /* ---------- Blog-style reading layout (Contracts first) ----------
    Four levels only: title, section heading, sub-heading, body. Everything else is a quiet grey label. */
-.blog .page { max-width: 820px; margin: 0 auto; padding: 112px 24px 96px; }
+.blog .page { max-width: 700px; margin: 0 auto; padding: 112px 24px 96px; }
 .blog .hero h1 { font: 600 28px/1.25 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
 .blog .hero h1 .sq { display: none; }
 .blog .meta { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
@@ -495,7 +495,7 @@
 
 /* Blog layout: the side nav only shows when there's room beside the centred column */
 .blog .sidenav { top: 50%; transform: translateY(-50%); }
-@media (max-width: 1300px) { .blog .sidenav { display: none; } }
+@media (max-width: 1180px) { .blog .sidenav { display: none; } }
 /* Blog layout: a small maroon square hangs before each section heading, echoing the side nav */
 .blog .cs-h2 { position: relative; }
 .blog .cs-h2::before { content: ""; position: absolute; left: -20px; top: 0.55em; width: 6px; height: 6px; background: var(--accent); }
