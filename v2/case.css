@@ -569,3 +569,10 @@
 .blog .split-shot { align-items: center; }
 .blog .ss-text { padding-bottom: 0; }
 .blog .ss-screen { width: 135%; }
+/* Text beside the screen: 14px body, medium heading, sitting on the screen's bottom edge */
+.blog .split-shot { align-items: end; }
+.blog .ss-text .cs-h3 { font-weight: 500; }
+.blog .ss-text .prose { font-size: 14px; line-height: 1.6; }
+.blog .ss-text .prose p { margin-bottom: 12px; }
+.blog .ss-text .prose p:last-child { margin-bottom: 0; }
+@media (max-width: 760px) { .blog .ss-text .prose { font-size: 16px; } }
