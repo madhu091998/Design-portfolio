@@ -546,3 +546,5 @@
 /* Page title: 40px Source Serif Medium */
 .blog .hero h1 { font-size: 40px; font-weight: 500; line-height: 1.15; }
 @media (max-width: 760px) { .blog .hero h1 { font-size: 32px; } }
+/* Blog layout: text keeps the column's left edge but stops at a comfortable line length; figures and videos still use the full column */
+.blog .hero h1, .blog .cs-facts, .blog .prose, .blog .cs-h2, .blog .cs-h3 { max-width: 720px; }
