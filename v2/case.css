@@ -593,5 +593,7 @@
 .blog .ss-frame.wide.right { aspect-ratio: auto; padding: 32px 32px 0 0; }
 .blog .ss-frame.wide.right .ss-screen { position: relative; right: auto; top: auto; left: auto; width: 82%; margin-left: auto; border-radius: 0 12px 0 0; }
 @media (max-width: 760px) { .blog .ss-frame.wide.right { padding: 16px 16px 0 0; } .blog .ss-frame.wide.right .ss-screen { width: 92%; } }
-/* The blurred page on the left of the panel fades into the frame instead of ending in a hard edge */
-.blog .ss-frame.wide.right .ss-screen { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); box-shadow: none; border-radius: 0 12px 0 0; }
+/* Data mapping: the whole screen, page and panel, framed with even padding */
+.blog .ss-frame.wide.right { padding: 24px 24px 0; }
+.blog .ss-frame.wide.right .ss-screen { width: 100%; margin: 0; border-radius: 10px 10px 0 0; }
+@media (max-width: 760px) { .blog .ss-frame.wide.right { padding: 12px 12px 0; } .blog .ss-frame.wide.right .ss-screen { width: 100%; } }
