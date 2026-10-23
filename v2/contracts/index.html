@@ -22,8 +22,7 @@
 
 <nav class="sidenav" aria-label="On this page">
   <a href="#top" class="on">Overview</a>
-  <a href="#before">The old experience</a>
-  <a href="#needs">Pain points</a>
+  <a href="#problem">The problem</a>
   <a href="#approaches">Early approaches</a>
   <a href="#ai">Bringing in AI</a>
   <a href="#experience">The new experience</a>
@@ -45,45 +44,38 @@
     </div>
   </header>
 
-  <section class="sec" id="before" aria-labelledby="before-h">
-    <h2 class="cs-h2 reveal" id="before-h"><span class="n">01 /</span> The problem with the old experience</h2>
+  <section class="sec" id="problem" aria-labelledby="problem-h">
+    <h2 class="cs-h2 reveal" id="problem-h"><span class="n">01 /</span> Understanding the problem</h2>
     <div class="prose reveal">
-      <p>Previously, Contracts relied on DocuSign, which was embedded within Everstage.</p>
-      <p>Admins could upload a document and add fields that needed to be filled with each salesperson's information. But preparing and sending contracts still involved a lot of manual work.</p>
-      <p>Once the template was created, admins had to:</p>
+      <p>I started by going through the existing Contracts flow, reviewing customer feedback, and understanding how customers created and sent contracts.</p>
+      <p>Previously, Contracts used DocuSign, which was embedded within Everstage. Admins could upload a document and add fields that needed to be filled with each salesperson's information.</p>
+      <p>But creating the template was only half the work.</p>
+      <p>To send contracts, admins still had to:</p>
       <ol>
         <li>Download a spreadsheet containing the contract fields.</li>
-        <li>Collect each salesperson's details from different sources and fill in the spreadsheet manually.</li>
+        <li>Collect each salesperson's information from different sources and fill it manually.</li>
         <li>Upload the prepared data back into Everstage as a Datasheet.</li>
-        <li>Return to the contract, load the data, and send it to the recipients.</li>
+        <li>Return to the contract, load the data, and send it.</li>
       </ol>
-      <p>The frustrating part was that most of this information, like sales targets, commission details, and employee data, already existed in Everstage. Yet admins had to collect it, prepare it outside the product, and bring it back in.</p>
-      <p>They also had to manually enter recipient email addresses and the subject and body of the emails being sent.</p>
-      <p>Another problem was that admins couldn't preview the completed contracts with each person's information before sending them. If something was incorrect, they might only discover it after sending, leaving them to cancel and resend the contracts.</p>
-      <p>What should have been a straightforward process had become a series of disconnected, manual steps.</p>
+      <p>The main problem was that most of this information already existed in Everstage. Yet admins had to prepare it manually and bring it back into the product.</p>
+      <p>They also had to enter recipient emails and email content manually. And there was no way to preview the completed contracts before sending them. If something was wrong, they had to cancel and resend them.</p>
     </div>
-  </section>
-
-  <section class="sec" id="needs" aria-labelledby="needs-h">
-    <h2 class="cs-h2 reveal" id="needs-h"><span class="n">02 /</span> Understanding the customer pain points</h2>
+    <h3 class="cs-h3 reveal">Understanding how customers worked</h3>
     <div class="prose reveal">
-      <p>I started by going through the existing flow, reviewing customer feedback, and understanding how customers set up their contracts.</p>
       <p>We also gathered inputs from the customer success, implementation, and solution architecture teams.</p>
-      <p>A few pain points became clearer:</p>
+      <p>A few things became clearer:</p>
       <ul>
-        <li><b>Too much manual work:</b> Admins had to prepare spreadsheets even though much of the data already existed in Everstage.</li>
-        <li><b>No preview before sending:</b> Incorrect values could go unnoticed until contracts were sent.</li>
-        <li><b>Manual recipient setup:</b> Admins had to enter every recipient's email, even when reporting relationships were already available in Everstage.</li>
-        <li><b>Repeated data preparation:</b> Sending the same contract to new salespeople still required preparing and uploading their information again.</li>
-        <li><b>Tedious email setup:</b> Admins had to provide email content for each recipient, even when the message was the same.</li>
-        <li><b>Data scattered across sources:</b> Contract information came from different places, making it difficult to collect and prepare everything.</li>
+        <li><b>Recipients:</b> The main recipient was usually the salesperson, with managers or compensation admins added depending on the customer.</li>
+        <li><b>Reusing contracts:</b> Customers often needed to send the same contract to new salespeople joining midway through the year.</li>
+        <li><b>Email content:</b> Some customers used the same email for everyone, while others needed different emails for different recipients.</li>
+        <li><b>Contract data:</b> Some information was already in Everstage, while other values needed to be entered manually.</li>
       </ul>
-      <p>These findings helped us rethink the entire workflow, rather than just replacing DocuSign.</p>
+      <p>This helped us understand that the problem wasn't just DocuSign, but also the amount of manual work involved in creating and sending contracts.</p>
     </div>
   </section>
 
   <section class="sec" id="approaches" aria-labelledby="approaches-h">
-    <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">03 /</span> Some of the approaches we explored</h2>
+    <h2 class="cs-h2 reveal" id="approaches-h"><span class="n">02 /</span> Some of the approaches we explored</h2>
     <div class="prose reveal">
       <p>We went through quite a few iterations during the redesign. Some ideas worked, while others had to be reconsidered as we understood the use cases better.</p>
     </div>
@@ -111,7 +103,7 @@
   </section>
 
   <section class="sec" id="ai" aria-labelledby="ai-h">
-    <h2 class="cs-h2 reveal" id="ai-h"><span class="n">04 /</span> Bringing AI into the workflow</h2>
+    <h2 class="cs-h2 reveal" id="ai-h"><span class="n">03 /</span> Bringing AI into the workflow</h2>
     <div class="prose reveal">
       <p>Around this time, engineering was developing the Contracts AI agent.</p>
       <p>Once Eva became capable of reliably generating data queries from natural-language instructions, we started exploring a different approach.</p>
@@ -124,7 +116,7 @@
   </section>
 
   <section class="sec" id="experience" aria-labelledby="experience-h">
-    <h2 class="cs-h2 reveal" id="experience-h"><span class="n">05 /</span> How the new experience works</h2>
+    <h2 class="cs-h2 reveal" id="experience-h"><span class="n">04 /</span> How the new experience works</h2>
     <h3 class="cs-h3 reveal">Creating a reusable template</h3>
     <div class="prose reveal">
       <p>Admins can create a new template or clone an existing one, upload their document, and configure recipients, signing order, and reminders.</p>
@@ -182,7 +174,7 @@
   </section>
 
   <section class="sec" id="ai-wrong" aria-labelledby="ai-wrong-h">
-    <h2 class="cs-h2 reveal" id="ai-wrong-h"><span class="n">06 /</span> What happens when AI doesn't get it right?</h2>
+    <h2 class="cs-h2 reveal" id="ai-wrong-h"><span class="n">05 /</span> What happens when AI doesn't get it right?</h2>
     <div class="prose reveal">
       <p>This was one of the more interesting parts of the project for me.</p>
       <p>Eva won't always return the right value. Sometimes it needs more context, sometimes the data doesn't exist, and sometimes the lookup itself fails.</p>
@@ -211,7 +203,7 @@
   </section>
 
   <section class="sec" id="changed" aria-labelledby="changed-h">
-    <h2 class="cs-h2 reveal" id="changed-h"><span class="n">07 /</span> What changed with the redesign</h2>
+    <h2 class="cs-h2 reveal" id="changed-h"><span class="n">06 /</span> What changed with the redesign</h2>
     <div class="prose reveal">
       <p>The new experience brings contract creation, sending, signing, and tracking into Everstage.</p>
       <p>Admins can now:</p>
@@ -229,7 +221,7 @@
   </section>
 
   <section class="sec" id="takeaway" aria-labelledby="takeaway-h">
-    <h2 class="cs-h2 reveal" id="takeaway-h"><span class="n">08 /</span> What I took away</h2>
+    <h2 class="cs-h2 reveal" id="takeaway-h"><span class="n">07 /</span> What I took away</h2>
     <div class="prose reveal">
       <p>This project made me think more about what it means to design an experience involving AI.</p>
       <p>The challenge wasn't just letting admins describe what they needed and having Eva fetch it.</p>
