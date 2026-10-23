@@ -559,3 +559,13 @@
   .blog .split-shot { left: 0; transform: none; width: 100%; grid-template-columns: 1fr; gap: 24px; }
   .blog .ss-text { order: -1; padding: 0; }
 }
+/* Keep the screen + text pair inside the reading column */
+.blog .split-shot { left: 0; transform: none; width: 100%; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; }
+.blog .ss-frame { padding: 20px 0 0 20px; }
+.blog .ss-label { font-size: 15px; margin-bottom: 16px; }
+.blog .ss-screen { left: 20px; top: 56px; width: 150%; }
+.blog .ss-text .prose { font-size: 15px; line-height: 1.65; }
+@media (max-width: 760px) { .blog .split-shot { grid-template-columns: 1fr; gap: 20px; } .blog .ss-text { order: -1; } .blog .ss-text .prose { font-size: 16px; } }
+.blog .split-shot { align-items: center; }
+.blog .ss-text { padding-bottom: 0; }
+.blog .ss-screen { width: 135%; }
