@@ -579,3 +579,5 @@
 /* Side text back to 16px, with the heading at the same size */
 .blog .ss-text .prose { font-size: 16px; line-height: 1.65; }
 .blog .ss-text .cs-h3 { font-size: 16px; line-height: 1.5; }
+/* No label: the screen starts near the top so the whole step list, down to Preview and send, shows */
+.blog .ss-screen { top: 20px; }
