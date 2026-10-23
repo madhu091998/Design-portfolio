@@ -540,3 +540,6 @@
 .blog .prose b { font-weight: 500; color: var(--ink); }
 .blog .prose ul, .blog .prose ol { gap: 10px; }
 .blog .cs-h3 + .prose { margin-top: 10px; }
+/* Section headings: 32px Source Serif Medium */
+.blog .cs-h2 { font-size: 32px; font-weight: 500; line-height: 1.2; }
+@media (max-width: 760px) { .blog .cs-h2 { font-size: 26px; } }
