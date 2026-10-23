@@ -586,3 +586,6 @@
 .blog .ss-frame.wide .ss-screen { left: 32px; top: 32px; width: 112%; }
 .blog .ss-frame.wide + .cs-h3 { margin-top: 56px; }
 @media (max-width: 760px) { .blog .ss-frame.wide { aspect-ratio: 4 / 3; } .blog .ss-frame.wide .ss-screen { left: 16px; top: 16px; width: 150%; } }
+/* Right-anchored variant: the screen's right edge stays in view and it runs off the left */
+.blog .ss-frame.wide.right .ss-screen { left: auto; right: 32px; border-radius: 0 12px 0 0; }
+@media (max-width: 760px) { .blog .ss-frame.wide.right .ss-screen { right: 16px; width: 140%; } }
