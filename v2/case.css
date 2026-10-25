@@ -620,3 +620,10 @@
 .blog .cmp-before { display: flex; align-items: center; gap: 18px; margin-top: 24px; }
 .blog .cmp-card.small { width: 38%; flex: none; border-radius: 8px; opacity: .92; box-shadow: 0 0 0 1px rgba(74,58,18,.08), 0 6px 16px rgba(74,58,18,.08); }
 @media (max-width: 760px) { .blog .compare.paper { padding: 16px 16px 18px; } .blog .cmp-card.small { width: 50%; } .blog .cmp-before { gap: 12px; margin-top: 16px; } }
+/* Hand-drawn red ring around the old recipients setup */
+.blog .cmp-card.small { position: relative; opacity: 1; }
+.blog .cmp-mark { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.blog .cmp-mark path { fill: none; stroke: #e5352b; stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+/* Cards on the paper: a thin stroke and a very light shadow */
+.blog .compare.paper .cmp-card { border: 1px solid rgba(74, 58, 18, 0.14); box-shadow: 0 2px 10px rgba(74, 58, 18, 0.06); }
+.blog .cmp-mark path { stroke-width: 2.2; }
