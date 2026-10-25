@@ -612,3 +612,11 @@
   .blog .cmp-pair { grid-template-columns: 1fr; gap: 10px; }
   .blog .cmp-arrow { justify-self: center; margin: 0; transform: rotate(90deg); }
 }
+/* Compare on pastel paper: the new experience large on top, the previous one as a small card below */
+.blog .compare.paper { padding: 28px 28px 30px; border: 0; background: #f9ecc8 url("../../assets/contracts/paper-butter.webp") center / cover; }
+.blog .compare.paper .cmp-cap { margin: 0; font-size: 15px; color: #8a6d2f; }
+.blog .compare.paper .cmp-cap.new { margin-bottom: 14px; color: #4a3a12; font-weight: 500; }
+.blog .cmp-card.big { box-shadow: 0 0 0 1px rgba(74,58,18,.08), 0 14px 34px rgba(74,58,18,.12); }
+.blog .cmp-before { display: flex; align-items: center; gap: 18px; margin-top: 24px; }
+.blog .cmp-card.small { width: 38%; flex: none; border-radius: 8px; opacity: .92; box-shadow: 0 0 0 1px rgba(74,58,18,.08), 0 6px 16px rgba(74,58,18,.08); }
+@media (max-width: 760px) { .blog .compare.paper { padding: 16px 16px 18px; } .blog .cmp-card.small { width: 50%; } .blog .cmp-before { gap: 12px; margin-top: 16px; } }
