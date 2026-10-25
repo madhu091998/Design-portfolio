@@ -597,3 +597,18 @@
 .blog .ss-frame.wide.right { padding: 24px 24px 0; }
 .blog .ss-frame.wide.right .ss-screen { width: 100%; margin: 0; border-radius: 10px 10px 0 0; }
 @media (max-width: 760px) { .blog .ss-frame.wide.right { padding: 12px 12px 0; } .blog .ss-frame.wide.right .ss-screen { width: 100%; } }
+/* Before / after pair on a soft grey panel */
+.blog .compare { margin: 28px 0 0; padding: 24px; border: 1px solid var(--line); border-radius: 4px; background: linear-gradient(180deg, #e9eded, #eef1f0); }
+.blog .cmp-pair { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 14px; align-items: start; }
+.blog .cmp-card { overflow: hidden; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px rgba(31,43,45,.08), 0 8px 24px rgba(31,43,45,.08); }
+.blog .cmp-card img, .blog .cmp-card video { display: block; width: 100%; height: auto; }
+.blog .cmp-arrow { align-self: center; margin-bottom: 30px; color: var(--muted); }
+.blog .cmp-arrow svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.blog .cmp-cap { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
+.blog .cmp-cap.new { color: #1f6feb; }
+.blog .compare + .cs-h3 { margin-top: 48px; }
+@media (max-width: 760px) {
+  .blog .compare { padding: 14px; }
+  .blog .cmp-pair { grid-template-columns: 1fr; gap: 10px; }
+  .blog .cmp-arrow { justify-self: center; margin: 0; transform: rotate(90deg); }
+}
