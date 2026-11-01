@@ -627,3 +627,11 @@
 /* Cards on the paper: a thin stroke and a very light shadow */
 .blog .compare.paper .cmp-card { border: 1px solid rgba(74, 58, 18, 0.14); box-shadow: 0 2px 10px rgba(74, 58, 18, 0.06); }
 .blog .cmp-mark path { stroke-width: 2.2; }
+/* Customer feedback screenshots on pastel paper */
+.blog .quotes { margin: 28px 0 0; padding: 24px; border-radius: 4px; background: #f9ecc8 url("../../assets/contracts/paper-butter.webp") center / cover; display: grid; gap: 16px; }
+.blog .q-card { overflow: hidden; border-radius: 10px; background: #fff; border: 1px solid rgba(74, 58, 18, 0.14); box-shadow: 0 2px 10px rgba(74, 58, 18, 0.06); }
+.blog .q-card.dark { background: #1a1d21; }
+.blog .q-card img { display: block; width: 100%; height: auto; }
+.blog .q-card:not(.dark) img { width: 86%; margin: 18px auto; }
+.blog .quotes figcaption { margin: 2px 0 0; font-size: 13px; color: #8a6d2f; }
+@media (max-width: 760px) { .blog .quotes { padding: 14px; gap: 12px; } .blog .q-card:not(.dark) img { width: 92%; margin: 12px auto; } }
