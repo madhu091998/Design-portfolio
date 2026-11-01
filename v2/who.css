@@ -1,0 +1,11 @@
+/* Alternate home (who.html): photo, name and role in place of the big serif heading */
+.who-home .wordmark .avatar { display: none; }
+.who-hero .who { display: flex; align-items: center; gap: 20px; opacity: 0; transform: translateY(10px); animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards; }
+.who-hero .avatar { position: relative; width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; box-shadow: 0 0 0 1px var(--line); }
+.who-hero .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.who-hero .who p { margin: 0; display: grid; gap: 4px; }
+.who-hero .who b { font: 500 22px/1.3 "Inter", system-ui, sans-serif; letter-spacing: -0.01em; color: var(--ink); }
+.who-hero .who span { font-size: 17px; color: var(--muted); }
+.who-hero .sub { margin-top: 32px; }
+@media (max-width: 760px) { .who-hero .avatar { width: 56px; height: 56px; } .who-hero .who { gap: 14px; } .who-hero .who b { font-size: 19px; } .who-hero .who span { font-size: 15px; } .who-hero .sub { margin-top: 24px; } }
+@media (prefers-reduced-motion: reduce) { .who-hero .who { animation: none; opacity: 1; transform: none; } }
