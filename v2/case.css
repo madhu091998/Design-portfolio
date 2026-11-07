@@ -778,3 +778,10 @@ html.lb-open { overflow: hidden; }
 .neel .cs-facts dt { font-size: 13px; } .neel .cs-facts dd { font-size: 15px; }
 .neel .flows, .neel .fl-h { font-family: "Geist", system-ui, sans-serif; }
 @media (max-width: 760px) { .neel .hero h1 { font-size: 34px; } .neel .cs-h2 { font-size: 28px; } .neel .cs-h3, .neel .part-h { font-size: 21px; } }
+/* Old/new label, editorial: italic serif word followed by a hairline that runs to the edge. No dot, no box. */
+.blog .tag { align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 0; font: italic 400 18px/1.2 "Newsreader", Georgia, serif; letter-spacing: 0; }
+.blog .tag span { order: 2; flex: 1; width: auto; height: 0; border-radius: 0; border-top: 1px solid var(--line); background: none; box-shadow: none; }
+.blog .phase.old .tag { color: var(--muted); }
+.blog .phase.new .tag { color: #24302f; }
+.blog .phase.old .tag span, .blog .phase.new .tag span { background: none; box-shadow: none; }
+.blog .phase.new .tag span { border-top-color: rgba(36, 48, 47, 0.28); }
