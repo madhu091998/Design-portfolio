@@ -459,3 +459,15 @@ a:focus-visible, button:focus-visible { outline: 1.5px solid var(--accent); outl
 .grid.craft .tile .art.photo { aspect-ratio: 16 / 10.5; }
 /* Grain removed */
 body::after { content: none; }
+
+/* Selected work: one hero project, the rest as small tiles */
+.work-hero .tile .art.clip { aspect-ratio: 1080 / 850; }
+.work-hero .tile .cap { margin-top: 14px; }
+.grid.work-more { margin-top: 48px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+.grid.work-more .tile .art,
+.grid.work-more .tile .art.clip,
+.grid.work-more .tile .art.mock { aspect-ratio: 16 / 9.5; }
+.grid.work-more .tile .cap { font-size: 14px; }
+.grid.work-more .tile .card { width: 70%; }
+@media (max-width: 760px) { .grid.work-more { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; } }
+.work-hero .tile .cap { font-size: 16px; }
