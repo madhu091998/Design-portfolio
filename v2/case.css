@@ -1006,3 +1006,22 @@ html.lb-open { overflow: hidden; }
 .blog .case-row.stack .case-t .pn { display: inline; margin: 0; }
 .blog .case-row.stack .tpd { grid-template-columns: 88px minmax(0, 1fr); }
 @media (max-width: 760px) { .blog .case-row.stack .tpd { grid-template-columns: 1fr; } }
+
+/* Tried / Problem / Outcome as a three-up strip */
+.tpd3 {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff;
+}
+.tpd-c { padding: 16px 18px 18px; }
+.tpd-c + .tpd-c { border-left: 1px solid var(--line); }
+.tpd-l { display: block; margin-bottom: 8px; font: 500 12px/1 "Geist", system-ui, sans-serif; letter-spacing: 0.01em; color: var(--muted); }
+.tpd-c p { margin: 0; font: 400 15px/1.5 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.tpd-c.out { background: color-mix(in srgb, var(--ink) 3%, #fff); }
+.tpd-c.out .tpd-l { color: var(--accent); }
+.tpd-c.out p { color: var(--ink); font-weight: 500; }
+.blog .case-row.stack { gap: 16px; }
+@media (max-width: 760px) {
+  .tpd3 { grid-template-columns: 1fr; }
+  .tpd-c + .tpd-c { border-left: 0; border-top: 1px solid var(--line); }
+}
+.blog .case-row.stack { border-top: 0; padding-top: 0; margin-top: 48px; }
