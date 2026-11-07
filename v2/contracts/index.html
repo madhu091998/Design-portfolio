@@ -416,5 +416,43 @@
     window.addEventListener("scroll", check, { passive: true }); window.addEventListener("resize", check); check();
   })();
 </script>
+<script>
+  // Expand any screenshot or video into a full-screen viewer
+  (function () {
+    var EXP = '<svg viewBox="0 0 16 16"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg>';
+    var lb = document.createElement("div"); lb.className = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.hidden = true;
+    lb.innerHTML = '<button class="lb-close" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></button><div class="lb-stage"></div>';
+    document.body.appendChild(lb);
+    var stage = lb.querySelector(".lb-stage"), lastFocus = null, srcVideo = null;
+    function close() {
+      var v = stage.querySelector("video");
+      if (v && srcVideo) { try { srcVideo.currentTime = v.currentTime; } catch (e) {} }
+      stage.innerHTML = ""; lb.hidden = true; document.documentElement.classList.remove("lb-open");
+      if (lastFocus) lastFocus.focus();
+    }
+    function open(fig, btn) {
+      lastFocus = btn; srcVideo = null;
+      var img = fig.querySelector("img"), vid = fig.querySelector("video");
+      if (vid) {
+        srcVideo = vid; vid.pause();
+        var v = document.createElement("video");
+        v.src = vid.currentSrc || vid.src; v.poster = vid.poster; v.controls = true; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true;
+        v.addEventListener("loadedmetadata", function () { try { v.currentTime = vid.currentTime; } catch (e) {} });
+        stage.appendChild(v);
+      } else if (img) {
+        var i = document.createElement("img"); i.src = img.currentSrc || img.src; i.alt = img.alt; stage.appendChild(i);
+      }
+      lb.hidden = false; document.documentElement.classList.add("lb-open"); lb.querySelector(".lb-close").focus();
+    }
+    document.querySelectorAll(".shot-ui, .old-flow").forEach(function (fig) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "xp"; b.setAttribute("aria-label", "Expand"); b.innerHTML = EXP;
+      b.addEventListener("click", function (e) { e.stopPropagation(); open(fig, b); });
+      fig.appendChild(b);
+      var img = fig.querySelector("img"); if (img && !fig.querySelector("video")) { img.style.cursor = "zoom-in"; img.addEventListener("click", function () { open(fig, b); }); }
+    });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target === stage || e.target.closest(".lb-close")) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) close(); });
+  })();
+</script>
 </body>
 </html>
