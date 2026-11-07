@@ -65,11 +65,11 @@
       <p>To send contracts, admins had to:</p>
     </div>
     <ol class="flow-steps reveal">
-        <li><span class="fs-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></span><div><b>Set up the contract in DocuSign.</b><p>Upload the document and add the required fields.</p></div></li>
-        <li><span class="fs-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></span><div><b>Download a spreadsheet.</b><p>Get a CSV containing all the fields to be filled.</p></div></li>
-        <li><span class="fs-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><div><b>Prepare the data manually.</b><p>Collect each salesperson's details, recipient emails, and email content.</p></div></li>
-        <li><span class="fs-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M10 10v9"/></svg></span><div><b>Bring the data back into Everstage.</b><p>Import the prepared information and make it available as a Datasheet (a table of records).</p></div></li>
-        <li><span class="fs-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg></span><div><b>Load and send contracts.</b><p>Select the Datasheet and send contracts without previewing the completed documents.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">1</span><div><b>Set up the contract in DocuSign.</b><p>Upload the document and add the required fields.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">2</span><div><b>Download a spreadsheet.</b><p>Get a CSV containing all the fields to be filled.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">3</span><div><b>Prepare the data manually.</b><p>Collect each salesperson's details, recipient emails, and email content.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">4</span><div><b>Bring the data back into Everstage.</b><p>Import the prepared information and make it available as a Datasheet (a table of records).</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">5</span><div><b>Load and send contracts.</b><p>Select the Datasheet and send contracts without previewing the completed documents.</p></div></li>
     </ol>
     <figure class="shot old-flow reveal">
       <video src="../../assets/contracts/old-workflow.mp4?v=3" poster="../../assets/contracts/old-workflow-poster.jpg?v=3" width="1600" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Animation of the old five-step workflow: setting up the contract in DocuSign, downloading the fields as a spreadsheet, typing each salesperson's data by hand, uploading it back into Everstage, and sending contracts without a preview."></video>
@@ -450,13 +450,6 @@
     lb.addEventListener("click", function (e) { if (e.target === lb || e.target === stage || e.target.closest(".lb-close")) close(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) close(); });
   })();
-</script>
-<script>
-(()=>{const ol=document.querySelector('.flow-steps');if(!ol||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-ol.classList.add('js');const li=[...ol.children];
-const up=()=>{const y=innerHeight*0.62;li.forEach((l,i)=>{const on=l.querySelector('.fs-n').getBoundingClientRect().top<y;l.classList.toggle('on',on);
-const nx=li[i+1];l.classList.toggle('done',!!nx&&nx.querySelector('.fs-n').getBoundingClientRect().top<y);});};
-addEventListener('scroll',up,{passive:true});addEventListener('resize',up);up();})();
 </script>
 </body>
 </html>
