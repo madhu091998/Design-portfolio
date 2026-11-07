@@ -915,3 +915,13 @@ html.lb-open { overflow: hidden; }
 }
 .flow-steps b { padding-top: 3px; }
 .flow-steps li:hover .fs-n { background: var(--accent); color: #fff; }
+
+/* Stepper, quiet grey */
+.flow-steps li { grid-template-columns: 22px minmax(0, 1fr); gap: 16px; }
+.flow-steps li:not(:last-child)::before { left: 10.5px; top: 32px; bottom: 6px; background: rgba(31, 43, 45, 0.09); }
+.fs-n {
+  width: 22px; height: 22px; border-radius: 50%; margin-top: 4px;
+  background: rgba(31, 43, 45, 0.05); border: 0;
+  font: 500 11.5px/1 "Geist", system-ui, sans-serif; color: var(--muted);
+}
+.flow-steps li:hover .fs-n { background: rgba(31, 43, 45, 0.08); color: var(--ink); }
