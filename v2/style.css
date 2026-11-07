@@ -531,3 +531,4 @@ body::after { content: none; }
 }
 .work-hero .tile { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .grid.work-more { margin-top: 44px; }
+.work-hero .tile .art.clip { aspect-ratio: 16 / 11; }
