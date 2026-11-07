@@ -900,3 +900,18 @@ html.lb-open { overflow: hidden; }
   font: italic 400 22px/1.4 "Newsreader", Georgia, serif; color: var(--ink);
 }
 @media (max-width: 760px) { .blog .pull { font-size: 20px; } }
+
+/* Stepper, modern pass */
+.flow-steps li { grid-template-columns: 24px minmax(0, 1fr); gap: 16px; padding-bottom: 26px; }
+.flow-steps li:not(:last-child)::before {
+  left: 11.5px; top: 31px; bottom: 1px; width: 1px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 28%, transparent), var(--line));
+}
+.fs-n {
+  width: 24px; height: 24px; border-radius: 7px; border: 0; margin-top: 3px;
+  background: color-mix(in srgb, var(--accent) 9%, var(--bg));
+  font: 600 12px/1 "Geist", system-ui, sans-serif; color: var(--accent);
+  transition: background .2s ease, color .2s ease;
+}
+.flow-steps b { padding-top: 3px; }
+.flow-steps li:hover .fs-n { background: var(--accent); color: #fff; }
