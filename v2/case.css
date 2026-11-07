@@ -785,3 +785,4 @@ html.lb-open { overflow: hidden; }
 .blog .phase.new .tag { color: #24302f; }
 .blog .phase.old .tag span, .blog .phase.new .tag span { background: none; box-shadow: none; }
 .blog .phase.new .tag span { border-top-color: rgba(36, 48, 47, 0.28); }
+.blog .tag { font-size: 22px; } @media (max-width: 760px) { .blog .tag { font-size: 20px; } }
