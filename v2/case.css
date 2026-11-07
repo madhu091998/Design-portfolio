@@ -843,3 +843,4 @@ html.lb-open { overflow: hidden; }
 .blog .sw-arrow { width: auto; height: auto; margin: 0; justify-self: start; font: 400 15px/1.5 "Geist", system-ui, sans-serif; color: var(--muted); transition: transform .2s ease, color .2s ease; }
 .blog .swap li:hover .sw-arrow { transform: translateX(3px); color: var(--accent); }
 @media (max-width: 760px) { .blog .swap li { grid-template-columns: 1fr; } .blog .sw-old, .blog .sw-new { grid-column: 1; } }
+.blog .fact-link { color: inherit; text-decoration: underline; text-decoration-color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease; } .blog .fact-link:hover { text-decoration-color: currentColor; }
