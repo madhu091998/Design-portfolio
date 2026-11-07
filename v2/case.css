@@ -941,3 +941,11 @@ html.lb-open { overflow: hidden; }
 @media (max-width: 760px) { .blog .q { font-size: 17px; } }
 .blog .prose mark { background: none; padding: 0; }
 .blog figure + .q { margin-top: 32px; }
+
+/* Question blocks: lead-in + question as one unit */
+.blog .qb { margin: 28px 0; padding: 2px 0 2px 18px; border-left: 2px solid rgba(31, 43, 45, 0.14); }
+.blog .qb p { margin: 0; }
+.blog .qb-l { font: 400 14px/1.5 "Geist", system-ui, sans-serif; color: var(--muted); }
+.blog .qb-q { margin-top: 6px !important; font: 500 18px/1.5 "Geist", system-ui, sans-serif; letter-spacing: -0.005em; color: var(--ink); }
+.blog .qb + .prose { margin-top: 0; }
+@media (max-width: 760px) { .blog .qb-q { font-size: 17px; } }
