@@ -85,3 +85,14 @@ p { margin: 0; }
 .xp + .xp { margin-top: 10px; }
 .xp .when-i { font-style: normal; }
 @media (max-width: 720px) { .xp { row-gap: 0; } }
+
+/* Hand-drawn "m" mark */
+.mark { width: auto; height: auto; background: none; border-radius: 0; display: inline-flex; line-height: 0; }
+.mark .logo path { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width .25s ease; }
+.mark:hover .logo path { stroke-width: 8; }
+.mark.small { width: auto; height: auto; }
+
+/* Geist for the small interface text, Newsreader for reading */
+.top-links a, .foot nav a { font: 400 14px/1.5 "Geist", system-ui, sans-serif; font-style: normal; }
+.label { font: 500 13px/1.5 "Geist", system-ui, sans-serif; letter-spacing: 0.02em; }
+.when, .xp .when-i { font: 400 13px/1.6 "Geist", system-ui, sans-serif; }
