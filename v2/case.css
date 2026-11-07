@@ -815,3 +815,14 @@ html.lb-open { overflow: hidden; }
   .blog .sw-new { grid-column: 2; }
   .blog .swap::before { content: "Older experience → New experience"; display: block; padding-bottom: 12px; border-bottom: 1px solid var(--line); font: italic 400 18px/1.3 "Newsreader", Georgia, serif; color: #24302f; }
 }
+/* Sticky label carries its part title, shown once it pins: "Old experience ——— 03 Previewing values…" */
+.blog .tag em { font-style: italic; flex: none; }
+.blog .tag span { order: 0; }
+.blog .tag .ln { flex: 1; min-width: 24px; height: 0; border-top: 1px solid var(--line); }
+.blog .phase.new .tag .ln { border-top-color: rgba(36, 48, 47, 0.28); }
+.blog .tag .tg-part { flex: 0 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font: 400 13px/1.3 "Geist", system-ui, sans-serif; font-style: normal; color: var(--muted); max-width: 0; opacity: 0; transition: opacity .25s ease, max-width .35s ease; }
+.blog .tag .tg-part b { font-weight: 400; margin-right: 8px; opacity: .7; font-variant-numeric: tabular-nums; }
+.blog .tag.stuck .tg-part { max-width: 60%; opacity: 1; }
+@media (max-width: 760px) { .blog .tag.stuck .tg-part { max-width: 55%; } }
+.blog .tag .tg-part { height: auto; border: 0; background: none; border-radius: 0; box-shadow: none; } .blog .tag .tg-part b { display: inline; }
+.blog .tag:not(.stuck) .tg-part { margin-left: -14px; }
