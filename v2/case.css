@@ -844,3 +844,6 @@ html.lb-open { overflow: hidden; }
 .blog .swap li:hover .sw-arrow { transform: translateX(3px); color: var(--accent); }
 @media (max-width: 760px) { .blog .swap li { grid-template-columns: 1fr; } .blog .sw-old, .blog .sw-new { grid-column: 1; } }
 .blog .fact-link { color: inherit; text-decoration: underline; text-decoration-color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease; } .blog .fact-link:hover { text-decoration-color: currentColor; }
+
+/* First section follows the intro closely */
+.blog .hero + .sec { margin-top: 64px; }
