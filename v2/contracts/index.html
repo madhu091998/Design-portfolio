@@ -355,5 +355,52 @@
     onScroll();
   })();
 </script>
+<script>
+  // Simple video player: play/pause, a scrubber to seek and rewind, time, and fullscreen
+  (function () {
+    var ICON = {
+      play: '<svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg>',
+      pause: '<svg viewBox="0 0 16 16"><path d="M5 3.5h2v9H5zM9 3.5h2v9H9z"/></svg>',
+      back: '<svg viewBox="0 0 16 16"><path d="M8 3.5a4.5 4.5 0 1 1-4.3 5.8" fill="none"/><path d="M3.2 3.6v3h3" fill="none"/></svg>',
+      full: '<svg viewBox="0 0 16 16"><path d="M3 6V3h3M10 3h3v3M13 10v3h-3M6 13H3v-3" fill="none"/></svg>'
+    };
+    function fmt(t) { t = Math.max(0, t || 0); var m = Math.floor(t / 60), s = Math.floor(t % 60); return m + ":" + (s < 10 ? "0" : "") + s; }
+    document.querySelectorAll(".shot-ui video, .old-flow video").forEach(function (v) {
+      var box = v.parentElement; box.classList.add("vp");
+      var bar = document.createElement("div"); bar.className = "vp-bar";
+      bar.innerHTML = '<button class="vp-play" type="button" aria-label="Pause">' + ICON.pause + '</button>' +
+        '<button class="vp-back" type="button" aria-label="Back 5 seconds">' + ICON.back + '</button>' +
+        '<input class="vp-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">' +
+        '<span class="vp-time">0:00 / 0:00</span>' +
+        '<button class="vp-full" type="button" aria-label="Full screen">' + ICON.full + '</button>';
+      box.appendChild(bar);
+      var play = bar.querySelector(".vp-play"), back = bar.querySelector(".vp-back"), seek = bar.querySelector(".vp-seek"), time = bar.querySelector(".vp-time"), full = bar.querySelector(".vp-full");
+      var dragging = false;
+      function sync() {
+        play.innerHTML = v.paused ? ICON.play : ICON.pause; play.setAttribute("aria-label", v.paused ? "Play" : "Pause");
+        box.classList.toggle("is-paused", v.paused);
+      }
+      function tick() {
+        if (!dragging && v.duration) seek.value = Math.round(v.currentTime / v.duration * 1000);
+        seek.style.setProperty("--p", (seek.value / 10) + "%");
+        time.textContent = fmt(v.currentTime) + " / " + fmt(v.duration);
+      }
+      play.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+      v.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+      back.addEventListener("click", function () { v.currentTime = Math.max(0, v.currentTime - 5); });
+      seek.addEventListener("input", function () { dragging = true; if (v.duration) v.currentTime = seek.value / 1000 * v.duration; tick(); });
+      seek.addEventListener("change", function () { dragging = false; });
+      full.addEventListener("click", function () {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (box.requestFullscreen) box.requestFullscreen();
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      });
+      v.removeAttribute("controls");
+      ["play", "pause"].forEach(function (e) { v.addEventListener(e, sync); });
+      ["timeupdate", "loadedmetadata", "seeked"].forEach(function (e) { v.addEventListener(e, tick); });
+      sync(); tick();
+    });
+  })();
+</script>
 </body>
 </html>

@@ -720,3 +720,21 @@
 .blog .tag { display: flex; width: 100%; margin: 0 0 20px; padding: 12px 0 12px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; top: 0; padding-top: 72px; margin-top: -60px; }
 .blog .phase.new .tag { border-color: var(--line); }
 @media (max-width: 760px) { .blog .tag { padding-top: 104px; margin-top: -92px; } }
+
+/* Video player controls */
+.blog .vp { position: relative; }
+.blog .vp video { cursor: pointer; }
+.blog .vp-bar { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; align-items: center; gap: 4px; padding: 6px 10px 6px 6px; border-radius: 10px; background: rgba(28, 33, 34, 0.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; opacity: 0; transform: translateY(4px); transition: opacity .2s ease, transform .2s ease; }
+.blog .vp:hover .vp-bar, .blog .vp:focus-within .vp-bar, .blog .vp.is-paused .vp-bar { opacity: 1; transform: none; }
+@media (hover: none) { .blog .vp-bar { opacity: 1; transform: none; } }
+.blog .vp-bar button { flex: none; display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 6px; background: none; color: inherit; cursor: pointer; }
+.blog .vp-bar button:hover { background: rgba(255, 255, 255, 0.14); }
+.blog .vp-bar svg { width: 16px; height: 16px; fill: currentColor; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.blog .vp-play svg { stroke: none; }
+.blog .vp-seek { --p: 0%; flex: 1; min-width: 40px; height: 4px; margin: 0 8px; -webkit-appearance: none; appearance: none; border-radius: 4px; background: linear-gradient(to right, #fff var(--p), rgba(255, 255, 255, 0.3) var(--p)); cursor: pointer; }
+.blog .vp-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 0; }
+.blog .vp-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 0; }
+.blog .vp-time { flex: none; font: 500 12px/1 "Inter", system-ui, sans-serif; font-variant-numeric: tabular-nums; opacity: .85; margin-right: 4px; }
+.blog .vp:fullscreen { display: grid; place-items: center; background: #000; border-radius: 0; }
+.blog .vp:fullscreen video { max-height: 100vh; width: auto; max-width: 100%; }
+@media (max-width: 760px) { .blog .vp-back { display: none; } .blog .vp-bar { left: 6px; right: 6px; bottom: 6px; } }
