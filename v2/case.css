@@ -1044,3 +1044,6 @@ html.lb-open { overflow: hidden; }
 .blog .closer p { margin: 0; max-width: 32em; font: italic 400 25px/1.4 "Newsreader", Georgia, serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
 .blog .closer em { font-style: italic; color: var(--ink); background: linear-gradient(to top, color-mix(in srgb, var(--accent) 14%, transparent) 30%, transparent 30%); padding: 0 2px; }
 @media (max-width: 760px) { .blog .closer p { font-size: 21px; } }
+.blog .case-row.appr .prose p { margin: 0; }
+.blog .case-row.appr .prose p + p { margin-top: 10px; }
+.blog .case-row.lite.appr .prose p.sol { margin-top: 10px; }
