@@ -62,3 +62,4 @@ html, body { background: var(--bg); }
 .grid.work-more .tile .brief, .work-hero .brief { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 34em; }
 .tile .more.muted { margin-top: 10px; font-size: 13px; }
 .tile:hover .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.work-hero .tile .art.clip { aspect-ratio: 16 / 9; }
