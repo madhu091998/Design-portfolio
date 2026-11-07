@@ -937,3 +937,5 @@ html.lb-open { overflow: hidden; }
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 @media (max-width: 760px) { .blog .q { font-size: 20px; } }
+.blog .q { font: 500 18px/1.5 "Geist", system-ui, sans-serif; letter-spacing: -0.005em; padding: 2px 0 2px 18px; }
+@media (max-width: 760px) { .blog .q { font-size: 17px; } }
