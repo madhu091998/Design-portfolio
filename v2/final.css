@@ -63,3 +63,15 @@ html, body { background: var(--bg); }
 .tile .more.muted { margin-top: 10px; font-size: 13px; }
 .tile:hover .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .work-hero .tile .art.clip { aspect-ratio: 16 / 9; }
+
+/* Minimal cards: picture first, then title, a small subheader and the brief underneath */
+.work-hero .tile,
+.grid.work-more .tile { display: block; padding: 0; }
+.work-hero .tile .art { margin-bottom: 16px; }
+.work-hero .cap, .grid.work-more .cap { display: flex; flex-direction: column; gap: 2px; margin: 0; }
+.work-hero .cap b, .grid.work-more .cap b { font-size: 16px; font-weight: 500; }
+.work-hero .cap span, .grid.work-more .cap span { font-size: 13px; color: var(--muted); }
+.work-hero .brief, .grid.work-more .tile .brief { margin-top: 8px; max-width: 40em; }
+.grid.work-more { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 24px; margin-top: 48px; }
+.grid.work-more .tile .art { margin-bottom: 14px; }
+@media (max-width: 760px) { .grid.work-more { grid-template-columns: 1fr; gap: 36px; } }
