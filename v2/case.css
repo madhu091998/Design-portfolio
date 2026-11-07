@@ -1037,3 +1037,10 @@ html.lb-open { overflow: hidden; }
 .blog .case-row.lite .prose p.sol { margin-top: 0; }
 .blog .case-row.lite .prose p:not(.sol) { font-size: 15px; color: color-mix(in srgb, var(--ink) 62%, transparent); }
 .blog .case-row.lite .prose p.eg { padding-left: 0; border-left: 0; }
+
+/* Closing takeaway */
+.blog .closer { margin: 44px 0 0; padding: 0; }
+.blog .closer-mark { display: block; width: 28px; height: 2px; margin-bottom: 20px; background: var(--accent); border-radius: 2px; }
+.blog .closer p { margin: 0; max-width: 32em; font: italic 400 25px/1.4 "Newsreader", Georgia, serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.blog .closer em { font-style: italic; color: var(--ink); background: linear-gradient(to top, color-mix(in srgb, var(--accent) 14%, transparent) 30%, transparent 30%); padding: 0 2px; }
+@media (max-width: 760px) { .blog .closer p { font-size: 21px; } }
