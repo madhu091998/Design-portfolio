@@ -968,3 +968,11 @@ html.lb-open { overflow: hidden; }
   .duo li, .duo li + li { padding: 18px 0; border-left: 0; }
   .duo li + li { border-top: 1px solid var(--line); }
 }
+
+/* AI-falls-short cases */
+.blog .case-h { margin: 56px 0 0; }
+.blog .case-h + .prose { margin-top: 14px; }
+.blog .prose p.eg {
+  padding-left: 16px; border-left: 2px solid rgba(31, 43, 45, 0.12);
+  font-size: 15px; color: color-mix(in srgb, var(--ink) 68%, transparent);
+}
