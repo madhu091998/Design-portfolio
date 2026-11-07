@@ -239,20 +239,24 @@
   <section class="sec" id="approaches" aria-labelledby="approaches-h">
     <h2 class="cs-h2 reveal" id="approaches-h">Some of the approaches we explored</h2>
     <div class="prose reveal">
-      <p>We tried a few approaches during the redesign. Some had to be reconsidered as we understood the use cases better.</p>
+      <p>Some early approaches changed as we understood the use cases better.</p>
     </div>
-    <h3 class="cs-h3 reveal">One flow or reusable templates?</h3>
-    <div class="prose reveal">
-      <p>We initially explored combining contract creation and sending into one flow.</p>
-      <p>But if a new salesperson joined midway through the year, admins would have to recreate the contract just to send it to one more person.</p>
-      <p>So we kept templates separate, allowing admins to reuse them and track the contracts sent from each template.</p>
+    <div class="case-row stack reveal">
+      <h3 class="case-t"><span class="pn">01</span>One flow or reusable templates?</h3>
+      <dl class="tpd">
+        <dt>Tried</dt><dd>Combining contract creation and sending into one flow.</dd>
+        <dt>Problem</dt><dd>If a salesperson joined mid-year, admins would have to recreate the whole contract for one more person.</dd>
+        <dt>Outcome</dt><dd class="sol">We kept templates separate, so admins can reuse them and track the contracts sent from each.</dd>
+      </dl>
     </div>
     <figure class="shot-ui reveal"><img src="../../assets/contracts/template-steps.webp" width="1200" height="760" loading="lazy" alt="The template setup screen: a draft contract with steps down the left for Basic details, Recipients, Document and placeholders, Data mapping, Email content, and Preview and send."></figure>
-    <h3 class="cs-h3 reveal">Figuring out how to fill contract details</h3>
-    <div class="prose reveal">
-      <p>This was one of the biggest challenges, and we didn't have a clear solution initially.</p>
-      <p>We first explored letting admins manually choose where each value should come from. But fetching something like a salesperson's sales target for a specific quarter could require several filters and calculations.</p>
-      <p>This made the setup complicated. We needed a simpler approach, and the AI capabilities being developed alongside the redesign opened up another possibility.</p>
+    <div class="case-row stack reveal">
+      <h3 class="case-t"><span class="pn">02</span>How to fill contract details</h3>
+      <dl class="tpd">
+        <dt>Tried</dt><dd>Letting admins manually choose where each value comes from.</dd>
+        <dt>Problem</dt><dd>Values like a quarterly sales target needed several filters and calculations, making setup complicated.</dd>
+        <dt>Outcome</dt><dd class="sol">The AI being built alongside the redesign opened up a simpler approach.</dd>
+      </dl>
     </div>
     <figure class="shot-ui reveal"><img src="../../assets/contracts/data-mapping-frame.webp" width="2000" height="1000" loading="lazy" alt="The manual data mapping panel for a Variable pay placeholder: map it from a datasheet field or describe how to calculate it, then pick a source object and a datasheet."></figure>
   </section>

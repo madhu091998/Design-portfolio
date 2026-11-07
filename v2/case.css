@@ -994,3 +994,15 @@ html.lb-open { overflow: hidden; }
 @media (max-width: 760px) {
   .blog .case-row { grid-template-columns: 1fr; gap: 14px; }
 }
+
+/* Tried / Problem / Outcome */
+.tpd { margin: 0; display: grid; grid-template-columns: 76px minmax(0, 1fr); column-gap: 16px; row-gap: 12px; }
+.tpd dt { font: 400 13px/1.7 "Geist", system-ui, sans-serif; color: var(--muted); padding-top: 1px; }
+.tpd dd { margin: 0; font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.tpd dd.sol { font-size: 16px; font-weight: 500; color: var(--ink); }
+@media (max-width: 760px) { .tpd { grid-template-columns: 1fr; row-gap: 2px; } .tpd dd { margin-bottom: 12px; } }
+.blog .case-row.stack { grid-template-columns: 1fr; gap: 18px; }
+.blog .case-row.stack .case-t { display: flex; align-items: baseline; gap: 12px; font-size: 22px; }
+.blog .case-row.stack .case-t .pn { display: inline; margin: 0; }
+.blog .case-row.stack .tpd { grid-template-columns: 88px minmax(0, 1fr); }
+@media (max-width: 760px) { .blog .case-row.stack .tpd { grid-template-columns: 1fr; } }
