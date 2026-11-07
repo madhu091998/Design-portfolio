@@ -532,10 +532,3 @@ body::after { content: none; }
 .work-hero .tile { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .grid.work-more { margin-top: 44px; }
 .work-hero .tile .art.clip { aspect-ratio: 16 / 11; }
-
-/* Handwritten signature logo */
-.wordmark .sig {
-  font: 400 32px/1 "Sacramento", cursive; letter-spacing: 0; color: var(--ink);
-  -webkit-text-stroke: 0.55px currentColor; transform: translateY(2px); display: inline-block;
-}
-.wordmark:hover .sig { color: var(--accent); }
