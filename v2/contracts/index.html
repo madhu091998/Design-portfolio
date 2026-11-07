@@ -59,26 +59,23 @@
   <section class="sec" id="problem" aria-labelledby="problem-h">
     <h2 class="cs-h2 reveal" id="problem-h">Understanding the problem</h2>
     <div class="prose reveal">
-      <p>I started by going through the existing Contracts flow, reviewing customer feedback, and understanding how customers created and sent contracts.</p>
-      <p>Previously, Contracts used DocuSign, which was embedded within Everstage. Admins could upload a document and add fields that needed to be filled with each salesperson's information.</p>
+      <p>I started by reviewing the existing Contracts workflow and customer feedback to understand how contracts were created and sent.</p>
+      <p>Previously, DocuSign was embedded in Everstage, allowing admins to upload documents and add fields for each salesperson's information.</p>
       <p>But creating the template was only half the work.</p>
-      <p>To send contracts, admins still had to:</p>
-      <ol>
-        <li><b>Set up the contract in DocuSign.</b> Upload the document and add fields for each salesperson's information.</li>
-        <li><b>Download the fields as a spreadsheet.</b> Get a CSV containing all the fields that need to be filled.</li>
-        <li><b>Manually prepare everyone's data.</b> Collect each salesperson's information from different sources and fill in the spreadsheet, along with recipient emails and email content.</li>
-        <li><b>Bring the data back into Everstage.</b> Upload the prepared data as a Datasheet, which is basically a table containing all the information needed for the contracts.</li>
-        <li><b>Load the data and send contracts.</b> Select the Datasheet and send the contracts without previewing the completed documents.</li>
-      </ol>
+      <p>To send contracts, admins had to:</p>
     </div>
+    <ol class="flow-steps reveal">
+        <li><span class="fs-n" aria-hidden="true">01</span><div><b>Set up the contract in DocuSign.</b><p>Upload the document and add the required fields.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">02</span><div><b>Download a spreadsheet.</b><p>Get a CSV containing all the fields to be filled.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">03</span><div><b>Prepare the data manually.</b><p>Collect each salesperson's details, recipient emails, and email content.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">04</span><div><b>Bring the data back into Everstage.</b><p>Import the prepared information and make it available as a Datasheet (a table of records).</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">05</span><div><b>Load and send contracts.</b><p>Select the Datasheet and send contracts without previewing the completed documents.</p></div></li>
+    </ol>
     <figure class="shot old-flow reveal">
       <video src="../../assets/contracts/old-workflow.mp4?v=3" poster="../../assets/contracts/old-workflow-poster.jpg?v=3" width="1600" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Animation of the old five-step workflow: setting up the contract in DocuSign, downloading the fields as a spreadsheet, typing each salesperson's data by hand, uploading it back into Everstage, and sending contracts without a preview."></video>
       <figcaption>The old workflow: from DocuSign to spreadsheets and back to Everstage, with a lot of manual work in between.</figcaption>
     </figure>
-    <div class="prose reveal">
-      <p>The main problem was that most of this information already existed in Everstage. Yet admins had to prepare it manually and bring it back into the product.</p>
-      <p>They also had to enter recipient emails and email content manually. And there was no way to preview the completed contracts before sending them. If something was wrong, they had to cancel and resend them.</p>
-    </div>
+    <p class="pull reveal">The biggest problem was that much of this information already existed in Everstage, yet admins had to manually collect and re-enter it.</p>
     <h3 class="cs-h3 reveal">Understanding how customers worked</h3>
     <div class="prose reveal">
       <p>We also gathered inputs from teams who work closely with customers to understand how they created and sent contracts.</p>

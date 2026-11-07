@@ -877,3 +877,26 @@ html.lb-open { overflow: hidden; }
   .personas li { padding: 22px 0; }
   .personas li + li { border-left: 0; border-top: 1px solid var(--line); }
 }
+
+/* Old workflow steps */
+.flow-steps { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: none; }
+.flow-steps li { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 18px; padding: 0 0 22px; }
+.flow-steps li:last-child { padding-bottom: 0; }
+.flow-steps li:not(:last-child)::before {
+  content: ""; position: absolute; left: 15.5px; top: 36px; bottom: 4px; width: 1px; background: var(--line);
+}
+.fs-n {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--bg);
+  font: 500 12px/1 "Geist", system-ui, sans-serif; color: var(--muted); font-variant-numeric: tabular-nums;
+}
+.flow-steps b { display: block; padding-top: 5px; font: 500 16px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
+.flow-steps p { margin: 4px 0 0; font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.flow-steps li:hover .fs-n { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+
+/* Pull line */
+.blog .pull {
+  margin: 36px 0 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent);
+  font: italic 400 22px/1.4 "Newsreader", Georgia, serif; color: var(--ink);
+}
+@media (max-width: 760px) { .blog .pull { font-size: 20px; } }
