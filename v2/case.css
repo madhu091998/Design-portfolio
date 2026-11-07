@@ -738,3 +738,6 @@
 .blog .vp:fullscreen { display: grid; place-items: center; background: #000; border-radius: 0; }
 .blog .vp:fullscreen video { max-height: 100vh; width: auto; max-width: 100%; }
 @media (max-width: 760px) { .blog .vp-back { display: none; } .blog .vp-bar { left: 6px; right: 6px; bottom: 6px; } }
+/* Sticky strip: no negative margin (it was covering the heading above it); sits just under the top bar */
+.blog .tag { top: 64px; margin-top: 0; padding-top: 12px; }
+@media (max-width: 760px) { .blog .tag { top: 96px; margin-top: 0; padding-top: 12px; } }
