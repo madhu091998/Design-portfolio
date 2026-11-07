@@ -786,3 +786,5 @@ html.lb-open { overflow: hidden; }
 .blog .phase.old .tag span, .blog .phase.new .tag span { background: none; box-shadow: none; }
 .blog .phase.new .tag span { border-top-color: rgba(36, 48, 47, 0.28); }
 .blog .tag { font-size: 22px; } @media (max-width: 760px) { .blog .tag { font-size: 20px; } }
+/* Pin the old/new label closer to the top (it sits between Back and Resume, which are outside the column) */
+@media (min-width: 761px) { .blog .tag { top: 18px; padding-top: 10px; } .blog .tag.stuck::before { height: 18px; } }
