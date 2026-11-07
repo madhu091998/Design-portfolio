@@ -469,3 +469,6 @@ body::after { content: none; }
 .grid.work-more .tile .cap { font-size: 14px; }
 .grid.work-more .tile .card { width: 70%; }
 @media (max-width: 760px) { .grid.work-more { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; } }
+
+/* One-line project brief under each caption */
+.tile .brief { margin: 6px 0 0; max-width: 44em; font: 400 14px/1.5 "Geist", system-ui, sans-serif; color: var(--muted); text-wrap: pretty; }
