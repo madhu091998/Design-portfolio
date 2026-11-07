@@ -878,22 +878,6 @@ html.lb-open { overflow: hidden; }
   .personas li + li { border-left: 0; border-top: 1px solid var(--line); }
 }
 
-/* Old workflow steps */
-.flow-steps { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: none; }
-.flow-steps li { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 18px; padding: 0 0 22px; }
-.flow-steps li:last-child { padding-bottom: 0; }
-.flow-steps li:not(:last-child)::before {
-  content: ""; position: absolute; left: 15.5px; top: 36px; bottom: 4px; width: 1px; background: var(--line);
-}
-.fs-n {
-  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
-  border: 1px solid var(--line); background: var(--bg);
-  font: 500 12px/1 "Geist", system-ui, sans-serif; color: var(--muted); font-variant-numeric: tabular-nums;
-}
-.flow-steps b { display: block; padding-top: 5px; font: 500 16px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
-.flow-steps p { margin: 4px 0 0; font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
-.flow-steps li:hover .fs-n { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
-
 /* Pull line */
 .blog .pull {
   margin: 36px 0 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent);
@@ -901,17 +885,51 @@ html.lb-open { overflow: hidden; }
 }
 @media (max-width: 760px) { .blog .pull { font-size: 20px; } }
 
-/* Stepper, modern pass */
-.flow-steps li { grid-template-columns: 24px minmax(0, 1fr); gap: 16px; padding-bottom: 26px; }
+/* Old workflow stepper */
+.flow-steps {
+  list-style: none; margin: 28px 0 0; padding: 28px 28px 30px;
+  border-radius: 20px; border: 1px solid rgba(31,43,45,.07);
+  background: linear-gradient(180deg, #fff, color-mix(in srgb, #fff 55%, var(--bg)));
+  box-shadow: 0 1px 2px rgba(31,43,45,.04), 0 12px 32px -12px rgba(31,43,45,.10);
+}
+.flow-steps li { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 18px; padding: 0 0 26px; }
+.flow-steps li:last-child { padding-bottom: 0; }
+/* track between markers */
 .flow-steps li:not(:last-child)::before {
-  left: 11.5px; top: 31px; bottom: 1px; width: 1px;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 28%, transparent), var(--line));
+  content: ""; position: absolute; left: 17px; top: 36px; bottom: -4px; width: 6px; border-radius: 6px;
+  background: #eceff0; box-shadow: inset 0 1px 1px rgba(31,43,45,.06);
+}
+.flow-steps li:not(:last-child)::after {
+  content: ""; position: absolute; left: 17px; top: 36px; width: 6px; border-radius: 6px; height: 0;
+  background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 55%, #fff));
+  transition: height .5s ease;
 }
 .fs-n {
-  width: 24px; height: 24px; border-radius: 7px; border: 0; margin-top: 3px;
-  background: color-mix(in srgb, var(--accent) 9%, var(--bg));
-  font: 600 12px/1 "Geist", system-ui, sans-serif; color: var(--accent);
-  transition: background .2s ease, color .2s ease;
+  position: relative; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  color: #7d8b8d;
+  background: linear-gradient(180deg, #fff, #f1f3f3);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(31,43,45,.06), 0 2px 4px rgba(31,43,45,.06), 0 6px 14px -4px rgba(31,43,45,.12);
+  transition: background .35s ease, color .35s ease, box-shadow .35s ease;
 }
-.flow-steps b { padding-top: 3px; }
-.flow-steps li:hover .fs-n { background: var(--accent); color: #fff; }
+.fs-n svg { width: 19px; height: 19px; }
+.flow-steps b { display: block; padding-top: 8px; font: 500 17px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); transition: color .35s ease; }
+.flow-steps p { margin: 4px 0 0; font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 68%, transparent); transition: color .35s ease; }
+/* active (all active without JS) */
+.flow-steps li .fs-n, .flow-steps.js li.on .fs-n {
+  color: #fff;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 82%, #fff), var(--accent));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent), 0 6px 16px -4px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.flow-steps.js li:not(.on) .fs-n {
+  color: #7d8b8d; background: linear-gradient(180deg, #fff, #f1f3f3);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(31,43,45,.06), 0 2px 4px rgba(31,43,45,.06), 0 6px 14px -4px rgba(31,43,45,.12);
+}
+.flow-steps.js li:not(.on) b { color: #8a9799; }
+.flow-steps.js li:not(.on) p { color: #a3aeb0; }
+.flow-steps li:not(:last-child)::after, .flow-steps.js li.done::after { height: calc(100% - 36px + 4px); }
+.flow-steps.js li:not(.done)::after { height: 0; }
+@media (max-width: 760px) {
+  .flow-steps { padding: 22px 18px 24px; border-radius: 16px; }
+  .flow-steps li { gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .fs-n, .flow-steps li::after, .flow-steps b, .flow-steps p { transition: none; } }
