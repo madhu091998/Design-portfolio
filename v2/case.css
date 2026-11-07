@@ -44,10 +44,10 @@
 /* ---------- Sections ---------- */
 .case .sec { margin-top: 150px; }
 .cs-h2 {
-  margin: 0; max-width: 760px; font: 500 clamp(28px, 2.7vw, 40px)/1.15 "Inter", system-ui, sans-serif;
+  margin: 0; max-width: 760px; font: 500 clamp(28px, 2.7vw, 40px)/1.15 "Geist", system-ui, sans-serif;
   letter-spacing: -0.03em; color: var(--ink); text-wrap: balance;
 }
-.cs-h3 { margin: 0; max-width: 680px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); text-wrap: balance; }
+.cs-h3 { margin: 0; max-width: 680px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); text-wrap: balance; }
 .kick { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
 .kick .mode { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; vertical-align: 0.05em; background: var(--c); }
 .prose { max-width: 640px; margin-top: 24px; font-size: 17px; line-height: 1.65; color: var(--text); }
@@ -73,7 +73,7 @@
 /* 02: the request, annotated */
 .ask { display: grid; gap: 28px; max-width: 760px; }
 .ask .who { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.ask q { quotes: "“" "”"; font: 400 clamp(22px, 2.3vw, 32px)/1.35 "Inter", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); }
+.ask q { quotes: "“" "”"; font: 400 clamp(22px, 2.3vw, 32px)/1.35 "Geist", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--ink); }
 .ask .reply q { color: var(--text); }
 .ask mark { background: none; color: inherit; text-decoration: underline 1.5px var(--clover); text-underline-offset: 7px; }
 .ask sup { margin-left: 2px; font-size: 0.42em; font-weight: 500; letter-spacing: 0; vertical-align: 1.5em; color: var(--moon); }
@@ -121,7 +121,7 @@
 .scope-demo { display: grid; gap: 24px; }
 .scope-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
 .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent); }
-.seg button { padding: 6px 14px; border: 0; border-radius: 999px; font: 500 13px/1.2 "Inter", system-ui, sans-serif; color: var(--text); background: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.seg button { padding: 6px 14px; border: 0; border-radius: 999px; font: 500 13px/1.2 "Geist", system-ui, sans-serif; color: var(--text); background: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
 .seg button[aria-pressed="true"] { color: #fff; background: var(--blue); }
 .cards6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .scope-demo.one .wire.match { outline-color: transparent; }
@@ -139,7 +139,7 @@
 .pill { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 3px 9px; border-radius: 999px; font-size: 11px; line-height: 1.4; color: var(--ink); background: #fff; box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .pill.blue { color: #fff; background: var(--blue); box-shadow: none; }
 .pill.dark { color: var(--moon); background: var(--moon-lt); box-shadow: 0 0 0 1px var(--moon-mid); }
-.key { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 4px; font: 500 11px/1 "Inter", sans-serif; color: var(--ink); background: #fff; box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
+.key { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 4px; font: 500 11px/1 "Geist", sans-serif; color: var(--ink); background: #fff; box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent); }
 .lock { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .iters .wire { position: relative; }
@@ -166,7 +166,7 @@
 
 /* 07: ideas */
 .ideas { max-width: 640px; margin: 40px 0 0; }
-.ideas h3 { margin: 0 0 4px; font: 400 14px/1.4 "Inter", system-ui, sans-serif; color: var(--muted); }
+.ideas h3 { margin: 0 0 4px; font: 400 14px/1.4 "Geist", system-ui, sans-serif; color: var(--muted); }
 .ideas ul { list-style: none; margin: 0; padding: 0; }
 .ideas li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink); }
 
@@ -176,7 +176,7 @@
 .cs-foot .foot-quote { max-width: none; }
 .cs-foot-more {
   display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
-  font: italic 400 clamp(26px, 2.4vw, 34px)/1.15 "Instrument Serif", Georgia, serif; color: var(--accent); text-decoration: none;
+  font: italic 400 clamp(26px, 2.4vw, 34px)/1.15 "Newsreader", Georgia, serif; color: var(--accent); text-decoration: none;
 }
 .cs-foot-more svg, .cs-foot-next svg { width: 0.6em; height: 0.6em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s ease; }
 .cs-foot-more:hover svg, .cs-foot-next a:hover svg { transform: translate(2px, -2px); }
@@ -347,7 +347,7 @@
 .scrolly-notes li { position: absolute; inset: 0 0 auto; opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .scrolly-notes li.on { opacity: 1; transform: none; }
 .scrolly-notes span { display: block; font-size: 13px; color: var(--muted); }
-.scrolly-notes b { display: block; margin-top: 10px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
+.scrolly-notes b { display: block; margin-top: 10px; font: 500 clamp(22px, 1.9vw, 28px)/1.2 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); }
 .scrolly-notes p { margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
 .scrolly-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; justify-self: start; font-size: 14px; color: var(--muted); }
 .scrolly-steps li { display: flex; align-items: center; gap: 12px; transition: color 0.3s ease; }
@@ -410,7 +410,7 @@
 .old-steps li::before { content: counter(s, decimal-leading-zero); font-size: 13px; color: var(--muted); min-width: 20px; }
 .old-steps li.bad { color: var(--accent); }
 /* How-might-we */
-.hmw { max-width: 760px; margin: 40px 0 0; padding: 0; font: 400 clamp(24px, 2.4vw, 34px)/1.25 "Instrument Serif", Georgia, serif; color: var(--ink); text-wrap: balance; }
+.hmw { max-width: 760px; margin: 40px 0 0; padding: 0; font: 400 clamp(24px, 2.4vw, 34px)/1.25 "Newsreader", Georgia, serif; color: var(--ink); text-wrap: balance; }
 .hmw::before { content: "“"; color: var(--accent); }
 .hmw::after { content: "”"; color: var(--accent); }
 /* AI vs people */
@@ -432,7 +432,7 @@
 /* ---------- Blog-style reading layout (Contracts first) ----------
    Four levels only: title, section heading, sub-heading, body. Everything else is a quiet grey label. */
 .blog .page { max-width: 700px; margin: 0 auto; padding: 112px 24px 96px; }
-.blog .hero h1 { font: 600 28px/1.25 "Inter", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
+.blog .hero h1 { font: 600 28px/1.25 "Geist", system-ui, sans-serif; letter-spacing: -0.025em; color: var(--ink); max-width: none; text-wrap: balance; }
 .blog .hero h1 .sq { display: none; }
 .blog .meta { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
 .blog .hero .sub { margin-top: 28px; max-width: none; font-size: 16px; line-height: 1.7; color: var(--text); animation: none; opacity: 1; transform: none; }
@@ -444,8 +444,8 @@
 .blog .shot, .blog .fig { margin-top: 28px; }
 .blog .sec { margin-top: 72px; }
 .blog .sec-h { display: none; }
-.blog .cs-h2 { margin: 0; font: 600 20px/1.35 "Inter", system-ui, sans-serif; letter-spacing: -0.015em; color: var(--ink); max-width: none; }
-.blog .cs-h3 { margin: 40px 0 0; font: 600 17px/1.4 "Inter", system-ui, sans-serif; letter-spacing: -0.005em; color: var(--ink); max-width: none; }
+.blog .cs-h2 { margin: 0; font: 600 20px/1.35 "Geist", system-ui, sans-serif; letter-spacing: -0.015em; color: var(--ink); max-width: none; }
+.blog .cs-h3 { margin: 40px 0 0; font: 600 17px/1.4 "Geist", system-ui, sans-serif; letter-spacing: -0.005em; color: var(--ink); max-width: none; }
 .blog .kick { margin: 0 0 4px; font-size: 13px; line-height: 1.4; color: var(--muted); }
 .blog .kick + .cs-h3 { margin-top: 0; }
 .blog .decision { margin-top: 48px; }
@@ -458,7 +458,7 @@
 .blog .old-steps, .blog .split, .blog .cmp { max-width: none; margin-top: 24px; }
 .blog .old-steps li { padding: 10px 0; font-size: 16px; color: var(--text); }
 .blog .old-steps li.bad { color: var(--accent); }
-.blog .hmw { margin: 24px 0 0; padding-left: 16px; border-left: 2px solid var(--accent); font: 500 17px/1.6 "Inter", system-ui, sans-serif; color: var(--ink); }
+.blog .hmw { margin: 24px 0 0; padding-left: 16px; border-left: 2px solid var(--accent); font: 500 17px/1.6 "Geist", system-ui, sans-serif; color: var(--ink); }
 .blog .hmw::before, .blog .hmw::after { content: none; }
 .blog .split > div { padding: 18px 20px; }
 .blog .split h4 { font-size: 14px; font-weight: 600; }
@@ -524,7 +524,7 @@
 /* Blog layout: the reading column scales with the screen, about half its width (like the reference), never narrower than before */
 .blog .page { max-width: calc(clamp(640px, 43vw, 880px) + 48px); }
 /* Blog layout: title and section headings in a bookish serif (Source Serif 4, close in feel to Libre Baskerville) */
-.blog .hero h1, .blog .cs-h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 400; color: #2c3a3d; }
+.blog .hero h1, .blog .cs-h2 { font-family: "Newsreader", Georgia, serif; font-weight: 400; color: #2c3a3d; }
 .blog .hero h1 { font-size: 34px; line-height: 1.2; letter-spacing: -0.015em; }
 .blog .cs-h2 { font-size: 26px; line-height: 1.25; letter-spacing: -0.01em; }
 .blog .cs-h2::before { top: 0.5em; }
@@ -534,7 +534,7 @@
    bold lead-ins in lists drop to medium so they don't outweigh the regular-weight serif headings,
    and the heading gets a little more air before its text. */
 .blog .sec { margin-top: 80px; }
-.blog .cs-h2 .n { font: 400 15px/1 "Inter", system-ui, sans-serif; letter-spacing: 0; color: var(--muted); vertical-align: 0.3em; margin-right: 4px; }
+.blog .cs-h2 .n { font: 400 15px/1 "Geist", system-ui, sans-serif; letter-spacing: 0; color: var(--muted); vertical-align: 0.3em; margin-right: 4px; }
 .blog .cs-h2::before { top: 0.55em; }
 .blog .cs-h2 + .prose { margin-top: 20px; }
 .blog .prose b { font-weight: 500; color: var(--ink); }
@@ -638,7 +638,7 @@
 /* Older vs new experience: two quiet columns of numbered rows, separated by hairlines */
 .blog .flows { margin: 36px 0 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; border-top: 1px solid var(--line); }
 .blog .fl-col { display: flex; flex-direction: column; }
-.blog .fl-h { margin: 20px 0 0; font: 500 15px/1.4 "Inter", system-ui, sans-serif; color: var(--ink); }
+.blog .fl-h { margin: 20px 0 0; font: 500 15px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
 .blog .fl-sub { margin: 2px 0 12px; font-size: 14px; color: var(--muted); }
 .blog .flows ol { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-rows: 1fr; }
 .blog .flows li { display: grid; grid-template-columns: 28px 1fr; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; }
@@ -652,8 +652,8 @@
 @media (max-width: 760px) { .blog .flows { grid-template-columns: 1fr; row-gap: 8px; } .blog .flows ol { grid-auto-rows: auto; } }
 
 /* ---------- Contracts, matched to the Framer build ---------- */
-.blog .cs-h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 20px; font-weight: 600; line-height: 1.35; letter-spacing: -0.005em; color: #2c3a3d; }
-.blog .cs-h4 { margin: 32px 0 0; font: 600 16px/1.4 "Source Serif 4", Georgia, serif; color: #2c3a3d; }
+.blog .cs-h3 { font-family: "Newsreader", Georgia, serif; font-size: 20px; font-weight: 600; line-height: 1.35; letter-spacing: -0.005em; color: #2c3a3d; }
+.blog .cs-h4 { margin: 32px 0 0; font: 600 16px/1.4 "Newsreader", Georgia, serif; color: #2c3a3d; }
 .blog .cs-h4 + .prose { margin-top: 8px; }
 .blog .prose p.step-l { margin: 0 0 6px; font-size: 14px; }
 .blog .prose p.step-l strong { font-weight: 600; color: var(--ink); }
@@ -670,24 +670,24 @@
 /* ---------- Contracts: clean type scale, larger media, clear old vs new ---------- */
 /* Type scale: section 32 serif · sub-heading 22 serif · label 15 sans · body 16 sans */
 .blog .sec { margin-top: 112px; }
-.blog .cs-h2 { font: 500 32px/1.2 "Source Serif 4", Georgia, serif; letter-spacing: -0.015em; color: #24302f; }
+.blog .cs-h2 { font: 500 32px/1.2 "Newsreader", Georgia, serif; letter-spacing: -0.015em; color: #24302f; }
 .blog .cs-h2 + .prose { margin-top: 20px; }
-.blog .cs-h3 { margin: 56px 0 0; font: 500 22px/1.3 "Source Serif 4", Georgia, serif; letter-spacing: -0.01em; color: #24302f; }
+.blog .cs-h3 { margin: 56px 0 0; font: 500 22px/1.3 "Newsreader", Georgia, serif; letter-spacing: -0.01em; color: #24302f; }
 .blog .cs-h2 + .cs-h3 { margin-top: 32px; }
 .blog .cs-h3 + .prose, .blog .part > .prose { margin-top: 12px; }
 .blog .part { margin-top: 72px; }
 .blog .cs-h2 + .part { margin-top: 36px; }
 .blog .part-h { margin: 0; display: flex; align-items: baseline; gap: 14px; font-size: 24px; }
-.blog .pn { font: 500 13px/1 "Inter", system-ui, sans-serif; letter-spacing: 0.02em; color: var(--muted); font-variant-numeric: tabular-nums; }
-.blog .prose p.step-l { margin: 24px 0 4px; font: 600 15px/1.4 "Inter", system-ui, sans-serif; color: var(--ink); }
+.blog .pn { font: 500 13px/1 "Geist", system-ui, sans-serif; letter-spacing: 0.02em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blog .prose p.step-l { margin: 24px 0 4px; font: 600 15px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
 .blog .prose.steps-l p.step-l:first-child, .blog .prose p.step-l:first-child { margin-top: 0; }
-.blog .phase > p.step-l { margin: 32px 0 0; font: 600 15px/1.4 "Inter", system-ui, sans-serif; color: var(--ink); }
+.blog .phase > p.step-l { margin: 32px 0 0; font: 600 15px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
 .blog .prose + .prose { margin-top: 24px; }
 
 /* Old / new: each block carries a label that sticks under the top bar while you scroll through it */
 .blog .phase { position: relative; margin-top: 40px; }
 .blog .phase.new { margin-top: 64px; }
-.blog .tag { position: sticky; top: 76px; z-index: 6; display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px; padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: rgba(248, 250, 249, 0.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 4px 14px rgba(31, 43, 45, 0.06); font: 500 13px/1 "Inter", system-ui, sans-serif; letter-spacing: 0.01em; }
+.blog .tag { position: sticky; top: 76px; z-index: 6; display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px; padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: rgba(248, 250, 249, 0.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 4px 14px rgba(31, 43, 45, 0.06); font: 500 13px/1 "Geist", system-ui, sans-serif; letter-spacing: 0.01em; }
 .blog .tag span { width: 7px; height: 7px; border-radius: 50%; }
 .blog .phase.old .tag { color: var(--muted); }
 .blog .phase.old .tag span { background: #b4bcbd; }
@@ -734,7 +734,7 @@
 .blog .vp-seek { --p: 0%; flex: 1; min-width: 40px; height: 4px; margin: 0 8px; -webkit-appearance: none; appearance: none; border-radius: 4px; background: linear-gradient(to right, #fff var(--p), rgba(255, 255, 255, 0.3) var(--p)); cursor: pointer; }
 .blog .vp-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 0; }
 .blog .vp-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 0; }
-.blog .vp-time { flex: none; font: 500 12px/1 "Inter", system-ui, sans-serif; font-variant-numeric: tabular-nums; opacity: .85; margin-right: 4px; }
+.blog .vp-time { flex: none; font: 500 12px/1 "Geist", system-ui, sans-serif; font-variant-numeric: tabular-nums; opacity: .85; margin-right: 4px; }
 .blog .vp:fullscreen { display: grid; place-items: center; background: #000; border-radius: 0; }
 .blog .vp:fullscreen video { max-height: 100vh; width: auto; max-width: 100%; }
 @media (max-width: 760px) { .blog .vp-back { display: none; } .blog .vp-bar { left: 6px; right: 6px; bottom: 6px; } }
@@ -769,7 +769,6 @@ html.lb-open { overflow: hidden; }
 .neel, .neel .prose, .neel .topbar, .neel .sidenav, .neel .cs-facts, .neel .tag, .neel .pn, .neel .step-l, .neel figcaption, .neel .cs-foot { font-family: "Geist", "Helvetica Neue", system-ui, sans-serif; }
 .neel .prose { font-size: 16px; line-height: 1.6; }
 .neel .hero h1 { font: italic 400 42px/1.15 "Newsreader", Georgia, serif; letter-spacing: -0.01em; }
-.neel .prose.intro { font: 400 20px/1.68 "Newsreader", Georgia, serif; letter-spacing: -0.012em; }
 .neel .cs-h2 { font: italic 400 33px/1.15 "Newsreader", Georgia, serif; letter-spacing: -0.005em; }
 .neel .cs-h3, .neel .part-h { font: italic 400 24px/1.25 "Newsreader", Georgia, serif; letter-spacing: 0; }
 .neel .prose p.step-l, .neel .phase > p.step-l { font: 500 15px/1.4 "Geist", system-ui, sans-serif; }
@@ -778,4 +777,4 @@ html.lb-open { overflow: hidden; }
 .neel .sidenav { font-size: 14px; letter-spacing: -0.01em; }
 .neel .cs-facts dt { font-size: 13px; } .neel .cs-facts dd { font-size: 15px; }
 .neel .flows, .neel .fl-h { font-family: "Geist", system-ui, sans-serif; }
-@media (max-width: 760px) { .neel .hero h1 { font-size: 34px; } .neel .cs-h2 { font-size: 28px; } .neel .cs-h3, .neel .part-h { font-size: 21px; } .neel .prose.intro { font-size: 18px; } }
+@media (max-width: 760px) { .neel .hero h1 { font-size: 34px; } .neel .cs-h2 { font-size: 28px; } .neel .cs-h3, .neel .part-h { font-size: 21px; } }
