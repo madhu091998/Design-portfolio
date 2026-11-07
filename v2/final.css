@@ -46,3 +46,8 @@ html, body { background: var(--bg); }
 .perch { width: 104px; height: 75px; }
 .perch-cat svg { width: 104px; }
 @media (max-width: 760px) { .corner { bottom: 18px; right: 14px; } .perch { width: 80px; height: 58px; } .perch-cat svg { width: 80px; } }
+
+/* Newsreader italic for the name and section headings */
+.intro .who b { font: italic 400 22px/1.2 "Newsreader", Georgia, serif; letter-spacing: -0.005em; color: var(--ink); }
+.sec-head h2 { font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; letter-spacing: -0.005em; }
+.sec-head h2 span { font: 400 14px/1 "Geist", system-ui, sans-serif; font-style: normal; }
