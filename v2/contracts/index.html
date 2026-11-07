@@ -90,111 +90,116 @@
 
   <section class="sec" id="experience" aria-labelledby="experience-h">
     <h2 class="cs-h2 reveal" id="experience-h">How the new experience works</h2>
-    <h3 class="cs-h3 reveal">1. Creating a reusable template</h3>
-    <div class="prose reveal">
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">01</span>Creating a reusable template</h3>
+    <div class="prose">
       <p>The first step is creating a contract template that can be reused for different salespeople. Admins can upload a document, choose who needs to sign, and set up signing order and reminders.</p>
     </div>
-    <h4 class="cs-h4 reveal">The problem</h4>
-    <div class="prose reveal">
-      <p>Previously, admins could define who needed to sign, but had to manually add the actual recipients when sending contracts.</p>
-      <p>From feedback shared by other teams, we learned that these recipients were often the salesperson's manager or a specific admin.</p>
+    <div class="phase old">
+      <p class="tag"><span aria-hidden="true"></span>Old experience</p>
+      <div class="prose">
+        <p>Previously, admins could define who needed to sign, but had to manually add the actual recipients when sending contracts.</p>
+        <p>From feedback shared by other teams, we learned that these recipients were often the salesperson's manager or a specific admin.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-recipients.webp?v=2" width="2400" height="1346" loading="lazy" alt="The old Create Contract form, with the recipient role rows circled in red."></figure>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/old-recipients.webp" width="2064" height="1372" loading="lazy" alt="Old experience: the Create Contract form, with the recipient role rows circled in red."></figure>
-    <h4 class="cs-h4 reveal">New experience - What we changed</h4>
-    <div class="prose reveal">
-      <p>Since Everstage already knows who each salesperson's manager is, we made this automatic. Admins can simply choose "Salesperson's manager," and Everstage finds the right person for each contract. They can also choose a specific admin who should receive it.</p>
+    <div class="phase new">
+      <p class="tag"><span aria-hidden="true"></span>New experience</p>
+      <div class="prose">
+        <p>Since Everstage already knows who each salesperson's manager is, we made this automatic. Admins can simply choose "Salesperson's manager," and Everstage finds the right person for each contract. They can also choose a specific admin who should receive it.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-recipients.mp4" poster="../../assets/contracts/new-recipients-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Setting up recipient roles, with the salesperson's manager assigned automatically."></video></figure>
     </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-recipients.mp4" poster="../../assets/contracts/new-recipients-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: setting up recipient roles, with the salesperson's manager assigned automatically."></video>
-    </figure>
-    <h3 class="cs-h3 reveal">2. Building the template</h3>
-    <div class="prose reveal">
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">02</span>Building the template</h3>
+    <div class="prose">
       <p>Next, admins add placeholders for information that changes for each salesperson, like their name or sales target.</p>
     </div>
-    <h4 class="cs-h4 reveal">The problem</h4>
-    <div class="prose reveal">
-      <p>Previously, admins added placeholders in DocuSign, which was embedded in Everstage. But they still had to manually prepare and upload the values for each salesperson, even when the data was already in Everstage.</p>
+    <div class="phase old">
+      <p class="tag"><span aria-hidden="true"></span>Old experience</p>
+      <div class="prose">
+        <p>Previously, admins added placeholders in DocuSign, which was embedded in Everstage. But they still had to manually prepare and upload the values for each salesperson, even when the data was already in Everstage.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-template-builder.webp?v=2" width="2400" height="1346" loading="lazy" alt="The DocuSign template builder embedded in Everstage."></figure>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/old-template-builder.webp" width="2064" height="1372" loading="lazy" alt="Old experience: the DocuSign template builder embedded in Everstage."></figure>
-    <h4 class="cs-h4 reveal">New experience - What we changed</h4>
-    <div class="prose reveal">
-      <p>We built on an existing template builder developed by another team. I redesigned parts of it to support contract-specific placeholders and AI-powered data fetching.</p>
-      <p>Admins can now describe what each placeholder needs, like "This salesperson's Q2 sales target." Eva turns these instructions into reusable requests to fetch the right values.</p>
+    <div class="phase new">
+      <p class="tag"><span aria-hidden="true"></span>New experience</p>
+      <div class="prose">
+        <p>We built on an existing template builder developed by another team. I redesigned parts of it to support contract-specific placeholders and AI-powered data fetching.</p>
+        <p>Admins can now describe what each placeholder needs, like "This salesperson's Q2 sales target." Eva turns these instructions into reusable requests to fetch the right values.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-placeholders.mp4" poster="../../assets/contracts/new-placeholders-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Adding a placeholder and describing what it needs for Eva."></video></figure>
+      <div class="prose">
+        <p>Users can also choose from commonly used placeholders with pre-filled instructions for Eva, instead of setting them up from scratch.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-prefilled.mp4" poster="../../assets/contracts/new-prefilled-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Choosing a commonly used placeholder with pre-filled instructions."></video></figure>
+      <p class="step-l">More ways to fill placeholders</p>
+      <figure class="shot-ui"><img src="../../assets/contracts/fill-options.webp?v=2" width="2064" height="1372" loading="lazy" alt="Two other ways to fill a placeholder: upload or enter values, or set a default value."></figure>
     </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-placeholders.mp4" poster="../../assets/contracts/new-placeholders-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: adding a placeholder and describing what it needs for Eva."></video>
-    </figure>
-    <div class="prose reveal">
-      <p>Users can also choose from commonly used placeholders with pre-filled instructions for Eva, instead of setting them up from scratch.</p>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">03</span>Previewing values before saving the template</h3>
+    <div class="phase old">
+      <p class="tag"><span aria-hidden="true"></span>Old experience</p>
+      <div class="prose">
+        <p>Previously, admins had to download a blank CSV template containing all the contract placeholders as column headers. They then had to manually fill in the values for each salesperson and bring the data back into Everstage when sending contracts.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-csv.webp?v=2" width="2400" height="1346" loading="lazy" alt="The last step of the old flow: downloading a blank CSV."></figure>
     </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-prefilled.mp4" poster="../../assets/contracts/new-prefilled-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: choosing a commonly used placeholder with pre-filled instructions."></video>
-    </figure>
-    <h4 class="cs-h4 reveal">More ways to fill placeholders</h4>
-    <figure class="panel reveal"><img src="../../assets/contracts/fill-options.webp" width="2064" height="1372" loading="lazy" alt="Two other ways to fill a placeholder: upload or enter values, or set a default value."></figure>
-    <h3 class="cs-h3 reveal">3. Previewing values before saving the template</h3>
-    <h4 class="cs-h4 reveal">The problem</h4>
-    <div class="prose reveal">
-      <p>Previously, admins had to download a blank CSV template containing all the contract placeholders as column headers. They then had to manually fill in the values for each salesperson and bring the data back into Everstage when sending contracts.</p>
+    <div class="phase new">
+      <p class="tag"><span aria-hidden="true"></span>New experience</p>
+      <div class="prose">
+        <p>Instead of manually preparing spreadsheets, admins can let Eva fetch the required information. The queries are saved with the template for future use.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-eva-fetch.mp4" poster="../../assets/contracts/new-eva-fetch-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Eva fetching values for the placeholders."></video></figure>
+      <div class="prose">
+        <p>Admins can preview the values for a few salespeople to check if Eva is fetching the right information and make corrections if needed.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-preview-values.mp4" poster="../../assets/contracts/new-preview-values-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Previewing fetched values for a few salespeople."></video></figure>
+      <div class="prose">
+        <p>Admins can also preview how the actual contract looks with the placeholders filled in, before saving the template.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-preview-doc.mp4" poster="../../assets/contracts/new-preview-doc-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Previewing the contract with placeholders filled in."></video></figure>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/old-csv.webp" width="2064" height="1372" loading="lazy" alt="Old experience: the final step of the old flow, downloading a blank CSV."></figure>
-    <h4 class="cs-h4 reveal">New experience - What we changed</h4>
-    <div class="prose reveal">
-      <p>Instead of manually preparing spreadsheets, admins can let Eva fetch the required information. The queries are saved with the template for future use.</p>
-    </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-eva-fetch.mp4" poster="../../assets/contracts/new-eva-fetch-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: Eva fetching values for the placeholders."></video>
-    </figure>
-    <div class="prose reveal">
-      <p>Admins can preview the values for a few salespeople to check if Eva is fetching the right information and make corrections if needed.</p>
-    </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-preview-values.mp4" poster="../../assets/contracts/new-preview-values-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: previewing fetched values for a few salespeople."></video>
-    </figure>
-    <div class="prose reveal">
-      <p>Admins can also preview how the actual contract looks with the placeholders filled in, before saving the template.</p>
-    </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-preview-doc.mp4" poster="../../assets/contracts/new-preview-doc-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: previewing the contract with placeholders filled in."></video>
-    </figure>
-    <h3 class="cs-h3 reveal">4. Preparing and sending envelopes</h3>
-    <div class="prose reveal">
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">04</span>Preparing and sending envelopes</h3>
+    <div class="prose">
       <p>Once the template is ready, admins can use it to send contracts to multiple salespeople.</p>
     </div>
-    <h4 class="cs-h4 reveal">The problem</h4>
-    <div class="prose reveal">
-      <p>Previously, admins had to manually prepare a spreadsheet containing each salesperson's contract details, recipient emails, email subjects, and messages.</p>
-      <p>They then had to upload this data into Everstage as a Datasheet and load it before sending contracts.</p>
+    <div class="phase old">
+      <p class="tag"><span aria-hidden="true"></span>Old experience</p>
+      <div class="prose">
+        <p>Previously, admins had to manually prepare a spreadsheet containing each salesperson's contract details, recipient emails, email subjects, and messages.</p>
+        <p>They then had to upload this data into Everstage as a Datasheet and load it before sending contracts.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-envelopes.webp?v=2" width="2400" height="1260" loading="lazy" alt="Sending envelopes in the old flow by loading a prepared Datasheet."></figure>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/old-envelopes.webp" width="2064" height="1372" loading="lazy" alt="Old experience: sending envelopes by loading a prepared Datasheet."></figure>
-    <h4 class="cs-h4 reveal">New experience - What we changed</h4>
-    <div class="prose reveal">
-      <p class="step-l"><strong>1. Select recipients</strong></p>
-      <p>Admins can directly select salespeople from Everstage, without preparing a spreadsheet.</p>
-      <p class="step-l"><strong>2. Review the values</strong></p>
-      <p>Contract details are automatically fetched using the setup saved in the template. Admins can review, edit, or manually enter missing values before sending.</p>
-      <p class="step-l"><strong>3. Customize emails</strong></p>
-      <p>Instead of preparing email content in a spreadsheet, admins can write one message for everyone, customize it by recipient role, or personalize it for individuals.</p>
-      <p class="step-l"><strong>4. Review and send</strong></p>
-      <p>Admins can review everything in one place before sending the contracts.</p>
+    <div class="phase new">
+      <p class="tag"><span aria-hidden="true"></span>New experience</p>
+      <div class="prose steps-l">
+        <p class="step-l">1. Select recipients</p>
+        <p>Admins can directly select salespeople from Everstage, without preparing a spreadsheet.</p>
+        <p class="step-l">2. Review the values</p>
+        <p>Contract details are automatically fetched using the setup saved in the template. Admins can review, edit, or manually enter missing values before sending.</p>
+        <p class="step-l">3. Customize emails</p>
+        <p>Instead of preparing email content in a spreadsheet, admins can write one message for everyone, customize it by recipient role, or personalize it for individuals.</p>
+        <p class="step-l">4. Review and send</p>
+        <p>Admins can review everything in one place before sending the contracts.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-envelopes.mp4" poster="../../assets/contracts/new-envelopes-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Selecting recipients, reviewing values, customizing emails and sending."></video></figure>
     </div>
-    <figure class="panel new reveal">
-      <img src="../../assets/contracts/new-panel.webp" width="2064" height="1372" loading="lazy" alt="">
-      <video src="../../assets/contracts/new-envelopes.mp4" poster="../../assets/contracts/new-envelopes-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="New experience: selecting recipients, reviewing values, customizing emails and sending."></video>
-    </figure>
-    <h3 class="cs-h3 reveal">5. Managing and tracking contracts</h3>
-    <div class="prose reveal">
-      <p class="step-l"><strong>Contracts page</strong></p>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">05</span>Managing and tracking contracts</h3>
+    <div class="prose steps-l">
+      <p class="step-l">Contracts page</p>
       <p>Admins can view, reuse, or clone existing templates without having to create them from scratch.</p>
-      <p class="step-l"><strong>Track sent contracts</strong></p>
+      <p class="step-l">Track sent contracts</p>
       <p>A separate Envelopes page lets admins track the status of each contract, including those awaiting signatures, completed, declined, or expired.</p>
     </div>
+  </div>
   </section>
 
   <section class="sec" id="ai-wrong" aria-labelledby="ai-wrong-h">
@@ -216,14 +221,14 @@
       <p>For bulk updates, we let them match records using recipient email addresses and validate the results before applying them.</p>
       <p>We also accounted for cases like multiple matching records, rather than silently choosing a value.</p>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/copy-paste-values.webp" width="2064" height="1372" loading="lazy" alt="Copy and paste values from a spreadsheet."></figure>
-    <figure class="panel reveal"><img src="../../assets/contracts/lookup-datasheet.webp" width="2064" height="1372" loading="lazy" alt="Fill missing values by looking them up from a Datasheet."></figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/copy-paste-values.webp?v=2" width="2400" height="1266" loading="lazy" alt="Copy and paste values from a spreadsheet."></figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/lookup-datasheet.webp?v=2" width="2400" height="1266" loading="lazy" alt="Fill missing values by looking them up from a Datasheet."></figure>
     <h3 class="cs-h3 reveal">When values become outdated</h3>
     <div class="prose reveal">
       <p>What if an admin prepares contracts but returns to send them a few days later? The source data might have changed.</p>
       <p>We introduced indicators for missing and outdated values, filters to find affected records, and options to refresh the data.</p>
     </div>
-    <figure class="panel reveal"><img src="../../assets/contracts/outdated-values.webp" width="2064" height="1372" loading="lazy" alt="Identify and refresh outdated values before sending."></figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/outdated-values.webp?v=2" width="2400" height="1347" loading="lazy" alt="Identify and refresh outdated values before sending."></figure>
   </section>
 
   <section class="sec" id="approaches" aria-labelledby="approaches-h">
@@ -237,16 +242,14 @@
       <p>But if a new salesperson joined midway through the year, admins would have to recreate the contract just to send it to one more person.</p>
       <p>So we kept templates separate, allowing admins to reuse them and track the contracts sent from each template.</p>
     </div>
-    <figure class="ss-frame wide reveal">
-      <div class="ss-screen"><img src="../../assets/contracts/template-steps.webp" width="1200" height="760" loading="lazy" alt="The template setup screen: a draft contract with steps down the left for Basic details, Recipients, Document and placeholders, Data mapping, Email content, and Preview and send."></div>
-    </figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/template-steps.webp" width="1200" height="760" loading="lazy" alt="The template setup screen: a draft contract with steps down the left for Basic details, Recipients, Document and placeholders, Data mapping, Email content, and Preview and send."></figure>
     <h3 class="cs-h3 reveal">Figuring out how to fill contract details</h3>
     <div class="prose reveal">
       <p>This was one of the biggest challenges, and we didn't have a clear solution initially.</p>
       <p>We first explored letting admins manually choose where each value should come from. But fetching something like a salesperson's sales target for a specific quarter could require several filters and calculations.</p>
       <p>This made the setup complicated. We needed a simpler approach, and the AI capabilities being developed alongside the redesign opened up another possibility.</p>
     </div>
-    <figure class="dm-frame reveal"><img src="../../assets/contracts/data-mapping-frame.webp" width="2000" height="1000" loading="lazy" alt="The manual data mapping panel for a Variable pay placeholder: map it from a datasheet field or describe how to calculate it, then pick a source object and a datasheet."></figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/data-mapping-frame.webp" width="2000" height="1000" loading="lazy" alt="The manual data mapping panel for a Variable pay placeholder: map it from a datasheet field or describe how to calculate it, then pick a source object and a datasheet."></figure>
   </section>
 
   <section class="sec" id="changed" aria-labelledby="changed-h">
