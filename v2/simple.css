@@ -96,10 +96,3 @@ p { margin: 0; }
 .top-links a, .foot nav a { font: 400 14px/1.5 "Geist", system-ui, sans-serif; font-style: normal; }
 .label { font: 500 13px/1.5 "Geist", system-ui, sans-serif; letter-spacing: 0.02em; }
 .when, .xp .when-i { font: 400 13px/1.6 "Geist", system-ui, sans-serif; }
-
-/* Intro, mixed with the Bio version: photo + name left, short bio right */
-.intro .avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; box-shadow: 0 0 0 1px var(--line); }
-.bio p { font-size: 18px; line-height: 1.6; color: var(--ink); }
-.bio p + p { margin-top: 14px; }
-.bio p:first-child { font-size: 20.8px; line-height: 1.45; }
-@media (max-width: 720px) { .intro .avatar { width: 56px; height: 56px; } }
