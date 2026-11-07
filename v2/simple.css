@@ -1,0 +1,87 @@
+/* Simple, single-column landing page.
+   Palette taken from danmiloch.com: white page, warm grey-brown text,
+   dark brown headings, one orange-red accent. */
+:root {
+  --bg: #ffffff;
+  --panel: #f7f8f6;
+  --text: #766e5d;
+  --ink: #3e3728;
+  --accent: #d53e09;
+  --line: rgba(62, 55, 40, 0.14);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 400 16px/1.75 "Newsreader", "Source Serif 4", Georgia, serif;
+  font-optical-sizing: auto; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+a:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+img, video { display: block; max-width: 100%; height: auto; }
+p { margin: 0; }
+
+.page { max-width: 800px; margin: 0 auto; padding: 36px 24px 48px; }
+
+/* Top bar */
+.top { display: flex; align-items: center; justify-content: space-between; }
+.mark {
+  display: inline-grid; place-items: center; width: 22px; height: 18px; border-radius: 4px;
+  background: var(--accent); color: #fff; font: italic 500 13px/1 "Newsreader", serif; text-decoration: none;
+}
+.mark:hover { color: #fff; }
+.mark.small { width: 18px; height: 15px; font-size: 11px; }
+.top-links { display: flex; gap: 22px; }
+.top-links a, .foot nav a { font-style: italic; color: var(--text); text-decoration: none; }
+.top-links a:hover, .foot nav a:hover { color: var(--accent); }
+
+/* Two-column rows */
+.row { display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); column-gap: 32px; }
+.l h1, .l h3 { margin: 0; font-weight: 450; color: var(--ink); }
+.l h3 { font-size: 16px; line-height: 1.5; }
+.l h3 a { text-decoration: none; }
+.role { font-style: italic; line-height: 1.5; }
+.when { line-height: 1.6; margin-top: 2px; }
+
+.intro { margin-top: 128px; }
+.name { font-size: 20.8px; line-height: 1.4; }
+.lede { font-size: 20.8px; line-height: 1.45; color: var(--ink); }
+
+.label { margin: 120px 0 32px; font: 400 16px/1.5 "Newsreader", serif; color: var(--accent); }
+
+.work + .work { margin-top: 72px; }
+.work .r p { margin-bottom: 20px; }
+.soon { font-style: italic; }
+.shot { display: block; overflow: hidden; border-radius: 6px; background: var(--panel); }
+.shot video, .shot img { width: 100%; }
+.shot video { aspect-ratio: 1080 / 850; object-fit: cover; }
+.shot.phone { aspect-ratio: 1080 / 850; display: grid; place-items: start center; padding-top: 7%; }
+.shot.phone img { width: 46%; border-radius: 22px; box-shadow: 0 10px 30px -12px rgba(62, 55, 40, .35); }
+
+.craft { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 20px; }
+.craft img { border-radius: 6px; background: var(--panel); }
+.craft figure { margin: 0; }
+.craft figcaption { margin-top: 8px; font-style: italic; font-size: 15px; }
+.craft figcaption a { color: var(--text); }
+
+.xp + .xp { margin-top: 20px; }
+
+.about .r p + p { margin-top: 16px; }
+.me { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; }
+
+.foot { display: flex; align-items: center; justify-content: space-between; margin-top: 140px; }
+.foot nav { display: flex; gap: 32px; }
+
+@media (max-width: 720px) {
+  .page { padding: 24px 20px 40px; }
+  .row { grid-template-columns: 1fr; row-gap: 14px; }
+  .intro { margin-top: 72px; }
+  .label { margin: 88px 0 24px; }
+  .work + .work { margin-top: 56px; }
+  .about .l { max-width: 240px; }
+  .foot { margin-top: 100px; }
+}
+.xp + .xp { margin-top: 10px; }
+.xp .when-i { font-style: normal; }
+@media (max-width: 720px) { .xp { row-gap: 0; } }
