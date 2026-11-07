@@ -532,3 +532,26 @@ body::after { content: none; }
 .work-hero .tile { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .grid.work-more { margin-top: 44px; }
 .work-hero .tile .art.clip { aspect-ratio: 16 / 11; }
+
+/* ===== Selected work: lighter, more inviting ===== */
+/* Drop the dividers and the repeated "View case study" line */
+.grid.work-more { border-top: 0; gap: 12px; margin-top: 36px; }
+.grid.work-more .tile { border-bottom: 0; padding: 14px; margin: 0 -14px; border-radius: 18px; transition: background .3s ease, box-shadow .3s ease; }
+.grid.work-more .tile:hover { background: #fff; box-shadow: 0 1px 2px rgba(31,43,45,.04), 0 16px 40px -18px rgba(31,43,45,.18); }
+.tile .more:not(.muted) { display: none; }
+.tile .more.muted { margin-top: 14px; padding: 5px 10px; border-radius: 999px; background: rgba(31,43,45,.05); font-size: 12px; }
+
+/* Title carries the click cue: arrow sits beside it and slides on hover */
+.work-hero .cap b, .grid.work-more .cap b { font-size: 20px; }
+.work-hero .tile:not(.soon) .cap b::after,
+.grid.work-more .tile:not(.soon) .cap b::after {
+  content: "\2192"; display: inline-block; margin-left: 8px; font-weight: 400; color: var(--muted);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), color .3s ease;
+}
+.tile:hover .cap b { text-decoration: none; }
+.tile:hover .cap b::after { transform: translateX(4px); color: var(--accent); }
+.grid.work-more .tile .brief, .work-hero .brief { margin-top: 10px; }
+
+/* Pictures: rounder corners */
+.grid.work-more .tile .art, .work-hero .tile .art { border-radius: 12px; }
+@media (max-width: 760px) { .grid.work-more .tile { margin: 0; padding: 0; } .grid.work-more .tile:hover { background: none; box-shadow: none; } }
