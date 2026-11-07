@@ -1047,3 +1047,9 @@ html.lb-open { overflow: hidden; }
 .blog .case-row.appr .prose p { margin: 0; }
 .blog .case-row.appr .prose p + p { margin-top: 10px; }
 .blog .case-row.lite.appr .prose p.sol { margin-top: 10px; }
+
+/* Subtler case blocks */
+.blog .case-row.lite .case-t { font-size: 20px; }
+.blog .case-row.lite .case-t .pn { font-size: 12px; }
+.blog .case-row.lite .prose p.sol { font-size: 16px; font-weight: 400; color: color-mix(in srgb, var(--ink) 82%, transparent); }
+.blog .case-row.lite .prose p:not(.sol) { font-size: 15px; color: color-mix(in srgb, var(--ink) 58%, transparent); }
