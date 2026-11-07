@@ -207,24 +207,21 @@
   <section class="sec" id="ai-wrong" aria-labelledby="ai-wrong-h">
     <h2 class="cs-h2 reveal" id="ai-wrong-h">Designing for when AI falls short</h2>
     <div class="prose reveal">
-      <p>This was one of the more interesting parts of the project for me.</p>
-      <p>Eva won't always return the right value. Sometimes it needs more context, sometimes the data doesn't exist, and sometimes the lookup itself fails.</p>
-      <p>We had to think through these cases rather than assuming AI would always work.</p>
+      <p>Eva won't always get it right. It may need more context, the data may not exist, or the lookup may fail. Instead of assuming AI would always work, we designed for each of these cases.</p>
     </div>
     <div class="case-row reveal">
       <h3 class="case-t"><span class="pn">01</span>When Eva fetches the wrong value</h3>
       <div class="prose">
-        <p class="sol">Admins can ask Eva to use a different source or change how a value is calculated.</p>
-        <p class="eg">For example, they can ask it to divide the variable pay by 10 and regenerate the values.</p>
+        <p class="sol">Admins can ask Eva to use a different source or recalculate the value.</p>
+        <p class="eg">For example, "Divide the variable pay by 10," then regenerate.</p>
       </div>
     </div>
     <div class="case-row reveal">
       <h3 class="case-t"><span class="pn">02</span>When Eva can't fetch a value</h3>
       <div class="prose">
         <p>We didn't want admins to depend entirely on AI.</p>
-        <p class="sol">They can manually edit values, copy and paste data from spreadsheets, or look up values from an existing Datasheet.</p>
-        <p>For bulk updates, we let them match records using recipient email addresses and validate the results before applying them.</p>
-        <p>We also accounted for cases like multiple matching records, rather than silently choosing a value.</p>
+        <p class="sol">Admins can edit values, paste from a spreadsheet, or look them up from an existing Datasheet.</p>
+        <p>Bulk updates match records by recipient email and are validated before applying. Multiple matches are flagged instead of silently picking one.</p>
       </div>
     </div>
     <figure class="shot-ui reveal"><img src="../../assets/contracts/copy-paste-values.webp?v=2" width="2400" height="1266" loading="lazy" alt="Copy and paste values from a spreadsheet."></figure>
@@ -232,8 +229,8 @@
     <div class="case-row reveal">
       <h3 class="case-t"><span class="pn">03</span>When values become outdated</h3>
       <div class="prose">
-        <p>What if an admin prepares contracts but returns to send them a few days later? The source data might have changed.</p>
-        <p class="sol">We introduced indicators for missing and outdated values, filters to find affected records, and options to refresh the data.</p>
+        <p>If contracts are sent days after they're prepared, the source data may have changed.</p>
+        <p class="sol">Missing and outdated values are flagged, with filters to find them and an option to refresh the data.</p>
       </div>
     </div>
     <figure class="shot-ui reveal"><img src="../../assets/contracts/outdated-values.webp?v=2" width="2400" height="1347" loading="lazy" alt="Identify and refresh outdated values before sending."></figure>
