@@ -402,5 +402,19 @@
     });
   })();
 </script>
+<script>
+  // Mark the old/new label as stuck while it sits at the top, so it can cover the gap above it
+  (function () {
+    var tags = [].slice.call(document.querySelectorAll(".phase .tag"));
+    function check() {
+      tags.forEach(function (t) {
+        var top = parseFloat(getComputedStyle(t).top) || 0;
+        var r = t.getBoundingClientRect(), box = t.parentElement.getBoundingClientRect();
+        t.classList.toggle("stuck", r.top <= top + 0.5 && box.top < top && box.bottom > r.bottom + 1);
+      });
+    }
+    window.addEventListener("scroll", check, { passive: true }); window.addEventListener("resize", check); check();
+  })();
+</script>
 </body>
 </html>

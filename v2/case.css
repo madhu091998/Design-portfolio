@@ -741,3 +741,7 @@
 /* Sticky strip: no negative margin (it was covering the heading above it); sits just under the top bar */
 .blog .tag { top: 64px; margin-top: 0; padding-top: 12px; }
 @media (max-width: 760px) { .blog .tag { top: 96px; margin-top: 0; padding-top: 12px; } }
+/* When a label is stuck, fill the space above it up to the top of the screen, so nothing peeks through */
+.blog .tag::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 0; background: var(--bg); }
+.blog .tag.stuck::before { height: 64px; }
+@media (max-width: 760px) { .blog .tag.stuck::before { height: 96px; } }
