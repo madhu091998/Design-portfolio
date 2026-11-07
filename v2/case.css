@@ -712,3 +712,11 @@
   .blog .sec { margin-top: 80px; } .blog .part { margin-top: 56px; }
   .blog .tag { top: 108px; } .blog .shot-ui { border-radius: 8px; }
 }
+
+/* Media sits exactly on the text column, flat (no shadow) */
+.blog .shot-ui, .blog .old-flow { left: 0; transform: none; width: 100%; box-shadow: none; }
+.blog .phase.old .shot-ui { box-shadow: none; }
+/* Old/new label: a solid strip the width of the column, so text scrolling under it is hidden */
+.blog .tag { display: flex; width: 100%; margin: 0 0 20px; padding: 12px 0 12px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; top: 0; padding-top: 72px; margin-top: -60px; }
+.blog .phase.new .tag { border-color: var(--line); }
+@media (max-width: 760px) { .blog .tag { padding-top: 104px; margin-top: -92px; } }
