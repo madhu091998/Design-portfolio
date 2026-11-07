@@ -764,3 +764,18 @@ html.lb-open { overflow: hidden; }
 @media (max-width: 760px) { .lb { padding: 56px 8px 16px; } }
 /* 8px corners on all case study media */
 .blog .shot-ui, .blog .old-flow video { border-radius: 8px; }
+
+/* Trial: Neel Saswade's pairing. Newsreader (italic) for titles, Newsreader for the lead-in, Geist for everything else */
+.neel, .neel .prose, .neel .topbar, .neel .sidenav, .neel .cs-facts, .neel .tag, .neel .pn, .neel .step-l, .neel figcaption, .neel .cs-foot { font-family: "Geist", "Helvetica Neue", system-ui, sans-serif; }
+.neel .prose { font-size: 16px; line-height: 1.6; }
+.neel .hero h1 { font: italic 400 42px/1.15 "Newsreader", Georgia, serif; letter-spacing: -0.01em; }
+.neel .prose.intro { font: 400 20px/1.68 "Newsreader", Georgia, serif; letter-spacing: -0.012em; }
+.neel .cs-h2 { font: italic 400 33px/1.15 "Newsreader", Georgia, serif; letter-spacing: -0.005em; }
+.neel .cs-h3, .neel .part-h { font: italic 400 24px/1.25 "Newsreader", Georgia, serif; letter-spacing: 0; }
+.neel .prose p.step-l, .neel .phase > p.step-l { font: 500 15px/1.4 "Geist", system-ui, sans-serif; }
+.neel .tag { font: 500 13px/1 "Geist", system-ui, sans-serif; }
+.neel .pn { font: 400 13px/1 "Geist", system-ui, sans-serif; }
+.neel .sidenav { font-size: 14px; letter-spacing: -0.01em; }
+.neel .cs-facts dt { font-size: 13px; } .neel .cs-facts dd { font-size: 15px; }
+.neel .flows, .neel .fl-h { font-family: "Geist", system-ui, sans-serif; }
+@media (max-width: 760px) { .neel .hero h1 { font-size: 34px; } .neel .cs-h2 { font-size: 28px; } .neel .cs-h3, .neel .part-h { font-size: 21px; } .neel .prose.intro { font-size: 18px; } }
