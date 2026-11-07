@@ -837,3 +837,9 @@ html.lb-open { overflow: hidden; }
 .blog .sw-old { text-decoration: none; color: var(--muted); }
 .blog .sw-arrow { align-self: start; justify-self: start; margin-top: 6px; width: 24px; height: 10px; }
 .blog .sw-old, .blog .sw-new { padding-right: 16px; }
+/* No numbers; a plain text arrow on the first line */
+.blog .sw-head, .blog .swap li { grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr); }
+.blog .sw-h.old { grid-column: 1; } .blog .sw-h.new { grid-column: 3; }
+.blog .sw-arrow { width: auto; height: auto; margin: 0; justify-self: start; font: 400 15px/1.5 "Geist", system-ui, sans-serif; color: var(--muted); transition: transform .2s ease, color .2s ease; }
+.blog .swap li:hover .sw-arrow { transform: translateX(3px); color: var(--accent); }
+@media (max-width: 760px) { .blog .swap li { grid-template-columns: 1fr; } .blog .sw-old, .blog .sw-new { grid-column: 1; } }
