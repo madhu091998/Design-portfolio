@@ -925,3 +925,15 @@ html.lb-open { overflow: hidden; }
   font: 500 11.5px/1 "Geist", system-ui, sans-serif; color: var(--muted);
 }
 .flow-steps li:hover .fs-n { background: rgba(31, 43, 45, 0.08); color: var(--ink); }
+
+/* Key questions + highlighter */
+.blog .q {
+  margin: 20px 0 22px; padding: 4px 0 4px 20px; border-left: 2px solid rgba(31, 43, 45, 0.14);
+  font: italic 400 22px/1.4 "Newsreader", Georgia, serif; color: var(--ink); max-width: 36em;
+}
+.blog .prose mark {
+  color: var(--ink); font-weight: 500; padding: 0 2px; border-radius: 2px;
+  background: linear-gradient(to top, color-mix(in srgb, var(--accent) 13%, transparent) 42%, transparent 42%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+@media (max-width: 760px) { .blog .q { font-size: 20px; } }
