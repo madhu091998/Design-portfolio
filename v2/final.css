@@ -13,3 +13,8 @@
 }
 html, body { background: var(--bg); }
 ::selection { background: rgba(213, 62, 9, 0.16); }
+
+/* Hand-drawn "m" logo in the top bar */
+.wordmark .m-logo { display: block; }
+.wordmark .m-logo path { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width .25s ease; }
+.wordmark:hover .m-logo path { stroke-width: 8; }
