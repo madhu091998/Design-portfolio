@@ -51,3 +51,14 @@ html, body { background: var(--bg); }
 .intro .who b { font: italic 400 22px/1.2 "Newsreader", Georgia, serif; letter-spacing: -0.005em; color: var(--ink); }
 .sec-head h2 { font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 400; font-size: 22px; letter-spacing: -0.005em; }
 .sec-head h2 span { font: 400 14px/1 "Geist", system-ui, sans-serif; font-style: normal; }
+
+/* Minimal project rows: no dividers, no repeated CTA, quieter type */
+.grid.work-more { border-top: 0; gap: 40px; margin-top: 48px; }
+.grid.work-more .tile { border-bottom: 0; padding: 0; column-gap: 32px; }
+.tile .more:not(.muted) { display: none; }
+.grid.work-more .cap, .work-hero .cap { gap: 4px; }
+.grid.work-more .cap b, .work-hero .cap b { font-size: 16px; font-weight: 500; letter-spacing: -0.005em; }
+.grid.work-more .cap span, .work-hero .cap span { font-size: 13px; }
+.grid.work-more .tile .brief, .work-hero .brief { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 34em; }
+.tile .more.muted { margin-top: 10px; font-size: 13px; }
+.tile:hover .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
