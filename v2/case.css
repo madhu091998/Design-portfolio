@@ -829,3 +829,11 @@ html.lb-open { overflow: hidden; }
 .blog .tag .ln, .blog .phase.new .tag .ln, .blog .phase.old .tag .ln { border-top-color: var(--muted); }
 .blog .tag .ln, .blog .phase.new .tag .ln, .blog .phase.old .tag .ln { border-top-color: rgba(134, 150, 153, 0.7); }
 .blog .tag .ln, .blog .phase.new .tag .ln, .blog .phase.old .tag .ln { border-top-color: rgba(134, 150, 153, 0.35); }
+/* Balance: equal columns, arrow on the first line of each row, no strike-through */
+.blog .sw-head, .blog .swap li { grid-template-columns: 32px minmax(0, 1fr) 48px minmax(0, 1fr); align-items: start; column-gap: 0; }
+.blog .sw-head { padding-bottom: 16px; }
+.blog .swap li { padding: 18px 0; }
+.blog .sw-n { line-height: 1.5; padding-top: 2px; }
+.blog .sw-old { text-decoration: none; color: var(--muted); }
+.blog .sw-arrow { align-self: start; justify-self: start; margin-top: 6px; width: 24px; height: 10px; }
+.blog .sw-old, .blog .sw-new { padding-right: 16px; }
