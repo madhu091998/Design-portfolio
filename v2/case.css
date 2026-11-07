@@ -1029,3 +1029,11 @@ html.lb-open { overflow: hidden; }
 /* Takeaway sign-off */
 .blog .signoff { margin: 28px 0 0; font: italic 400 24px/1.35 "Newsreader", Georgia, serif; color: var(--ink); max-width: 30em; }
 @media (max-width: 760px) { .blog .signoff { font-size: 21px; } }
+
+/* AI-falls-short, lighter */
+.blog .case-row.lite { border-top: 0; padding-top: 0; margin-top: 40px; gap: 10px; }
+.blog .case-row.lite .case-t { font-size: 22px; }
+.blog .case-row.lite .prose p { margin: 6px 0 0; }
+.blog .case-row.lite .prose p.sol { margin-top: 0; }
+.blog .case-row.lite .prose p:not(.sol) { font-size: 15px; color: color-mix(in srgb, var(--ink) 62%, transparent); }
+.blog .case-row.lite .prose p.eg { padding-left: 0; border-left: 0; }
