@@ -826,3 +826,4 @@ html.lb-open { overflow: hidden; }
 @media (max-width: 760px) { .blog .tag.stuck .tg-part { max-width: 55%; } }
 .blog .tag .tg-part { height: auto; border: 0; background: none; border-radius: 0; box-shadow: none; } .blog .tag .tg-part b { display: inline; }
 .blog .tag:not(.stuck) .tg-part { margin-left: -14px; }
+.blog .tag .ln, .blog .phase.new .tag .ln, .blog .phase.old .tag .ln { border-top-color: var(--muted); }
