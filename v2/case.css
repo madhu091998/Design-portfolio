@@ -949,3 +949,22 @@ html.lb-open { overflow: hidden; }
 .blog .qb-q { margin-top: 6px !important; font: 500 18px/1.5 "Geist", system-ui, sans-serif; letter-spacing: -0.005em; color: var(--ink); }
 .blog .qb + .prose { margin-top: 0; }
 @media (max-width: 760px) { .blog .qb-q { font-size: 17px; } }
+
+/* Key phrase emphasis: weight + ink only */
+.blog .prose strong.k { font-weight: 500; color: var(--ink); }
+/* Stepper inside a phase sits closer to its media */
+.phase .flow-steps { margin: 20px 0 28px; }
+/* Two-up summary (part 05) */
+.duo {
+  list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.duo li { padding: 20px 24px 0 0; }
+.duo li + li { padding: 20px 0 0 24px; border-left: 1px solid var(--line); }
+.duo b { display: block; font: 500 16px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
+.duo p { margin: 6px 0 0; font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+@media (max-width: 760px) {
+  .duo { grid-template-columns: 1fr; }
+  .duo li, .duo li + li { padding: 18px 0; border-left: 0; }
+  .duo li + li { border-top: 1px solid var(--line); }
+}
