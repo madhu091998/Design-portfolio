@@ -650,3 +650,19 @@
 .blog .fl-col.new li { color: var(--ink); }
 .blog .fl-col.new .fl-n { color: var(--accent); }
 @media (max-width: 760px) { .blog .flows { grid-template-columns: 1fr; row-gap: 8px; } .blog .flows ol { grid-auto-rows: auto; } }
+
+/* ---------- Contracts, matched to the Framer build ---------- */
+.blog .cs-h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 20px; font-weight: 600; line-height: 1.35; letter-spacing: -0.005em; color: #2c3a3d; }
+.blog .cs-h4 { margin: 32px 0 0; font: 600 16px/1.4 "Source Serif 4", Georgia, serif; color: #2c3a3d; }
+.blog .cs-h4 + .prose { margin-top: 8px; }
+.blog .prose p.step-l { margin: 0 0 6px; font-size: 14px; }
+.blog .prose p.step-l strong { font-weight: 600; color: var(--ink); }
+.blog .panel { position: relative; margin: 28px 0 0; border-radius: 4px; overflow: hidden; }
+.blog .panel img { display: block; width: 100%; height: auto; }
+.blog .panel.new video { position: absolute; left: 2.5%; top: 17.1%; width: 95%; height: auto; border-radius: 8px; box-shadow: 0 1px 2px rgba(40, 30, 90, .06), 0 10px 28px rgba(40, 30, 90, .12); }
+.blog .panel + .cs-h4, .blog .panel + .cs-h3 { margin-top: 40px; }
+.blog .panel + .prose { margin-top: 28px; }
+.blog .panel + .panel { margin-top: 16px; }
+.blog .dm-frame { margin: 28px 0 0; padding: 16px 16px 0; border: 1px solid var(--line); border-radius: 4px; background: #eef1f0; }
+.blog .dm-frame img { display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0; }
+.blog .cs-h2 .n { display: none; }
