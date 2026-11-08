@@ -748,20 +748,5 @@
     update();
   })();
 </script>
-<script>
-  // Work tiles: tilt up to 2deg toward the cursor and grow a hair, like vladsavruk.com
-  (function () {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !matchMedia("(hover: hover)").matches) return;
-    document.querySelectorAll(".tile:not(.soon)").forEach(function (t) {
-      t.addEventListener("pointermove", function (e) {
-        var r = t.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        t.classList.add("tilting");
-        t.style.transform = "perspective(1400px) rotateX(" + (-y * 4).toFixed(3) + "deg) rotateY(" + (x * 4).toFixed(3) + "deg) scale(1.004)";
-      });
-      t.addEventListener("pointerleave", function () { t.classList.remove("tilting"); t.style.transform = ""; });
-    });
-  })();
-</script>
 </body>
 </html>
