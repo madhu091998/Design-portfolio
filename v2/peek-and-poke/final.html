@@ -36,6 +36,7 @@
     <dl class="cs-facts">
       <div><dt>Built with</dt><dd>Claude Code</dd></div>
       <div><dt>Type</dt><dd>Self-initiated project</dd></div>
+      <div><dt>Try it</dt><dd><a class="try-cta" href="../../assets/peek-and-poke/Peek-and-poke-1.0.0.zip" download><span class="t-label" data-done="On its way. Enjoy!">Download the extension</span><span class="t-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path class="t-arrow" d="M8 2.5v7.5M4.8 6.9 8 10.1l3.2-3.2"/><path class="t-tray" d="M3 13.5h10"/><path class="t-check" d="M4 8.4 6.8 11 12 5.2"/></svg></span></a> <span class="meta">.zip, 97 KB</span></dd></div>
     </dl>
     <div class="prose intro">
       <p>Peek &amp; poke is a little browser tool I built to help designers turn UI changes into precise prompts for AI coding tools and send feedback from live pages to Figma.</p>
@@ -128,8 +129,7 @@
   })();
 
   (function () {
-    var cta = document.querySelector(".try-cta");
-    if (!cta) return;
+    document.querySelectorAll(".try-cta").forEach(function (cta) {
     var label = cta.querySelector(".t-label"), idle = label.textContent, t;
     // A little thank-you once the download starts, then back to normal
     cta.addEventListener("click", function () {
@@ -137,6 +137,7 @@
       label.textContent = label.getAttribute("data-done");
       clearTimeout(t);
       t = setTimeout(function () { cta.classList.remove("done"); label.textContent = idle; }, 3200);
+    });
     });
   })();
 
