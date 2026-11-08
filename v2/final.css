@@ -101,3 +101,22 @@ html, body { background: var(--bg); }
 .work-hero .cap span::after, .grid.work-more .cap span::after { content: "\00B7"; margin: 0 10px; color: var(--muted); }
 .work-hero .cap b, .grid.work-more .cap b { font-size: 16px; font-weight: 500; color: var(--ink); }
 .work-hero .brief, .grid.work-more .tile .brief { margin-top: 12px; font-size: 16px; line-height: 1.65; color: var(--text); max-width: 40em; }
+
+/* Type scale taken from abhisekmishra.com: 14px body on a 22px line,
+   14px medium titles, ~12–13px grey meta, one larger 24px line. Fonts stay Geist + Newsreader. */
+.intro .bio { font-size: 14px; line-height: 22px; margin-top: 28px; }
+.intro .bio p { margin-bottom: 16px; }
+.intro .who b { font-size: 18px; }
+.intro .who span { font-size: 13px; }
+.sec-head h2 { font-size: 18px; }
+.sec-head h2 span { font-size: 12.5px; }
+.sec-head p { font-size: 14px; line-height: 22px; }
+.work-hero .cap b, .grid.work-more .cap b { font-size: 14px; font-weight: 560; }
+.work-hero .cap span, .grid.work-more .cap span { font-size: 14px; }
+.work-hero .brief, .grid.work-more .tile .brief { margin-top: 6px; font-size: 14px; line-height: 22px; }
+.tile .more.muted { font-size: 12.5px; }
+.cap { font-size: 14px; }
+.about-text, .timeline { font-size: 14px; line-height: 22px; }
+.snaps figcaption { font-size: 12.5px; }
+.sidenav { font-size: 14px; }
+@media (max-width: 760px) { .intro .bio, .about-text, .timeline, .sec-head p { font-size: 14px; } .sec-head h2 { font-size: 18px; } }
