@@ -244,3 +244,41 @@ html, body { background: var(--bg); }
 @keyframes mug-tip { 0%, 44% { transform: rotate(0deg); } 52% { transform: rotate(110deg); } 53%, 72% { transform: rotate(90deg); } 73%, 100% { transform: rotate(0deg); } }
 @keyframes crash { 0%, 52% { opacity: 0; } 54%, 62% { opacity: 1; } 68%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .cafe-svg .res-arm, .cafe-svg .res-tail, .cafe-svg .mug-wrap, .cafe-svg .mug-wrap .mug path, .cafe-svg .crash { animation: none; } }
+
+/* ===== Café v3 ===== */
+/* side column sits beside the art (outside the text column), like a margin note */
+.cafe { position: relative; display: block; margin-top: 48px; }
+.cafe-side {
+  position: absolute; top: 0; bottom: 0; left: calc(100% + 32px); width: 190px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+}
+.cafe-count[hidden], .cafe-reset[hidden], .swatches[hidden] { display: none; }
+.cafe-count { order: 1; }
+.swatches { order: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 14px); gap: 10px; }
+.cafe-reset { order: 2; }
+.cafe-note { order: 3; margin: auto 0 0; flex-basis: auto; opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .35s ease; }
+.cafe:hover .cafe-note, .cafe:focus-within .cafe-note { opacity: 1; transform: none; }
+@media (max-width: 1180px) {
+  .cafe-side { position: static; width: auto; margin-top: 12px; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  .swatches { grid-template-columns: repeat(6, 14px); }
+  .cafe-note { flex-basis: 100%; margin: 0; }
+}
+@media (hover: none) { .cafe-note { opacity: 1; transform: none; } }
+
+/* hand-drawn: a second, slightly offset outline on every cat */
+.cafe-svg .sketch { fill: none; stroke: #3e3728; stroke-width: .7; opacity: .45; }
+.cafe-svg .ghost .sketch { display: none; }
+.cafe-svg .sketch-under { fill: none !important; stroke-width: .7; opacity: .45; }
+
+/* resident cat shuffles forward with each tap, peers over the edge, then walks back */
+.cafe-svg .res-walk { animation: res-walk 7s ease-in-out infinite; }
+@keyframes res-walk {
+  0%, 12% { transform: translate(0, 0); }
+  16%, 27% { transform: translate(9px, 0); }
+  31%, 42% { transform: translate(18px, 0); }
+  47%, 72% { transform: translate(26px, 0); }
+  50% { transform: translate(26px, 1.5px); }
+  54% { transform: translate(27px, 0); }
+  88%, 100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .cafe-svg .res-walk { animation: none; } }

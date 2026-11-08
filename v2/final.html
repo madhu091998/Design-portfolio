@@ -56,9 +56,10 @@
   <section class="cafe" aria-labelledby="cafe-h">
     <h2 class="sr-only" id="cafe-h">The cat café</h2>
     <div class="cafe-scene">
-      <svg class="cafe-svg" viewBox="0 22 640 278" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
+      <svg class="cafe-svg" viewBox="0 92 640 208" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
         <defs>
           <filter id="cafe-ink" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter>
+          <filter id="cafe-boil" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"><animate attributeName="seed" values="3;8;13" dur="0.6s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
           <!-- cat poses, drawn with (0,0) at the bottom centre -->
           <g id="pose-sit">
             <path class="coat" d="M-11 0 C-13.5 -9 -12 -17 -8.5 -21 L-9.5 -32 L-3 -26.2 C-1 -26.9 1 -26.9 3 -26.2 L9.5 -32 L8.5 -21 C12 -17 13.5 -9 11 0 Z"/>
@@ -83,17 +84,17 @@
 
         <g class="scene" filter="url(#cafe-ink)">
           <!-- window -->
-          <rect class="sky" x="40" y="34" width="132" height="110" rx="8"/>
-          <path class="ln" d="M106 34 V144 M40 89 H172"/>
-          <circle class="sun" cx="146" cy="58" r="9"/>
-          <rect class="fill-soft" x="30" y="144" width="152" height="8" rx="2"/>
+          <rect class="sky" x="40" y="98" width="132" height="84" rx="8"/>
+          <path class="ln" d="M106 98 V182 M40 140 H172"/>
+          <circle class="sun" cx="146" cy="118" r="8"/>
+          <rect class="fill-soft" x="30" y="182" width="152" height="8" rx="2"/>
           <!-- shelf -->
-          <path class="ln" d="M226 96 H382 M244 96 v12 l10 -12 M364 96 v12 l-10 -12"/>
-          <path class="ln" d="M282 96 v-14 h16 v14 M298 85 q6 0 6 5 q0 4 -6 4"/>
-          <path class="ln leaf" d="M372 96 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 96 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
+          <path class="ln" d="M226 150 H382 M244 150 v12 l10 -12 M364 150 v12 l-10 -12"/>
+          <path class="ln" d="M282 150 v-14 h16 v14 M298 139 q6 0 6 5 q0 4 -6 4"/>
+          <path class="ln leaf" d="M372 150 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 150 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
           <!-- lamp -->
-          <path class="ln" d="M472 0 V36 M456 50 q16 -22 32 0 Z"/>
-          <path class="glow" d="M458 52 L446 92 H498 L486 52 Z"/>
+          <path class="ln" d="M472 92 V110 M456 124 q16 -22 32 0 Z"/>
+          <path class="glow" d="M458 126 L448 160 H496 L486 126 Z"/>
           <!-- counter -->
           <rect class="fill-warm" x="400" y="190" width="192" height="100" rx="3"/>
           <path class="ln" d="M400 206 H592 M440 232 h40 M440 248 h28"/>
@@ -110,22 +111,23 @@
         </g>
 
 
-        <g class="mischief" filter="url(#cafe-ink)" aria-hidden="true">
-          <g transform="translate(528 190)">
+        <g class="mischief" filter="url(#cafe-boil)" aria-hidden="true">
+          <g class="res-walk"><g transform="translate(528 190)">
             <path class="tail res-tail" d="M-12 -2 C-21 -2 -23 -11 -16 -15"/>
+            <path class="coat res sketch-under" transform="translate(.7 -.5)" d="M-12 0 C-14 -10 -10 -20 -2 -22 C2 -23 6 -22 8 -20 L9 -31 L13.4 -24.6 C15 -25 16.6 -25 18.2 -24.6 L21.6 -31 L21.4 -21 C24 -17.5 23.4 -12 19.4 -9.2 C17 -7.6 13 -7.2 10.4 -7.8 C11.2 -4.4 11 -2 10 0 Z"/>
             <path class="coat res" d="M-12 0 C-14 -10 -10 -20 -2 -22 C2 -23 6 -22 8 -20 L9 -31 L13.4 -24.6 C15 -25 16.6 -25 18.2 -24.6 L21.6 -31 L21.4 -21 C24 -17.5 23.4 -12 19.4 -9.2 C17 -7.6 13 -7.2 10.4 -7.8 C11.2 -4.4 11 -2 10 0 Z"/>
             <ellipse class="eye" cx="17.4" cy="-17.2" rx="1" ry="1.3"/>
             <path class="line" d="M22.6 -13.6 l-1 0.8 M22.6 -13 l4.4 -0.6 M22.4 -11.8 l4.4 0.6"/>
             <g class="res-arm"><path class="arm-o" d="M6 -5.5 C12 -5.5 18 -3.6 25 -1.6"/><path class="arm-i" d="M6 -5.5 C12 -5.5 18 -3.6 25 -1.6"/></g>
-          </g>
+          </g></g>
           <g class="mug-wrap"><g class="mug" transform="translate(556 190)"><path class="ln fill-white" d="M0 0 v-11 h12 v11 Z M12 -8 q4.5 0 4.5 3.2 q0 3.2 -4.5 3.2"/></g></g>
           <path class="ln crash" d="M600 284 l-6 -6 M606 280 v-8 M612 284 l6 -6"/>
         </g>
-        <g class="spots"></g>
+        <g class="spots" filter="url(#cafe-boil)"></g>
       </svg>
     </div>
     <div class="cafe-side">
-      <p class="cafe-count" aria-live="polite"><b>0</b> of 8 cats adopted</p>
+      <p class="cafe-count" aria-live="polite" hidden><b>0</b> of 8 cats adopted</p>
       <button type="button" class="cafe-reset" hidden>Send them home</button>
       <div class="swatches" role="radiogroup" aria-label="Pick the next cat's colour" hidden>
         <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e9955c" style="--c:#e9955c" aria-label="Ginger"></button>
@@ -135,7 +137,7 @@
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#4a4237" style="--c:#4a4237" aria-label="Black"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#c98b6b" style="--c:#c98b6b" aria-label="Cinnamon"></button>
       </div>
-      <p class="cafe-note">I get unnecessarily emotional over cats. Hover the café and give one a spot.</p>
+      <p class="cafe-note">I get unnecessarily emotional over cats. Click anywhere a cat might like to sit.</p>
     </div>
   </section>
 
@@ -300,6 +302,7 @@
 <script>
   (function () {
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
     var items = document.querySelectorAll(".reveal");
     if (still || !("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); }
     else {
@@ -329,6 +332,7 @@
     var perch = document.querySelector(".perch");
     if (!perch) return;
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
     if (!still && "IntersectionObserver" in window) {
       perch.classList.add("armed");
       var io = new IntersectionObserver(function (es) {
@@ -353,6 +357,7 @@
     var meadow = document.querySelector(".meadow");
     if (!meadow) return;
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
     // A few loose doodles on the ground: grass flicks, sparkles and a ball of yarn
     var tufts = meadow.querySelector(".tufts");
     var GRASS = '<svg viewBox="0 0 16 10"><path d="M3 10c0-3 .8-5.4 2-7.4M8.4 10V2M13 10c0-2.6-.8-4.6-2-6.4"/></svg>';
@@ -544,9 +549,9 @@
     if (!root) return;
     var NS = "http://www.w3.org/2000/svg", XL = "http://www.w3.org/1999/xlink";
     var spots = [
-      { x: 106, y: 144, pose: "loaf" },   // windowsill
-      { x: 256, y: 96, pose: "sit" },     // shelf
-      { x: 330, y: 96, pose: "loaf" },
+      { x: 106, y: 182, pose: "loaf" },   // windowsill
+      { x: 256, y: 150, pose: "sit" },     // shelf
+      { x: 330, y: 150, pose: "loaf" },
       { x: 112, y: 284, pose: "sleep" },  // cushion
       { x: 300, y: 284, pose: "sleep", flip: true },
       { x: 423, y: 152, pose: "sit" },    // on the coffee machine
@@ -560,6 +565,7 @@
     var colour = "#e9955c", layer = root.querySelector(".spots");
     var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset"), sw = root.querySelector(".swatches");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
 
     function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
     function update() {
@@ -567,12 +573,17 @@
       count.textContent = n;
       reset.hidden = n === 0;
       sw.hidden = n === 0;
+      count.parentNode.hidden = n === 0;
       root.classList.toggle("full", n === spots.length);
     }
     function pose(name, fill) {
       var g = document.getElementById("pose-" + name).cloneNode(true);
       g.removeAttribute("id");
-      g.querySelectorAll(".coat").forEach(function (c) { if (fill) c.style.fill = fill; });
+      g.querySelectorAll(".coat").forEach(function (c) {
+        if (fill) c.style.fill = fill;
+        var k = c.cloneNode(false); k.setAttribute("class", "sketch"); k.setAttribute("transform", "translate(.7 -.5)");
+        k.style.fill = "none"; c.parentNode.insertBefore(k, c.nextSibling);
+      });
       return g;
     }
     function draw(i, animate) {
@@ -594,6 +605,7 @@
       g.setAttribute("transform", "translate(" + s.x + " " + s.y + ") scale(" + (s.flip ? -1.3 : 1.3) + " 1.3)");
       g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
       function act() {
+        if (!state[i] && !picked) { colour = coats[Math.floor(Math.random() * coats.length)]; markPicked(colour); }
         state[i] = state[i] ? null : colour;
         draw(i, !!state[i]); save(); update();
       }
@@ -602,13 +614,18 @@
       layer.appendChild(g);
       draw(i, false);
     });
+    var coats = [].map.call(root.querySelectorAll(".sw"), function (b) { return b.dataset.c; }), picked = state.some(Boolean);
+    function markPicked(c) {
+      root.querySelectorAll(".sw").forEach(function (o) { var on = o.dataset.c === c; o.classList.toggle("on", on); o.setAttribute("aria-checked", on ? "true" : "false"); });
+      root.style.setProperty("--pick", c);
+    }
     root.querySelectorAll(".sw").forEach(function (b) {
       b.addEventListener("click", function () {
         root.querySelectorAll(".sw").forEach(function (o) { o.classList.remove("on"); o.setAttribute("aria-checked", "false"); });
-        b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c; root.style.setProperty("--pick", colour);
+        b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c; root.style.setProperty("--pick", colour); picked = true;
       });
     });
-    reset.addEventListener("click", function () { state = []; spots.forEach(function (s, i) { draw(i, false); }); save(); update(); });
+    reset.addEventListener("click", function () { state = []; picked = false; spots.forEach(function (s, i) { draw(i, false); }); save(); update(); });
     update();
   })();
 </script>
