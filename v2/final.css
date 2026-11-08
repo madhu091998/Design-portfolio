@@ -199,3 +199,48 @@ html, body { background: var(--bg); }
 .cafe-count { margin: 0; }
 .cafe-note { margin: 10px 0 0; }
 @media (max-width: 760px) { .swatches { gap: 12px; } .sw { width: 18px; height: 18px; } }
+
+/* Café layout: scene spans the full text column, controls sit underneath */
+.cafe { grid-template-columns: 1fr; gap: 14px; }
+.cafe-side { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.cafe-count { order: 1; }
+.cafe-reset { order: 2; }
+.swatches { order: 3; margin: 0 0 0 auto; }
+.swatches[hidden] { display: none; }
+.cafe-note { order: 0; flex-basis: 100%; margin: 0; }
+.swatches:not([hidden]) { animation: sw-in .4s ease; }
+@keyframes sw-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Resident cat pushing a mug off the counter, on a loop */
+.cafe-svg .res { fill: #f3e5c9; }
+.cafe-svg .fill-white { fill: #fff; }
+.cafe-svg .arm-o { fill: none; stroke: #3e3728; stroke-width: 5.4; stroke-linecap: round; }
+.cafe-svg .arm-i { fill: none; stroke: #f3e5c9; stroke-width: 2.8; stroke-linecap: round; }
+.cafe-svg .res-arm { transform-box: fill-box; transform-origin: 0% 0%; animation: res-paw 7s ease-in-out infinite; }
+.cafe-svg .res-tail { transform-box: fill-box; transform-origin: 100% 100%; animation: res-tail 3.5s ease-in-out infinite; }
+.cafe-svg .mug-wrap { animation: mug-push 7s linear infinite; }
+.cafe-svg .mug { transform-box: fill-box; transform-origin: 50% 100%; }
+.cafe-svg .mug-wrap .mug path { animation: mug-tip 7s ease-in infinite; transform-box: fill-box; transform-origin: 100% 100%; }
+.cafe-svg .crash { opacity: 0; animation: crash 7s linear infinite; }
+@keyframes res-paw {
+  0%, 8% { transform: rotate(-24deg); }
+  12% { transform: rotate(2deg); } 17% { transform: rotate(-18deg); }
+  27% { transform: rotate(2deg); } 32% { transform: rotate(-18deg); }
+  42% { transform: rotate(4deg); } 48%, 100% { transform: rotate(-24deg); }
+}
+@keyframes res-tail { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-12deg); } }
+@keyframes mug-push {
+  0%, 11% { transform: translate(0, 0); opacity: 1; }
+  13%, 26% { transform: translate(10px, 0); }
+  28%, 41% { transform: translate(20px, 0); }
+  43%, 46% { transform: translate(30px, 0); }
+  52% { transform: translate(44px, 96px); }
+  53% { transform: translate(44px, 102px); opacity: 1; }
+  66% { transform: translate(44px, 102px); opacity: 1; }
+  72% { transform: translate(44px, 102px); opacity: 0; }
+  73% { transform: translate(0, 0); opacity: 0; }
+  86%, 100% { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes mug-tip { 0%, 44% { transform: rotate(0deg); } 52% { transform: rotate(110deg); } 53%, 72% { transform: rotate(90deg); } 73%, 100% { transform: rotate(0deg); } }
+@keyframes crash { 0%, 52% { opacity: 0; } 54%, 62% { opacity: 1; } 68%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cafe-svg .res-arm, .cafe-svg .res-tail, .cafe-svg .mug-wrap, .cafe-svg .mug-wrap .mug path, .cafe-svg .crash { animation: none; } }

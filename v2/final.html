@@ -95,10 +95,9 @@
           <path class="ln" d="M472 0 V36 M456 50 q16 -22 32 0 Z"/>
           <path class="glow" d="M458 52 L446 92 H498 L486 52 Z"/>
           <!-- counter -->
-          <rect class="fill-warm" x="400" y="190" width="216" height="100" rx="3"/>
-          <path class="ln" d="M400 206 H616 M440 232 h40 M440 248 h28"/>
-          <path class="ln fill-soft2" d="M572 190 v-38 h30 v38 M577 162 h20 M582 176 v8 h10 v-8"/>
-          <path class="ln" d="M560 190 v-7 h9 v7"/>
+          <rect class="fill-warm" x="400" y="190" width="192" height="100" rx="3"/>
+          <path class="ln" d="M400 206 H592 M440 232 h40 M440 248 h28"/>
+          <path class="ln fill-soft2" d="M408 190 v-38 h30 v38 M413 162 h20 M418 176 v8 h10 v-8"/>
           <!-- plant -->
           <path class="ln fill-soft" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
           <path class="ln leaf" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
@@ -107,16 +106,28 @@
           <ellipse class="cushion two" cx="300" cy="284" rx="40" ry="10"/>
           <path class="ln" d="M16 292 H624"/>
           <!-- steam -->
-          <path class="ln steam" d="M587 150 c-3 -5 3 -7 0 -12 M594 150 c-3 -5 3 -7 0 -12"/>
+          <path class="ln steam" d="M419 150 c-3 -5 3 -7 0 -12 M427 150 c-3 -5 3 -7 0 -12"/>
         </g>
 
+
+        <g class="mischief" filter="url(#cafe-ink)" aria-hidden="true">
+          <g transform="translate(528 190)">
+            <path class="tail res-tail" d="M-12 -2 C-21 -2 -23 -11 -16 -15"/>
+            <path class="coat res" d="M-12 0 C-14 -10 -10 -20 -2 -22 C2 -23 6 -22 8 -20 L9 -31 L13.4 -24.6 C15 -25 16.6 -25 18.2 -24.6 L21.6 -31 L21.4 -21 C24 -17.5 23.4 -12 19.4 -9.2 C17 -7.6 13 -7.2 10.4 -7.8 C11.2 -4.4 11 -2 10 0 Z"/>
+            <ellipse class="eye" cx="17.4" cy="-17.2" rx="1" ry="1.3"/>
+            <path class="line" d="M22.6 -13.6 l-1 0.8 M22.6 -13 l4.4 -0.6 M22.4 -11.8 l4.4 0.6"/>
+            <g class="res-arm"><path class="arm-o" d="M6 -5.5 C12 -5.5 18 -3.6 25 -1.6"/><path class="arm-i" d="M6 -5.5 C12 -5.5 18 -3.6 25 -1.6"/></g>
+          </g>
+          <g class="mug-wrap"><g class="mug" transform="translate(556 190)"><path class="ln fill-white" d="M0 0 v-11 h12 v11 Z M12 -8 q4.5 0 4.5 3.2 q0 3.2 -4.5 3.2"/></g></g>
+          <path class="ln crash" d="M600 284 l-6 -6 M606 280 v-8 M612 284 l6 -6"/>
+        </g>
         <g class="spots"></g>
       </svg>
     </div>
     <div class="cafe-side">
       <p class="cafe-count" aria-live="polite"><b>0</b> of 8 cats adopted</p>
       <button type="button" class="cafe-reset" hidden>Send them home</button>
-      <div class="swatches" role="radiogroup" aria-label="Pick a cat">
+      <div class="swatches" role="radiogroup" aria-label="Pick the next cat's colour" hidden>
         <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e9955c" style="--c:#e9955c" aria-label="Ginger"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#f3e5c9" style="--c:#f3e5c9" aria-label="Cream"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#a9a397" style="--c:#a9a397" aria-label="Grey"></button>
@@ -124,7 +135,7 @@
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#4a4237" style="--c:#4a4237" aria-label="Black"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#c98b6b" style="--c:#c98b6b" aria-label="Cinnamon"></button>
       </div>
-      <p class="cafe-note">I get unnecessarily emotional over cats. Hover the café, pick a colour, and give a cat a spot.</p>
+      <p class="cafe-note">I get unnecessarily emotional over cats. Hover the café and give one a spot.</p>
     </div>
   </section>
 
@@ -538,15 +549,16 @@
       { x: 330, y: 96, pose: "loaf" },
       { x: 112, y: 284, pose: "sleep" },  // cushion
       { x: 300, y: 284, pose: "sleep", flip: true },
-      { x: 432, y: 190, pose: "sit" },    // counter
-      { x: 504, y: 190, pose: "loaf" },
-      { x: 368, y: 292, pose: "sit" }     // floor
+      { x: 423, y: 152, pose: "sit" },    // on the coffee machine
+      { x: 478, y: 190, pose: "sit" },    // counter
+      { x: 368, y: 292, pose: "sit" },    // floor
+      { x: 233, y: 292, pose: "loaf" }     // floor, by the plant
     ];
     var KEY = "madhu-cafe-cats", state = [];
     try { state = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { state = []; }
     root.style.setProperty("--pick", "#e9955c");
     var colour = "#e9955c", layer = root.querySelector(".spots");
-    var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset");
+    var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset"), sw = root.querySelector(".swatches");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
@@ -554,6 +566,7 @@
       var n = state.filter(Boolean).length;
       count.textContent = n;
       reset.hidden = n === 0;
+      sw.hidden = n === 0;
       root.classList.toggle("full", n === spots.length);
     }
     function pose(name, fill) {
