@@ -377,3 +377,4 @@ html, body { background: var(--bg); }
 /* Intro sits higher on the page */
 .page:has(> .intro) { padding-top: 136px; }
 @media (max-width: 760px) { .page:has(> .intro) { padding-top: 104px; } }
+.intro .who .avatar { display: none; }
