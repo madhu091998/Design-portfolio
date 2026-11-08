@@ -282,3 +282,27 @@ html, body { background: var(--bg); }
   88%, 100% { transform: translate(0, 0); }
 }
 @media (prefers-reduced-motion: reduce) { .cafe-svg .res-walk { animation: none; } }
+
+/* ===== Café v4: Madhu's illustrations ===== */
+.cafe-svg .cat-in { transform-box: fill-box; transform-origin: 50% 100%; }
+.cafe-svg .cat-in.pop { animation: cat-pop .55s cubic-bezier(.3, 1.6, .5, 1); }
+.cafe-svg .spot:hover .cat-in { transform: translateY(-1.5px) rotate(-2deg); transition: transform .25s ease; }
+/* mug sits still until the counter cat is adopted, then gets knocked off on a loop */
+.cafe-svg .mug-wrap, .cafe-svg .mug-wrap .mug path, .cafe-svg .crash { animation: none; }
+.cafe.knocking .cafe-svg .mug-wrap { animation: mug-push 7s linear infinite; }
+.cafe.knocking .cafe-svg .mug-wrap .mug path { animation: mug-tip 7s ease-in infinite; }
+.cafe.knocking .cafe-svg .crash { animation: crash 7s linear infinite; }
+.cafe.knocking .cafe-svg .knocker .cat-in { animation: nudge 7s ease-in-out infinite; }
+@keyframes nudge {
+  0%, 9% { transform: rotate(0); } 11% { transform: rotate(7deg) translateX(2px); } 15%, 24% { transform: rotate(0) translateX(3px); }
+  26% { transform: rotate(7deg) translateX(5px); } 30%, 39% { transform: rotate(0) translateX(6px); }
+  41% { transform: rotate(9deg) translateX(8px); } 46%, 72% { transform: rotate(-3deg) translateX(9px); }
+  88%, 100% { transform: rotate(0) translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) { .cafe.knocking .cafe-svg .mug-wrap, .cafe.knocking .cafe-svg .mug-wrap .mug path, .cafe.knocking .cafe-svg .crash, .cafe.knocking .cafe-svg .knocker .cat-in { animation: none; } }
+/* make the illustrations read at small size: a white halo around the ink, slightly bolder lines on the party-hat cat */
+.cafe-svg .cat svg path { stroke: #fff; stroke-width: 7; stroke-linejoin: round; paint-order: stroke; }
+.cafe-svg .cat.ill-sit svg path { stroke-width: 9; }
+.cafe-svg .cat.ill-sit svg { filter: drop-shadow(0 0 .35px currentColor) drop-shadow(0 0 .35px currentColor); }
+.cafe-svg .cat.ill-sit svg { filter: none; }
+.cafe-svg .cat.ill-sit svg path { stroke: currentColor; stroke-width: 2.6; paint-order: normal; }
