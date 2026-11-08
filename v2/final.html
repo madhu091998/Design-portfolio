@@ -56,7 +56,7 @@
   <section class="cafe" aria-labelledby="cafe-h">
     <h2 class="sr-only" id="cafe-h">The cat café</h2>
     <div class="cafe-scene">
-      <svg class="cafe-svg" viewBox="0 0 640 320" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
+      <svg class="cafe-svg" viewBox="0 22 640 278" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
         <defs>
           <filter id="cafe-ink" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter>
           <!-- cat poses, drawn with (0,0) at the bottom centre -->
@@ -114,6 +114,8 @@
       </svg>
     </div>
     <div class="cafe-side">
+      <p class="cafe-count" aria-live="polite"><b>0</b> of 8 cats adopted</p>
+      <button type="button" class="cafe-reset" hidden>Send them home</button>
       <div class="swatches" role="radiogroup" aria-label="Pick a cat">
         <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e9955c" style="--c:#e9955c" aria-label="Ginger"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#f3e5c9" style="--c:#f3e5c9" aria-label="Cream"></button>
@@ -122,9 +124,7 @@
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#4a4237" style="--c:#4a4237" aria-label="Black"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#c98b6b" style="--c:#c98b6b" aria-label="Cinnamon"></button>
       </div>
-      <p class="cafe-count" aria-live="polite"><b>0</b> of 8 cats adopted</p>
-      <button type="button" class="cafe-reset" hidden>Send them home</button>
-      <p class="cafe-note">I get unnecessarily emotional over cats. Pick a colour and help me fill the café.</p>
+      <p class="cafe-note">I get unnecessarily emotional over cats. Hover the café, pick a colour, and give a cat a spot.</p>
     </div>
   </section>
 
@@ -544,6 +544,7 @@
     ];
     var KEY = "madhu-cafe-cats", state = [];
     try { state = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { state = []; }
+    root.style.setProperty("--pick", "#e9955c");
     var colour = "#e9955c", layer = root.querySelector(".spots");
     var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -555,26 +556,24 @@
       reset.hidden = n === 0;
       root.classList.toggle("full", n === spots.length);
     }
+    function pose(name, fill) {
+      var g = document.getElementById("pose-" + name).cloneNode(true);
+      g.removeAttribute("id");
+      g.querySelectorAll(".coat").forEach(function (c) { if (fill) c.style.fill = fill; });
+      return g;
+    }
     function draw(i, animate) {
       var s = spots[i], g = layer.children[i];
       g.innerHTML = "";
+      var cat = pose(s.pose, state[i]);
       if (state[i]) {
-        var u = document.createElementNS(NS, "use");
-        u.setAttribute("href", "#pose-" + s.pose); u.setAttributeNS(XL, "xlink:href", "#pose-" + s.pose);
-        var w = document.createElementNS(NS, "g");
-        w.setAttribute("class", "cat" + (animate && !still ? " pop" : ""));
-        w.style.setProperty("--coat", state[i]);
-        w.appendChild(u);
-        g.appendChild(w);
+        cat.setAttribute("class", "cat" + (animate && !still ? " pop" : ""));
         g.setAttribute("aria-label", "A cat is here. Click to let it go.");
       } else {
-        var c = document.createElementNS(NS, "circle");
-        c.setAttribute("class", "hint"); c.setAttribute("cx", 0); c.setAttribute("cy", -12); c.setAttribute("r", 9);
-        var p = document.createElementNS(NS, "path");
-        p.setAttribute("class", "hint-plus"); p.setAttribute("d", "M-3.5 -12 h7 M0 -15.5 v7");
-        g.appendChild(c); g.appendChild(p);
+        cat.setAttribute("class", "ghost");
         g.setAttribute("aria-label", "Empty spot. Click to adopt a cat here.");
       }
+      g.appendChild(cat);
     }
     spots.forEach(function (s, i) {
       var g = document.createElementNS(NS, "g");
@@ -593,7 +592,7 @@
     root.querySelectorAll(".sw").forEach(function (b) {
       b.addEventListener("click", function () {
         root.querySelectorAll(".sw").forEach(function (o) { o.classList.remove("on"); o.setAttribute("aria-checked", "false"); });
-        b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c;
+        b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c; root.style.setProperty("--pick", colour);
       });
     });
     reset.addEventListener("click", function () { state = []; spots.forEach(function (s, i) { draw(i, false); }); save(); update(); });
