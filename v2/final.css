@@ -380,3 +380,4 @@ html, body { background: var(--bg); }
 .intro .who .avatar { display: none; }
 .intro .who b { font-weight: 500; }
 .intro .who b { font: 500 18px/1.3 "Geist", system-ui, sans-serif; font-style: normal; letter-spacing: -0.01em; }
+.sec-head p { margin-top: 2px; } .sec-head h2 { line-height: 1.2; }
