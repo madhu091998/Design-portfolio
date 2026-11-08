@@ -306,3 +306,21 @@ html, body { background: var(--bg); }
 .cafe-svg .cat.ill-sit svg { filter: drop-shadow(0 0 .35px currentColor) drop-shadow(0 0 .35px currentColor); }
 .cafe-svg .cat.ill-sit svg { filter: none; }
 .cafe-svg .cat.ill-sit svg path { stroke: currentColor; stroke-width: 2.6; paint-order: normal; }
+
+/* ===== Café v5: one style. The room is redrawn in the same black brush-ink as Madhu's cats ===== */
+.cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun { stroke: #2b2722; stroke-width: 2.3; }
+.cafe-svg .sky, .cafe-svg .fill-soft, .cafe-svg .fill-soft2, .cafe-svg .fill-warm, .cafe-svg .cushion, .cafe-svg .cushion.two, .cafe-svg .leaf, .cafe-svg .fill-white { fill: #fff; }
+.cafe-svg circle.sun { fill: #fff; stroke-width: 1.8; }
+.cafe-svg path.glow { fill: rgba(43, 39, 34, .05); }
+.cafe-svg .steam { stroke: #2b2722; stroke-width: 1.5; }
+/* cats: no halo now that everything sits on white */
+.cafe-svg .cat svg path { stroke: none; }
+.cafe-svg .cat.ill-sit svg path { stroke: currentColor; stroke-width: 1.6; }
+/* the hover preview is the real drawing, faint, so the outline matches the cat that will appear */
+.cafe-svg .ghost-ill { opacity: 0; color: #2b2722; transition: opacity .3s ease, color .3s ease; }
+.cafe-scene:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .14; }
+.cafe-svg .spot:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .45; color: var(--pick, #2b2722); }
+@media (hover: none) { .cafe-svg .ghost-ill { opacity: .14; } }
+.cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse { stroke-width: 1.7; }
+.cafe-svg circle.sun { stroke-width: 1.4; }
+.cafe-svg .cat svg { overflow: visible; }
