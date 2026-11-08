@@ -90,3 +90,7 @@ html, body { background: var(--bg); }
 .work-hero .cap span::before, .grid.work-more .cap span::before { content: "/"; margin: 0 8px; color: var(--muted); opacity: .7; }
 .work-hero .brief, .grid.work-more .tile .brief { margin-top: 6px; font-size: 15px; line-height: 1.6; max-width: 38em; color: var(--text); }
 .tile .more.muted { margin-top: 6px; }
+
+/* Exactly 16px between each picture/video and its title */
+.work-hero .tile .art, .grid.work-more .tile .art { margin-bottom: 16px; }
+.work-hero .cap b, .grid.work-more .cap b, .work-hero .cap span, .grid.work-more .cap span { line-height: 1.25; }
