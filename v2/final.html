@@ -53,6 +53,81 @@
     </div>
   </header>
 
+  <section class="cafe" aria-labelledby="cafe-h">
+    <h2 class="sr-only" id="cafe-h">The cat café</h2>
+    <div class="cafe-scene">
+      <svg class="cafe-svg" viewBox="0 0 640 320" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
+        <defs>
+          <filter id="cafe-ink" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter>
+          <!-- cat poses, drawn with (0,0) at the bottom centre -->
+          <g id="pose-sit">
+            <path class="coat" d="M-11 0 C-13.5 -9 -12 -17 -8.5 -21 L-9.5 -32 L-3 -26.2 C-1 -26.9 1 -26.9 3 -26.2 L9.5 -32 L8.5 -21 C12 -17 13.5 -9 11 0 Z"/>
+            <path class="tail" d="M10.5 -1.5 C17 -1.5 20 -7 16.5 -12.5"/>
+            <ellipse class="eye" cx="-3.6" cy="-19.5" rx="1" ry="1.3"/><ellipse class="eye" cx="3.6" cy="-19.5" rx="1" ry="1.3"/>
+            <path class="line" d="M-1 -16.6 l1 0.9 l1 -0.9 M-4 0 v-3.4 M4 0 v-3.4"/>
+            <path class="line whisk" d="M-6.5 -16.5 l-5 -0.8 M-6.5 -15 l-5 1 M6.5 -16.5 l5 -0.8 M6.5 -15 l5 1"/>
+          </g>
+          <g id="pose-loaf">
+            <path class="coat" d="M-16 0 C-17.5 -8.5 -12 -14 -3 -14 L6.5 -14 C7 -17 7.5 -20 8.5 -23 L12 -18.6 C13.4 -18.9 14.6 -18.9 16 -18.6 L18.2 -23 L18.4 -15.4 C21.2 -11.5 20.4 -3.5 17 0 Z"/>
+            <path class="tail" d="M-15.5 -2.5 C-21 -2.5 -21.5 2 -14 1.4"/>
+            <path class="line" d="M10.6 -11.2 q1.3 1.1 2.6 0 M15 -11.2 q1.3 1.1 2.6 0 M13.4 -8.6 l0.9 0.8 l0.9 -0.8"/>
+            <path class="line whisk" d="M19.6 -8.6 l4.6 -0.9 M19.6 -7.2 l4.6 0.8"/>
+          </g>
+          <g id="pose-sleep">
+            <path class="coat" d="M-16 0 C-18 -9 -10 -15.5 0 -15.5 C9 -15.5 15 -12 16.5 -6 C17.2 -3 16.5 -1 15 0 Z"/>
+            <path class="coat" d="M3 -9.5 C3 -15.5 6 -19 10.5 -19.5 L12 -24.5 L14.6 -19.4 L18.4 -21.6 L17.6 -16.6 C19.6 -14.4 19.8 -11 18.2 -8.6 C16 -5.6 10 -5.4 6.6 -6.4 C4.2 -7.2 3 -8 3 -9.5 Z"/>
+            <path class="tail" d="M-15 -3 C-12 2.5 4 2.8 12 -1.2"/>
+            <path class="line" d="M9.4 -13.2 q1.2 1 2.4 0 M13.8 -13.6 q1.2 1 2.4 0"/>
+          </g>
+        </defs>
+
+        <g class="scene" filter="url(#cafe-ink)">
+          <!-- window -->
+          <rect class="sky" x="40" y="34" width="132" height="110" rx="8"/>
+          <path class="ln" d="M106 34 V144 M40 89 H172"/>
+          <circle class="sun" cx="146" cy="58" r="9"/>
+          <rect class="fill-soft" x="30" y="144" width="152" height="8" rx="2"/>
+          <!-- shelf -->
+          <path class="ln" d="M226 96 H382 M244 96 v12 l10 -12 M364 96 v12 l-10 -12"/>
+          <path class="ln" d="M282 96 v-14 h16 v14 M298 85 q6 0 6 5 q0 4 -6 4"/>
+          <path class="ln leaf" d="M372 96 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 96 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
+          <!-- lamp -->
+          <path class="ln" d="M472 0 V36 M456 50 q16 -22 32 0 Z"/>
+          <path class="glow" d="M458 52 L446 92 H498 L486 52 Z"/>
+          <!-- counter -->
+          <rect class="fill-warm" x="400" y="190" width="216" height="100" rx="3"/>
+          <path class="ln" d="M400 206 H616 M440 232 h40 M440 248 h28"/>
+          <path class="ln fill-soft2" d="M572 190 v-38 h30 v38 M577 162 h20 M582 176 v8 h10 v-8"/>
+          <path class="ln" d="M560 190 v-7 h9 v7"/>
+          <!-- plant -->
+          <path class="ln fill-soft" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
+          <path class="ln leaf" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
+          <!-- cushions + floor -->
+          <ellipse class="cushion" cx="112" cy="284" rx="40" ry="10"/>
+          <ellipse class="cushion two" cx="300" cy="284" rx="40" ry="10"/>
+          <path class="ln" d="M16 292 H624"/>
+          <!-- steam -->
+          <path class="ln steam" d="M587 150 c-3 -5 3 -7 0 -12 M594 150 c-3 -5 3 -7 0 -12"/>
+        </g>
+
+        <g class="spots"></g>
+      </svg>
+    </div>
+    <div class="cafe-side">
+      <div class="swatches" role="radiogroup" aria-label="Pick a cat">
+        <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e9955c" style="--c:#e9955c" aria-label="Ginger"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#f3e5c9" style="--c:#f3e5c9" aria-label="Cream"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#a9a397" style="--c:#a9a397" aria-label="Grey"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#4a4237" style="--c:#4a4237" aria-label="Black"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#c98b6b" style="--c:#c98b6b" aria-label="Cinnamon"></button>
+      </div>
+      <p class="cafe-count" aria-live="polite"><b>0</b> of 8 cats adopted</p>
+      <button type="button" class="cafe-reset" hidden>Send them home</button>
+      <p class="cafe-note">I get unnecessarily emotional over cats. Pick a colour and help me fill the café.</p>
+    </div>
+  </section>
+
   <section class="sec" id="work" aria-labelledby="work-h">
     <div class="sec-head reveal">
       <h2 id="work-h"><span>01</span>Selected work</h2>
@@ -450,6 +525,79 @@
     }, 5200);
     var corner = document.querySelector(".corner");
     if (corner) new IntersectionObserver(function (es) { corner.classList.toggle("away", es[0].isIntersecting); }, { threshold: 0.3 }).observe(meadow);
+  })();
+</script>
+<script>
+  (function () {
+    var root = document.querySelector(".cafe");
+    if (!root) return;
+    var NS = "http://www.w3.org/2000/svg", XL = "http://www.w3.org/1999/xlink";
+    var spots = [
+      { x: 106, y: 144, pose: "loaf" },   // windowsill
+      { x: 256, y: 96, pose: "sit" },     // shelf
+      { x: 330, y: 96, pose: "loaf" },
+      { x: 112, y: 284, pose: "sleep" },  // cushion
+      { x: 300, y: 284, pose: "sleep", flip: true },
+      { x: 432, y: 190, pose: "sit" },    // counter
+      { x: 504, y: 190, pose: "loaf" },
+      { x: 368, y: 292, pose: "sit" }     // floor
+    ];
+    var KEY = "madhu-cafe-cats", state = [];
+    try { state = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { state = []; }
+    var colour = "#e9955c", layer = root.querySelector(".spots");
+    var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset");
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+    function update() {
+      var n = state.filter(Boolean).length;
+      count.textContent = n;
+      reset.hidden = n === 0;
+      root.classList.toggle("full", n === spots.length);
+    }
+    function draw(i, animate) {
+      var s = spots[i], g = layer.children[i];
+      g.innerHTML = "";
+      if (state[i]) {
+        var u = document.createElementNS(NS, "use");
+        u.setAttribute("href", "#pose-" + s.pose); u.setAttributeNS(XL, "xlink:href", "#pose-" + s.pose);
+        var w = document.createElementNS(NS, "g");
+        w.setAttribute("class", "cat" + (animate && !still ? " pop" : ""));
+        w.style.setProperty("--coat", state[i]);
+        w.appendChild(u);
+        g.appendChild(w);
+        g.setAttribute("aria-label", "A cat is here. Click to let it go.");
+      } else {
+        var c = document.createElementNS(NS, "circle");
+        c.setAttribute("class", "hint"); c.setAttribute("cx", 0); c.setAttribute("cy", -12); c.setAttribute("r", 9);
+        var p = document.createElementNS(NS, "path");
+        p.setAttribute("class", "hint-plus"); p.setAttribute("d", "M-3.5 -12 h7 M0 -15.5 v7");
+        g.appendChild(c); g.appendChild(p);
+        g.setAttribute("aria-label", "Empty spot. Click to adopt a cat here.");
+      }
+    }
+    spots.forEach(function (s, i) {
+      var g = document.createElementNS(NS, "g");
+      g.setAttribute("class", "spot");
+      g.setAttribute("transform", "translate(" + s.x + " " + s.y + ") scale(" + (s.flip ? -1.3 : 1.3) + " 1.3)");
+      g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
+      function act() {
+        state[i] = state[i] ? null : colour;
+        draw(i, !!state[i]); save(); update();
+      }
+      g.addEventListener("click", act);
+      g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
+      layer.appendChild(g);
+      draw(i, false);
+    });
+    root.querySelectorAll(".sw").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll(".sw").forEach(function (o) { o.classList.remove("on"); o.setAttribute("aria-checked", "false"); });
+        b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c;
+      });
+    });
+    reset.addEventListener("click", function () { state = []; spots.forEach(function (s, i) { draw(i, false); }); save(); update(); });
+    update();
   })();
 </script>
 </body>
