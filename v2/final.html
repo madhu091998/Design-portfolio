@@ -221,15 +221,13 @@
       </svg>
     </div>
     <div class="cafe-side">
-      <p class="cafe-count" aria-live="polite" hidden><b>0</b> of <span class="cafe-total">5</span> cats adopted</p>
-      <button type="button" class="cafe-reset" hidden>Send them home</button>
       <div class="swatches" role="radiogroup" aria-label="Pick the ink colour for the next cat" hidden>
-        <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#2b2722" style="--c:#2b2722" aria-label="Ink"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#d53e09" style="--c:#d53e09" aria-label="Orange"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#a8603f" style="--c:#a8603f" aria-label="Terracotta"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#3f6db3" style="--c:#3f6db3" aria-label="Blue"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#4f7d4a" style="--c:#4f7d4a" aria-label="Green"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#8a5a9e" style="--c:#8a5a9e" aria-label="Plum"></button>
+        <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e59a8c" style="--c:#e59a8c" aria-label="Peach"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#f0b86e" style="--c:#f0b86e" aria-label="Apricot"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#e897b5" style="--c:#e897b5" aria-label="Pink"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#9ab8e3" style="--c:#9ab8e3" aria-label="Sky"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#95c79a" style="--c:#95c79a" aria-label="Mint"></button>
+        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#b9a1e0" style="--c:#b9a1e0" aria-label="Lavender"></button>
       </div>
       <p class="cafe-note">I get unnecessarily emotional over cats. Click anywhere a cat might like to sit.</p>
     </div>
@@ -653,19 +651,15 @@
     var KEY = "madhu-cafe-cats", state = [];
     try { localStorage.removeItem(KEY); } catch (e) {}
     root.style.setProperty("--pick", "#3e3728");
-    var colour = "#2b2722", layer = root.querySelector(".spots");
-    var count = root.querySelector(".cafe-count b"), reset = root.querySelector(".cafe-reset"), sw = root.querySelector(".swatches");
+    var colour = "#e59a8c", layer = root.querySelector(".spots");
+    var sw = root.querySelector(".swatches");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
 
     function save() {}
     function update() {
       var n = state.filter(Boolean).length;
-      count.textContent = n;
-      root.querySelector(".cafe-total").textContent = spots.length;
-      reset.hidden = n === 0;
       sw.hidden = n === 0;
-      count.parentNode.hidden = n === 0;
       root.classList.toggle("knocking", !!state[spots.findIndex(function (s) { return s.knock; })]);
       root.classList.toggle("full", n === spots.length);
     }
@@ -731,8 +725,9 @@
       g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
       function act() {
         if (!state[i] && !picked) { colour = coats[Math.floor(Math.random() * coats.length)]; markPicked(colour); }
-        state[i] = state[i] ? null : colour;
-        draw(i, !!state[i]); save(); update();
+        if (state[i]) { meow(spots[i], state[i]); return; }
+        state[i] = colour;
+        draw(i, true); save(); update();
       }
       g.addEventListener("click", act);
       g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
@@ -750,7 +745,6 @@
         b.classList.add("on"); b.setAttribute("aria-checked", "true"); colour = b.dataset.c; root.style.setProperty("--pick", colour); picked = true;
       });
     });
-    reset.addEventListener("click", function () { state = []; picked = false; spots.forEach(function (s, i) { draw(i, false); }); save(); update(); });
     update();
   })();
 </script>
