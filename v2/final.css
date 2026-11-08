@@ -373,8 +373,3 @@ html, body { background: var(--bg); }
 .cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun, .cafe-svg .ln.steam { stroke: #9b958d; }
 .work-hero .brief, .grid.work-more .tile .brief { margin-top: 8px; }
 .work-hero .tile .brief { margin-top: 8px; }
-
-/* Café sits between the name row and the bio */
-.intro { max-width: none; }
-.intro .bio { max-width: 620px; margin-top: 36px; }
-.intro .cafe { margin-top: 36px; }
