@@ -82,3 +82,11 @@ html, body { background: var(--bg); }
 .grid.work-more .tile .art.clip,
 .grid.work-more .tile .art.mock { aspect-ratio: 16 / 9; }
 .grid.work-more .tile .art.mock .phone { width: 30%; }
+
+/* Caption on one line: Title / subheader, brief underneath with even spacing */
+.work-hero .cap, .grid.work-more .cap { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0; }
+.work-hero .cap b, .grid.work-more .cap b { font-size: 16px; line-height: 1.4; }
+.work-hero .cap span, .grid.work-more .cap span { font-size: 15px; line-height: 1.4; color: var(--muted); }
+.work-hero .cap span::before, .grid.work-more .cap span::before { content: "/"; margin: 0 8px; color: var(--muted); opacity: .7; }
+.work-hero .brief, .grid.work-more .tile .brief { margin-top: 6px; font-size: 15px; line-height: 1.6; max-width: 38em; color: var(--text); }
+.tile .more.muted { margin-top: 6px; }
