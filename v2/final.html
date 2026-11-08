@@ -223,13 +223,12 @@
     <div class="cafe-side">
       <div class="swatches" role="radiogroup" aria-label="Pick the ink colour for the next cat" hidden>
         <button type="button" role="radio" aria-checked="true" class="sw on" data-c="#e59a8c" style="--c:#e59a8c" aria-label="Peach"></button>
-        <button type="button" role="radio" aria-checked="false" class="sw" data-c="#f0b86e" style="--c:#f0b86e" aria-label="Apricot"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#e897b5" style="--c:#e897b5" aria-label="Pink"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#9ab8e3" style="--c:#9ab8e3" aria-label="Sky"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#95c79a" style="--c:#95c79a" aria-label="Mint"></button>
         <button type="button" role="radio" aria-checked="false" class="sw" data-c="#b9a1e0" style="--c:#b9a1e0" aria-label="Lavender"></button>
       </div>
-      <p class="cafe-note">I've always had a soft spot for cats. If you do too, click anywhere you think one would like to sit.</p>
+      <p class="cafe-note">I get emotional over cats. If you do too, click anywhere to place one.</p>
     </div>
   </section>
 
@@ -725,7 +724,7 @@
       g.setAttribute("tabindex", "0"); g.setAttribute("role", "button");
       function act() {
         if (!state[i] && !picked) { colour = coats[Math.floor(Math.random() * coats.length)]; markPicked(colour); }
-        if (state[i]) { meow(spots[i], state[i]); return; }
+        if (state[i] && state[i] === colour) { meow(spots[i], state[i]); return; }
         state[i] = colour;
         draw(i, true); save(); update();
       }
