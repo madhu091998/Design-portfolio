@@ -654,11 +654,11 @@
     if (!root) return;
     var NS = "http://www.w3.org/2000/svg", XL = "http://www.w3.org/1999/xlink";
     var spots = [
-      { x: 106, y: 188, ill: "sit", h: 48 },                 // windowsill: party hat
-      { x: 300, y: 160, ill: "coffee", h: 44 },              // shelf: with its coffee
-      { x: 546, y: 202, ill: "walk", h: 36, knock: true },   // counter: next to the mug at the edge
-      { x: 112, y: 288, ill: "lounge", w: 76 },              // cushion: belly up
-      { x: 300, y: 288, ill: "yawn", h: 48 }                 // cushion: big stretch and yawn
+      { x: 104, y: 188, ill: "sit", h: 58 },                              // windowsill: party hat
+      { x: 300, y: 160, ill: "coffee", h: 54, base: .93 },                // shelf: with its coffee
+      { x: 540, y: 202, ill: "walk", h: 44, base: .945, knock: true },    // counter: next to the mug at the edge
+      { x: 112, y: 288, ill: "lounge", w: 92 },                           // cushion: belly up
+      { x: 300, y: 288, ill: "yawn", h: 58, base: .968 }                  // cushion: big stretch and yawn
     ];
     var VB = { sit: [154.771, 208.213], lounge: [174.142, 104.725], walk: [182.821, 133.225], coffee: [137.097, 145.083], yawn: [176.601, 195.634] };
     var KEY = "madhu-cafe-cats", state = [];

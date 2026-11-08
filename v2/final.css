@@ -353,3 +353,9 @@ html, body { background: var(--bg); }
 @keyframes mug-roll { 0%, 33% { transform: rotate(0); } 46% { transform: rotate(100deg); } 47%, 74% { transform: rotate(90deg); } 75%, 100% { transform: rotate(0); } }
 @keyframes crash2 { 0%, 46% { opacity: 0; } 48%, 58% { opacity: 1; } 64%, 100% { opacity: 0; } }
 .cafe-svg .ln.steam { stroke: #1d1d1b; opacity: .7; }
+
+/* Café v7: softer room lines, stronger hover preview */
+.cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun, .cafe-svg .ln.steam { stroke: #77706a; }
+.cafe-scene:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .3; }
+.cafe-svg .spot:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .65; }
+@media (hover: none) { .cafe-svg .ghost-ill { opacity: .3; } }
