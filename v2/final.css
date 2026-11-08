@@ -387,3 +387,11 @@ html, body { background: var(--bg); }
 .work-hero .cap span, .grid.work-more .cap span { order: 0; }
 .work-hero .cap span::after, .grid.work-more .cap span::after { content: none; }
 .work-hero .cap span::before, .grid.work-more .cap span::before { content: "\00B7"; margin: 0 10px; color: var(--muted); opacity: 1; }
+
+/* Work tiles: a subtle "you can click this" hover */
+.tile:not(.soon) .art { transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease; }
+.tile:not(.soon):hover .art, .tile:not(.soon):focus-visible .art { transform: translateY(-3px); box-shadow: 0 18px 36px -24px rgba(62, 55, 40, .45); }
+.tile:not(.soon) .cap b::after { content: "\2192"; display: inline-block; margin-left: 6px; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity .3s ease, transform .3s ease; }
+.tile:not(.soon):hover .cap b::after, .tile:not(.soon):focus-visible .cap b::after { opacity: 1; transform: translateX(0); }
+.tile:not(.soon):focus-visible .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+@media (prefers-reduced-motion: reduce) { .tile:not(.soon) .art, .tile:not(.soon) .cap b::after { transition: none; } .tile:not(.soon):hover .art { transform: none; } }
