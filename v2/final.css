@@ -94,3 +94,10 @@ html, body { background: var(--bg); }
 /* 24px between each picture/video and its title */
 .work-hero .tile .art, .grid.work-more .tile .art { margin-bottom: 24px; }
 .work-hero .cap b, .grid.work-more .cap b, .work-hero .cap span, .grid.work-more .cap span { line-height: 1.25; }
+
+/* Caption like "2024 · Title": grey meta first, a dot, then the title; brief below */
+.work-hero .cap span, .grid.work-more .cap span { order: -1; font-size: 16px; color: var(--muted); }
+.work-hero .cap span::before, .grid.work-more .cap span::before { content: none; }
+.work-hero .cap span::after, .grid.work-more .cap span::after { content: "\00B7"; margin: 0 10px; color: var(--muted); }
+.work-hero .cap b, .grid.work-more .cap b { font-size: 16px; font-weight: 500; color: var(--ink); }
+.work-hero .brief, .grid.work-more .tile .brief { margin-top: 12px; font-size: 16px; line-height: 1.65; color: var(--text); max-width: 40em; }
