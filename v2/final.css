@@ -373,3 +373,7 @@ html, body { background: var(--bg); }
 .cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun, .cafe-svg .ln.steam { stroke: #9b958d; }
 .work-hero .brief, .grid.work-more .tile .brief { margin-top: 8px; }
 .work-hero .tile .brief { margin-top: 8px; }
+
+/* Intro sits higher on the page */
+.page:has(> .intro) { padding-top: 136px; }
+@media (max-width: 760px) { .page:has(> .intro) { padding-top: 104px; } }
