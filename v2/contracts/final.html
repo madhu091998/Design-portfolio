@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contracts Revamp at Everstage · Madhumitha</title>
+  <meta name="description" content="Redesigning how teams create and send hundreds of personalized sales contracts at Everstage, with AI taking care of much of the repetitive work.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../case.css">
+  <link rel="stylesheet" href="../final-case.css">
+</head>
+<body class="case blog neel">
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../final.html#work"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3.5M7.5 4 3.5 8l4 4"/></svg>Back</a></nav>
+  <!-- TODO: add your resume as assets/Madhumitha-Resume.pdf -->
+  <a class="resume-btn" href="../../assets/Madhumitha-Resume.pdf" download>Resume<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 10.7l3.5-3.5M3 13.5h10"/></svg></a>
+</div>
+
+<nav class="sidenav" aria-label="On this page">
+  <a href="#top" class="on">Overview</a>
+  <a href="#users">Who uses it</a>
+  <a href="#problem">The problem</a>
+  <a href="#ai">Bringing in AI</a>
+  <a href="#experience">The new experience</a>
+  <a href="#ai-wrong">When AI falls short</a>
+  <a href="#approaches">Early approaches</a>
+  <a href="#changed">What changed</a>
+  <a href="#feedback">What customers said</a>
+  <a href="#takeaway">What I took away</a>
+</nav>
+
+<main class="page" id="top">
+  <header class="hero">
+    <h1>Simplifying contract management with AI</h1>
+    <dl class="cs-facts">
+      <div><dt>My role</dt><dd>Product Design</dd></div>
+      <div><dt>Collaborators</dt><dd><a class="fact-link" href="https://www.linkedin.com/in/akkshaya-varkhedi/" target="_blank" rel="noopener">Akkshaya Varkhedi</a> (PM) · Engineers</dd></div>
+    </dl>
+    <div class="prose intro">
+      <p>Contracts helps companies create, send, and manage personalized sales compensation agreements.</p>
+      <p>I worked on redesigning the end-to-end experience, replacing a manual, DocuSign-based workflow with a simpler, AI-powered one. A key focus was reducing repetitive work while giving admins control over AI-fetched information.</p>
+    </div>
+  </header>
+
+  <section class="sec" id="users" aria-labelledby="users-h">
+    <h2 class="cs-h2 reveal" id="users-h">Who uses Contracts?</h2>
+    <ul class="personas reveal">
+      <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><h3 class="ps-name">Admins</h3><p>People who create contract templates, prepare and send contracts, and track their progress.</p></li>
+      <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span><h3 class="ps-name">Salespeople</h3><p>Employees who receive contracts containing their sales targets, commissions, and other compensation details.</p></li>
+      <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c.6-3 2.8-4.7 5.5-4.7s4.9 1.7 5.5 4.7"/><path d="M15.5 5.8a3 3 0 0 1 0 5.4"/><path d="M17.5 14.9c1.6.6 2.7 2.2 3 4.6"/></svg></span><h3 class="ps-name">Other recipients</h3><p>People like reporting managers or compensation admins who may also need to review or sign contracts.</p></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="problem" aria-labelledby="problem-h">
+    <h2 class="cs-h2 reveal" id="problem-h">Understanding the problem</h2>
+    <div class="prose reveal">
+      <p>I started by reviewing the existing Contracts workflow and customer feedback to understand how contracts were created and sent.</p>
+      <p>Previously, DocuSign was embedded in Everstage, allowing admins to upload documents and add fields for each salesperson's information. But creating the template was only half the work. To send contracts, admins still had to:</p>
+    </div>
+    <ol class="flow-steps reveal">
+        <li><span class="fs-n" aria-hidden="true">1</span><div><b>Set up the contract in DocuSign.</b><p>Upload the document and add the required fields.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">2</span><div><b>Download a spreadsheet.</b><p>Get a CSV containing all the fields to be filled.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">3</span><div><b>Prepare the data manually.</b><p>Collect each salesperson's details, recipient emails, and email content.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">4</span><div><b>Bring the data back into Everstage.</b><p>Import the prepared information and make it available as a Datasheet (a table of records).</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">5</span><div><b>Load and send contracts.</b><p>Select the Datasheet and send contracts without previewing the completed documents.</p></div></li>
+    </ol>
+    <figure class="shot old-flow reveal">
+      <video src="../../assets/contracts/old-workflow.mp4?v=3" poster="../../assets/contracts/old-workflow-poster.jpg?v=3" width="1600" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Animation of the old five-step workflow: setting up the contract in DocuSign, downloading the fields as a spreadsheet, typing each salesperson's data by hand, uploading it back into Everstage, and sending contracts without a preview."></video>
+      <figcaption>The old workflow: from DocuSign to spreadsheets and back to Everstage, with a lot of manual work in between.</figcaption>
+    </figure>
+    <p class="q reveal">The biggest problem was that much of this information already existed in Everstage, yet admins had to manually collect and re-enter it.</p>
+    <h3 class="cs-h3 reveal">Understanding how customers worked</h3>
+    <div class="prose reveal">
+      <p>We also gathered inputs from teams who work closely with customers to understand how they created and sent contracts.</p>
+      <p>This helped us realise that simplifying how admins collected data wasn't enough. We needed to rethink the entire process of creating and sending contracts.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="ai" aria-labelledby="ai-h">
+    <h2 class="cs-h2 reveal" id="ai-h">Bringing AI into the workflow</h2>
+    <div class="prose reveal">
+      <p>Around this time, engineering was developing Eva, Everstage's AI assistant, which could turn simple instructions into queries to fetch data.</p>
+    </div>
+    <div class="qb reveal"><p class="qb-l">This opened up a new possibility:</p><p class="qb-q">What if admins could simply describe the information they needed instead of manually choosing where to get it?</p></div>
+    <div class="prose reveal">
+      <p>Eva could generate queries to fetch the right values for each salesperson. These queries could be saved and reused for future contracts.</p>
+    </div>
+    <div class="qb reveal"><p class="qb-l">But this raised another question:</p><p class="qb-q">How could admins verify the information and handle incorrect or missing values?</p></div>
+    <div class="prose reveal">
+      <p>A key part of the design was making AI useful while keeping admins in control.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="experience" aria-labelledby="experience-h">
+    <h2 class="cs-h2 reveal" id="experience-h">How the experience changed</h2>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">01</span>Creating a reusable template</h3>
+    <div class="prose">
+      <p>The first step is creating a contract template that can be reused for different salespeople. Admins can upload a document, choose who needs to sign, and set up signing order and reminders.</p>
+    </div>
+    <div class="phase old">
+      <p class="tag"><em>Old experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>01</b>Creating a reusable template</span></p>
+      <div class="prose">
+        <p>Previously, admins could define who needed to sign, but <strong class="k">had to manually add the actual recipients when sending contracts</strong>.</p>
+        <p>From feedback shared by other teams, we learned that these recipients were often the salesperson's manager or a specific admin.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-recipients.webp?v=2" width="2400" height="1346" loading="lazy" alt="The old Create Contract form, with the recipient role rows circled in red."></figure>
+    </div>
+    <div class="phase new">
+      <p class="tag"><em>New experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>01</b>Creating a reusable template</span></p>
+      <div class="prose">
+        <p>Since Everstage already knows who each salesperson's manager is, <strong class="k">we made this automatic</strong>. Admins can simply choose "Salesperson's manager," and Everstage finds the right person for each contract. They can also choose a specific admin who should receive it.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-recipients.mp4" poster="../../assets/contracts/new-recipients-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Setting up recipient roles, with the salesperson's manager assigned automatically."></video></figure>
+    </div>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">02</span>Building the template</h3>
+    <div class="prose">
+      <p>Next, admins add placeholders for information that changes for each salesperson, like their name or sales target.</p>
+    </div>
+    <div class="phase old">
+      <p class="tag"><em>Old experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>02</b>Building the template</span></p>
+      <div class="prose">
+        <p>Previously, admins added placeholders in DocuSign, which was embedded in Everstage. But <strong class="k">they still had to manually prepare and upload the values for each salesperson</strong>, even when the data was already in Everstage.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-template-builder.webp?v=2" width="2400" height="1346" loading="lazy" alt="The DocuSign template builder embedded in Everstage."></figure>
+    </div>
+    <div class="phase new">
+      <p class="tag"><em>New experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>02</b>Building the template</span></p>
+      <div class="prose">
+        <p>We built on an existing template builder developed by another team. I redesigned parts of it to support contract-specific placeholders and AI-powered data fetching.</p>
+        <p>Admins can now <strong class="k">describe what each placeholder needs</strong>, like "This salesperson's Q2 sales target." Eva turns these instructions into reusable requests to fetch the right values.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-placeholders.mp4" poster="../../assets/contracts/new-placeholders-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Adding a placeholder and describing what it needs for Eva."></video></figure>
+      <div class="prose">
+        <p>Users can also <strong class="k">choose from commonly used placeholders</strong> with pre-filled instructions for Eva, instead of setting them up from scratch.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-prefilled.mp4" poster="../../assets/contracts/new-prefilled-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Choosing a commonly used placeholder with pre-filled instructions."></video></figure>
+      <p class="step-l">More ways to fill placeholders</p>
+      <figure class="shot-ui"><img src="../../assets/contracts/fill-options.webp?v=2" width="2064" height="1372" loading="lazy" alt="Two other ways to fill a placeholder: upload or enter values, or set a default value."></figure>
+    </div>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">03</span>Previewing values before saving the template</h3>
+    <div class="phase old">
+      <p class="tag"><em>Old experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>03</b>Previewing values before saving the template</span></p>
+      <div class="prose">
+        <p>Previously, admins had to download a blank CSV template containing all the contract placeholders as column headers. They then had to <strong class="k">manually fill in the values for each salesperson</strong> and bring the data back into Everstage when sending contracts.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-csv.webp?v=2" width="2400" height="1346" loading="lazy" alt="The last step of the old flow: downloading a blank CSV."></figure>
+    </div>
+    <div class="phase new">
+      <p class="tag"><em>New experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>03</b>Previewing values before saving the template</span></p>
+      <div class="prose">
+        <p>Instead of manually preparing spreadsheets, admins can <strong class="k">let Eva fetch the required information</strong>. The queries are saved with the template for future use.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-eva-fetch.mp4" poster="../../assets/contracts/new-eva-fetch-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Eva fetching values for the placeholders."></video></figure>
+      <div class="prose">
+        <p>Admins can <strong class="k">preview the values for a few salespeople</strong> to check if Eva is fetching the right information and make corrections if needed.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-preview-values.mp4" poster="../../assets/contracts/new-preview-values-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Previewing fetched values for a few salespeople."></video></figure>
+      <div class="prose">
+        <p>Admins can also <strong class="k">preview how the actual contract looks</strong> with the placeholders filled in, before saving the template.</p>
+      </div>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-preview-doc.mp4" poster="../../assets/contracts/new-preview-doc-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Previewing the contract with placeholders filled in."></video></figure>
+    </div>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">04</span>Preparing and sending envelopes</h3>
+    <div class="prose">
+      <p>Once the template is ready, admins can use it to send contracts to multiple salespeople.</p>
+    </div>
+    <div class="phase old">
+      <p class="tag"><em>Old experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>04</b>Preparing and sending envelopes</span></p>
+      <div class="prose">
+        <p>Previously, admins had to <strong class="k">manually prepare a spreadsheet</strong> containing each salesperson's contract details, recipient emails, email subjects, and messages.</p>
+        <p>They then had to upload this data into Everstage as a Datasheet and load it before sending contracts.</p>
+      </div>
+      <figure class="shot-ui"><img src="../../assets/contracts/old-envelopes.webp?v=2" width="2400" height="1260" loading="lazy" alt="Sending envelopes in the old flow by loading a prepared Datasheet."></figure>
+    </div>
+    <div class="phase new">
+      <p class="tag"><em>New experience</em><span class="ln" aria-hidden="true"></span><span class="tg-part"><b>04</b>Preparing and sending envelopes</span></p>
+      <ol class="flow-steps">
+        <li><span class="fs-n" aria-hidden="true">1</span><div><b>Select recipients</b><p>Admins can directly select salespeople from Everstage, without preparing a spreadsheet.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">2</span><div><b>Review the values</b><p>Contract details are automatically fetched using the setup saved in the template. Admins can review, edit, or manually enter missing values before sending.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">3</span><div><b>Customize emails</b><p>Instead of preparing email content in a spreadsheet, admins can write one message for everyone, customize it by recipient role, or personalize it for individuals.</p></div></li>
+        <li><span class="fs-n" aria-hidden="true">4</span><div><b>Review and send</b><p>Admins can review everything in one place before sending the contracts.</p></div></li>
+      </ol>
+      <figure class="shot-ui"><video src="../../assets/contracts/new-envelopes.mp4" poster="../../assets/contracts/new-envelopes-poster.jpg" width="1600" height="892" autoplay muted loop playsinline preload="metadata" aria-label="Selecting recipients, reviewing values, customizing emails and sending."></video></figure>
+    </div>
+  </div>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">05</span>Managing and tracking contracts</h3>
+    <ul class="duo">
+      <li><b>Contracts page</b><p>Admins can view, reuse, or clone existing templates without having to create them from scratch.</p></li>
+      <li><b>Track sent contracts</b><p>A separate Envelopes page lets admins track the status of each contract, including those awaiting signatures, completed, declined, or expired.</p></li>
+    </ul>
+  </div>
+  </section>
+
+  <section class="sec" id="ai-wrong" aria-labelledby="ai-wrong-h">
+    <h2 class="cs-h2 reveal" id="ai-wrong-h">Designing for when AI falls short</h2>
+    <div class="prose reveal">
+      <p>Eva won't always get it right. It may need more context, the data may not exist, or the lookup may fail. Instead of assuming AI would always work, we designed for each of these cases.</p>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">01</span>When Eva fetches the wrong value</h3>
+      <div class="prose">
+        <p class="sol">Admins can ask Eva to use a different source or recalculate the value.</p>
+        <p class="eg">For example, "Divide the variable pay by 10," then regenerate.</p>
+      </div>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">02</span>When Eva can't fetch a value</h3>
+      <div class="prose">
+        <p class="sol">We didn't want admins to depend entirely on AI, so they can also edit values, paste from a spreadsheet, or look them up from an existing Datasheet.</p>
+        <p>Bulk updates match records by recipient email and are validated before applying. Multiple matches are flagged instead of silently picking one.</p>
+      </div>
+    </div>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/copy-paste-values.webp?v=2" width="2400" height="1266" loading="lazy" alt="Copy and paste values from a spreadsheet."></figure>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/lookup-datasheet.webp?v=2" width="2400" height="1266" loading="lazy" alt="Fill missing values by looking them up from a Datasheet."></figure>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">03</span>When values become outdated</h3>
+      <div class="prose">
+        <p>If contracts are sent days after they're prepared, the source data may have changed.</p>
+        <p class="sol">Missing and outdated values are flagged, with filters to find them and an option to refresh the data.</p>
+      </div>
+    </div>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/outdated-values.webp?v=2" width="2400" height="1347" loading="lazy" alt="Identify and refresh outdated values before sending."></figure>
+  </section>
+
+  <section class="sec" id="approaches" aria-labelledby="approaches-h">
+    <h2 class="cs-h2 reveal" id="approaches-h">Some of the approaches we explored</h2>
+    <div class="prose reveal">
+      <p>Some early approaches changed as we understood the use cases better.</p>
+    </div>
+    <div class="case-row stack lite appr reveal">
+      <h3 class="case-t"><span class="pn">01</span>One flow or reusable templates?</h3>
+      <div class="prose">
+        <p>We first tried combining contract creation and sending into one flow. But if a salesperson joined mid-year, admins would have to recreate the whole contract for one more person.</p>
+        <p class="sol">So we kept templates separate, letting admins reuse them and track the contracts sent from each.</p>
+      </div>
+    </div>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/template-steps.webp" width="1200" height="760" loading="lazy" alt="The template setup screen: a draft contract with steps down the left for Basic details, Recipients, Document and placeholders, Data mapping, Email content, and Preview and send."></figure>
+    <div class="case-row stack lite appr reveal">
+      <h3 class="case-t"><span class="pn">02</span>How to fill contract details</h3>
+      <div class="prose">
+        <p>We first let admins manually choose where each value comes from. But values like a quarterly sales target needed several filters and calculations, making setup complicated.</p>
+        <p class="sol">The AI being built alongside the redesign opened up a simpler approach.</p>
+      </div>
+    </div>
+    <figure class="shot-ui reveal"><img src="../../assets/contracts/data-mapping-frame.webp" width="2000" height="1000" loading="lazy" alt="The manual data mapping panel for a Variable pay placeholder: map it from a datasheet field or describe how to calculate it, then pick a source object and a datasheet."></figure>
+  </section>
+
+  <section class="sec" id="changed" aria-labelledby="changed-h">
+    <h2 class="cs-h2 reveal" id="changed-h">What changed with the redesign</h2>
+    <div class="prose reveal">
+      <p><strong>Admins no longer prepare the same information every time they send contracts.</strong> They set things up once, let Eva fill in the values, and stay in control when it gets something wrong.</p>
+    </div>
+    <figure class="swap reveal" aria-label="Older and new experience, step by step">
+      <div class="sw-head">
+        <p class="sw-h old"><em>Older experience</em><span>Manual and repetitive</span></p>
+        <p class="sw-h new"><em>New experience</em><span>AI-assisted and reusable</span></p>
+      </div>
+      <ol>
+        <li><span class="sw-old">Create a template in DocuSign</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-new">Create a reusable template with recipient rules</span></li>
+        <li><span class="sw-old">Download a blank CSV</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-new">Describe what each placeholder needs</span></li>
+        <li><span class="sw-old">Manually collect contract values, emails and messages</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-new">Eva fetches values; preview results and save the setup</span></li>
+        <li><span class="sw-old">Upload the data back into Everstage</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-new">Select salespeople, review values and customize emails</span></li>
+        <li><span class="sw-old">Load the data and send contracts without a final preview</span><span class="sw-arrow" aria-hidden="true">→</span><span class="sw-new">Preview and send contracts, then track their status</span></li>
+      </ol>
+    </figure>
+  </section>
+
+  <section class="sec" id="feedback" aria-labelledby="feedback-h">
+    <h2 class="cs-h2 reveal" id="feedback-h">What customers had to say</h2>
+    <div class="prose reveal">
+      <p>Here's some of the feedback we heard from customers after they started sending contracts with the new experience.</p>
+    </div>
+    <figure class="quotes paper reveal">
+      <div class="q-card dark"><img src="../../assets/contracts/feedback-slack.webp?v=2" width="2000" height="812" loading="lazy" alt="An internal Slack post sharing a customer's feedback on the new Contracts module: it was far better than the first time they went through the process using DocuSign, their data was already there and populating right, and it turned an incredibly manual process into an easier task."></div>
+      <div class="q-card"><img src="../../assets/contracts/feedback-note.webp" width="1900" height="686" loading="lazy" alt="A note on another customer's feedback after a couple of weeks live: it had been great compared to before, better than their previous tool, with 100+ plans already sent, and they called the live preview beautiful."></div>
+      <figcaption>Names and companies are blurred.</figcaption>
+    </figure>
+  </section>
+
+  <section class="sec" id="takeaway" aria-labelledby="takeaway-h">
+    <h2 class="cs-h2 reveal" id="takeaway-h">What I took away</h2>
+    <div class="prose reveal">
+      <p>This project changed how I think about designing experiences where AI is part of the product.</p>
+      <p>What interested me most wasn't just what AI could do, but <strong class="k">what happens when it gets something wrong.</strong></p>
+      <p>Admins were dealing with real compensation agreements, where <strong class="k">even a small mistake could matter.</strong> I spent a lot of time thinking about how they could catch mistakes, correct them, and continue their work without depending entirely on AI.</p>
+    </div>
+    <figure class="closer reveal">
+      <span class="closer-mark" aria-hidden="true"></span>
+      <p>My biggest takeaway was that designing AI-powered experiences isn't just about making things easier. It's also about helping people <em>understand what's happening</em>, <em>build trust</em>, and <em>stay in control.</em></p>
+    </figure>
+  </section>
+
+  <footer class="cs-foot">
+    <div class="cs-foot-top">
+      <div class="cs-foot-sign">
+        <p class="foot-quote">That's all for this one.</p>
+        <a class="cs-foot-more" href="../final.html#work">See what else I've been up to<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </div>
+      <nav class="foot-col" aria-label="Elsewhere">
+        <p class="foot-h">Elsewhere</p>
+        <!-- TODO: replace with your real email and LinkedIn -->
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../../assets/Madhumitha-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+    <div class="cs-foot-next">
+      <p class="foot-h">Up next</p>
+      <a href="../peek-and-poke/">Making it easier to design directly in code<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var items = document.querySelectorAll(".reveal");
+    if (still || !("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); }
+    else {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    }
+    if (still) document.querySelectorAll("video").forEach(function (v) { v.autoplay = false; v.pause(); });
+  })();
+
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll(".sidenav a"));
+    function onScroll() {
+      var y = window.innerHeight * 0.4, cur = links[0];
+      links.forEach(function (a) {
+        var t = document.querySelector(a.getAttribute("href"));
+        if (t && t.getBoundingClientRect().top < y) cur = a;
+      });
+      links.forEach(function (a) { a.classList.toggle("on", a === cur); });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+<script>
+  // Simple video player: play/pause, a scrubber to seek and rewind, time, and fullscreen
+  (function () {
+    var ICON = {
+      play: '<svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg>',
+      pause: '<svg viewBox="0 0 16 16"><path d="M5 3.5h2v9H5zM9 3.5h2v9H9z"/></svg>',
+      back: '<svg viewBox="0 0 16 16"><path d="M8 3.5a4.5 4.5 0 1 1-4.3 5.8" fill="none"/><path d="M3.2 3.6v3h3" fill="none"/></svg>',
+      full: '<svg viewBox="0 0 16 16"><path d="M3 6V3h3M10 3h3v3M13 10v3h-3M6 13H3v-3" fill="none"/></svg>'
+    };
+    function fmt(t) { t = Math.max(0, t || 0); var m = Math.floor(t / 60), s = Math.floor(t % 60); return m + ":" + (s < 10 ? "0" : "") + s; }
+    document.querySelectorAll(".shot-ui video, .old-flow video").forEach(function (v) {
+      var box = v.parentElement; box.classList.add("vp");
+      var bar = document.createElement("div"); bar.className = "vp-bar";
+      bar.innerHTML = '<button class="vp-play" type="button" aria-label="Pause">' + ICON.pause + '</button>' +
+        '<button class="vp-back" type="button" aria-label="Back 5 seconds">' + ICON.back + '</button>' +
+        '<input class="vp-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">' +
+        '<span class="vp-time">0:00 / 0:00</span>' +
+        '<button class="vp-full" type="button" aria-label="Full screen">' + ICON.full + '</button>';
+      box.appendChild(bar);
+      var play = bar.querySelector(".vp-play"), back = bar.querySelector(".vp-back"), seek = bar.querySelector(".vp-seek"), time = bar.querySelector(".vp-time"), full = bar.querySelector(".vp-full");
+      var dragging = false;
+      function sync() {
+        play.innerHTML = v.paused ? ICON.play : ICON.pause; play.setAttribute("aria-label", v.paused ? "Play" : "Pause");
+        box.classList.toggle("is-paused", v.paused);
+      }
+      function tick() {
+        if (!dragging && v.duration) seek.value = Math.round(v.currentTime / v.duration * 1000);
+        seek.style.setProperty("--p", (seek.value / 10) + "%");
+        time.textContent = fmt(v.currentTime) + " / " + fmt(v.duration);
+      }
+      play.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+      v.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+      back.addEventListener("click", function () { v.currentTime = Math.max(0, v.currentTime - 5); });
+      seek.addEventListener("input", function () { dragging = true; if (v.duration) v.currentTime = seek.value / 1000 * v.duration; tick(); });
+      seek.addEventListener("change", function () { dragging = false; });
+      full.addEventListener("click", function () {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (box.requestFullscreen) box.requestFullscreen();
+        else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+      });
+      v.removeAttribute("controls");
+      ["play", "pause"].forEach(function (e) { v.addEventListener(e, sync); });
+      ["timeupdate", "loadedmetadata", "seeked"].forEach(function (e) { v.addEventListener(e, tick); });
+      sync(); tick();
+    });
+  })();
+</script>
+<script>
+  // Mark the old/new label as stuck while it sits at the top, so it can cover the gap above it
+  (function () {
+    var tags = [].slice.call(document.querySelectorAll(".phase .tag"));
+    function check() {
+      tags.forEach(function (t) {
+        var top = parseFloat(getComputedStyle(t).top) || 0;
+        var r = t.getBoundingClientRect(), box = t.parentElement.getBoundingClientRect();
+        t.classList.toggle("stuck", r.top <= top + 0.5 && box.top < top && box.bottom > r.bottom + 1);
+      });
+    }
+    window.addEventListener("scroll", check, { passive: true }); window.addEventListener("resize", check); check();
+  })();
+</script>
+<script>
+  // Expand any screenshot or video into a full-screen viewer
+  (function () {
+    var EXP = '<svg viewBox="0 0 16 16"><path d="M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9"/></svg>';
+    var lb = document.createElement("div"); lb.className = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.hidden = true;
+    lb.innerHTML = '<button class="lb-close" type="button" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg></button><div class="lb-stage"></div>';
+    document.body.appendChild(lb);
+    var stage = lb.querySelector(".lb-stage"), lastFocus = null, srcVideo = null;
+    function close() {
+      var v = stage.querySelector("video");
+      if (v && srcVideo) { try { srcVideo.currentTime = v.currentTime; } catch (e) {} }
+      stage.innerHTML = ""; lb.hidden = true; document.documentElement.classList.remove("lb-open");
+      if (lastFocus) lastFocus.focus();
+    }
+    function open(fig, btn) {
+      lastFocus = btn; srcVideo = null;
+      var img = fig.querySelector("img"), vid = fig.querySelector("video");
+      if (vid) {
+        srcVideo = vid; vid.pause();
+        var v = document.createElement("video");
+        v.src = vid.currentSrc || vid.src; v.poster = vid.poster; v.controls = true; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true;
+        v.addEventListener("loadedmetadata", function () { try { v.currentTime = vid.currentTime; } catch (e) {} });
+        stage.appendChild(v);
+      } else if (img) {
+        var i = document.createElement("img"); i.src = img.currentSrc || img.src; i.alt = img.alt; stage.appendChild(i);
+      }
+      lb.hidden = false; document.documentElement.classList.add("lb-open"); lb.querySelector(".lb-close").focus();
+    }
+    document.querySelectorAll(".shot-ui, .old-flow").forEach(function (fig) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "xp"; b.setAttribute("aria-label", "Expand"); b.innerHTML = EXP;
+      b.addEventListener("click", function (e) { e.stopPropagation(); open(fig, b); });
+      fig.appendChild(b);
+      var img = fig.querySelector("img"); if (img && !fig.querySelector("video")) { img.style.cursor = "zoom-in"; img.addEventListener("click", function () { open(fig, b); }); }
+    });
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target === stage || e.target.closest(".lb-close")) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) close(); });
+  })();
+</script>
+</body>
+</html>

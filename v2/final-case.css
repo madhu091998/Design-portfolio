@@ -1,0 +1,15 @@
+/* Contracts case study for the "Final" version: same palette as final.html
+   (danmiloch.com colours: white page, warm grey-brown text, dark brown ink, orange-red accent). */
+:root {
+  --bg: #ffffff;
+  --ink: #3e3728;
+  --text: #766e5d;
+  --muted: #958c7a;
+  --line: rgba(62, 55, 40, 0.12);
+  --accent: #d53e09;
+  --link: rgba(62, 55, 40, 0.28);
+  --seafoam: #f7f8f6;
+  --card: #f7f8f6;
+}
+html, body { background: var(--bg); }
+::selection { background: rgba(213, 62, 9, 0.16); }
