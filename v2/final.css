@@ -324,3 +324,32 @@ html, body { background: var(--bg); }
 .cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse { stroke-width: 1.7; }
 .cafe-svg circle.sun { stroke-width: 1.4; }
 .cafe-svg .cat svg { overflow: visible; }
+
+/* ===== Café v6: black & white room, same line weight as the cats ===== */
+.cafe-scene { background: radial-gradient(circle, rgba(43,39,34,.2) .9px, transparent 1.2px) 0 0 / 12px 12px, #fff; }
+.cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse { stroke: #1d1d1b; stroke-width: 1.15; }
+.cafe-svg circle.sun { stroke: #1d1d1b; stroke-width: 1; }
+.cafe-svg .steam { stroke: #1d1d1b; stroke-width: 1; }
+.cafe-svg path.glow { display: none; }
+.cafe-svg .cat.ill-sit svg path { stroke: none; }
+/* big, invisible hit area per spot */
+.cafe-svg rect.hit { fill: #000; fill-opacity: 0; stroke: none; pointer-events: all; }
+
+/* the counter cat gives the mug one push; it tips off the edge and drops */
+.cafe.knocking .cafe-svg .mug-wrap { animation: mug-drop 6s cubic-bezier(.5,0,.75,0) infinite; }
+.cafe.knocking .cafe-svg .mug-wrap .mug path { animation: mug-roll 6s ease-in infinite; }
+.cafe.knocking .cafe-svg .crash { animation: crash2 6s linear infinite; }
+.cafe.knocking .cafe-svg .knocker .cat-in { animation: one-push 6s ease-in-out infinite; }
+@keyframes one-push { 0%, 28% { transform: none; } 32% { transform: rotate(7deg) translateX(3px); } 38%, 100% { transform: none; } }
+@keyframes mug-drop {
+  0%, 31% { transform: translate(0, 0); opacity: 1; }
+  36% { transform: translate(8px, 0); }
+  46% { transform: translate(16px, 88px); opacity: 1; }
+  68% { transform: translate(16px, 88px); opacity: 1; }
+  74% { transform: translate(16px, 88px); opacity: 0; }
+  75% { transform: translate(0, 0); opacity: 0; }
+  88%, 100% { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes mug-roll { 0%, 33% { transform: rotate(0); } 46% { transform: rotate(100deg); } 47%, 74% { transform: rotate(90deg); } 75%, 100% { transform: rotate(0); } }
+@keyframes crash2 { 0%, 46% { opacity: 0; } 48%, 58% { opacity: 1; } 64%, 100% { opacity: 0; } }
+.cafe-svg .ln.steam { stroke: #1d1d1b; opacity: .7; }

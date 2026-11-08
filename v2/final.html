@@ -56,7 +56,7 @@
   <section class="cafe" aria-labelledby="cafe-h">
     <h2 class="sr-only" id="cafe-h">The cat café</h2>
     <div class="cafe-scene">
-      <svg class="cafe-svg" viewBox="0 92 640 208" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
+      <svg class="cafe-svg" viewBox="0 104 640 194" role="img" aria-label="A hand-drawn café with empty spots for cats on the windowsill, shelf, counter, cushions and floor">
         <defs>
           <filter id="cafe-ink" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
           <filter id="cafe-boil" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3"><animate attributeName="seed" values="3;8;13" dur="0.6s" calcMode="discrete" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
@@ -197,21 +197,21 @@
 
         <g class="scene" filter="url(#cafe-ink)">
           <!-- window -->
-          <rect class="sky" x="40" y="98" width="132" height="84" rx="8"/>
-          <path class="ln" d="M106 98 V182 M40 140 H172"/>
-          <circle class="sun" cx="146" cy="118" r="8"/>
-          <rect class="fill-soft" x="30" y="182" width="152" height="8" rx="2"/>
+          <rect class="sky" x="40" y="122" width="132" height="66" rx="7"/>
+          <path class="ln" d="M106 122 V188 M40 155 H172"/>
+          <circle class="sun" cx="148" cy="136" r="7"/>
+          <rect class="fill-soft" x="30" y="188" width="152" height="6" rx="2"/>
           <!-- shelf -->
-          <path class="ln" d="M226 150 H382 M244 150 v12 l10 -12 M364 150 v12 l-10 -12"/>
+          <path class="ln" d="M226 160 H382 M244 160 v10 l9 -10 M364 160 v10 l-9 -10"/>
           
-          <path class="ln leaf" d="M372 150 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 150 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
+          <path class="ln leaf" d="M372 160 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 160 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
           <!-- lamp -->
-          <path class="ln" d="M472 92 V110 M456 124 q16 -22 32 0 Z"/>
+          <path class="ln" d="M472 104 V120 M458 132 q14 -18 28 0 Z"/>
           <path class="glow" d="M458 126 L448 160 H496 L486 126 Z"/>
           <!-- counter -->
-          <rect class="fill-warm" x="400" y="190" width="192" height="100" rx="3"/>
-          <path class="ln" d="M400 206 H592 M440 232 h40 M440 248 h28"/>
-          <path class="ln fill-soft2" d="M408 190 v-38 h30 v38 M413 162 h20 M418 176 v8 h10 v-8"/>
+          <rect class="fill-warm" x="400" y="202" width="192" height="88" rx="3"/>
+          <path class="ln" d="M400 216 H592 M440 240 h40 M440 254 h28"/>
+          <path class="ln fill-soft2" d="M408 202 v-34 h28 v34 M413 176 h18 M417 188 v7 h10 v-7"/>
           <!-- plant -->
           <path class="ln fill-soft" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
           <path class="ln leaf" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
@@ -220,13 +220,13 @@
           <ellipse class="cushion two" cx="300" cy="284" rx="40" ry="10"/>
           <path class="ln" d="M16 292 H624"/>
           <!-- steam -->
-          <path class="ln steam" d="M419 150 c-3 -5 3 -7 0 -12 M427 150 c-3 -5 3 -7 0 -12"/>
+          <path class="ln steam" d="M418 164 c-3 -5 3 -7 0 -11 M426 164 c-3 -5 3 -7 0 -11"/>
         </g>
 
 
         <g class="mischief" aria-hidden="true">
-          <g class="mug-wrap"><g class="mug" transform="translate(556 190)"><path class="ln fill-white" d="M0 0 v-11 h12 v11 Z M12 -8 q4.5 0 4.5 3.2 q0 3.2 -4.5 3.2"/></g></g>
-          <path class="ln crash" d="M600 284 l-6 -6 M606 280 v-8 M612 284 l6 -6"/>
+          <g class="mug-wrap"><g class="mug" transform="translate(574 202)"><path class="ln fill-white" d="M0 0 v-11 h12 v11 Z M12 -8 q4.5 0 4.5 3.2 q0 3.2 -4.5 3.2"/></g></g>
+          <path class="ln crash" d="M592 286 l-6 -6 M600 282 v-8 M608 286 l6 -6"/>
         </g>
         <g class="spots"></g>
       </svg>
@@ -654,11 +654,11 @@
     if (!root) return;
     var NS = "http://www.w3.org/2000/svg", XL = "http://www.w3.org/1999/xlink";
     var spots = [
-      { x: 106, y: 182, ill: "sit", h: 54 },                 // windowsill: party hat
-      { x: 292, y: 150, ill: "coffee", h: 50 },              // shelf: with its coffee
-      { x: 512, y: 190, ill: "walk", h: 40, knock: true },   // counter: strolls up to the mug
-      { x: 112, y: 288, ill: "lounge", w: 84 },              // cushion: belly up
-      { x: 300, y: 288, ill: "yawn", h: 54 }                 // floor: big stretch and yawn
+      { x: 106, y: 188, ill: "sit", h: 48 },                 // windowsill: party hat
+      { x: 300, y: 160, ill: "coffee", h: 44 },              // shelf: with its coffee
+      { x: 546, y: 202, ill: "walk", h: 36, knock: true },   // counter: next to the mug at the edge
+      { x: 112, y: 288, ill: "lounge", w: 76 },              // cushion: belly up
+      { x: 300, y: 288, ill: "yawn", h: 48 }                 // cushion: big stretch and yawn
     ];
     var VB = { sit: [154.771, 208.213], lounge: [174.142, 104.725], walk: [182.821, 133.225], coffee: [137.097, 145.083], yawn: [176.601, 195.634] };
     var KEY = "madhu-cafe-cats", state = [];
@@ -709,6 +709,11 @@
     function draw(i, animate) {
       var s = spots[i], g = layer.children[i];
       g.innerHTML = "";
+      var r = VB[s.ill], hw = s.w || s.h * r[0] / r[1], hh = s.h || s.w * r[1] / r[0];
+      var hit = document.createElementNS(NS, "rect");
+      hit.setAttribute("class", "hit"); hit.setAttribute("x", -hw / 2 - 4); hit.setAttribute("y", -hh * (s.base || 1) - 4);
+      hit.setAttribute("width", hw + 8); hit.setAttribute("height", hh + 8);
+      g.appendChild(hit);
       if (state[i]) {
         var c = illo(s, state[i]);
         if (animate && !still) c.querySelector(".cat-in").classList.add("pop");
