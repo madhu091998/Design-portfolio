@@ -26,7 +26,7 @@ html, body { background: var(--bg); }
 .try-t { font: 500 15px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
 .try-t .meta { margin-left: 6px; font-weight: 400; font-size: 13px; color: var(--muted); }
 .try-d { margin-top: 2px !important; font: 400 14px/1.5 "Geist", system-ui, sans-serif; color: var(--text); }
-.try-card .try-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--link); border-radius: 999px; color: var(--ink); text-decoration: none; font: 500 13px/1 "Geist", system-ui, sans-serif; transition: border-color .2s ease, color .2s ease; }
-.try-card .try-btn:hover { border-color: var(--ink); }
+.try-card .try-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 2px; border: 0; border-bottom: 1px solid var(--link); border-radius: 0; color: var(--ink); text-decoration: none; font: 500 14px/1.4 "Geist", system-ui, sans-serif; transition: border-color .2s ease; }
+.try-card .try-btn:hover { border-bottom-color: var(--ink); }
 .try-card .try-btn .t-icon svg { width: 13px; height: 13px; stroke: currentColor; }
 @media (max-width: 600px) { .try-card { flex-direction: column; align-items: flex-start; gap: 12px; } }
