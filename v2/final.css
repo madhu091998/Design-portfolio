@@ -369,3 +369,5 @@ html, body { background: var(--bg); }
 .swatches { display: flex; flex-direction: column; gap: 10px; grid-template-columns: none; }
 .sw.on { box-shadow: inset 0 0 0 1px rgba(62,55,40,.15), 0 0 0 2px #fff, 0 0 0 3px #77706a; }
 @media (max-width: 1180px) { .swatches { flex-direction: row; } }
+/* softer room lines */
+.cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun, .cafe-svg .ln.steam { stroke: #9b958d; }
