@@ -388,10 +388,12 @@ html, body { background: var(--bg); }
 .work-hero .cap span::after, .grid.work-more .cap span::after { content: none; }
 .work-hero .cap span::before, .grid.work-more .cap span::before { content: "\00B7"; margin: 0 10px; color: var(--muted); opacity: 1; }
 
-/* Work tiles: a subtle "you can click this" hover */
-.tile:not(.soon) .art { transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease; }
-.tile:not(.soon):hover .art, .tile:not(.soon):focus-visible .art { transform: translateY(-3px); box-shadow: 0 18px 36px -24px rgba(62, 55, 40, .45); }
-.tile:not(.soon) .cap b::after { content: "\2192"; display: inline-block; margin-left: 6px; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity .3s ease, transform .3s ease; }
-.tile:not(.soon):hover .cap b::after, .tile:not(.soon):focus-visible .cap b::after { opacity: 1; transform: translateX(0); }
-.tile:not(.soon):focus-visible .cap b { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; text-decoration-thickness: 1px; }
-@media (prefers-reduced-motion: reduce) { .tile:not(.soon) .art, .tile:not(.soon) .cap b::after { transition: none; } .tile:not(.soon):hover .art { transform: none; } }
+/* Work tiles: hover like vladsavruk.com — a soft panel fades in behind the card,
+   which tilts gently toward the cursor (tilt set in final.html's script) */
+.tile:not(.soon) { position: relative; isolation: isolate; transition: opacity 0.9s ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1); }
+.tile:not(.soon).tilting { transition: opacity 0.9s ease, transform 150ms ease-out; will-change: transform; }
+.tile:not(.soon)::before { content: ""; position: absolute; inset: -10px; z-index: -1; border-radius: 16px; background: #f8f8f8; opacity: 0; pointer-events: none; transition: opacity 250ms ease-out; }
+.tile:not(.soon):hover::before, .tile:not(.soon):focus-visible::before { opacity: 1; }
+.tile:hover .art > *, .tile:hover .art.mock > * { transform: none; }
+.tile:hover .cap b, .tile:focus-visible .cap b { text-decoration: none; }
+.tile:not(.soon):focus-visible { outline: 2px solid #d1d5db; outline-offset: 4px; }
