@@ -371,3 +371,4 @@ html, body { background: var(--bg); }
 @media (max-width: 1180px) { .swatches { flex-direction: row; } }
 /* softer room lines */
 .cafe-svg .ln, .cafe-svg rect, .cafe-svg ellipse, .cafe-svg circle.sun, .cafe-svg .ln.steam { stroke: #9b958d; }
+.work-hero .brief, .grid.work-more .tile .brief { margin-top: 12px; }
