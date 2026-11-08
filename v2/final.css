@@ -383,3 +383,7 @@ html, body { background: var(--bg); }
 .sec-head p { margin-top: 2px; } .sec-head h2 { line-height: 1.2; }
 .intro .who b { font-size: 14px; font-weight: 500; }
 .intro .avatar { width: 44px; height: 44px; } .intro .who { gap: 14px; } @media (max-width: 760px) { .intro .avatar { width: 40px; height: 40px; } }
+/* Title first, then the grey label */
+.work-hero .cap span, .grid.work-more .cap span { order: 0; }
+.work-hero .cap span::after, .grid.work-more .cap span::after { content: none; }
+.work-hero .cap span::before, .grid.work-more .cap span::before { content: "\00B7"; margin: 0 10px; color: var(--muted); opacity: 1; }
