@@ -13,3 +13,5 @@
 }
 html, body { background: var(--bg); }
 ::selection { background: rgba(213, 62, 9, 0.16); }
+/* Closing section reads like body copy */
+.blog .cs-end .prose p { font-size: 16px; line-height: 1.7; letter-spacing: 0; color: var(--text); max-width: none; }

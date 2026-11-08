@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peek &amp; poke · Madhumitha</title>
+  <meta name="description" content="Peek & poke: a little tool to turn UI changes into prompts for AI coding tools, and send feedback from live pages straight to Figma.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../case.css">
+  <link rel="stylesheet" href="../final-case.css">
+</head>
+<body class="case blog neel">
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../final.html#work"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3.5M7.5 4 3.5 8l4 4"/></svg>Back</a></nav>
+  <!-- TODO: add your resume as assets/Madhumitha-Resume.pdf -->
+  <a class="resume-btn" href="../../assets/Madhumitha-Resume.pdf" download>Resume<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 10.7l3.5-3.5M3 13.5h10"/></svg></a>
+</div>
+
+<nav class="sidenav" aria-label="On this page">
+  <a href="#top" class="on">Overview</a>
+  <a href="#inspector">Element inspector</a>
+  <a href="#annotator">Annotator</a>
+  <a href="#now">Where it is now</a>
+</nav>
+
+<main class="page" id="top">
+  <!-- 01 · Hero -->
+  <header class="hero">
+    <h1>Making it easier to design directly in code</h1>
+    <dl class="cs-facts">
+      <div><dt>Built with</dt><dd>Claude Code</dd></div>
+      <div><dt>Type</dt><dd>Self-initiated project</dd></div>
+    </dl>
+    <div class="prose intro">
+      <p>Peek &amp; poke is a little browser tool I built to help designers turn UI changes into precise prompts for AI coding tools and send feedback from live pages to Figma.</p>
+    </div>
+  </header>
+
+  <section class="sec" id="inspector" aria-labelledby="inspector-h">
+    <h2 class="cs-h2 reveal" id="inspector-h">Making UI changes without all the back and forth.</h2>
+    <div class="prose reveal"><p>Tweak things visually, see what works, and pass the exact changes to Claude or Cursor.</p></div>
+    <figure class="shot-ui reveal"><video src="../../assets/peek-and-poke/element-inspector.mp4" poster="../../assets/peek-and-poke/element-inspector-poster.jpg" width="1600" height="900" controls autoplay muted loop playsinline preload="metadata"
+          aria-label="Element inspector walkthrough: selecting a stat card, changing its padding and fill in the inspector, copying the prompt and pasting it into a coding agent, which updates the shared component"></video></figure>
+        <h3 class="cs-h3 reveal">The problem</h3>
+    <div class="prose reveal">
+        <p>Making small visual changes while designing in code was tedious. Even for something like spacing or colour, I'd guess a value, find the right design system token, prompt Claude or Cursor, and wait to see how it looked.</p>
+        <p>Most of the time, I didn't know the exact value I wanted. I just wanted to tweak things and see them change right away, without the prompt-and-check loop.</p>
+      </div>
+    <h3 class="cs-h3 reveal">The solution</h3>
+    <div class="prose reveal">
+        <p>That's where Peek &amp; poke came in. It's a lightweight, Figma-like inspector that lets me select elements on a live page and tweak spacing, colours and typography right on the UI.</p>
+        <p>I also made sure the properties in the inspector, like colours and typography, are mapped to our company's design system tokens. This way, designers can see and use the existing styles instead of having to remember them.</p>
+        <p>Once I'm happy with the changes, I can copy the generated prompt and pass it to Claude or Cursor to update the actual code.</p>
+      </div>
+  </section>
+
+  <section class="sec" id="annotator" aria-labelledby="annotator-h">
+    <h2 class="cs-h2 reveal" id="annotator-h">Making design feedback a little less tedious.</h2>
+    <div class="prose reveal"><p>Leave feedback directly on live pages and send everything to Figma, without the usual screenshot and annotation setup.</p></div>
+    <figure class="shot-ui reveal"><video src="../../assets/peek-and-poke/annotator.mp4" poster="../../assets/peek-and-poke/annotator-poster.jpg" width="1280" height="720" controls autoplay muted loop playsinline preload="metadata"
+          aria-label="Annotator walkthrough: leaving voice notes on two elements of a live page, sending them to Figma where they appear pinned to the screenshot, and sharing the file with a developer"></video></figure>
+        <h3 class="cs-h3 reveal">The problem</h3>
+    <div class="prose reveal">
+        <p>During design QA at Everstage, we'd take screenshots from Chrome, paste them into Figma, draw rectangles around the elements that needed changes, and add annotations for developers, like “Change this padding to 12px.” We'd then share the Figma file with them.</p>
+        <p>This whole process often took longer than adding the feedback itself.</p>
+        <p>The same happened when annotating edge cases in coded prototypes to explain behaviours and flows to developers.</p>
+      </div>
+    <h3 class="cs-h3 reveal">The solution</h3>
+    <div class="prose reveal">
+        <p>So I added an Annotator to Peek &amp; poke that connects Chrome and Figma. Designers can click any element on a live page, type or speak their feedback, add as many notes as needed, and click <b>Send to Figma</b>.</p>
+        <p>The screenshot lands in Figma with every annotation in the right place, without any of the manual setup.</p>
+      </div>
+  </section>
+
+  <section class="sec cs-end reveal" id="now" aria-labelledby="now-h">
+    <h2 class="cs-h2" id="now-h">Where it is now</h2>
+    <div class="prose">
+    <p>What started as a small tool for my own workflow is now being used by other designers at Everstage too. It's been nice to see them finding it useful.</p>
+    <p class="try">If you're a designer who also works directly in code and has run into similar frustrations, you might find this useful. <a class="try-cta" href="../../assets/peek-and-poke/Peek-and-poke-1.0.0.zip" download><span class="t-label" data-done="On its way. Enjoy!">Give it a try!</span><span class="t-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path class="t-arrow" d="M8 2.5v7.5M4.8 6.9 8 10.1l3.2-3.2"/><path class="t-tray" d="M3 13.5h10"/><path class="t-check" d="M4 8.4 6.8 11 12 5.2"/></svg></span></a> <span class="meta">.zip, 97 KB</span></p>
+    </div>
+  </section>
+
+  <footer class="cs-foot">
+    <div class="cs-foot-top">
+      <div class="cs-foot-sign">
+        <p class="foot-quote">That's all for this one.</p>
+        <a class="cs-foot-more" href="../final.html#work">See what else I've been up to<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </div>
+      <nav class="foot-col" aria-label="Elsewhere">
+        <p class="foot-h">Elsewhere</p>
+        <!-- TODO: replace with your real email and LinkedIn -->
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../../assets/Madhumitha-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+    <div class="cs-foot-next">
+      <p class="foot-h">Up next</p>
+      <a href="../contracts/final.html">Simplifying contract management with AI<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var items = document.querySelectorAll(".reveal");
+    if (still || !("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); }
+    else {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    }
+    // Recordings: keep the placeholder until a video actually loads
+    document.querySelectorAll(".media video").forEach(function (v) {
+      var fig = v.closest(".media");
+      function ok() { fig.classList.remove("missing"); }
+      if (v.readyState >= 2) ok(); else v.addEventListener("loadeddata", ok);
+      if (still) { v.autoplay = false; v.pause(); }
+    });
+  })();
+
+  (function () {
+    var cta = document.querySelector(".try-cta");
+    if (!cta) return;
+    var label = cta.querySelector(".t-label"), idle = label.textContent, t;
+    // A little thank-you once the download starts, then back to normal
+    cta.addEventListener("click", function () {
+      cta.classList.remove("done"); void cta.offsetWidth; cta.classList.add("done");
+      label.textContent = label.getAttribute("data-done");
+      clearTimeout(t);
+      t = setTimeout(function () { cta.classList.remove("done"); label.textContent = idle; }, 3200);
+    });
+  })();
+
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll(".sidenav a"));
+    function onScroll() {
+      var y = window.innerHeight * 0.4, cur = links[0];
+      links.forEach(function (a) {
+        var t = document.querySelector(a.getAttribute("href"));
+        if (t && t.getBoundingClientRect().top < y) cur = a;
+      });
+      links.forEach(function (a) { a.classList.toggle("on", a === cur); });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+</body>
+</html>
