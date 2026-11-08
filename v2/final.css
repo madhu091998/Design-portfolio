@@ -156,7 +156,6 @@ html, body { background: var(--bg); }
 .cafe-svg .cat { transform-box: fill-box; transform-origin: 50% 100%; }
 .cafe-svg .cat.pop { animation: cat-pop .55s cubic-bezier(.3, 1.6, .5, 1); }
 @keyframes cat-pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.cafe-svg .spot:hover .cat { transform: translateY(-1.5px); transition: transform .2s ease; }
 
 /* side panel */
 .cafe-side { display: grid; gap: 14px; align-content: start; }
@@ -286,7 +285,7 @@ html, body { background: var(--bg); }
 /* ===== Café v4: Madhu's illustrations ===== */
 .cafe-svg .cat-in { transform-box: fill-box; transform-origin: 50% 100%; }
 .cafe-svg .cat-in.pop { animation: cat-pop .55s cubic-bezier(.3, 1.6, .5, 1); }
-.cafe-svg .spot:hover .cat-in { transform: translateY(-1.5px) rotate(-2deg); transition: transform .25s ease; }
+
 /* mug sits still until the counter cat is adopted, then gets knocked off on a loop */
 .cafe-svg .mug-wrap, .cafe-svg .mug-wrap .mug path, .cafe-svg .crash { animation: none; }
 .cafe.knocking .cafe-svg .mug-wrap { animation: mug-push 7s linear infinite; }
@@ -359,3 +358,9 @@ html, body { background: var(--bg); }
 .cafe-scene:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .3; }
 .cafe-svg .spot:hover .ghost-ill, .cafe-svg .spot:focus-visible .ghost-ill { opacity: .65; }
 @media (hover: none) { .cafe-svg .ghost-ill { opacity: .3; } }
+
+/* Café: cats stay put on hover and on adopt; a little "meow" floats up instead */
+.cafe-svg .spot:hover .cat-in, .cafe-svg .cat-in.pop { transform: none; animation: none; }
+.cafe-svg .cafe-meow { font: italic 500 13px/1 "Geist", system-ui, sans-serif; pointer-events: none; animation: cafe-meow 1.2s ease-out forwards; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes cafe-meow { 0% { opacity: 0; transform: translateY(4px); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(-16px); } }
+@media (prefers-reduced-motion: reduce) { .cafe-svg .cafe-meow { animation: none; } }

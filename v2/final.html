@@ -695,6 +695,15 @@
       var inner = document.createElementNS(NS, "g"); inner.setAttribute("class", "cat-in"); inner.appendChild(sv); g.appendChild(inner);
       return g;
     }
+    var mw = ["meow", "mrrp", "prrr", "hi!", "mew?"], mn = 0;
+    function meow(s, ink) {
+      var r = VB[s.ill], h = s.h || s.w * r[1] / r[0];
+      var t = document.createElementNS(NS, "text");
+      t.setAttribute("class", "cafe-meow"); t.setAttribute("x", s.x); t.setAttribute("y", s.y - h * (s.base || 1) - 4);
+      t.setAttribute("text-anchor", "middle"); t.style.fill = ink; t.textContent = mw[mn++ % mw.length];
+      layer.parentNode.appendChild(t);
+      setTimeout(function () { t.remove(); }, 1300);
+    }
     function draw(i, animate) {
       var s = spots[i], g = layer.children[i];
       g.innerHTML = "";
@@ -705,8 +714,8 @@
       g.appendChild(hit);
       if (state[i]) {
         var c = illo(s, state[i]);
-        if (animate && !still) c.querySelector(".cat-in").classList.add("pop");
         g.appendChild(c);
+        if (animate) meow(s, state[i]);
         g.setAttribute("aria-label", "A cat is here. Click to let it go.");
       } else {
         var gh = illo(s, "currentColor");
