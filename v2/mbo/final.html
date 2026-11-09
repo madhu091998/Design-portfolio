@@ -60,12 +60,46 @@
     <div class="prose reveal">
       <p>We started by studying how customers already ran MBOs. The process worked, but it lived entirely outside Everstage:</p>
     </div>
-    <ol class="flow-steps reveal">
-      <li><span class="fs-n" aria-hidden="true">1</span><div><b>Managers set and scored goals in Excel or email.</b></div></li>
-      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins chased each manager and merged everything into a CSV.</b></div></li>
-      <li><span class="fs-n" aria-hidden="true">3</span><div><b>The CSV was uploaded into Everstage to calculate pay.</b></div></li>
-    </ol>
-    <p class="q reveal">Admins became middlemen every quarter. Nobody knew which scores were final, and people only saw a number on their statement.</p>
+    <figure class="oldp reveal" aria-label="How MBOs worked before: managers kept scores in Excel, email and spreadsheets. An admin chased each manager and merged everything by hand into a CSV, which was uploaded into Everstage every period, into a custom object and a datasheet, and finally the commission payout. Payees only saw the final number.">
+      <p class="op-lbl out">Outside Everstage</p>
+      <p class="op-lbl in">Inside Everstage</p>
+      <div class="op-zone out">
+        <div class="op-mgrs">
+          <p class="op-cap">Managers</p>
+          <ul class="op-chips">
+            <li><b>Manager A</b><span>Excel</span></li>
+            <li><b>Manager B</b><span>Email</span></li>
+            <li><b>Manager C</b><span>Spreadsheet</span></li>
+          </ul>
+          <p class="op-more">…and every other manager</p>
+        </div>
+        <div class="op-rest">
+          <svg class="op-fan" viewBox="0 0 64 162" aria-hidden="true"><path d="M2 23 L57 78 M2 81 L57 81 M2 139 L57 84"/><path d="M51 76.5 L57.5 81 L51 85.5"/></svg>
+          <div class="op-admin"><p class="op-cap">Admin</p><p class="op-box">Chases each manager and merges by hand</p></div>
+          <span class="op-arr" aria-hidden="true"></span>
+          <div class="op-csv"><svg viewBox="0 0 56 68" aria-hidden="true"><path class="pg" d="M3 2.5h34l16 16V65.5H3z"/><path class="pg" d="M37 2.5v16h16"/><text x="28" y="46" text-anchor="middle">CSV</text></svg><span>MBO_Q1.csv</span></div>
+        </div>
+      </div>
+      <div class="op-link" aria-hidden="true"><svg viewBox="0 0 84 298" preserveAspectRatio="xMinYMin meet"><path d="M0 133 H42 V46 H81"/><path d="M75 41.5 L81.5 46 L75 50.5"/></svg></div>
+      <div class="op-zone in">
+        <ol class="op-steps">
+          <li><b>Upload CSV</b><span>every period</span></li>
+          <li><b>Custom object</b></li>
+          <li><b>Datasheet</b></li>
+          <li class="pay"><b>Commission payout</b></li>
+        </ol>
+        <p class="op-note">Payees only see the final number</p>
+      </div>
+      <div class="op-hurt">
+        <p class="op-hl">Where it hurt</p>
+        <ul>
+          <li>Scattered across files and inboxes</li>
+          <li>Admin chases every manager, every quarter</li>
+          <li>Manual merge, easy to get wrong</li>
+          <li>No audit trail, no way to know which scores were final</li>
+        </ul>
+      </div>
+    </figure>
     <div class="prose reveal">
       <p>The steps themselves made sense: leadership set the goals, managers scored them, and often someone checked before payout. So I designed the product to <strong class="k">follow those same steps</strong>, and remove the chasing and copy-pasting around them.</p>
     </div>
