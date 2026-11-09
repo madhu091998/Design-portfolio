@@ -357,3 +357,12 @@ html, body { background: var(--bg); }
 
 .oi .sc.dollar { font-size: 17px; }
 .blog .oi.pf { margin-top: 32px; }
+
+/* MBO: the messy parts as an even, two-column list */
+.blog .mp-list { list-style: none; margin: 32px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.blog .mp-list li { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.blog .mp-list p { margin: 0; }
+.blog .mp-t { font: italic 400 18px/1.4 "Newsreader", Georgia, serif; color: var(--ink); }
+.blog .mp-t span { display: inline-block; width: 26px; font: 400 12px/1 "Geist", system-ui, sans-serif; font-style: normal; color: var(--muted); }
+.blog .mp-d { font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: var(--text); }
+@media (max-width: 640px) { .blog .mp-list li { grid-template-columns: 1fr; gap: 6px; } }
