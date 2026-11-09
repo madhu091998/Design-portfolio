@@ -1,8 +1,8 @@
-# Case study blueprint: how "Contracts revamp" is structured and told
+# Case study blueprint: how "Contracts revamp" is structured and told (and how to adapt it for MBO)
 
 This file breaks down the Contracts revamp case study (`v2/contracts/final.html`) so it can be used as a model for a new case study, like **MBO**. It covers:
 
-1. A prompt you can give Claude.
+1. A prompt you can give Claude, plus how to adapt the arc for a greenfield project (1b).
 2. The story arc, section by section, with the real Contracts copy as the example.
 3. The voice and writing rules.
 4. The page building blocks (HTML classes) so the new page looks the same.
@@ -11,22 +11,48 @@ This file breaks down the Contracts revamp case study (`v2/contracts/final.html`
 
 ## 1. Prompt to give Claude for the MBO case study
 
+MBO is a **greenfield project** (built from scratch, nothing existed before), while Contracts was a redesign. So the prompt asks Claude to keep the Contracts *storytelling and look*, but swap the "old vs new" parts for the greenfield arc in section 1b.
+
 > Go through the MBO codebase (and any design files, PRDs, tickets or Figma links I share) and figure out:
 > - what MBO is and who uses it
-> - what the experience looked like before
-> - what problems people had
-> - what was designed and built, step by step
-> - what edge cases were handled
+> - how people handled this before the feature existed (spreadsheets, other tools, manual work, or not at all)
+> - what problems that caused, and why it was worth building
+> - what had to be decided first (scope, what went into the first version, what was left out)
+> - what was designed and built, step by step, in the order a user goes through it
+> - the key design decisions and why they were made
+> - what edge cases and empty, error or missing-data states were handled
 > - what approaches were tried and dropped
 >
-> Then write a portfolio case study for it that follows the structure, voice and building blocks in `docs/contracts-case-study-blueprint.md` exactly. Use `v2/contracts/final.html` as the reference implementation and create `v2/mbo/final.html` with the same markup and classes.
+> Then write a portfolio case study for it that follows the voice and building blocks in `docs/contracts-case-study-blueprint.md`, using the **greenfield arc in section 1b** instead of the redesign arc. Use `v2/contracts/final.html` as the reference implementation and create `v2/mbo/final.html` with the same markup and classes.
 >
 > Rules:
+> - This is not a redesign. Don't write "old experience" vs "new experience" comparisons for the product itself. Compare against how people managed *before the feature existed* only where that's real.
 > - Don't invent facts, numbers, customer quotes or outcomes. If something isn't in the code or what I give you, leave a clearly marked `<!-- TODO: ... -->` placeholder and list it for me at the end.
 > - Use plain, warm, first-person language (I / we), short sentences, no jargon or buzzwords.
-> - For each step, describe the old experience vs the new one and the reason for the change.
+> - For each step, say what the user does, what I designed, and why.
 > - Mark where screenshots or recordings should go with a placeholder and a one-line description of what they should show.
 > - Before writing the page, give me a short outline (section headings plus one line each) so I can check the story first.
+
+---
+
+## 1b. Adapting the arc for a greenfield project
+
+The *shape* stays the same as Contracts: set up the people and the problem, then the turning point, then a walkthrough, then edge cases, explorations, outcome and reflection. Only the redesign-specific parts change.
+
+| Contracts (redesign) | MBO (greenfield) | What to write |
+|---|---|---|
+| Hero | **Hero** | Same: the outcome as the title, role and collaborators, a 2-paragraph intro (what it is, what I did and the key focus). Say it was built from scratch. |
+| Who uses Contracts? | **Who uses it** | Same persona cards. |
+| Understanding the problem (the old 5-step workflow) | **How people managed before** | How the job got done without the feature: spreadsheets, another tool, back-and-forth, or not at all. Use numbered steps only if there was a real process. End on the one key insight as a pull quote. |
+| Bringing AI into the workflow (question blocks) | **Shaping the product / defining the first version** | The open questions at the start, as question blocks ("What did the first version need to do?", "How would ___ work?"). Then what went in, what was left out, and why. Include research or inputs from other teams if real. |
+| How the experience changed (01–05, old vs new) | **Designing the experience** | Numbered parts 01–05 in the order the user goes through the product. Each part: one line on what the step is for → what I designed, with the key decision in **bold** → **why** → a recording or screenshot. **No old/new tags.** Use flow-steps, duo or step-label blocks for detail. |
+| Designing for when AI falls short | **Designing for the messy cases** | The same "When ___" pattern for edge cases: empty states, missing data, errors, permissions, unusual setups, changes midway. |
+| Some of the approaches we explored | **Approaches we explored** | Same. This matters even more for greenfield: show the early directions and why they changed. |
+| What changed with the redesign (old → new table) | **What it made possible** (or drop the table) | One bold summary sentence. Only use the before/after table if there was a real "before" process; otherwise use a short duo or list of what users can now do. |
+| What customers had to say | **What customers said / early adoption** | Only real feedback or adoption facts. Leave out if there are none. |
+| What I took away | **What I took away** | Same. Reflect on building from zero: defining scope, making decisions without an existing product to learn from, and so on (only what's true). |
+
+Building blocks to **skip** for greenfield: `phase old` / `phase new` and their `tag` labels, and `swap` (unless there's a real before process). Everything else carries over.
 
 ---
 
