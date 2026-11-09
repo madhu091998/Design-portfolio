@@ -339,3 +339,7 @@ html, body { background: var(--bg); }
 
 .blog .oi.sk { margin-top: 36px; }
 .blog .oi.sk + .ex { margin-top: 36px; }
+
+.oi .ttl { font-size: 16px; }
+.oi .lb2 { font: 400 12px "Geist", system-ui, sans-serif; letter-spacing: .02em; fill: #958c7a; }
+.oi .val { font: 400 14px "Geist", system-ui, sans-serif; fill: #5f584a; }
