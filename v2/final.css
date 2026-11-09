@@ -388,3 +388,11 @@ html, body { background: var(--bg); }
 .work-hero .cap span::after, .grid.work-more .cap span::after { content: none; }
 .work-hero .cap span::before, .grid.work-more .cap span::before { content: "\00B7"; margin: 0 10px; color: var(--muted); opacity: 1; }
 
+
+/* "View" cursor on clickable work tiles: a dark dot with a pill that trails behind it */
+.view-cursor { position: fixed; left: 0; top: 0; z-index: 1000; pointer-events: none; }
+.view-cursor .vc-dot, .view-cursor .vc-pill { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity .2s ease, scale .25s cubic-bezier(.2,.8,.2,1); }
+.view-cursor .vc-dot { width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--ink); scale: .4; }
+.view-cursor .vc-pill { padding: 9px 16px; border-radius: 999px; background: var(--ink); color: #fff; font: 500 14px/1 "Geist", system-ui, sans-serif; white-space: nowrap; translate: calc(-100% - 6px) calc(-100% + 2px); scale: .6; transform-origin: 100% 100%; }
+.view-cursor.on .vc-dot, .view-cursor.on .vc-pill { opacity: 1; scale: 1; }
+html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: none; }

@@ -748,5 +748,34 @@
     update();
   })();
 </script>
+<div class="view-cursor" aria-hidden="true"><span class="vc-pill">View</span><span class="vc-dot"></span></div>
+<script>
+  // Work tiles: swap the cursor for a dot with a "View" pill trailing behind it
+  (function () {
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var vc = document.querySelector(".view-cursor"), dot = vc.querySelector(".vc-dot"), pill = vc.querySelector(".vc-pill");
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var x = 0, y = 0, px = 0, py = 0, raf = 0;
+    document.documentElement.classList.add("has-vc");
+    function place() {
+      px += (x - px) * (still ? 1 : 0.2); py += (y - py) * (still ? 1 : 0.2);
+      dot.style.transform = "translate(" + x + "px," + y + "px)";
+      pill.style.transform = "translate(" + px + "px," + py + "px)";
+      raf = (Math.abs(x - px) > 0.1 || Math.abs(y - py) > 0.1) ? requestAnimationFrame(place) : 0;
+    }
+    document.addEventListener("pointermove", function (e) {
+      x = e.clientX; y = e.clientY;
+      var over = e.target.closest && e.target.closest(".tile:not(.soon)");
+      if (over && !vc.classList.contains("on")) { px = x; py = y; }
+      vc.classList.toggle("on", !!over);
+      if (!raf) raf = requestAnimationFrame(place);
+    }, { passive: true });
+    document.addEventListener("pointerleave", function () { vc.classList.remove("on"); });
+    window.addEventListener("scroll", function () {
+      var el = document.elementFromPoint(x, y);
+      vc.classList.toggle("on", !!(el && el.closest(".tile:not(.soon)")));
+    }, { passive: true });
+  })();
+</script>
 </body>
 </html>
