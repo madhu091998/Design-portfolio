@@ -396,3 +396,8 @@ html, body { background: var(--bg); }
 .view-cursor .vc-pill { padding: 9px 16px; border-radius: 999px; background: var(--ink); color: #fff; font: 500 14px/1 "Geist", system-ui, sans-serif; white-space: nowrap; translate: calc(-100% - 6px) calc(-100% + 2px); scale: .6; transform-origin: 100% 100%; }
 .view-cursor.on .vc-dot, .view-cursor.on .vc-pill { opacity: 1; scale: 1; }
 html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: none; }
+
+/* Cleaner hover: normal pointer cursor + a soft frosted "View" label beside it */
+.view-cursor .vc-dot { display: none; }
+html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; }
+.view-cursor .vc-pill { padding: 7px 13px; background: rgba(255, 255, 255, .86); color: var(--ink); border: 1px solid rgba(62, 55, 40, .1); box-shadow: 0 6px 20px -8px rgba(62, 55, 40, .28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 13px; translate: 18px 16px; transform-origin: 0 0; }
