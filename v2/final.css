@@ -401,3 +401,10 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: none; }
 .view-cursor .vc-dot { display: none; }
 html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; }
 .view-cursor .vc-pill { padding: 7px 13px; background: rgba(255, 255, 255, .86); color: var(--ink); border: 1px solid rgba(62, 55, 40, .1); box-shadow: 0 6px 20px -8px rgba(62, 55, 40, .28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 13px; translate: 18px 16px; transform-origin: 0 0; }
+
+/* Quirkier View sticker: orange, tilted, swings as it trails the cursor */
+.view-cursor .vc-pill { padding: 0; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; translate: 0 0; scale: 1; opacity: 1; transform-origin: 0 0; transition: none; }
+.view-cursor .vc-in { display: inline-flex; align-items: center; gap: 5px; margin: 18px 0 0 16px; padding: 7px 12px 7px 13px; border-radius: 999px; background: var(--accent); color: #fff; font: 500 13px/1 "Geist", system-ui, sans-serif; letter-spacing: .01em; box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 8px 18px -8px rgba(213, 62, 9, .55); opacity: 0; scale: .3; transform-origin: 0 0; transition: opacity .18s ease, scale .45s cubic-bezier(.34, 1.7, .5, 1); }
+.view-cursor .vc-in i { font-style: normal; font-size: 12px; display: inline-block; transition: transform .3s ease; }
+.view-cursor.on .vc-in { opacity: 1; scale: 1; }
+.view-cursor.on .vc-in i { transform: translate(1px, -1px); }

@@ -748,7 +748,7 @@
     update();
   })();
 </script>
-<div class="view-cursor" aria-hidden="true"><span class="vc-pill">View</span><span class="vc-dot"></span></div>
+<div class="view-cursor" aria-hidden="true"><span class="vc-pill"><span class="vc-in">View <i>↗</i></span></span><span class="vc-dot"></span></div>
 <script>
   // Work tiles: swap the cursor for a dot with a "View" pill trailing behind it
   (function () {
@@ -760,7 +760,8 @@
     function place() {
       px += (x - px) * (still ? 1 : 0.2); py += (y - py) * (still ? 1 : 0.2);
       dot.style.transform = "translate(" + x + "px," + y + "px)";
-      pill.style.transform = "translate(" + px + "px," + py + "px)";
+      var tilt = still ? -4 : Math.max(-14, Math.min(14, -4 + (x - px) * 0.35));
+      pill.style.transform = "translate(" + px + "px," + py + "px) rotate(" + tilt.toFixed(2) + "deg)";
       raf = (Math.abs(x - px) > 0.1 || Math.abs(y - py) > 0.1) ? requestAnimationFrame(place) : 0;
     }
     document.addEventListener("pointermove", function (e) {
