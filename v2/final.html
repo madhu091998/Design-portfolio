@@ -758,9 +758,9 @@
     var x = 0, y = 0, px = 0, py = 0, raf = 0;
     document.documentElement.classList.add("has-vc");
     function place() {
-      px += (x - px) * (still ? 1 : 0.2); py += (y - py) * (still ? 1 : 0.2);
+      px += (x - px) * (still ? 1 : 0.32); py += (y - py) * (still ? 1 : 0.32);
       dot.style.transform = "translate(" + x + "px," + y + "px)";
-      var tilt = still ? -4 : Math.max(-14, Math.min(14, -4 + (x - px) * 0.35));
+      var tilt = still ? -3 : Math.max(-6, Math.min(2, -3 + (x - px) * 0.12));
       pill.style.transform = "translate(" + px + "px," + py + "px) rotate(" + tilt.toFixed(2) + "deg)";
       raf = (Math.abs(x - px) > 0.1 || Math.abs(y - py) > 0.1) ? requestAnimationFrame(place) : 0;
     }

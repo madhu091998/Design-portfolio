@@ -408,3 +408,6 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .view-cursor .vc-in i { font-style: normal; font-size: 12px; display: inline-block; transition: transform .3s ease; }
 .view-cursor.on .vc-in { opacity: 1; scale: 1; }
 .view-cursor.on .vc-in i { transform: translate(1px, -1px); }
+/* Calmer View sticker */
+.view-cursor .vc-in { padding: 6px 11px 6px 12px; font-size: 12.5px; box-shadow: 0 4px 12px -6px rgba(213, 62, 9, .45); scale: .9; transition: opacity .2s ease, scale .25s ease; }
+.view-cursor.on .vc-in i { transform: none; }
