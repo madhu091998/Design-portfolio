@@ -366,3 +366,4 @@ html, body { background: var(--bg); }
 .blog .mp-t span { display: inline-block; width: 26px; font: 400 12px/1 "Geist", system-ui, sans-serif; font-style: normal; color: var(--muted); }
 .blog .mp-d { font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: var(--text); }
 @media (max-width: 640px) { .blog .mp-list li { grid-template-columns: 1fr; gap: 6px; } }
+.blog .mp-t { display: grid; grid-template-columns: 26px minmax(0, 1fr); align-items: baseline; } .blog .mp-t span { width: auto; }
