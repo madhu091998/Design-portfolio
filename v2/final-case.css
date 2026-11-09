@@ -30,3 +30,23 @@ html, body { background: var(--bg); }
 .try-card .try-btn:hover { border-bottom-color: var(--ink); }
 .try-card .try-btn .t-icon svg { width: 13px; height: 13px; stroke: currentColor; }
 @media (max-width: 600px) { .try-card { flex-direction: column; align-items: flex-start; gap: 14px; padding: 18px 20px; } }
+
+/* Four personas: two by two */
+.personas.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.personas.four li + li { border-left: 0; }
+.personas.four li:nth-child(even) { border-left: 1px solid var(--line); }
+.personas.four li:nth-child(n+3) { border-top: 1px solid var(--line); }
+@media (max-width: 760px) { .personas.four { grid-template-columns: 1fr; } .personas.four li:nth-child(even) { border-left: 0; } .personas.four li + li { border-top: 1px solid var(--line); } }
+/* Placeholder for a screen still to be added */
+.blog .shot-ph { display: grid; place-items: center; aspect-ratio: 16 / 9; border: 1px dashed rgba(62, 55, 40, 0.25); box-shadow: none; background: repeating-linear-gradient(135deg, transparent 0 11px, rgba(62, 55, 40, 0.04) 11px 12px), #fbfaf7; }
+.blog .shot-ph p { display: grid; gap: 6px; max-width: 420px; margin: 0; padding: 24px; text-align: center; }
+.blog .shot-ph b { font: 500 14px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
+.blog .shot-ph span { font: 400 14px/1.5 "Geist", system-ui, sans-serif; color: var(--text); }
+.duo.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.duo.four li:nth-child(odd) { padding: 20px 24px 0 0; border-left: 0; }
+.duo.four li:nth-child(even) { padding: 20px 0 0 24px; border-left: 1px solid var(--line); }
+.duo.four li:nth-child(n+3) { padding-bottom: 0; margin-top: 4px; }
+.personas.four li:nth-child(odd) { padding-left: 0; }
+.personas.four li:nth-child(even) { padding-right: 0; }
+.duo.four li { padding-bottom: 20px; }
+.blog .duo + .prose, .blog .duo + .flow-steps, .blog .duo + .shot-ui { margin-top: 28px; }
