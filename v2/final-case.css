@@ -367,3 +367,7 @@ html, body { background: var(--bg); }
 .blog .mp-d { font: 400 15px/1.55 "Geist", system-ui, sans-serif; color: var(--text); }
 @media (max-width: 640px) { .blog .mp-list li { grid-template-columns: 1fr; gap: 6px; } }
 .blog .mp-t { display: grid; grid-template-columns: 26px minmax(0, 1fr); align-items: baseline; } .blog .mp-t span { width: auto; }
+
+.blog .oi.who { margin-top: 32px; }
+
+.blog .oi.who { margin-top: 32px; }
