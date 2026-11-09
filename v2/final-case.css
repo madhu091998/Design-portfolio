@@ -71,3 +71,6 @@ html, body { background: var(--bg); }
 .mbo-flow .mf-dot { width: 8px; height: 8px; border-radius: 3px; }
 .mbo-flow .mf-dot.old { background: #f1cdbd; } .mbo-flow .mf-dot.new { background: #bfdcc9; margin-left: 10px; }
 @media (max-width: 640px) { .blog .mbo-flow { padding: 20px 16px; } .mbo-flow .mf-cols { grid-template-columns: 1fr; gap: 32px; } }
+.mbo-flow figcaption { gap: 6px 20px; }
+.mbo-flow figcaption span { display: inline-flex; align-items: center; gap: 8px; }
+.mbo-flow .mf-dot.new { margin-left: 0; }
