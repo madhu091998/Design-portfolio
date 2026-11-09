@@ -297,3 +297,24 @@ html, body { background: var(--bg); }
 .oi .pain { font: italic 400 16.5px "Newsreader", Georgia, serif; fill: #c4400f; }
 .oi .dk { stroke-opacity: .9; }
 .oi .it { font-size: 15px; }
+
+/* MBO sketch: fit the text column exactly */
+.blog .oi { width: auto; margin: 32px 0 0; }
+.oi .oi-d { display: none; }
+.oi .oi-m { display: block; }
+@media (min-width: 601px) {
+  .blog .oi { width: auto; margin-left: 0; }
+  .oi .oi-d { display: block; width: 100%; height: auto; }
+  .oi .oi-m { display: none; }
+}
+@media (min-width: 1421px) { .blog .oi { width: auto; margin-left: 0; } }
+.oi .oi-d .t { font-size: 14px; }
+.oi .oi-d .it { font-size: 14.5px; }
+.oi .oi-d .lbl { font-size: 10.5px; }
+.oi .oi-d .mono { font-size: 11.5px; }
+.oi .oi-pains { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; margin: 28px 0 0; padding: 20px 0 0; border-top: 1px solid var(--line); }
+.oi .oi-pains li { display: grid; gap: 4px; align-content: start; }
+.oi .oi-pains b { font: italic 500 16px/1.3 "Newsreader", Georgia, serif; color: #c4400f; }
+.oi .oi-pains span { font: 400 13.5px/1.5 "Geist", system-ui, sans-serif; color: var(--text); }
+@media (max-width: 760px) { .oi .oi-pains { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; } }
+.blog .oi + .prose { margin-top: 32px; }
