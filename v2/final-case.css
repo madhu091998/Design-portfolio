@@ -336,3 +336,6 @@ html, body { background: var(--bg); }
 .oi .hair2 { stroke-opacity: .16; stroke-width: 1; }
 .oi .sc { font: italic 500 19px "Newsreader", Georgia, serif; fill: #c4400f; }
 .blog .oi.sk + .ex { margin-top: 24px; }
+
+.blog .oi.sk { margin-top: 36px; }
+.blog .oi.sk + .ex { margin-top: 36px; }
