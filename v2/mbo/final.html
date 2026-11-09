@@ -28,6 +28,7 @@
   <a href="#before">Before MBO</a>
   <a href="#shaping">Shaping the product</a>
   <a href="#experience">The experience</a>
+  <a href="#pay">From score to pay</a>
   <a href="#messy">The messy cases</a>
   <a href="#decisions">Key decisions</a>
   <a href="#outcome">What it made possible</a>
@@ -224,6 +225,28 @@
     </ul>
     <figure class="shot-ui shot-ph reveal"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>My MBO for a payee, and Org-wide MBO for an admin with the hierarchy and a row's history.</span></p></figure>
   </div>
+  </section>
+
+  <section class="sec" id="pay" aria-labelledby="pay-h">
+    <h2 class="cs-h2 reveal" id="pay-h">How a score reaches pay</h2>
+    <div class="prose reveal">
+      <p>MBO programs and commission plans stay separate, and a <strong class="k">datasheet links the two</strong>. When a program is published, it creates its own datasheet. Admins point a commission plan at it like any other data source, and the plan's formula turns the score into money.</p>
+    </div>
+    <figure class="pay-flow reveal" aria-label="How a score moves from a manager to a payout: admin publishes the program, managers submit scores, the approver approves or rejects back to the manager, the datasheet updates, the commission plan formula runs, and the payout shows on the statement">
+      <div class="pf-grid">
+        <ol class="pf-main"><li class="mbo"><b>Admin publishes program</b><span>A datasheet is created for it</span></li><li class="mbo"><b>Managers submit scores</b><span>In Team MBO, stage by stage</span></li><li class="mbo"><b>Approver approves</b><span>Only approved values move on</span><em class="pf-rej-m">If rejected, it goes back to the manager</em></li><li class="mbo"><b>Datasheet updates</b><span>Synced within minutes</span></li><li class="pay"><b>Commission plan formula</b><span>e.g. score 80+ pays $500</span></li><li class="pay"><b>Payout on rep's statement</b><span>Lock warns if MBO is still open</span></li></ol>
+        <div class="pf-rej" aria-hidden="true"><b>Rejected</b><span>Back to manager</span></div>
+        <span class="pf-loop" aria-hidden="true"></span>
+      </div>
+      <figcaption><span><i class="pf-dot mbo"></i>MBO program</span><span><i class="pf-dot pay"></i>Commission plan</span></figcaption>
+    </figure>
+    <h3 class="cs-h3 reveal">Why it works this way</h3>
+    <ul class="duo four reveal">
+      <li><b>A datasheet in between</b><p>Programs work on their own, and any plan can use the data.</p></li>
+      <li><b>Only approved values</b><p>Finance can trust that pay is based on reviewed numbers.</p></li>
+      <li><b>The last approved value stays</b><p>A resubmission never wipes out someone's pay mid-review.</p></li>
+      <li><b>A warning, not a block</b><p>Locking a payout flags unfinished MBOs before money goes out.</p></li>
+    </ul>
   </section>
 
   <section class="sec" id="messy" aria-labelledby="messy-h">
