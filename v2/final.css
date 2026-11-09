@@ -417,4 +417,4 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 /* Brand pair: orange + Aqua Blue #6EEBFF */
 ::selection { background: rgba(110, 235, 255, .55); color: var(--ink); }
 .tile:hover .cap b { text-decoration-color: #6eebff; text-decoration-thickness: 3px; text-underline-offset: 3px; }
-.view-cursor .vc-in { background: #6eebff; color: #b8360a; font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
+.view-cursor .vc-in { background: #6eebff; color: var(--accent); font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
