@@ -175,3 +175,23 @@ html, body { background: var(--bg); }
 .blog .ex + .prose { margin-top: 24px; }
 .blog .part-h.lbl { flex-direction: column; align-items: flex-start; gap: 8px; }
 @media (max-width: 640px) { .blog .ex { flex-direction: column; gap: 8px; } }
+
+/* MBO: before / after, row by row */
+.blog .bfaf { margin: 28px 0 0; }
+.bfaf .bfaf-head, .bfaf li { display: grid; grid-template-columns: 150px 1fr 1fr; gap: 10px; }
+.bfaf .bfaf-head { margin-bottom: 10px; }
+.bfaf .bfaf-h { margin: 0; padding: 0 2px; font: 500 13px/1.4 "Geist", system-ui, sans-serif; letter-spacing: .02em; }
+.bfaf .bfaf-h.old { color: #a4532f; } .bfaf .bfaf-h.new { color: #2f6d4c; }
+.bfaf ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.bfaf .bfaf-k { margin: 0; padding: 14px 0 0; font: 500 14px/1.45 "Geist", system-ui, sans-serif; color: var(--ink); }
+.bfaf .bfaf-c { margin: 0; padding: 13px 15px; border-radius: 12px; font: 400 14px/1.55 "Geist", system-ui, sans-serif; }
+.bfaf .bfaf-c.old { background: #fbf1ec; color: #7d4a33; }
+.bfaf .bfaf-c.new { background: #edf5f0; color: #2c5a41; }
+.bfaf .bfaf-m { display: none; }
+@media (max-width: 640px) {
+  .bfaf .bfaf-head { display: none; }
+  .bfaf ol { gap: 22px; }
+  .bfaf li { grid-template-columns: 1fr; gap: 6px; }
+  .bfaf .bfaf-k { padding: 0; }
+  .bfaf .bfaf-m { display: block; margin-bottom: 2px; font: 500 11.5px/1.3 "Geist", system-ui, sans-serif; letter-spacing: .03em; opacity: .8; }
+}
