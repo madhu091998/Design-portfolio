@@ -1,18 +1,18 @@
 /* "Final" version: the Bio layout with the danmiloch.com palette.
-   White page, warm grey-brown text, dark brown ink, a Move Green and Signal Lime accent. */
+   White page, warm grey-brown text, dark brown ink, one orange-red accent. */
 :root {
   --bg: #ffffff;
   --ink: #3e3728;
   --text: #766e5d;
   --muted: #958c7a;
   --line: rgba(62, 55, 40, 0.12);
-  --accent: #1f3a2b;
+  --accent: #d53e09;
   --link: rgba(62, 55, 40, 0.28);
   --seafoam: #f7f8f6;
   --card: #f7f8f6;
 }
 html, body { background: var(--bg); }
-::selection { background: rgba(31, 58, 43, 0.16); }
+::selection { background: rgba(213, 62, 9, 0.16); }
 
 /* Hand-drawn "m" logo in the top bar */
 .wordmark .m-logo { display: block; }
@@ -149,9 +149,9 @@ html, body { background: var(--bg); }
 .cafe-svg .whisk { stroke-width: .8; opacity: .7; }
 .cafe-svg .eye { fill: #3e3728; }
 .cafe-svg .spot { cursor: pointer; outline: none; }
-.cafe-svg .hint { fill: rgba(31, 58, 43, .06); stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2.5 2.5; transition: fill .2s ease; }
+.cafe-svg .hint { fill: rgba(213, 62, 9, .06); stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2.5 2.5; transition: fill .2s ease; }
 .cafe-svg .hint-plus { stroke: var(--accent); stroke-width: 1.3; stroke-linecap: round; }
-.cafe-svg .spot:hover .hint, .cafe-svg .spot:focus-visible .hint { fill: rgba(31, 58, 43, .16); }
+.cafe-svg .spot:hover .hint, .cafe-svg .spot:focus-visible .hint { fill: rgba(213, 62, 9, .16); }
 .cafe-svg .spot:focus-visible .cat { outline: none; filter: drop-shadow(0 0 2px var(--accent)); }
 .cafe-svg .cat { transform-box: fill-box; transform-origin: 50% 100%; }
 .cafe-svg .cat.pop { animation: cat-pop .55s cubic-bezier(.3, 1.6, .5, 1); }
@@ -404,17 +404,17 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 
 /* Quirkier View sticker: orange, tilted, swings as it trails the cursor */
 .view-cursor .vc-pill { padding: 0; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; translate: 0 0; scale: 1; opacity: 1; transform-origin: 0 0; transition: none; }
-.view-cursor .vc-in { display: inline-flex; align-items: center; gap: 5px; margin: 18px 0 0 16px; padding: 7px 12px 7px 13px; border-radius: 999px; background: var(--accent); color: #fff; font: 500 13px/1 "Geist", system-ui, sans-serif; letter-spacing: .01em; box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 8px 18px -8px rgba(31, 58, 43, .55); opacity: 0; scale: .3; transform-origin: 0 0; transition: opacity .18s ease, scale .45s cubic-bezier(.34, 1.7, .5, 1); }
+.view-cursor .vc-in { display: inline-flex; align-items: center; gap: 5px; margin: 18px 0 0 16px; padding: 7px 12px 7px 13px; border-radius: 999px; background: var(--accent); color: #fff; font: 500 13px/1 "Geist", system-ui, sans-serif; letter-spacing: .01em; box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 8px 18px -8px rgba(213, 62, 9, .55); opacity: 0; scale: .3; transform-origin: 0 0; transition: opacity .18s ease, scale .45s cubic-bezier(.34, 1.7, .5, 1); }
 .view-cursor .vc-in i { font-style: normal; font-size: 12px; display: inline-block; transition: transform .3s ease; }
 .view-cursor.on .vc-in { opacity: 1; scale: 1; }
 .view-cursor.on .vc-in i { transform: translate(1px, -1px); }
 /* Calmer View sticker */
-.view-cursor .vc-in { padding: 6px 11px 6px 12px; font-size: 12.5px; box-shadow: 0 4px 12px -6px rgba(31, 58, 43, .45); scale: .9; transition: opacity .2s ease, scale .25s ease; }
+.view-cursor .vc-in { padding: 6px 11px 6px 12px; font-size: 12.5px; box-shadow: 0 4px 12px -6px rgba(213, 62, 9, .45); scale: .9; transition: opacity .2s ease, scale .25s ease; }
 .view-cursor.on .vc-in i { transform: none; }
 /* View sticker: Move Green with Signal Lime */
 .view-cursor .vc-in { background: #1f3a2b; color: #92ff5f; border: 1px solid rgba(146, 255, 95, .25); box-shadow: 0 6px 16px -8px rgba(31, 58, 43, .6); }
 
-/* Brand pair: Signal Lime #92FF5F + Move Green */
-:root { --lime: #92ff5f; --lime-soft: #e3fdd3; }
-::selection { background: rgba(146, 255, 95, .6); color: var(--ink); }
-.tile:hover .cap b { text-decoration-color: #92ff5f; text-decoration-thickness: 3px; text-underline-offset: 3px; }
+/* Brand pair: orange + Aqua Blue #6EEBFF */
+::selection { background: rgba(110, 235, 255, .55); color: var(--ink); }
+.tile:hover .cap b { text-decoration-color: #6eebff; text-decoration-thickness: 3px; text-underline-offset: 3px; }
+.view-cursor .vc-in { background: #6eebff; color: #b8360a; font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
