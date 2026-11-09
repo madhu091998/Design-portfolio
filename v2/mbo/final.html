@@ -43,7 +43,7 @@
     </dl>
     <div class="prose intro">
       <p>MBO (Management by Objectives) lets companies on Everstage reward goals that aren't a quota number, like a certification, a launch milestone or a manager's quarterly scorecard.</p>
-      <p>I designed the module from scratch, from setting up a program to managers scoring their teams, approvals, and what reps and admins see. A key focus was making sure only reviewed, final values ever reach someone's pay.</p>
+      <p>I designed the module from scratch, from setting up a program to managers scoring their teams, approvals, and what payees and admins see. A key focus was making sure only reviewed, final values ever reach someone's pay.</p>
     </div>
   </header>
 
@@ -53,14 +53,14 @@
       <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg></span><h3 class="ps-name">Admins</h3><p>Comp and RevOps teams who design the goal form, decide who's in it, set deadlines and approvals, and watch progress across the org.</p></li>
       <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c.6-3 2.8-4.7 5.5-4.7s4.9 1.7 5.5 4.7"/><path d="M15.5 5.8a3 3 0 0 1 0 5.4"/><path d="M17.5 14.9c1.6.6 2.7 2.2 3 4.6"/></svg></span><h3 class="ps-name">Managers</h3><p>People who fill in goals and scores for their team, quickly and without breaking anything.</p></li>
       <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.4 3.1 8 7.5 9.5 4.4-1.5 7.5-5.1 7.5-9.5V6z"/><path d="m8.8 12 2.3 2.3 4.3-4.6"/></svg></span><h3 class="ps-name">Approvers</h3><p>People who review what managers submitted and approve or reject it.</p></li>
-      <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span><h3 class="ps-name">Reps</h3><p>Salespeople who see their own goals and final scores, never a half-finished draft.</p></li>
+      <li><span class="ps-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></span><h3 class="ps-name">Payees</h3><p>People earning on MBOs, more often managers and leaders than reps, who see their own goals and final scores, never a half-finished draft.</p></li>
     </ul>
   </section>
 
   <section class="sec" id="before" aria-labelledby="before-h">
-    <h2 class="cs-h2 reveal" id="before-h">How companies managed before MBO</h2>
+    <h2 class="cs-h2 reveal" id="before-h">How companies managed MBOs before</h2>
     <div class="prose reveal">
-      <p>Commission plans are good at paying for numbers like quota, revenue and deals closed. But a lot of what companies want to reward isn't a quota percentage:</p>
+      <p>MBOs are structured goals set for employees, usually by their managers. Each goal has a weight or score, and the total decides part of their variable pay. Sometimes it's an extra bonus on top. The goals are often qualitative, and tracked each period:</p>
     </div>
     <ul class="duo four reveal">
       <li><b>Certifications</b><p>Getting a product certification.</p></li>
@@ -69,20 +69,47 @@
       <li><b>Scorecards</b><p>A manager's quarterly scorecard on demo quality.</p></li>
     </ul>
     <div class="prose reveal">
-      <p>Before MBO, these goals lived in spreadsheets. Every period looked something like this:</p>
+      <p>Several Everstage customers already ran MBOs internally, but there was no easy way to manage them in Everstage. Every period looked something like this:</p>
     </div>
     <ol class="flow-steps reveal">
-      <li><span class="fs-n" aria-hidden="true">1</span><div><b>Managers scored reps outside Everstage.</b><p>In email or Excel.</p></div></li>
-      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins copied the numbers in by hand.</b><p>Into the commission system, one by one.</p></div></li>
-      <li><span class="fs-n" aria-hidden="true">3</span><div><b>Everyone chased at period end.</b><p>Nobody could tell which scores were final.</p></div></li>
+      <li><span class="fs-n" aria-hidden="true">1</span><div><b>Managers defined goals manually.</b><p>For each of their reportees, outside Everstage.</p></div></li>
+      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins collected them one by one.</b><p>Reaching out to each manager individually for goals and scores across all their reportees.</p></div></li>
+      <li><span class="fs-n" aria-hidden="true">3</span><div><b>Everything went into a CSV.</b><p>Consolidated by hand and uploaded into Everstage each quarter.</p></div></li>
+      <li><span class="fs-n" aria-hidden="true">4</span><div><b>The data was fed into pay.</b><p>Through a custom object and a datasheet, then into the commission engine for payout.</p></div></li>
     </ol>
-    <p class="q reveal">That meant errors in pay, no audit trail, and a lot of chasing at period end.</p>
+    <p class="q reveal">Admins had become middlemen, chasing managers for goals and scores, and repeating it at the start and end of every period.</p>
+    <h3 class="cs-h3 reveal">Where it hurt</h3>
+    <div class="prose reveal">
+      <ul>
+        <li><strong class="k">Manual collection.</strong> Admins chased managers to get goals and scores for each payee.</li>
+        <li><strong class="k">The same effort, every period.</strong> It was repeated at the beginning and end of every quarter or half year.</li>
+        <li><strong class="k">No visibility.</strong> Managers had nowhere to enter or review goal progress. Payees couldn't see their goals or how they were doing, and often only saw the final MBO payout in their statements.</li>
+        <li><strong class="k">No structured reminders.</strong> Admins followed up by hand, which led to delays and inconsistencies.</li>
+        <li><strong class="k">No audit trail.</strong> Since it all happened outside the platform, there was no record of who approved or updated what.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="sec" id="shaping" aria-labelledby="shaping-h">
     <h2 class="cs-h2 reveal" id="shaping-h">Shaping the product</h2>
+    <h3 class="cs-h3 reveal">Understanding how MBOs work</h3>
     <div class="prose reveal">
-      <p>The goal was to give companies one place to <strong class="k">define</strong> a goal, have managers <strong class="k">score</strong> it each period, and send the final values <strong class="k">straight into pay</strong>, with clear ownership, deadlines, and a formal sign-off when needed.</p>
+      <p>Before designing anything, we looked at how companies actually run MBOs. A few patterns stood out:</p>
+    </div>
+    <ul class="duo four reveal">
+      <li><b>Top-down</b><p>Sales leadership or the comp team decides the MBO framework. Goals are often set at an org or team level, and managers add inputs on weightage and scores.</p></li>
+      <li><b>A smaller share of pay</b><p>MBOs usually make up around 10 to 35% of the payout. Core sales numbers still drive most of it.</p></li>
+      <li><b>Their own rhythm</b><p>MBO payouts can be monthly, quarterly or annual, independent of the main commission cadence.</p></li>
+      <li><b>Mostly for managers and leaders</b><p>Companies try to avoid too much subjectivity in pay for individual reps.</p></li>
+    </ul>
+    <div class="qb reveal"><p class="qb-l">But this raised a question:</p><p class="qb-q">A manager may be tempted to score their team higher so they get paid more. How do we keep scores fair?</p></div>
+    <div class="prose reveal">
+      <p>The answer was a <strong class="k">maker-checker process</strong>. Managers enter goals and scores, and someone else, like the manager's manager or a sales ops or finance representative, reviews and signs off. Approval matters most at the end, once scores are in. Goal setting may or may not need it.</p>
+      <p>Who approves, and when, varies from company to company. There's no one-size-fits-all, so <strong class="k">approvals had to be configurable</strong>.</p>
+    </div>
+    <h3 class="cs-h3 reveal">What we set out to build</h3>
+    <div class="prose reveal">
+      <p>The goal was to give companies one place to <strong class="k">define</strong> a goal, have managers <strong class="k">score</strong> it each period, and send the final values <strong class="k">straight into pay</strong>, with clear ownership, deadlines, and a formal sign-off when needed. All with minimal manual collection and back-and-forth for managers.</p>
     </div>
     <div class="qb reveal"><p class="qb-l">For example:</p><p class="qb-q">Jordan rates Alex on a quarterly demo scorecard. The plan says "score 80 or higher pays a $500 bonus." Jordan submits 85, so Alex earns $500.</p></div>
     <div class="prose reveal">
@@ -91,8 +118,8 @@
     <div class="case-row stack lite appr reveal">
       <h3 class="case-t"><span class="pn">01</span>Templates attached to commission plans</h3>
       <div class="prose">
-        <p>In the first version, admins built a template (the goal form) and attached it to a commission plan. Publishing the plan created one goal row per rep, per period. Managers filled in rows with a save draft and submit model, and submitted values flowed to pay.</p>
-        <p class="sol">It came with three views: My MBO for reps, Team MBO for managers, and Org-wide MBO for admins.</p>
+        <p>In the first version, admins built a template (the goal form) and attached it to a commission plan. Publishing the plan created one goal row per payee, per period. Managers filled in rows with a save draft and submit model, and submitted values flowed to pay.</p>
+        <p class="sol">It came with three views: My MBO for payees, Team MBO for managers, and Org-wide MBO for admins.</p>
       </div>
     </div>
     <div class="case-row stack lite appr reveal">
@@ -102,7 +129,7 @@
         <p class="sol">Programs added stages, optional approval workflows and field locking. The MBO manager could be someone other than the reporting manager, and final values sync to a datasheet that commission formulas can read, only after approval.</p>
       </div>
     </div>
-    <div class="qb reveal"><p class="qb-l">Since these values drive real pay, one question shaped every screen:</p><p class="qb-q">How do we make sure only reviewed, final values ever reach a payout?</p></div>
+    <div class="qb reveal"><p class="qb-l">Since these values drive real pay, one question shaped every screen after that:</p><p class="qb-q">How do we make sure only reviewed, final values ever reach a payout?</p></div>
   </section>
 
   <section class="sec" id="experience" aria-labelledby="experience-h">
@@ -164,7 +191,7 @@
     </div>
     <ol class="flow-steps">
       <li><span class="fs-n" aria-hidden="true">1</span><div><b>Edit in place</b><p>Each cell's editor matches the field: a dropdown, date picker, long-text pop-out or file upload.</p></div></li>
-      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Save as draft anytime</b><p>Drafts are private. Reps and pay don't see them, and a "Records with drafts" filter helps find unfinished work.</p></div></li>
+      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Save as draft anytime</b><p>Drafts are private. Payees and pay don't see them, and a "Records with drafts" filter helps find unfinished work.</p></div></li>
       <li><span class="fs-n" aria-hidden="true">3</span><div><b>Review before submitting</b><p>Submit opens a review showing what will submit now and what stays a draft, like a stage that isn't ready yet.</p></div></li>
     </ol>
     <div class="prose">
@@ -191,12 +218,12 @@
   </div>
 
   <div class="part reveal">
-    <h3 class="cs-h3 part-h"><span class="pn">07</span>What reps and admins see</h3>
+    <h3 class="cs-h3 part-h"><span class="pn">07</span>What payees and admins see</h3>
     <ul class="duo">
-      <li><b>My MBO</b><p>Reps see their goals per period and who their MBO manager is. Only official values show, never a draft or a stage still waiting for approval.</p></li>
+      <li><b>My MBO</b><p>Payees see their goals per period and who their MBO manager is. Only official values show, never a draft or a stage still waiting for approval.</p></li>
       <li><b>Org-wide MBO</b><p>Admins see every participant by reporting hierarchy, filter by status or people without MBOs, fill in values when a manager isn't available, and view the full history of any row.</p></li>
     </ul>
-    <figure class="shot-ui shot-ph reveal"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>My MBO for a rep, and Org-wide MBO for an admin with the hierarchy and a row's history.</span></p></figure>
+    <figure class="shot-ui shot-ph reveal"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>My MBO for a payee, and Org-wide MBO for an admin with the hierarchy and a row's history.</span></p></figure>
   </div>
   </section>
 
@@ -217,7 +244,7 @@
     <div class="case-row stack lite reveal">
       <h3 class="case-t"><span class="pn">02</span>When a re-submission is pending</h3>
       <div class="prose">
-        <p class="sol">Reps keep seeing the last approved value until the new one is approved, so they never see a number that might still change.</p>
+        <p class="sol">Payees keep seeing the last approved value until the new one is approved, so they never see a number that might still change.</p>
       </div>
     </div>
     <div class="case-row stack lite reveal">
@@ -241,7 +268,7 @@
     <div class="case-row stack lite appr reveal">
       <h3 class="case-t"><span class="pn">01</span>Draft and submit, everywhere</h3>
       <div class="prose">
-        <p class="sol">"Save freely, submit when sure" removed the fear of touching a grid that drives pay. Reps only ever see official values.</p>
+        <p class="sol">"Save freely, submit when sure" removed the fear of touching a grid that drives pay. Payees only ever see official values.</p>
       </div>
     </div>
     <div class="case-row stack lite appr reveal">
