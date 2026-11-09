@@ -143,3 +143,27 @@ html, body { background: var(--bg); }
   .stage-flow .sf-arr { justify-self: center; width: 1px; height: 22px; margin: 4px 0; }
   .stage-flow .sf-arr::after { right: auto; left: -3px; top: auto; bottom: 0; border-top: 0; border-bottom: 1px solid var(--muted); }
 }
+
+/* MBO: locking states */
+.blog .lock-flow { margin: 24px 0 0; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fbfaf7; }
+.lock-flow .lf-row { display: grid; grid-template-columns: 1fr 84px 1fr 84px 1fr; align-items: center; }
+.lock-flow .lf-s { display: grid; gap: 2px; padding: 12px 14px; border-radius: 12px; border: 1px solid; text-align: center; }
+.lock-flow .lf-s b { display: inline-flex; justify-content: center; align-items: center; gap: 6px; font: 500 15px/1.35 "Geist", system-ui, sans-serif; }
+.lock-flow .lf-s span { font: 400 13px/1.4 "Geist", system-ui, sans-serif; }
+.lock-flow .lf-s svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.lock-flow .open { background: #ebf4ee; border-color: rgba(46, 125, 84, 0.2); } .lock-flow .open b { color: #1f5a3c; } .lock-flow .open span { color: #3f7d5a; }
+.lock-flow .pending { background: #f6f3ea; border-color: rgba(161, 120, 30, 0.22); } .lock-flow .pending b { color: #6e5214; } .lock-flow .pending span { color: #8f7535; }
+.lock-flow .locked { background: #eceae4; border-color: rgba(62, 55, 40, 0.18); } .lock-flow .locked b { color: var(--ink); } .lock-flow .locked span { color: var(--text); }
+.lock-flow .lf-arr { position: relative; height: 1px; margin: 0 7px; background: color-mix(in srgb, var(--muted) 60%, transparent); }
+.lock-flow .lf-arr::after { content: ""; position: absolute; right: 0; top: -3px; width: 6px; height: 6px; border-right: 1px solid var(--muted); border-top: 1px solid var(--muted); transform: rotate(45deg); opacity: .8; }
+.lock-flow .lf-arr i { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font: 400 11.5px/1.2 "Geist", system-ui, sans-serif; font-style: normal; color: var(--muted); white-space: nowrap; }
+.lock-flow .lf-notes { list-style: none; display: grid; gap: 8px; margin: 20px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); font: 400 13.5px/1.5 "Geist", system-ui, sans-serif; color: var(--text); }
+.lock-flow .lf-notes b { font-weight: 500; color: var(--ink); }
+.blog .lock-flow + .prose { margin-top: 20px; }
+@media (max-width: 640px) {
+  .blog .lock-flow { padding: 18px 16px; }
+  .lock-flow .lf-row { grid-template-columns: 1fr; }
+  .lock-flow .lf-arr { justify-self: center; width: 1px; height: 30px; margin: 4px 0; }
+  .lock-flow .lf-arr::after { right: auto; left: -3px; top: auto; bottom: 0; border-top: 0; border-bottom: 1px solid var(--muted); }
+  .lock-flow .lf-arr i { left: 12px; right: auto; bottom: auto; top: 50%; transform: translateY(-50%); text-align: left; }
+}

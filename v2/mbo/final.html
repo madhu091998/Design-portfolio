@@ -111,12 +111,33 @@
         <div class="sf-card pay"><p class="sf-k">Then</p><b>Official values</b><span>Go to pay</span></div>
       </div>
       <div class="sf-out"><b>Fields outside stages</b><span>Like a note or a date. Editable anytime, no approval needed.</span></div>
-      <figcaption>Scores only open once Goals are done. Each stage locks on approval or a date, whichever comes first.</figcaption>
+      <figcaption>Scores only open once Goals are done.</figcaption>
     </figure>
     <div class="qb reveal"><p class="qb-l">For example:</p><p class="qb-q">In January, Jordan sets Alex's goal: run 10 product demos. Jordan's manager approves, and it locks. In March, Jordan scores Alex 85, and Finance approves.</p></div>
     <div class="prose reveal">
       <p>The goal Alex was measured on is the goal that was agreed in January.</p>
       <p>We designed for <strong class="k">two stages only</strong> because the customers we knew only ran MBOs in these two moments. But we kept the design and the backend flexible, so <strong class="k">more stages can be added later</strong>.</p>
+    </div>
+    <h3 class="cs-h3 reveal">Locking: can this still change?</h3>
+    <div class="prose reveal">
+      <p>Without a lock, managers kept editing after the period ended, and even a score Finance had approved could still change. So each stage <strong class="k">locks on approval or a date, whichever comes first</strong>. Approval protects fairness, and the date protects the deadline.</p>
+    </div>
+    <figure class="lock-flow reveal" aria-label="A stage is open while the manager edits, pending and frozen while it's reviewed, and locked once it's approved or the lock date passes. Rejected stages go back to the manager, and only admins can unlock.">
+      <div class="lf-row">
+        <div class="lf-s open"><b>Open</b><span>Manager can edit</span></div>
+        <span class="lf-arr"><i>Submits</i></span>
+        <div class="lf-s pending"><b>Pending</b><span>Frozen during review</span></div>
+        <span class="lf-arr"><i>Approved</i></span>
+        <div class="lf-s locked"><b><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7"/></svg> Locked</b><span>No more edits</span></div>
+      </div>
+      <ul class="lf-notes">
+        <li><b>Lock date passes?</b> It locks anyway, approved or not.</li>
+        <li><b>Rejected?</b> It goes back to the manager to fix.</li>
+        <li><b>Missed the deadline?</b> Only an admin can unlock it, for one manager or everyone.</li>
+      </ul>
+    </figure>
+    <div class="prose reveal">
+      <p>The rule shows in the grid while managers work, like <em>"Locks on approval or Jan 20, 2026"</em>, so a lock never comes as a surprise.</p>
     </div>
   </section>
 
