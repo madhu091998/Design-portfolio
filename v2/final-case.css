@@ -354,3 +354,6 @@ html, body { background: var(--bg); }
 .blog .ex-t::after { content: ":"; }
 .blog .ex p { display: inline; margin: 0; font: italic 400 17px/1.55 "Newsreader", Georgia, serif; color: #5f584a; }
 @media (max-width: 640px) { .blog .ex { flex-direction: row; } }
+
+.oi .sc.dollar { font-size: 17px; }
+.blog .oi.pf { margin-top: 32px; }
