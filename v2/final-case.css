@@ -346,3 +346,11 @@ html, body { background: var(--bg); }
 
 .oi .sand { fill: #eadfca; stroke: none; }
 .blog .oi.lk { margin-top: 32px; }
+
+/* "Alex's goal" as a handwritten margin note, not a boxed component */
+.blog .ex { display: block; position: relative; margin: 24px 0 0; padding: 0 0 0 30px; background: none; border: 0; border-radius: 0; }
+.blog .ex::before { content: ""; position: absolute; left: 2px; top: 3px; width: 20px; height: 20px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23c4400f' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 2.5 C2.6 9.5 5.5 14.2 15.5 14.6'/%3E%3Cpath d='M11.6 10.8 L15.8 14.6 L11.4 18.2'/%3E%3C/svg%3E") no-repeat center / contain; opacity: .85; }
+.blog .ex-t { display: inline; padding: 0; margin-right: 6px; background: none; border: 0; border-radius: 0; font: italic 500 17px/1.55 "Newsreader", Georgia, serif; color: #c4400f; white-space: normal; }
+.blog .ex-t::after { content: ":"; }
+.blog .ex p { display: inline; margin: 0; font: italic 400 17px/1.55 "Newsreader", Georgia, serif; color: #5f584a; }
+@media (max-width: 640px) { .blog .ex { flex-direction: row; } }
