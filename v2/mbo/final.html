@@ -28,6 +28,7 @@
   <a href="#problem">How customers ran MBOs</a>
   <a href="#challenge">The core challenge</a>
   <a href="#how">How it works</a>
+  <a href="#messy">The messy parts</a>
   <a href="#experience">The experience</a>
   <a href="#changed">What changed</a>
   <a href="#takeaway">What I took away</a>
@@ -38,12 +39,13 @@
     <h1>Bringing non-quota goals into commission pay</h1>
     <dl class="cs-facts">
       <div><dt>My role</dt><dd>End-to-end product design</dd></div>
-      <div><dt>Collaborators</dt><dd><!-- TODO: PM and team, e.g. "Name (PM) · Engineers" -->PM · Engineers</dd></div>
+      <div><dt>Collaborators</dt><dd><!-- TODO: add names if you like -->PMs, engineering, customer-facing teams</dd></div>
       <div><dt>Type</dt><dd>New module, built from scratch</dd></div>
+      <div><dt>Timeline</dt><dd>2025 to 2026, in two phases</dd></div>
     </dl>
     <div class="prose intro">
       <p>Sales teams don't only pay for revenue. Many also reward goals like getting certified or running good demos, called MBOs. Everstage customers managed these in spreadsheets and email.</p>
-      <p>I owned the design of the MBO module end to end, with our PM and engineers. It lets companies set goals, have managers score them, review the scores and pay on them, all in Everstage. Since scores turn into real money, my focus was making sure people are paid on fair, final numbers.</p>
+      <p>I designed MBO across both phases, first the templates and views, then approvals and locking, working closely with PMs, engineering and customer-facing teams. Since scores turn into real money, my focus was making sure people are paid on fair, final numbers.</p>
     </div>
   </header>
 
@@ -201,6 +203,50 @@
   </div>
   </section>
 
+  <section class="sec" id="messy" aria-labelledby="messy-h">
+    <h2 class="cs-h2 reveal" id="messy-h">The messy parts</h2>
+    <div class="prose reveal">
+      <p>The happy path was the easy part. Most of the design work went into everything around it.</p>
+    </div>
+    <div class="qb reveal"><p class="qb-l">For managers and payees, every screen had to answer four questions:</p><p class="qb-q">What should I do now? Can I edit this? Is it waiting on someone? What happens if it's rejected?</p></div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">01</span>Every company runs MBOs differently</h3>
+      <div class="prose">
+        <p>Who sets goals, how many people approve, when scoring starts and when things lock all change from company to company.</p>
+        <p class="sol">Every admin setting changes what managers and payees see later, so I designed the setup and the day-to-day screens as one system, not as separate pieces.</p>
+      </div>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">02</span>One manager, many states</h3>
+      <div class="prose">
+        <p>At any moment, one person's goals might be approved, another's still a draft, and a third's scores waiting on an approver.</p>
+        <p class="sol">Managers needed to act on one person or many without treating the whole team as one unit. Statuses, filters and the actions on offer had to show where each person stands.</p>
+      </div>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">03</span>Approvals ripple outward</h3>
+      <div class="prose">
+        <p>An approve or reject doesn't only change the approver's screen. It changes what the manager can edit and what the payee sees.</p>
+        <p class="sol">A rejection has to reopen just the affected stage, without losing track of where everything else is.</p>
+      </div>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">04</span>Bulk work at scale</h3>
+      <div class="prose">
+        <p>Updating records one by one gets painful fast, and one customer was doing exactly that. But a bulk selection can mix people in different states or permissions.</p>
+        <p class="sol">It had to be clear which records an action applies to, what will change, and what needs attention when some of them can't be updated.</p>
+      </div>
+    </div>
+    <div class="case-row stack lite reveal">
+      <h3 class="case-t"><span class="pn">05</span>Drafts versus submitting</h3>
+      <div class="prose">
+        <p>Unfinished work, especially from a spreadsheet import, has to be recoverable. Submitting has consequences: a record can go to an approver or lock.</p>
+        <p class="sol">So saving a draft and submitting needed to feel clearly different, and nothing should be lost halfway.</p>
+      </div>
+    </div>
+    <!-- TODO: Phase 2 was partly still in design and development in 2026. Check what shipped and adjust the wording above if needed. -->
+  </section>
+
   <section class="sec" id="experience" aria-labelledby="experience-h">
     <h2 class="cs-h2 reveal" id="experience-h">Designing the experience</h2>
     <div class="prose reveal">
@@ -270,7 +316,7 @@
     <!-- TODO: this is a draft. Rewrite it in your own words. -->
     <div class="prose reveal">
       <p>With no existing screens to improve, the hard part was understanding a process that lived in spreadsheets, and deciding what to keep.</p>
-      <p>Since every number ends up in someone's pay, most of my time went into what's a draft, what's final, and who can change it.</p>
+      <p>Since every number ends up in someone's pay, most of my time went into what's a draft, what's final, who can change it, and what happens when work is half done or takes an unexpected path.</p>
     </div>
     <figure class="closer reveal">
       <span class="closer-mark" aria-hidden="true"></span>
