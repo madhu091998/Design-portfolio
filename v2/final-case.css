@@ -326,3 +326,9 @@ html, body { background: var(--bg); }
 .oi .oi-pains { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 48px; margin-top: 36px; padding-top: 28px; }
 .oi .oi-pains span { font-size: 14px; }
 @media (max-width: 520px) { .oi .oi-pains { grid-template-columns: 1fr; gap: 20px; } }
+.oi .mk-bg { fill: #fbe7dc; stroke: none; }
+.oi .mk-ln { fill: none; stroke: #c4400f; stroke-opacity: .75; stroke-width: 1.15; stroke-linecap: round; }
+.oi .mk text, .oi svg.mk-n text { font: italic 500 13px "Newsreader", Georgia, serif; fill: #c4400f; }
+.oi svg.mk-n { display: inline-block; width: 22px; height: 22px; flex: none; overflow: visible; background: none; border: 0; border-radius: 0; transform: translateY(4px); }
+.oi .oi-pains b { align-items: baseline; gap: 7px; }
+.oi .oi-pains span { padding-left: 29px; }
