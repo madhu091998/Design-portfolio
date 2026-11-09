@@ -215,15 +215,15 @@
   <section class="sec" id="messy" aria-labelledby="messy-h">
     <h2 class="cs-h2 reveal" id="messy-h">The messy parts</h2>
     <div class="prose reveal">
-      <p>The happy path was the easy part. Most of the design work went into everything around it.</p>
+      <p>Setting goals and scores was the easy part. The harder part was handling different rules, approvals, and things not going to plan.</p>
     </div>
-    <div class="qb reveal"><p class="qb-l">For managers and payees, every screen had to answer four questions:</p><p class="qb-q">What should I do now? Can I edit this? Is it waiting on someone? What happens if it's rejected?</p></div>
+    <div class="qb reveal"><p class="qb-l">For managers and employees, the experience had to make a few things clear:</p><p class="qb-q">What should I do next? Can I still make changes? Who am I waiting on?</p></div>
     <ol class="mp-list reveal">
-      <li><p class="mp-t"><span>01</span>Different rules per company</p><p class="mp-d">Each company decides who sets goals, who approves and when things lock. Admins set this up once, and managers and payees only see what applies to them.</p></li>
-      <li><p class="mp-t"><span>02</span>Mixed statuses in one team</p><p class="mp-d">One person's goals can be approved while another's are still in draft. Managers can see each person's status and act on one or several people.</p></li>
-      <li><p class="mp-t"><span>03</span>What an approval changes</p><p class="mp-d">Approving or rejecting changes what managers can edit and what payees can see. A rejection only reopens the stage that was rejected.</p></li>
-      <li><p class="mp-t"><span>04</span>Bulk updates</p><p class="mp-d">A bulk update can include people who can't be edited. Before it's applied, managers see who it covers and what needs fixing.</p></li>
-      <li><p class="mp-t"><span>05</span>Drafts and submitting</p><p class="mp-d">Drafts, including imported data, can be saved and finished later. Submitting is a separate step because it sends work for approval or locks it.</p></li>
+      <li><p class="mp-t"><span>01</span>Different rules per company</p><p class="mp-d">Every company sets goals, approves scores and locks changes its own way. We had to support that without making everyday use complicated.</p></li>
+      <li><p class="mp-t"><span>02</span>Everyone at a different stage</p><p class="mp-d">One employee's goals may be approved while another's are still being edited. Managers needed to see everyone's progress and act on several at once.</p></li>
+      <li><p class="mp-t"><span>03</span>After approval or rejection</p><p class="mp-d">Approvals decide what people can still edit and when work is final. A rejection reopens only the relevant stage.</p></li>
+      <li><p class="mp-t"><span>04</span>Safer bulk actions</p><p class="mp-d">Some records may not allow changes. Managers see which ones will update and which need attention before going ahead.</p></li>
+      <li><p class="mp-t"><span>05</span>Saving without submitting</p><p class="mp-d">Managers can save progress, including imported data, and come back later. Submitting is a separate step, so they can review first.</p></li>
     </ol>
     <!-- TODO: Phase 2 was partly still in design and development in 2026. Check what shipped and adjust the wording above if needed. -->
   </section>
