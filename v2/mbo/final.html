@@ -26,12 +26,9 @@
   <a href="#top" class="on">Overview</a>
   <a href="#what">What's an MBO?</a>
   <a href="#problem">The problem</a>
-  <a href="#who">Who it's for</a>
   <a href="#challenge">The core challenge</a>
-  <a href="#stages">Two stages</a>
-  <a href="#pay">From score to pay</a>
+  <a href="#how">How it works</a>
   <a href="#experience">The experience</a>
-  <a href="#decisions">Key decisions</a>
   <a href="#changed">What changed</a>
   <a href="#takeaway">What I took away</a>
 </nav>
@@ -46,16 +43,16 @@
     </dl>
     <div class="prose intro">
       <p>Sales teams don't only reward revenue. Many also pay for goals like getting certified or running great demos, called MBOs. Everstage customers managed these in spreadsheets and email.</p>
-      <p>I designed the MBO module from scratch, so companies can set these goals, have managers score them, and pay on them, all inside Everstage.</p>
+      <p>I designed the MBO module from scratch, so companies can set these goals, have managers score them, and pay on them, all inside Everstage. A key focus was keeping scores fair, since they turn into real money.</p>
     </div>
   </header>
 
   <section class="sec" id="what" aria-labelledby="what-h">
     <h2 class="cs-h2 reveal" id="what-h">What's an MBO?</h2>
     <div class="prose reveal">
-      <p>MBOs (Management by Objectives) are goals that aren't a sales number. Managers score them each period, and the score decides part of someone's pay, usually 10 to 35%.</p>
+      <p>MBOs (Management by Objectives) are goals that aren't a sales number. A manager scores them each period, and the score decides part of what the person earns, usually 10 to 35% of their payout.</p>
     </div>
-    <div class="qb reveal"><p class="qb-l">For example:</p><p class="qb-q">Jordan scores Alex 85 on a quarterly demo scorecard. The plan says 80 or more pays a $500 bonus, so Alex earns $500.</p></div>
+    <div class="qb reveal"><p class="qb-l">Here's an example we'll follow throughout:</p><p class="qb-q">Alex's goal this quarter is to run 10 product demos. Jordan, Alex's manager, scores it at the end. A score of 80 or more pays Alex a $500 bonus.</p></div>
   </section>
 
   <section class="sec" id="problem" aria-labelledby="problem-h">
@@ -68,61 +65,58 @@
       <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins chased each manager and merged everything into a CSV.</b></div></li>
       <li><span class="fs-n" aria-hidden="true">3</span><div><b>The CSV was uploaded into Everstage to calculate pay.</b></div></li>
     </ol>
-    <p class="q reveal">Admins became middlemen, repeating this every period, with no audit trail and no visibility for managers or payees.</p>
-  </section>
-
-  <section class="sec" id="who" aria-labelledby="who-h">
-    <h2 class="cs-h2 reveal" id="who-h">Who it's for</h2>
-    <div class="prose reveal">
-      <p>Four people are involved, and each gets <strong class="k">one home</strong> in the product.</p>
-    </div>
-    <figure class="who-map reveal" aria-label="Who uses what: admins set up in MBO programs and oversee in Org-wide MBO, managers score in Team MBO, approvers review in Approvals, and payees view in My MBO">
-      <div class="wm-row"><span class="wm-p">Admin<small>Comp / RevOps</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>MBO programs</b><i>Set up</i></span><span class="wm-m"><b>Org-wide MBO</b><i>Oversee</i></span></span></div>
-      <div class="wm-row"><span class="wm-p">Manager<small>Scores the team</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>Team MBO</b><i>Score</i></span></span></div>
-      <div class="wm-row"><span class="wm-p">Approver<small>Sales Ops / Finance</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>Approvals</b><i>Review</i></span></span></div>
-      <div class="wm-row"><span class="wm-p">Payee<small>The person scored</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>My MBO</b><i>View</i></span></span></div>
-    </figure>
+    <p class="q reveal">Admins became middlemen, repeating this every period, with no audit trail and no visibility for managers or the people being scored.</p>
   </section>
 
   <section class="sec" id="challenge" aria-labelledby="challenge-h">
     <h2 class="cs-h2 reveal" id="challenge-h">The core challenge</h2>
     <div class="prose reveal">
-      <p>These scores turn into real money. And a manager scoring their own team may be tempted to score high.</p>
+      <p>These scores turn into real money, and they're given by the person's own manager, who may be tempted to score high.</p>
     </div>
-    <div class="qb reveal"><p class="qb-l">So the question behind every screen was:</p><p class="qb-q">How do we make sure only fair, reviewed values ever reach someone's pay?</p></div>
+    <div class="qb reveal"><p class="qb-l">So the question behind every screen was:</p><p class="qb-q">How do we make sure only fair, reviewed scores ever reach someone's pay?</p></div>
     <div class="prose reveal">
-      <p>The answer shaped the whole module: <strong class="k">drafts stay private</strong>, <strong class="k">a second person approves</strong> (a maker-checker process), and <strong class="k">only approved values flow into pay</strong>.</p>
+      <p>Three ideas answer it, in the order a goal goes through them:</p>
+      <ol>
+        <li><strong class="k">Two stages.</strong> Goals are agreed before they're scored.</li>
+        <li><strong class="k">Checked, then locked.</strong> A second person approves, and approved values can't change.</li>
+        <li><strong class="k">Only approved values reach pay.</strong> Drafts and pending scores never touch a payout.</li>
+      </ol>
     </div>
   </section>
 
-  <section class="sec" id="stages" aria-labelledby="stages-h">
-    <h2 class="cs-h2 reveal" id="stages-h">Two moments, two stages</h2>
-    <div class="prose reveal">
-      <p>An MBO period isn't one moment, it's two: <strong class="k">agreeing on goals</strong> at the start, and <strong class="k">scoring them</strong> at the end.</p>
-      <p>The first version treated it as one flat form. A manager could quietly rewrite a goal at the end of the quarter to match what actually happened, and goals and scores got a single review, when it was too late to push back on a weak goal.</p>
-      <p>So I split the form into <strong class="k">stages</strong>, each with its own approver and lock:</p>
+  <section class="sec" id="how" aria-labelledby="how-h">
+    <h2 class="cs-h2 reveal" id="how-h">How it works</h2>
+
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">01</span>Two stages: goals first, scores later</h3>
+    <div class="prose">
+      <p>An MBO period has two moments: agreeing on goals at the start, and scoring them at the end. The first version used one flat form, so a manager could quietly rewrite a goal at the end of the quarter to match what actually happened.</p>
+      <p>So I split the form into <strong class="k">two stages</strong>, each with its own approver:</p>
     </div>
-    <figure class="stage-flow reveal" aria-label="Stage 1, Goals, at the start of the period, then Stage 2, Scores, at the end, then official values go to pay. Fields outside stages can be edited anytime without approval.">
+    <figure class="stage-flow" aria-label="Stage 1, Goals, at the start of the period, then Stage 2, Scores, at the end, then official values go to pay. Fields outside stages can be edited anytime without approval.">
       <div class="sf-row">
-        <div class="sf-card stage"><p class="sf-k">Stage 1</p><b>Goals</b><span>Start of the period</span><em>e.g. approved by the manager's manager, then locked</em></div>
+        <div class="sf-card stage"><p class="sf-k">Stage 1</p><b>Goals</b><span>Start of the period</span><em>e.g. approved by the manager's manager</em></div>
         <span class="sf-arr" aria-hidden="true"></span>
-        <div class="sf-card stage"><p class="sf-k">Stage 2</p><b>Scores</b><span>End of the period</span><em>e.g. approved by Sales Ops or Finance, then locked</em></div>
+        <div class="sf-card stage"><p class="sf-k">Stage 2</p><b>Scores</b><span>End of the period</span><em>e.g. approved by Sales Ops or Finance</em></div>
         <span class="sf-arr" aria-hidden="true"></span>
         <div class="sf-card pay"><p class="sf-k">Then</p><b>Official values</b><span>Go to pay</span></div>
       </div>
       <div class="sf-out"><b>Fields outside stages</b><span>Like a note or a date. Editable anytime, no approval needed.</span></div>
       <figcaption>Scores only open once Goals are done.</figcaption>
     </figure>
-    <div class="qb reveal"><p class="qb-l">For example:</p><p class="qb-q">In January, Jordan sets Alex's goal: run 10 product demos. Jordan's manager approves, and it locks. In March, Jordan scores Alex 85, and Finance approves.</p></div>
-    <div class="prose reveal">
-      <p>The goal Alex was measured on is the goal that was agreed in January.</p>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>“Run 10 product demos” is agreed in January, in the Goals stage. Jordan scores it in March, in the Scores stage.</p></div>
+    <div class="prose">
       <p>We designed for <strong class="k">two stages only</strong> because the customers we knew only ran MBOs in these two moments. But we kept the design and the backend flexible, so <strong class="k">more stages can be added later</strong>.</p>
     </div>
-    <h3 class="cs-h3 reveal">Locking: can this still change?</h3>
-    <div class="prose reveal">
-      <p>Without a lock, managers kept editing after the period ended, and even a score Finance had approved could still change. So each stage <strong class="k">locks on approval or a date, whichever comes first</strong>. Approval protects fairness, and the date protects the deadline.</p>
+  </div>
+
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">02</span>Checked, then locked</h3>
+    <div class="prose">
+      <p>Each stage can be approved by a second person. This <strong class="k">maker-checker</strong> step keeps scores from being inflated.</p>
+      <p>Once approved, a stage <strong class="k">locks</strong>, so it can't be quietly changed later. It also locks on a set date, so there's a real deadline. Whichever comes first wins.</p>
     </div>
-    <figure class="lock-flow reveal" aria-label="A stage is open while the manager edits, pending and frozen while it's reviewed, and locked once it's approved or the lock date passes. Rejected stages go back to the manager, and only admins can unlock.">
+    <figure class="lock-flow" aria-label="A stage is open while the manager edits, pending and frozen while it's reviewed, and locked once it's approved or the lock date passes. Rejected stages go back to the manager, and only admins can unlock.">
       <div class="lf-row">
         <div class="lf-s open"><b>Open</b><span>Manager can edit</span></div>
         <span class="lf-arr"><i>Submits</i></span>
@@ -136,50 +130,57 @@
         <li><b>Missed the deadline?</b> Only an admin can unlock it, for one manager or everyone.</li>
       </ul>
     </figure>
-    <div class="prose reveal">
-      <p>The rule shows in the grid while managers work, like <em>"Locks on approval or Jan 20, 2026"</em>, so a lock never comes as a surprise.</p>
-    </div>
-  </section>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan's manager approves it in January, and it locks. So in March, Alex is scored against exactly the goal that was agreed.</p></div>
+  </div>
 
-  <section class="sec" id="pay" aria-labelledby="pay-h">
-    <h2 class="cs-h2 reveal" id="pay-h">How a score becomes pay</h2>
-    <div class="prose reveal">
-      <p>Programs and commission plans stay separate. Publishing a program creates a <strong class="k">datasheet</strong>, and the commission plan reads from it like any other data.</p>
+  <div class="part reveal">
+    <h3 class="cs-h3 part-h"><span class="pn">03</span>Only approved values reach pay</h3>
+    <div class="prose">
+      <p>MBO started as a form attached to a commission plan. It became its own program, with a <strong class="k">datasheet</strong> in between: publishing a program creates one, and any commission plan can read from it.</p>
+      <p>Only approved values reach the datasheet. During a re-review, the last approved value stays, so a resubmission never wipes out someone's pay.</p>
     </div>
-    <figure class="pay-flow reveal" aria-label="How a score moves from a manager to a payout: admin publishes the program, managers submit scores, the approver approves or rejects back to the manager, the datasheet updates, the commission plan formula runs, and the payout shows on the statement">
+    <figure class="pay-flow" aria-label="How a score moves from a manager to a payout: admin publishes the program, managers submit scores, the approver approves or rejects back to the manager, the datasheet updates, the commission plan formula runs, and the payout shows on the statement">
       <div class="pf-grid">
-        <ol class="pf-main"><li class="mbo"><b>Admin publishes program</b><span>A datasheet is created for it</span></li><li class="mbo"><b>Managers submit scores</b><span>In Team MBO, stage by stage</span></li><li class="mbo"><b>Approver approves</b><span>Only approved values move on</span><em class="pf-rej-m">If rejected, it goes back to the manager</em></li><li class="mbo"><b>Datasheet updates</b><span>Synced within minutes</span></li><li class="pay"><b>Commission plan formula</b><span>e.g. score 80+ pays $500</span></li><li class="pay"><b>Payout on rep's statement</b><span>Lock warns if MBO is still open</span></li></ol>
+        <ol class="pf-main"><li class="mbo"><b>Admin publishes program</b><span>A datasheet is created for it</span></li><li class="mbo"><b>Managers submit scores</b><span>In Team MBO, stage by stage</span></li><li class="mbo"><b>Approver approves</b><span>Only approved values move on</span><em class="pf-rej-m">If rejected, it goes back to the manager</em></li><li class="mbo"><b>Datasheet updates</b><span>Synced within minutes</span></li><li class="pay"><b>Commission plan formula</b><span>e.g. score 80+ pays $500</span></li><li class="pay"><b>Payout on the statement</b><span>Warns first if an MBO is still open</span></li></ol>
         <div class="pf-rej" aria-hidden="true"><b>Rejected</b><span>Back to manager</span></div>
         <span class="pf-loop" aria-hidden="true"></span>
       </div>
       <figcaption><span><i class="pf-dot mbo"></i>MBO program</span><span><i class="pf-dot pay"></i>Commission plan</span></figcaption>
     </figure>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan scores it 85, and Finance approves. The datasheet updates, and the plan pays Alex $500.</p></div>
+  </div>
   </section>
 
   <section class="sec" id="experience" aria-labelledby="experience-h">
     <h2 class="cs-h2 reveal" id="experience-h">Designing the experience</h2>
     <div class="prose reveal">
-      <p>Four flows, one for each person.</p>
+      <p>Four people take part, and each gets <strong class="k">one home</strong> in the product, so nobody digs through screens meant for someone else.</p>
     </div>
+    <figure class="who-map reveal" aria-label="Who uses what: admins set up in MBO programs and oversee in Org-wide MBO, managers score in Team MBO, approvers review in Approvals, and payees view in My MBO">
+      <div class="wm-row"><span class="wm-p">Admin<small>Comp / RevOps</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>MBO programs</b><i>Set up</i></span><span class="wm-m"><b>Org-wide MBO</b><i>Oversee</i></span></span></div>
+      <div class="wm-row"><span class="wm-p">Manager<small>Scores the team</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>Team MBO</b><i>Score</i></span></span></div>
+      <div class="wm-row"><span class="wm-p">Approver<small>Sales Ops / Finance</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>Approvals</b><i>Review</i></span></span></div>
+      <div class="wm-row"><span class="wm-p">Payee<small>The person scored</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>My MBO</b><i>View</i></span></span></div>
+    </figure>
 
   <div class="part reveal">
-    <h3 class="cs-h3 part-h"><span class="pn">01</span>Admins set up a program</h3>
+    <h3 class="cs-h3 part-h lbl"><span class="pn">MBO programs</span>Admins set up a program</h3>
     <div class="prose">
-      <p>A <strong class="k">guided, step-by-step setup</strong>: the period, who's in it and who scores them, the goal form, and optional stages (Goals, then Scores) with approvals and lock dates. Problems like a missing manager show up inline, before publishing.</p>
+      <p>A <strong class="k">guided, step-by-step setup</strong>: the period, who's in it, the goal form, and each stage's approver and lock rule. Rules are written in plain words, like “3 days after the period starts”, and problems like a missing manager show up before publishing.</p>
     </div>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>The program setup: the step-by-step side nav, participants with the Validation column, and stage configuration.</span></p></figure>
   </div>
 
   <div class="part reveal">
-    <h3 class="cs-h3 part-h"><span class="pn">02</span>Managers score their team</h3>
+    <h3 class="cs-h3 part-h lbl"><span class="pn">Team MBO</span>Managers score their team</h3>
     <div class="prose">
-      <p>Managers only see the people they score. They can <strong class="k">save drafts anytime</strong>, which nobody else sees, then submit when they're sure. Bulk edit and paste from a spreadsheet help with big teams.</p>
+      <p>Managers only see the people they score. Each stage shows as a band in the grid with its status and deadline, like “Locks on approval or Jan 20, 2026”, so a lock never comes as a surprise. <strong class="k">Drafts stay private</strong> until they submit.</p>
     </div>
-    <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>Team MBO: the status summary, editing scores, saving a draft and submitting.</span></p></figure>
+    <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>Team MBO: the grid with its stage bands and lock dates, saving a draft and submitting.</span></p></figure>
   </div>
 
   <div class="part reveal">
-    <h3 class="cs-h3 part-h"><span class="pn">03</span>Approvers review</h3>
+    <h3 class="cs-h3 part-h lbl"><span class="pn">Approvals</span>Approvers review</h3>
     <div class="prose">
       <p>Approvers see a <strong class="k">snapshot of exactly what was submitted</strong>. They approve, or reject with a comment and it goes back to the manager. Approval is per person, so one rejection never holds up the team.</p>
     </div>
@@ -187,25 +188,13 @@
   </div>
 
   <div class="part reveal">
-    <h3 class="cs-h3 part-h"><span class="pn">04</span>Payees and admins see the results</h3>
+    <h3 class="cs-h3 part-h lbl"><span class="pn">My MBO and Org-wide MBO</span>Payees and admins see the results</h3>
     <ul class="duo">
       <li><b>My MBO</b><p>Payees see their goals and official scores, never a draft. Before, they only saw a final number on their statement.</p></li>
-      <li><b>Org-wide MBO</b><p>One screen for admins to answer "are we ready to pay?", with gaps, fixes and a full history of who changed what.</p></li>
+      <li><b>Org-wide MBO</b><p>One screen for admins to answer “are we ready to pay?”: spot gaps, fix values, unlock a stage for a late manager, and see who changed what.</p></li>
     </ul>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>My MBO for a payee, and Org-wide MBO for an admin.</span></p></figure>
   </div>
-  </section>
-
-  <section class="sec" id="decisions" aria-labelledby="decisions-h">
-    <h2 class="cs-h2 reveal" id="decisions-h">Key decisions</h2>
-    <ul class="duo four reveal">
-      <li><b>Programs, not plan add-ons</b><p>MBO started as a form attached to a commission plan. It became its own program, with its own period, people and approvals.</p></li>
-      <li><b>Draft, then submit</b><p>Managers can save freely without affecting pay. Payees only ever see official values.</p></li>
-      <li><b>Approval per person</b><p>One rejection never blocks the rest of the team.</p></li>
-      <li><b>The last approved value stays</b><p>A resubmission never wipes out someone's pay mid-review.</p></li>
-      <li><b>Managers can change mid-year</b><p>Admins set an effective date, without touching the reporting hierarchy.</p></li>
-      <li><b>Warn, don't block</b><p>Locking a payout with unfinished MBOs shows a warning and a link to fix them.</p></li>
-    </ul>
   </section>
 
   <section class="sec" id="changed" aria-labelledby="changed-h">
@@ -215,8 +204,8 @@
     </div>
     <figure class="mbo-flow reveal" aria-label="Before and after: the manual MBO process outside Everstage, and the same steps in the MBO module">
       <div class="mf-cols">
-        <div class="mf-col old"><p class="mf-h">Before: manual, outside Everstage</p><ol><li><b>Managers set goals offline</b><span>Excel and email, no visibility</span></li><li><b>Admin chases each manager</b><span>Manual follow-ups, delays</span></li><li><b>Admin merges into one CSV</b><span>Error-prone copy-paste</span></li><li><b>Upload CSV to Everstage</b><span>Repeated every single period</span></li><li><b>Data feeds the payout</b><span>No audit trail, reps see only total</span></li></ol></div>
-        <div class="mf-col new"><p class="mf-h">After: MBO module</p><ol><li><b>Admin sets up program once</b><span>Form, people, deadlines</span></li><li><b>Auto reminders to managers</b><span>No more chasing</span></li><li><b>Managers fill in Team MBO</b><span>Drafts, bulk edit, paste</span></li><li><b>Approver reviews scores</b><span>Maker-checker stops inflation</span></li><li><b>Approved values go to pay</b><span>Reps see goals, full audit trail</span></li></ol></div>
+        <div class="mf-col old"><p class="mf-h">Before: manual, outside Everstage</p><ol><li><b>Managers set goals offline</b><span>Excel and email, no visibility</span></li><li><b>Admin chases each manager</b><span>Manual follow-ups, delays</span></li><li><b>Admin merges into one CSV</b><span>Error-prone copy-paste</span></li><li><b>Upload CSV to Everstage</b><span>Repeated every single period</span></li><li><b>Data feeds the payout</b><span>No audit trail, payees see only the total</span></li></ol></div>
+        <div class="mf-col new"><p class="mf-h">After: MBO module</p><ol><li><b>Admin sets up program once</b><span>Form, people, deadlines</span></li><li><b>Auto reminders to managers</b><span>No more chasing</span></li><li><b>Managers fill in Team MBO</b><span>Drafts, bulk edit, paste</span></li><li><b>Approver reviews scores</b><span>Maker-checker stops inflation</span></li><li><b>Approved values go to pay</b><span>Payees see goals, full audit trail</span></li></ol></div>
       </div>
       <figcaption><span><i class="mf-dot old"></i>Old step and its pain point</span><span><i class="mf-dot new"></i>Same step in the MBO module</span></figcaption>
     </figure>
