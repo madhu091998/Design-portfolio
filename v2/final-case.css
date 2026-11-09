@@ -50,3 +50,24 @@ html, body { background: var(--bg); }
 .personas.four li:nth-child(even) { padding-right: 0; }
 .duo.four li { padding-bottom: 20px; }
 .blog .duo + .prose, .blog .duo + .flow-steps, .blog .duo + .shot-ui { margin-top: 28px; }
+
+/* MBO: before / after flowchart */
+.blog .mbo-flow { margin: 32px 0 0; padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: #fbfaf7; }
+.mbo-flow .mf-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.mbo-flow .mf-h { margin: 0 0 16px; text-align: center; font: 500 14px/1.4 "Geist", system-ui, sans-serif; color: var(--ink); }
+.mbo-flow ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+.mbo-flow li { position: relative; display: grid; gap: 3px; padding: 14px 16px; border-radius: 12px; text-align: center; border: 1px solid; }
+.mbo-flow li b { font: 500 15px/1.35 "Geist", system-ui, sans-serif; }
+.mbo-flow li span { font: 400 13.5px/1.4 "Geist", system-ui, sans-serif; }
+.mbo-flow li + li::before { content: ""; position: absolute; left: 50%; top: -24px; width: 1px; height: 17px; background: var(--muted); opacity: .6; }
+.mbo-flow li + li::after { content: ""; position: absolute; left: 50%; top: -10px; width: 6px; height: 6px; margin-left: -3px; border-right: 1px solid var(--muted); border-bottom: 1px solid var(--muted); transform: rotate(45deg); opacity: .8; }
+.mbo-flow .old li { background: #fbefe9; border-color: rgba(213, 62, 9, 0.18); }
+.mbo-flow .old li b { color: #8a3413; }
+.mbo-flow .old li span { color: #b0603e; }
+.mbo-flow .new li { background: #ebf4ee; border-color: rgba(46, 125, 84, 0.2); }
+.mbo-flow .new li b { color: #1f5a3c; }
+.mbo-flow .new li span { color: #3f7d5a; }
+.mbo-flow figcaption { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 8px; margin-top: 22px; font: 400 13px/1.5 "Geist", system-ui, sans-serif; color: var(--muted); }
+.mbo-flow .mf-dot { width: 8px; height: 8px; border-radius: 3px; }
+.mbo-flow .mf-dot.old { background: #f1cdbd; } .mbo-flow .mf-dot.new { background: #bfdcc9; margin-left: 10px; }
+@media (max-width: 640px) { .blog .mbo-flow { padding: 20px 16px; } .mbo-flow .mf-cols { grid-template-columns: 1fr; gap: 32px; } }
