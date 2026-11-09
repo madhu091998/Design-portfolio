@@ -411,5 +411,3 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 /* Calmer View sticker */
 .view-cursor .vc-in { padding: 6px 11px 6px 12px; font-size: 12.5px; box-shadow: 0 4px 12px -6px rgba(213, 62, 9, .45); scale: .9; transition: opacity .2s ease, scale .25s ease; }
 .view-cursor.on .vc-in i { transform: none; }
-/* View sticker in the lime + green brand pair */
-.view-cursor .vc-in { background: #d5ef72; color: #1f3a12; border: 1px solid rgba(60, 160, 80, .45); box-shadow: 0 4px 12px -6px rgba(60, 120, 30, .45); }
