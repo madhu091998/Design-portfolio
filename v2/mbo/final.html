@@ -25,7 +25,7 @@
 <nav class="sidenav" aria-label="On this page">
   <a href="#top" class="on">Overview</a>
   <a href="#what">What's an MBO?</a>
-  <a href="#problem">The problem</a>
+  <a href="#problem">How customers ran MBOs</a>
   <a href="#challenge">The core challenge</a>
   <a href="#how">How it works</a>
   <a href="#experience">The experience</a>
@@ -42,44 +42,47 @@
       <div><dt>Type</dt><dd>New module, built from scratch</dd></div>
     </dl>
     <div class="prose intro">
-      <p>Sales teams don't only reward revenue. Many also pay for goals like getting certified or running great demos, called MBOs. Everstage customers managed these in spreadsheets and email.</p>
-      <p>I designed the MBO module from scratch, so companies can set these goals, have managers score them, and pay on them, all inside Everstage. A key focus was keeping scores fair, since they turn into real money.</p>
+      <p>Sales teams don't only pay for revenue. Many companies also reward things like getting certified, hitting a launch milestone or running good demos. These are called MBOs, and Everstage customers were managing them in spreadsheets and long email threads.</p>
+      <p>I owned the design of the MBO module end to end, working closely with our PM and engineers. It lets companies set these goals, have managers score them, get the scores reviewed and pay on them, all without leaving Everstage. Because these scores turn into real money, a big part of my work was making sure the numbers people get paid on are fair and final.</p>
     </div>
   </header>
 
   <section class="sec" id="what" aria-labelledby="what-h">
     <h2 class="cs-h2 reveal" id="what-h">What's an MBO?</h2>
     <div class="prose reveal">
-      <p>MBOs (Management by Objectives) are goals that aren't a sales number. A manager scores them each period, and the score decides part of what the person earns, usually 10 to 35% of their payout.</p>
+      <p>MBO stands for Management by Objectives. These are goals that can't be measured as a sales number, so a manager scores them instead, usually once a quarter. That score then decides a part of the person's payout, typically somewhere between 10 and 35%.</p>
     </div>
-    <div class="qb reveal"><p class="qb-l">Here's an example we'll follow throughout:</p><p class="qb-q">Alex's goal this quarter is to run 10 product demos. Jordan, Alex's manager, scores it at the end. A score of 80 or more pays Alex a $500 bonus.</p></div>
+    <div class="qb reveal"><p class="qb-l">To keep things simple, I'll follow one example through this case study.</p><p class="qb-q">Alex's goal this quarter is to run 10 product demos. At the end of the quarter, Jordan, Alex's manager, gives it a score. If the score is 80 or above, Alex earns a $500 bonus.</p></div>
   </section>
 
   <section class="sec" id="problem" aria-labelledby="problem-h">
-    <h2 class="cs-h2 reveal" id="problem-h">The problem</h2>
+    <h2 class="cs-h2 reveal" id="problem-h">How customers ran MBOs before</h2>
     <div class="prose reveal">
-      <p>Customers already ran MBOs, but outside Everstage. Every period:</p>
+      <p>Before designing anything, we studied how customers were already running MBOs, step by step. Most of them had a process that worked. It just happened entirely outside Everstage, and every quarter it looked roughly like this:</p>
     </div>
     <ol class="flow-steps reveal">
-      <li><span class="fs-n" aria-hidden="true">1</span><div><b>Managers scored their teams in Excel or email.</b></div></li>
-      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins chased each manager and merged everything into a CSV.</b></div></li>
-      <li><span class="fs-n" aria-hidden="true">3</span><div><b>The CSV was uploaded into Everstage to calculate pay.</b></div></li>
+      <li><span class="fs-n" aria-hidden="true">1</span><div><b>Managers set and scored goals in Excel or over email.</b></div></li>
+      <li><span class="fs-n" aria-hidden="true">2</span><div><b>Admins followed up with every manager, one by one, and pasted it all into a single CSV.</b></div></li>
+      <li><span class="fs-n" aria-hidden="true">3</span><div><b>The CSV was uploaded into Everstage, where it fed into the commission calculation.</b></div></li>
     </ol>
-    <p class="q reveal">Admins became middlemen, repeating this every period, with no audit trail and no visibility for managers or the people being scored.</p>
+    <p class="q reveal">Admins had turned into middlemen. They did this at the start and end of every quarter, nobody could tell which scores were final, and the people being scored rarely saw more than a number on their statement.</p>
+    <div class="prose reveal">
+      <p>What stood out was that the process itself wasn't broken. Leadership decided the goals, managers scored their teams, and often someone else checked the numbers before pay went out. So instead of inventing a new way of working, I wanted the product to <strong class="k">follow the same steps customers already trusted</strong>, and take away the chasing and copy-pasting around them.</p>
+    </div>
   </section>
 
   <section class="sec" id="challenge" aria-labelledby="challenge-h">
     <h2 class="cs-h2 reveal" id="challenge-h">The core challenge</h2>
     <div class="prose reveal">
-      <p>These scores turn into real money, and they're given by the person's own manager, who may be tempted to score high.</p>
+      <p>One thing made this harder than a regular form. These scores turn directly into money, and they're given by the person's own manager, who naturally wants their team to do well.</p>
     </div>
-    <div class="qb reveal"><p class="qb-l">So the question behind every screen was:</p><p class="qb-q">How do we make sure only fair, reviewed scores ever reach someone's pay?</p></div>
+    <div class="qb reveal"><p class="qb-l">So the question I kept coming back to was:</p><p class="qb-q">How do we make sure the score someone gets paid on is fair, reviewed and final?</p></div>
     <div class="prose reveal">
-      <p>Three ideas answer it, in the order a goal goes through them:</p>
+      <p>Three ideas came out of looking at how customers handled this offline. Each one mirrors a step they were already following:</p>
       <ol>
-        <li><strong class="k">Two stages.</strong> Goals are agreed before they're scored.</li>
-        <li><strong class="k">Checked, then locked.</strong> A second person approves, and approved values can't change.</li>
-        <li><strong class="k">Only approved values reach pay.</strong> Drafts and pending scores never touch a payout.</li>
+        <li><strong class="k">Two stages.</strong> Customers agreed on goals at the start of the quarter and scored them at the end, so the product works the same way.</li>
+        <li><strong class="k">Checked, then locked.</strong> Many already had someone review the scores. We built that in, and made sure an approved number can't be edited afterwards.</li>
+        <li><strong class="k">Only approved values reach pay.</strong> Drafts and scores still under review never touch a payout.</li>
       </ol>
     </div>
   </section>
@@ -90,8 +93,8 @@
   <div class="part reveal">
     <h3 class="cs-h3 part-h"><span class="pn">01</span>Two stages: goals first, scores later</h3>
     <div class="prose">
-      <p>An MBO period has two moments: agreeing on goals at the start, and scoring them at the end. The first version used one flat form, so a manager could quietly rewrite a goal at the end of the quarter to match what actually happened.</p>
-      <p>So I split the form into <strong class="k">two stages</strong>, each with its own approver:</p>
+      <p>When we looked closely, an MBO quarter wasn't one moment but two. At the start, the manager and the person agree on what the goals are. At the end, the manager scores how well each one went.</p>
+      <p>Our first version used a single form that could be edited at any time, and that left a real gap. A manager could quietly change a goal in March to match what had actually happened. So I split the form into <strong class="k">two stages, Goals and Scores</strong>, each reviewed by the right person.</p>
     </div>
     <figure class="stage-flow" aria-label="Stage 1, Goals, at the start of the period, then Stage 2, Scores, at the end, then official values go to pay. Fields outside stages can be edited anytime without approval.">
       <div class="sf-row">
@@ -104,17 +107,17 @@
       <div class="sf-out"><b>Fields outside stages</b><span>Like a note or a date. Editable anytime, no approval needed.</span></div>
       <figcaption>Scores only open once Goals are done.</figcaption>
     </figure>
-    <div class="ex"><span class="ex-t">Alex’s goal</span><p>“Run 10 product demos” is agreed in January, in the Goals stage. Jordan scores it in March, in the Scores stage.</p></div>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>“Run 10 product demos” is agreed in the first week of January, in the Goals stage. Jordan only scores it at the end of March, in the Scores stage.</p></div>
     <div class="prose">
-      <p>We designed for <strong class="k">two stages only</strong> because the customers we knew only ran MBOs in these two moments. But we kept the design and the backend flexible, so <strong class="k">more stages can be added later</strong>.</p>
+      <p>We kept it to <strong class="k">two stages</strong> because the customers we knew only ran MBOs in these two moments, and more stages would have meant extra setup for almost nobody. That said, we built the design and the backend so that <strong class="k">more stages can be added later</strong> without a rework.</p>
     </div>
   </div>
 
   <div class="part reveal">
     <h3 class="cs-h3 part-h"><span class="pn">02</span>Checked, then locked</h3>
     <div class="prose">
-      <p>Each stage can be approved by a second person. This <strong class="k">maker-checker</strong> step keeps scores from being inflated.</p>
-      <p>Once approved, a stage <strong class="k">locks</strong>, so it can't be quietly changed later. It also locks on a set date, so there's a real deadline. Whichever comes first wins.</p>
+      <p>Many customers already had someone, like the manager's manager or a person from Finance, look over the scores before they were paid. We built that in as an approval step for each stage. This <strong class="k">maker-checker</strong> setup keeps scores from being inflated.</p>
+      <p>Approval alone wasn't enough, though. If an approved score could still be edited, the approval didn't mean much. So once a stage is approved, it <strong class="k">locks</strong>. It also locks on a date the admin picks, which gives managers a real deadline instead of admins having to chase them. Whichever happens first wins.</p>
     </div>
     <figure class="lock-flow" aria-label="A stage is open while the manager edits, pending and frozen while it's reviewed, and locked once it's approved or the lock date passes. Rejected stages go back to the manager, and only admins can unlock.">
       <div class="lf-row">
@@ -130,14 +133,14 @@
         <li><b>Missed the deadline?</b> Only an admin can unlock it, for one manager or everyone.</li>
       </ul>
     </figure>
-    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan's manager approves it in January, and it locks. So in March, Alex is scored against exactly the goal that was agreed.</p></div>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan's manager approves the goal in early January, and it locks. So when March comes around, Alex is scored against exactly what was agreed.</p></div>
   </div>
 
   <div class="part reveal">
     <h3 class="cs-h3 part-h"><span class="pn">03</span>Only approved values reach pay</h3>
     <div class="prose">
-      <p>MBO started as a form attached to a commission plan. It became its own program, with a <strong class="k">datasheet</strong> in between: publishing a program creates one, and any commission plan can read from it.</p>
-      <p>Only approved values reach the datasheet. During a re-review, the last approved value stays, so a resubmission never wipes out someone's pay.</p>
+      <p>In the first version, MBO lived inside a commission plan, which tied it to that plan's setup. We pulled it out into its own program and connected the two through a <strong class="k">datasheet</strong>. Publishing a program creates one, and any commission plan can read from it like any other data.</p>
+      <p>Only approved values ever reach that datasheet. If a score goes back for another review, the last approved value stays in place, so someone's pay doesn't disappear in the middle of it.</p>
     </div>
     <figure class="pay-flow" aria-label="How a score moves from a manager to a payout: admin publishes the program, managers submit scores, the approver approves or rejects back to the manager, the datasheet updates, the commission plan formula runs, and the payout shows on the statement">
       <div class="pf-grid">
@@ -147,14 +150,14 @@
       </div>
       <figcaption><span><i class="pf-dot mbo"></i>MBO program</span><span><i class="pf-dot pay"></i>Commission plan</span></figcaption>
     </figure>
-    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan scores it 85, and Finance approves. The datasheet updates, and the plan pays Alex $500.</p></div>
+    <div class="ex"><span class="ex-t">Alex’s goal</span><p>Jordan scores Alex 85 and Finance approves it. Within minutes the datasheet updates, and the commission plan pays Alex the $500 bonus.</p></div>
   </div>
   </section>
 
   <section class="sec" id="experience" aria-labelledby="experience-h">
     <h2 class="cs-h2 reveal" id="experience-h">Designing the experience</h2>
     <div class="prose reveal">
-      <p>Four people take part, and each gets <strong class="k">one home</strong> in the product, so nobody digs through screens meant for someone else.</p>
+      <p>Four kinds of people take part in an MBO cycle, and each of them only cares about a small part of it. So rather than one big screen for everyone, I gave each person <strong class="k">their own place in the product</strong>.</p>
     </div>
     <figure class="who-map reveal" aria-label="Who uses what: admins set up in MBO programs and oversee in Org-wide MBO, managers score in Team MBO, approvers review in Approvals, and payees view in My MBO">
       <div class="wm-row"><span class="wm-p">Admin<small>Comp / RevOps</small></span><span class="wm-arr"></span><span class="wm-ms"><span class="wm-m"><b>MBO programs</b><i>Set up</i></span><span class="wm-m"><b>Org-wide MBO</b><i>Oversee</i></span></span></div>
@@ -166,7 +169,7 @@
   <div class="part reveal">
     <h3 class="cs-h3 part-h lbl"><span class="pn">MBO programs</span>Admins set up a program</h3>
     <div class="prose">
-      <p>A <strong class="k">guided, step-by-step setup</strong>: the period, who's in it, the goal form, and each stage's approver and lock rule. Rules are written in plain words, like “3 days after the period starts”, and problems like a missing manager show up before publishing.</p>
+      <p>Setting up a program is a <strong class="k">guided, step-by-step flow</strong>: the period, who's included, the goal form, and how each stage is approved and locked. I wrote lock rules in plain words, like “3 days after the period starts”, instead of a toggle or a raw date. If something is off, like a person without a manager, it shows up right there, before anything goes live.</p>
     </div>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>The program setup: the step-by-step side nav, participants with the Validation column, and stage configuration.</span></p></figure>
   </div>
@@ -174,7 +177,7 @@
   <div class="part reveal">
     <h3 class="cs-h3 part-h lbl"><span class="pn">Team MBO</span>Managers score their team</h3>
     <div class="prose">
-      <p>Managers only see the people they score. Each stage shows as a band in the grid with its status and deadline, like “Locks on approval or Jan 20, 2026”, so a lock never comes as a surprise. <strong class="k">Drafts stay private</strong> until they submit.</p>
+      <p>Managers only see the people they're responsible for scoring. Each stage appears as its own band in the grid, with its status and deadline, for example “Locks on approval or Jan 20, 2026”, so a lock never catches anyone off guard. They can <strong class="k">save drafts</strong> as often as they like, and nobody else sees a draft until it's submitted.</p>
     </div>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>Team MBO: the grid with its stage bands and lock dates, saving a draft and submitting.</span></p></figure>
   </div>
@@ -182,7 +185,7 @@
   <div class="part reveal">
     <h3 class="cs-h3 part-h lbl"><span class="pn">Approvals</span>Approvers review</h3>
     <div class="prose">
-      <p>Approvers see a <strong class="k">snapshot of exactly what was submitted</strong>. They approve, or reject with a comment and it goes back to the manager. Approval is per person, so one rejection never holds up the team.</p>
+      <p>Approvers see a <strong class="k">snapshot of exactly what the manager submitted</strong>, so the numbers can't shift while they're reviewing. They can approve, or send it back with a comment. Approval works person by person, so one questionable score doesn't hold up the rest of the team.</p>
     </div>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>Approvals: reviewing a submitted snapshot, approving one and rejecting one with a comment.</span></p></figure>
   </div>
@@ -190,8 +193,8 @@
   <div class="part reveal">
     <h3 class="cs-h3 part-h lbl"><span class="pn">My MBO and Org-wide MBO</span>Payees and admins see the results</h3>
     <ul class="duo">
-      <li><b>My MBO</b><p>Payees see their goals and official scores, never a draft. Before, they only saw a final number on their statement.</p></li>
-      <li><b>Org-wide MBO</b><p>One screen for admins to answer “are we ready to pay?”: spot gaps, fix values, unlock a stage for a late manager, and see who changed what.</p></li>
+      <li><b>My MBO</b><p>Payees can finally see their goals and official scores, never a half-finished draft. Before this, most of them only saw a final number on their statement.</p></li>
+      <li><b>Org-wide MBO</b><p>Admins get one screen to answer “are we ready to pay?”. They can spot gaps, fill in or fix values, unlock a stage for a manager who's running late, and see who changed what.</p></li>
     </ul>
     <figure class="shot-ui shot-ph"><!-- TODO: replace with a screenshot or recording --><p><b>Screen to add</b><span>My MBO for a payee, and Org-wide MBO for an admin.</span></p></figure>
   </div>
@@ -200,7 +203,7 @@
   <section class="sec" id="changed" aria-labelledby="changed-h">
     <h2 class="cs-h2 reveal" id="changed-h">What changed</h2>
     <div class="prose reveal">
-      <p><strong>One place to set, score, approve and pay on MBOs,</strong> instead of spreadsheets and email.</p>
+      <p><strong>MBOs now live in one place.</strong> Admins set things up once, managers score inside Everstage, someone reviews the numbers, and only approved scores flow into pay. No more spreadsheets or chasing people over email.</p>
     </div>
     <figure class="mbo-flow reveal" aria-label="Before and after: the manual MBO process outside Everstage, and the same steps in the MBO module">
       <div class="mf-cols">
@@ -216,11 +219,12 @@
     <h2 class="cs-h2 reveal" id="takeaway-h">What I took away</h2>
     <!-- TODO: this is a draft. Rewrite it in your own words. -->
     <div class="prose reveal">
-      <p>Building from scratch meant there was no screen to improve, only a messy real-world process to understand. Because every value ends up in someone's pay, most of my time went into <strong class="k">what's a draft, what's final, and who can change what.</strong></p>
+      <p>This was the first time I designed something with no existing screens to improve on. The tricky part wasn't the UI. It was understanding a process that lived in spreadsheets and people's heads, and deciding which parts of it were worth keeping.</p>
+      <p>Because every number in MBO ends up in someone's paycheck, I spent most of my time on the less visible questions: is this a draft or final, who's allowed to change it, and when does it stop changing.</p>
     </div>
     <figure class="closer reveal">
       <span class="closer-mark" aria-hidden="true"></span>
-      <p>My biggest takeaway was that when a product touches pay, the design isn't just about entering data quickly. It's about making it clear <em>what's final</em>, <em>who owns it</em>, and <em>what happens next.</em></p>
+      <p>My biggest takeaway was that when a product touches people's pay, being fast matters less than being <em>trustworthy</em>. People should always be able to tell whether a number is <em>final</em>, and who's <em>responsible</em> for it.</p>
     </figure>
   </section>
 
