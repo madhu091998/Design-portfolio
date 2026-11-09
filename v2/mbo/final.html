@@ -60,45 +60,93 @@
     <div class="prose reveal">
       <p>We started by studying how customers already ran MBOs. The process worked, but it lived entirely outside Everstage:</p>
     </div>
-    <figure class="oldp reveal" aria-label="How MBOs worked before: managers kept scores in Excel, email and spreadsheets. An admin chased each manager and merged everything by hand into a CSV, which was uploaded into Everstage every period, into a custom object and a datasheet, and finally the commission payout. Payees only saw the final number.">
-      <p class="op-lbl out">Outside Everstage</p>
-      <p class="op-lbl in">Inside Everstage</p>
-      <div class="op-zone out">
-        <div class="op-mgrs">
-          <p class="op-cap">Managers</p>
-          <ul class="op-chips">
-            <li><b>Manager A</b><span>Excel</span></li>
-            <li><b>Manager B</b><span>Email</span></li>
-            <li><b>Manager C</b><span>Spreadsheet</span></li>
-          </ul>
-          <p class="op-more">…and every other manager</p>
-        </div>
-        <div class="op-rest">
-          <svg class="op-fan" viewBox="0 0 64 162" aria-hidden="true"><path d="M2 23 L57 78 M2 81 L57 81 M2 139 L57 84"/><path d="M51 76.5 L57.5 81 L51 85.5"/></svg>
-          <div class="op-admin"><p class="op-cap">Admin</p><p class="op-box">Chases each manager and merges by hand</p></div>
-          <span class="op-arr" aria-hidden="true"></span>
-          <div class="op-csv"><svg viewBox="0 0 56 68" aria-hidden="true"><path class="pg" d="M3 2.5h34l16 16V65.5H3z"/><path class="pg" d="M37 2.5v16h16"/><text x="28" y="46" text-anchor="middle">CSV</text></svg><span>MBO_Q1.csv</span></div>
-        </div>
-      </div>
-      <div class="op-link" aria-hidden="true"><svg viewBox="0 0 84 298" preserveAspectRatio="xMinYMin meet"><path d="M0 133 H42 V46 H81"/><path d="M75 41.5 L81.5 46 L75 50.5"/></svg></div>
-      <div class="op-zone in">
-        <ol class="op-steps">
-          <li><b>Upload CSV</b><span>every period</span></li>
-          <li><b>Custom object</b></li>
-          <li><b>Datasheet</b></li>
-          <li class="pay"><b>Commission payout</b></li>
-        </ol>
-        <p class="op-note">Payees only see the final number</p>
-      </div>
-      <div class="op-hurt">
-        <p class="op-hl">Where it hurt</p>
-        <ul>
-          <li>Scattered across files and inboxes</li>
-          <li>Admin chases every manager, every quarter</li>
-          <li>Manual merge, easy to get wrong</li>
-          <li>No audit trail, no way to know which scores were final</li>
-        </ul>
-      </div>
+    <figure class="oi reveal" aria-label="A sketch of how MBOs worked before. Managers kept scores in Excel, email or spreadsheets, scattered across files and inboxes. An admin chased each manager and merged it all by hand into a CSV, every single quarter, which was easy to get wrong. Inside Everstage, the CSV was uploaded, then went into a custom object, a datasheet and finally the commission payout. Payees only saw the final number, and there was no audit trail or way to tell which scores were final.">
+      <svg class="oi-d" viewBox="0 0 1000 420" aria-hidden="true">
+        <defs><filter id="oiInk" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="1.8"/></filter></defs>
+        <path class="area" d="M744 68 C 810 58, 905 60, 962 70 C 973 140, 971 262, 961 352 C 882 364, 802 362, 746 352 C 735 262, 736 150, 744 68 Z"/>
+        <g filter="url(#oiInk)">
+          <rect class="ln pp" x="40" y="86" width="46" height="38" rx="3"/><path class="ln th" d="M40 98 H86 M40 111 H86 M55 86 V124 M70 86 V124"/>
+          <rect class="ln pp" x="40" y="176" width="46" height="34" rx="3"/><path class="ln" d="M42 179 L63 196 L84 179"/>
+          <rect class="ln pp" x="44" y="258" width="38" height="46" rx="3"/><path class="ln th" d="M51 270 H75 M51 279 H75 M51 288 H67"/>
+          <path class="ln" d="M206 105 C 272 105, 300 168, 372 190"/>
+          <path class="ln" d="M206 193 C 262 192, 310 196, 372 198"/>
+          <path class="ln" d="M206 281 C 276 281, 302 226, 372 206"/>
+          <path class="ln" d="M361 190 L375 198 L362 207"/>
+          <circle class="ln pp" cx="432" cy="166" r="16"/>
+          <path class="ln pp" d="M397 228 C 400 199, 464 199, 467 228"/>
+          <path class="ln th" d="M405 146 q-7 -6 -3 -15 M459 146 q7 -6 3 -15 M432 140 v-11"/>
+          <path class="ln" d="M488 198 C 516 186, 541 210, 574 198"/>
+          <path class="ln" d="M563 191 L576 198 L564 206"/>
+          <g transform="rotate(-6 620 205)"><path class="ln pp" d="M592 166 H634 L650 182 V244 H592 Z"/><path class="ln" d="M634 166 V182 H650"/></g>
+          <path class="ln dash" d="M666 205 C 702 205, 702 112, 752 112"/>
+          <path class="ln" d="M741 105 L754 112 L742 120"/>
+          <path class="ln th" d="M772 114 V 280"/>
+          <circle class="ln pp" cx="772" cy="112" r="4"/><circle class="ln pp" cx="772" cy="168" r="4"/><circle class="ln pp" cx="772" cy="224" r="4"/><circle class="ln pp" cx="772" cy="282" r="4.5"/>
+          <path class="ln acc" d="M788 294 C 832 289, 882 296, 922 290"/>
+          <path class="ln acc" d="M226 52 C 186 52, 128 60, 98 80"/><path class="ln acc" d="M101 69 L96 82 L109 81"/>
+        </g>
+        <text class="lbl" x="40" y="36">OUTSIDE EVERSTAGE</text>
+        <text class="lbl" x="746" y="44">INSIDE EVERSTAGE</text>
+        <text class="t" x="102" y="102">Manager A</text><text class="it" x="102" y="121">in Excel</text>
+        <text class="t" x="102" y="190">Manager B</text><text class="it" x="102" y="209">over email</text>
+        <text class="t" x="102" y="278">Manager C</text><text class="it" x="102" y="297">in a spreadsheet</text>
+        <text class="it mu" x="40" y="340">…and every other manager</text>
+        <text class="t" x="432" y="254" text-anchor="middle">Admin</text>
+        <text class="it" x="432" y="274" text-anchor="middle">chases each manager,</text>
+        <text class="it" x="432" y="292" text-anchor="middle">then merges it all by hand</text>
+        <text class="pain" x="432" y="320" text-anchor="middle">every single quarter</text>
+        <text class="csv" x="621" y="212" text-anchor="middle" transform="rotate(-6 620 205)">CSV</text>
+        <text class="mono" x="621" y="272" text-anchor="middle">MBO_Q1.csv</text>
+        <text class="pain" x="612" y="146" text-anchor="middle">easy to get wrong</text>
+        <text class="t" x="788" y="117">Upload CSV</text><text class="it mu" x="876" y="117">each quarter</text>
+        <text class="t" x="788" y="173">Custom object</text>
+        <text class="t" x="788" y="229">Datasheet</text>
+        <text class="t tb" x="788" y="287">Commission payout</text>
+        <text class="it mu" x="853" y="332" text-anchor="middle">payees only see the final number</text>
+        <text class="pain" x="228" y="57">scattered across files and inboxes</text>
+        <text class="pain" x="853" y="392" text-anchor="middle">no audit trail, no way to tell</text>
+        <text class="pain" x="853" y="411" text-anchor="middle">which scores were final</text>
+      </svg>
+      <svg class="oi-m" viewBox="0 0 360 1036" aria-hidden="true">
+        <defs><filter id="oiInkM" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="1.6"/></filter></defs>
+        <path class="area" d="M22 790 C 120 780, 250 782, 340 792 C 348 850, 347 930, 339 980 C 240 990, 110 988, 24 980 C 15 930, 16 850, 22 790 Z"/>
+        <g filter="url(#oiInkM)">
+          <rect class="ln pp" x="24" y="48" width="46" height="38" rx="3"/><path class="ln th" d="M24 60 H70 M24 73 H70 M39 48 V86 M54 48 V86"/>
+          <rect class="ln pp" x="24" y="118" width="46" height="34" rx="3"/><path class="ln" d="M26 121 L47 138 L68 121"/>
+          <rect class="ln pp" x="28" y="184" width="38" height="46" rx="3"/><path class="ln th" d="M35 196 H59 M35 205 H59 M35 214 H51"/>
+          <path class="ln" d="M180 308 C 172 322, 188 334, 180 350"/><path class="ln" d="M173 340 L180 352 L187 340"/>
+          <circle class="ln pp" cx="180" cy="382" r="15"/>
+          <path class="ln pp" d="M147 440 C 150 413, 210 413, 213 440"/>
+          <path class="ln th" d="M154 363 q-7 -6 -3 -14 M206 363 q7 -6 3 -14 M180 358 v-10"/>
+          <path class="ln" d="M180 534 C 172 548, 188 560, 180 576"/><path class="ln" d="M173 566 L180 578 L187 566"/>
+          <g transform="rotate(-6 180 624)"><path class="ln pp" d="M152 590 H190 L206 606 V660 H152 Z"/><path class="ln" d="M190 590 V606 H206"/></g>
+          <path class="ln dash" d="M180 704 C 172 720, 188 732, 180 750"/><path class="ln" d="M173 740 L180 752 L187 740"/>
+          <path class="ln th" d="M50 828 V 932"/>
+          <circle class="ln pp" cx="50" cy="826" r="4"/><circle class="ln pp" cx="50" cy="861" r="4"/><circle class="ln pp" cx="50" cy="896" r="4"/><circle class="ln pp" cx="50" cy="932" r="4.5"/>
+          <path class="ln acc" d="M66 944 C 104 939, 150 946, 196 940"/>
+        </g>
+        <text class="lbl" x="24" y="26">OUTSIDE EVERSTAGE</text>
+        <text class="t" x="86" y="64">Manager A</text><text class="it" x="86" y="83">in Excel</text>
+        <text class="t" x="86" y="134">Manager B</text><text class="it" x="86" y="153">over email</text>
+        <text class="t" x="86" y="204">Manager C</text><text class="it" x="86" y="223">in a spreadsheet</text>
+        <text class="it mu" x="24" y="262">…and every other manager</text>
+        <text class="pain" x="24" y="288">scattered across files and inboxes</text>
+        <text class="t" x="180" y="466" text-anchor="middle">Admin</text>
+        <text class="it" x="180" y="486" text-anchor="middle">chases each manager,</text>
+        <text class="it" x="180" y="504" text-anchor="middle">then merges it all by hand</text>
+        <text class="pain" x="180" y="524" text-anchor="middle">every single quarter</text>
+        <text class="csv" x="180" y="630" text-anchor="middle" transform="rotate(-6 180 624)">CSV</text>
+        <text class="mono" x="180" y="686" text-anchor="middle">MBO_Q1.csv</text>
+        <text class="pain" x="222" y="626">easy to get wrong</text>
+        <text class="lbl" x="24" y="774">INSIDE EVERSTAGE</text>
+        <text class="t" x="66" y="831">Upload CSV</text><text class="it mu" x="154" y="831">each quarter</text>
+        <text class="t" x="66" y="866">Custom object</text>
+        <text class="t" x="66" y="901">Datasheet</text>
+        <text class="t tb" x="66" y="937">Commission payout</text>
+        <text class="it mu" x="181" y="966" text-anchor="middle">payees only see the final number</text>
+        <text class="pain" x="180" y="1008" text-anchor="middle">no audit trail, no way to tell</text>
+        <text class="pain" x="180" y="1027" text-anchor="middle">which scores were final</text>
+      </svg>
     </figure>
     <div class="prose reveal">
       <p>The steps themselves made sense: leadership set the goals, managers scored them, and often someone checked before payout. So I designed the product to <strong class="k">follow those same steps</strong>, and remove the chasing and copy-pasting around them.</p>
