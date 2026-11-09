@@ -323,3 +323,6 @@ html, body { background: var(--bg); }
 .oi .oi-pains b { display: flex; align-items: baseline; gap: 8px; }
 .oi .mk-n { flex: none; display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; background: #fcece4; border: 1px solid rgba(213, 62, 9, .4); font: normal 600 10.5px/1 "Geist", system-ui, sans-serif; color: #c4400f; transform: translateY(-1px); }
 .oi .oi-pains span { padding-left: 25px; }
+.oi .oi-pains { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 48px; margin-top: 36px; padding-top: 28px; }
+.oi .oi-pains span { font-size: 14px; }
+@media (max-width: 520px) { .oi .oi-pains { grid-template-columns: 1fr; gap: 20px; } }
