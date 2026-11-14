@@ -419,42 +419,5 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .tile:hover .cap b { text-decoration-color: #6eebff; text-decoration-thickness: 3px; text-underline-offset: 3px; }
 .view-cursor .vc-in { background: #6eebff; color: var(--accent); font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
 
-/* Cat café, prettier: soft off-register watercolour washes behind warm ink lines */
-.cafe-scene { background: radial-gradient(circle, rgba(62,55,40,.13) .9px, transparent 1.2px) 0 0 / 12px 12px, #fffdf9; }
-.cafe-svg .scene .ln, .cafe-svg .scene circle { stroke: #8a8174; stroke-width: 1.15; fill: none; }
-.cafe-svg .scene .ln.th { stroke-opacity: .55; stroke-width: 1; }
-.cafe-svg .scene .ln.leaf { fill: none; }
-.cafe-svg .scene .ln.fc { fill: #f4ddd0; }
-.cafe-svg .scene .ln.fc2 { fill: #f3d3c3; }
-.cafe-svg .scene .ln.fc3 { fill: #ecdfc8; }
-.cafe-svg .scene .ln.steam { stroke: #8a8174; opacity: .6; }
-.cafe-svg .wash { stroke: none; opacity: .85; }
-.cafe-svg .wb { fill: #f2d4c6; }
-.cafe-svg .wy { fill: #f6e2b0; }
-.cafe-svg .wc { fill: #cfe3ea; }
-.cafe-svg .wg { fill: #d6e3c8; }
-.cafe-svg .wt { fill: #ecc6ab; }
-.cafe-svg .wn { fill: #ebe4d8; }
-.cafe-svg .wk { fill: #f5ede1; }
-.cafe-svg .wd { fill: #e8dcc8; }
-.cafe-svg .wr { fill: #f1e6d4; }
-
-/* Cat café in black and white: ink lines only, cats in the same ink */
-.cafe-scene { background: radial-gradient(circle, rgba(43,39,34,.16) .9px, transparent 1.2px) 0 0 / 12px 12px, #fff; }
-.cafe-svg .scene .ln, .cafe-svg .scene circle { stroke: #5c564e; }
-.cafe-svg .scene .ln.fc, .cafe-svg .scene .ln.fc2, .cafe-svg .scene .ln.fc3 { fill: #fff; }
-.cafe-svg .scene .ln.steam { stroke: #5c564e; }
+/* Cats in dark ink, so no colour picker */
 .cafe .swatches { display: none !important; }
-/* Room lines: one lighter grey everywhere; cats stay darker */
-.cafe-svg .scene .ln, .cafe-svg .scene circle, .cafe-svg .scene .ln.th, .cafe-svg .scene .ln.steam { stroke: #a39d94; stroke-opacity: 1; opacity: 1; }
-.cafe-svg .scene .ln.th { stroke-width: 1.15; }
-.cafe-svg .mischief .ln, .cafe-svg .mischief .crash { stroke: #a39d94; }
-
-/* Cat café: same width as the intro text, dots fade out at the edges instead of a hard box */
-.cafe { max-width: 620px; margin-top: 44px; }
-.cafe-scene { position: relative; overflow: visible; border-radius: 0; background: none; }
-.cafe-scene::before { content: ""; position: absolute; inset: -6px 0 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(circle, rgba(62,55,40,.16) .9px, transparent 1.2px) 0 0 / 12px 12px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 45%, transparent 100%);
-          mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 45%, transparent 100%); }
-.cafe-scene > * { position: relative; z-index: 1; }
