@@ -619,3 +619,6 @@ body .site-foot .foot-base span { font: 400 14px/20px "Geist", system-ui, sans-s
 
 /* A little more air between the name block and the bio */
 body .intro .bio { margin-top: 28px; }
+
+/* Same space above the cat strip as below it (down to "Selected work") */
+body .intro .cat-strip { margin-top: 96px; }
