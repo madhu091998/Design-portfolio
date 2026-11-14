@@ -491,3 +491,27 @@ body .grid.craft .cap span::before { content: none; }
 /* about + experience */
 body .about-text p { color: var(--d-ink); }
 body .timeline b { color: var(--d-ink); font-weight: 500; }
+
+/* Darina's exact type scale: 16px name, 14px/20px everything else, regular weight */
+body .intro .who span, body .intro .bio, body .intro .bio p, body .intro .bio a, body .intro .links a,
+body .sec-head p, body .work-hero .cap b, body .grid.work-more .cap b, body .work-hero .cap span, body .grid.work-more .cap span,
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief, body .tile .meta,
+body .about-text, body .about-text p, body .timeline li, body .timeline .when, body .timeline .what, body .timeline b,
+body .sidenav a, body main .cap, body main .cap b, body main .cap span,
+body .grid.craft .cap, body .grid.craft .cap b, body .grid.craft .cap span {
+  font-size: 14px; line-height: 20px; letter-spacing: normal; font-weight: 400;
+}
+body .intro .who b { font-size: 16px; line-height: 24px; letter-spacing: normal; font-weight: 500; }
+body .work-hero .cap b, body .grid.work-more .cap b, body .grid.craft .cap b, body .timeline b { font-weight: 500; }
+body .intro .who .avatar { margin-bottom: 26px; }
+body .intro .who p { gap: 0; }
+body .intro .bio { margin-top: 20px; }
+body .intro .bio p + p { margin-top: 16px; }
+body .intro .links { margin-top: 16px; }
+body .intro .links a + a::before { margin: 0 6px; }
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { margin-top: 8px; }
+body .tile .meta { margin-top: 8px; }
+body .tile .meta span + span::before { margin: 0 6px; }
+@media (max-width: 760px) {
+  body .intro .bio, body .intro .bio p, body .sec-head p, body .tile .brief, body .about-text, body .about-text p, body .timeline li { font-size: 14px; line-height: 20px; }
+}
