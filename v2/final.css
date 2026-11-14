@@ -537,3 +537,9 @@ body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .bri
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/geist-latin-500-normal.woff2") format("woff2"); }
 body.bio-home { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
 body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { color: #878787; }
+
+/* Section headings in the same style as the name: 16px / 24, medium, number in grey */
+body .sec-head h2 { display: flex; align-items: baseline; gap: 0; font: 500 16px/24px "Geist", system-ui, sans-serif; font-style: normal; letter-spacing: normal; color: #151515; }
+body .sec-head h2 span { font: 400 16px/24px "Geist", system-ui, sans-serif; color: #878787; letter-spacing: normal; }
+body .sec-head h2 span::after { content: "/"; margin: 0 8px 0 6px; color: #c4c4c4; }
+body .sec-head p { margin-top: 0; }
