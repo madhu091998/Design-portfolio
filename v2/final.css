@@ -445,3 +445,7 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .cafe-svg .scene .ln.fc, .cafe-svg .scene .ln.fc2, .cafe-svg .scene .ln.fc3 { fill: #fff; }
 .cafe-svg .scene .ln.steam { stroke: #5c564e; }
 .cafe .swatches { display: none !important; }
+/* Room lines: one lighter grey everywhere; cats stay darker */
+.cafe-svg .scene .ln, .cafe-svg .scene circle, .cafe-svg .scene .ln.th, .cafe-svg .scene .ln.steam { stroke: #a39d94; stroke-opacity: 1; opacity: 1; }
+.cafe-svg .scene .ln.th { stroke-width: 1.15; }
+.cafe-svg .mischief .ln, .cafe-svg .mischief .crash { stroke: #a39d94; }
