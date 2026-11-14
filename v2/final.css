@@ -515,8 +515,3 @@ body .tile .meta span + span::before { margin: 0 6px; }
 @media (max-width: 760px) {
   body .intro .bio, body .intro .bio p, body .sec-head p, body .tile .brief, body .about-text, body .about-text p, body .timeline li { font-size: 14px; line-height: 20px; }
 }
-
-/* Square photo beside the name, same height as the name + role block (24 + 20 = 44px) */
-body .intro .who { display: flex; align-items: center; gap: 12px; }
-body .intro .who .avatar { width: 44px; height: 44px; margin: 0; border-radius: 6px; flex: none; }
-body .intro .who .avatar img { border-radius: 6px; }
