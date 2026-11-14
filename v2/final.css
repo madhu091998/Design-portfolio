@@ -622,3 +622,7 @@ body .intro .bio { margin-top: 28px; }
 
 /* Same space above the cat strip as below it (down to "Selected work") */
 body .intro .cat-strip { margin-top: 96px; }
+
+/* Cat strip: 64px above and below */
+body .intro .cat-strip { margin-top: 64px; }
+body .intro + #work { margin-top: 64px; }
