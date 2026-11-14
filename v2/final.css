@@ -521,3 +521,10 @@ body .tile .meta span + span::before { margin: 0 6px; }
   body .page:has(> .intro) { padding-top: 84px; padding-left: max(160px, calc((100vw - 600px) / 2)); padding-right: max(24px, calc((100vw - 600px) / 2)); }
   body .intro, body .cafe { max-width: 600px; }
 }
+
+/* Work card caption: dark title · grey label on one line, description in the softer text colour below */
+body .work-hero .cap, body .grid.work-more .cap { display: flex; flex-wrap: wrap; align-items: baseline; }
+body .work-hero .cap span, body .grid.work-more .cap span { display: inline; color: var(--muted); }
+body .work-hero .cap span::before, body .grid.work-more .cap span::before { content: "\00B7"; margin: 0 8px; color: var(--muted); }
+body .work-hero .cap b, body .grid.work-more .cap b { color: var(--ink); font-weight: 500; }
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { color: var(--text); margin-top: 6px; }
