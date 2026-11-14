@@ -426,3 +426,14 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .cafe-svg .cat.ill-walk svg path { stroke: currentColor; stroke-width: 0.56; stroke-linejoin: round; paint-order: normal; }
 .cafe-svg .cat.ill-lounge svg path { stroke: currentColor; stroke-width: 0.00; stroke-linejoin: round; paint-order: normal; }
 .cafe-svg .cat.ill-yawn svg path { stroke: currentColor; stroke-width: 1.46; stroke-linejoin: round; paint-order: normal; }
+
+/* Landing page body text at 16px */
+.intro .bio, .intro .bio p, .sec-head p, .tile .cap, .tile .cap b, .tile .cap span, .tile .brief,
+.work-hero .tile .cap, .grid.work-more .tile .cap, .work-hero .tile .brief, .grid.work-more .tile .brief,
+.about-text, .about-text p, .timeline li, .timeline .when, .timeline .what, .timeline b { font-size: 16px; }
+@media (max-width: 760px) {
+  .intro .bio, .intro .bio p, .sec-head p, .tile .cap, .tile .cap b, .tile .cap span, .tile .brief,
+  .work-hero .tile .brief, .grid.work-more .tile .brief, .about-text, .about-text p, .timeline li, .timeline .when, .timeline .what, .timeline b { font-size: 16px; }
+}
+main .cap, main .cap b, main .cap span { font-size: 16px; }
+.work-hero .cap b, .grid.work-more .cap b, .work-hero .cap span, .grid.work-more .cap span { font-size: 16px; }
