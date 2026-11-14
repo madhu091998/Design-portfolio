@@ -559,3 +559,7 @@ body .intro .bio p, body .intro .bio a { color: var(--body); }
 body .intro .bio a { text-decoration-color: rgba(92, 92, 92, .45); }
 body .intro .bio a:hover { color: #151515; text-decoration-color: #151515; }
 body .about-text p { color: var(--body); }
+
+/* More breathing room in multi-line paragraphs: 14px / 23px, 18px between paragraphs */
+body .intro .bio p, body .intro .bio a, body .about-text p { line-height: 23px; }
+body .intro .bio p + p, body .about-text p + p { margin-top: 18px; }
