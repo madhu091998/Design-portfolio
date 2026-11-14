@@ -536,3 +536,4 @@ body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .bri
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/geist-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/geist-latin-500-normal.woff2") format("woff2"); }
 body.bio-home { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { color: #878787; }
