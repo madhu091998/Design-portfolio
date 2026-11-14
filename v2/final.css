@@ -418,3 +418,23 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 ::selection { background: rgba(110, 235, 255, .55); color: var(--ink); }
 .tile:hover .cap b { text-decoration-color: #6eebff; text-decoration-thickness: 3px; text-underline-offset: 3px; }
 .view-cursor .vc-in { background: #6eebff; color: var(--accent); font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
+
+/* Cat café, prettier: soft off-register watercolour washes behind warm ink lines */
+.cafe-scene { background: radial-gradient(circle, rgba(62,55,40,.13) .9px, transparent 1.2px) 0 0 / 12px 12px, #fffdf9; }
+.cafe-svg .scene .ln, .cafe-svg .scene circle { stroke: #8a8174; stroke-width: 1.15; fill: none; }
+.cafe-svg .scene .ln.th { stroke-opacity: .55; stroke-width: 1; }
+.cafe-svg .scene .ln.leaf { fill: none; }
+.cafe-svg .scene .ln.fc { fill: #f4ddd0; }
+.cafe-svg .scene .ln.fc2 { fill: #f3d3c3; }
+.cafe-svg .scene .ln.fc3 { fill: #ecdfc8; }
+.cafe-svg .scene .ln.steam { stroke: #8a8174; opacity: .6; }
+.cafe-svg .wash { stroke: none; opacity: .85; }
+.cafe-svg .wb { fill: #f2d4c6; }
+.cafe-svg .wy { fill: #f6e2b0; }
+.cafe-svg .wc { fill: #cfe3ea; }
+.cafe-svg .wg { fill: #d6e3c8; }
+.cafe-svg .wt { fill: #ecc6ab; }
+.cafe-svg .wn { fill: #ebe4d8; }
+.cafe-svg .wk { fill: #f5ede1; }
+.cafe-svg .wd { fill: #e8dcc8; }
+.cafe-svg .wr { fill: #f1e6d4; }

@@ -161,7 +161,7 @@
       <path d="M41.262,94.778l-2.721-.644-3.265-.615s-2.196.695-.812,1.034l1.42.348c0,.005-.004.01-.003.015.049.463.067.957.584,1.172.23.095.493.113.725.162.517-.004.8-.333,1.074-.681.02-.026.02-.05.034-.076l.479.117,2.711.186-.226-1.017Z" fill="currentColor"/>
     </g></symbol>
           <!-- fills each cat's body white (morphological closing) so nothing behind shows through -->
-          <filter id="cat-solid" x="-25%" y="-25%" width="150%" height="150%"><feMorphology in="SourceAlpha" operator="dilate" radius="34" result="d"/><feMorphology in="d" operator="erode" radius="34" result="c"/><feFlood flood-color="#fff"/><feComposite in2="c" operator="in" result="w"/><feMerge><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="cat-solid" x="-25%" y="-25%" width="150%" height="150%"><feMorphology in="SourceAlpha" operator="dilate" radius="34" result="d"/><feMorphology in="d" operator="erode" radius="34" result="c"/><feFlood flood-color="#fff"/><feComposite in2="c" operator="in" result="w"/><feMerge><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="cat-solid-sm" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="16" result="b1"/><feComponentTransfer in="b1" result="d"><feFuncA type="linear" slope="60" intercept="-1.2"/></feComponentTransfer><feGaussianBlur in="d" stdDeviation="16" result="b2"/><feComponentTransfer in="b2" result="c"><feFuncA type="linear" slope="60" intercept="-58"/></feComponentTransfer><feFlood flood-color="#fff"/><feComposite in2="c" operator="in" result="w"/><feMerge><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <!-- cat poses, drawn with (0,0) at the bottom centre -->
           <g id="pose-sit">
             <path class="coat" d="M-11 0 C-13.5 -9 -12 -17 -8.5 -21 L-9.5 -32 L-3 -26.2 C-1 -26.9 1 -26.9 3 -26.2 L9.5 -32 L8.5 -21 C12 -17 13.5 -9 11 0 Z"/>
@@ -184,32 +184,95 @@
           </g>
         </defs>
 
+        <g class="washes" aria-hidden="true">
+          <defs>
+            <filter id="cafe-wash" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+            <linearGradient id="cafe-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6ee"/><stop offset="1" stop-color="#f6efe0"/></linearGradient>
+            <radialGradient id="cafe-lamp" cx="50%" cy="0%" r="90%"><stop offset="0" stop-color="#fbe2b4" stop-opacity=".95"/><stop offset="1" stop-color="#fbe2b4" stop-opacity="0"/></radialGradient>
+          </defs>
+          <g filter="url(#cafe-wash)" transform="translate(1.6 1.4)">
+            <path fill="url(#cafe-sky)" d="M41 123 H171 V187 H41 Z"/>
+            <path class="wash wg" d="M41 176 C 60 166, 78 168, 96 174 C 112 164, 140 162, 171 172 V187 H41 Z"/>
+            <circle class="wash wy" cx="150" cy="136" r="8"/>
+            <path class="wash wb" d="M30 188 H182 V194 H30 Z"/>
+            <path class="wash wb" d="M236.2 107.4 L243.6 117.7 L251.0 108.7 Z"/><path class="wash wy" d="M259.3 109.3 L266.7 119.2 L274.1 110.2 Z"/><path class="wash wc" d="M282.4 110.7 L289.8 120.3 L297.2 111.3 Z"/><path class="wash wg" d="M305.5 111.6 L312.9 120.9 L320.3 111.9 Z"/><path class="wash wb" d="M328.6 112.0 L336.0 121.0 L343.4 112.0 Z"/><path class="wash wy" d="M351.7 111.9 L359.1 120.9 L366.5 111.6 Z"/><path class="wash wc" d="M374.8 111.3 L382.2 120.3 L389.6 110.7 Z"/><path class="wash wg" d="M397.9 110.2 L405.3 119.2 L412.7 109.3 Z"/><path class="wash wb" d="M421.0 108.7 L428.4 117.7 L435.8 107.4 Z"/>
+            <path class="wash wt" d="M207 121 h16 l-2 9 h-12 Z"/>
+            <path class="wash wy" d="M232 140 h7 v20 h-7 Z"/>
+            <path class="wash wc" d="M240 136 h8 v24 h-8 Z"/>
+            <path class="wash wb" d="M249 142 h7 v18 h-7 Z"/>
+            <path class="wash wg" d="M257 160 L264 143 L270 146 L263 160 Z"/>
+            <path class="wash wc" d="M338 146 h14 v14 h-14 Z"/>
+            <path class="wash wt" d="M362 160 l-2 -10 h16 l-2 10 Z"/>
+            <path fill="url(#cafe-lamp)" d="M458 130 L436 200 H508 L486 130 Z"/>
+            <path class="wash wy" d="M458 132 q14 -18 28 0 Z"/>
+            <path class="wash wn" d="M534 116 h52 v30 h-52 Z"/>
+            <path class="wash wk" d="M400 202 H592 V290 H400 Z"/>
+            <path class="wash wd" d="M396 202 H596 V216 H396 Z"/>
+            <path class="wash wn" d="M408 202 v-34 h28 v34 Z"/>
+            <path class="wash wb" d="M458 200 v-7 h16 v7 Z"/>
+            <path class="wash wr" d="M64 290 C 64 284, 350 284, 350 290 C 350 296, 64 296, 64 290 Z"/>
+            <path class="wash wt" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
+            <path class="wash wg" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
+            <path class="wash wd" d="M604 292 l-3 -18 h24 l-3 18 Z"/>
+            <path class="wash wg" d="M613 274 c-6 -10 -8 -24 -2 -34 c4 10 5 22 2 34 M613 274 c3 -12 12 -22 20 -24 c-1 10 -9 20 -20 24 M613 274 c-6 -6 -16 -10 -24 -8 c4 7 14 10 24 8"/>
+          </g>
+        </g>
         <g class="scene" filter="url(#cafe-ink)">
-          <!-- window -->
-          <rect class="sky" x="40" y="122" width="132" height="66" rx="7"/>
-          <path class="ln" d="M106 122 V188 M40 155 H172"/>
-          <circle class="sun" cx="148" cy="136" r="7"/>
-          <rect class="fill-soft" x="30" y="188" width="152" height="6" rx="2"/>
-          <!-- shelf -->
+          <!-- curtains, rod, window -->
+          <path class="ln" d="M24 116 H188"/>
+          <circle class="ln" cx="23" cy="116" r="2.2"/><circle class="ln" cx="189" cy="116" r="2.2"/>
+          <path class="ln" d="M40 122 H172 V188 H40 Z M106 122 V188 M40 155 H172"/>
+          <path class="ln th" d="M41 176 C 60 166, 78 168, 96 174 C 112 164, 140 162, 171 172"/>
+          <path class="ln th" d="M56 140 c2 -4 8 -4 10 0 c3 -2 7 0 6 3 h-17 c-2 0 -2 -3 1 -3 M122 168 q3 -3 6 0 q3 -3 6 0"/>
+          <circle class="ln" cx="150" cy="136" r="7"/>
+          <path class="ln fc" d="M28 116 C 30 140, 33 160, 27 190 L 45 190 C 42 166, 39 150, 44 138 C 46 130, 46 122, 47 116 Z"/>
+          <path class="ln fc" d="M184 116 C 182 140, 179 160, 185 190 L 167 190 C 170 166, 173 150, 168 138 C 166 130, 166 122, 165 116 Z"/>
+          <path class="ln th" d="M34 124 C 35 146, 37 168, 34 188 M178 124 C 177 146, 175 168, 178 188"/>
+          <path class="ln" d="M30 188 H182 V194 H30 Z"/>
+          <!-- hanging plant -->
+          <path class="ln" d="M215 104 V121 M207 121 h16 l-2 9 h-12 Z"/>
+          <path class="ln leaf" d="M209 130 c-3 6 1 10 -2 16 c-1 4 1 7 -1 10 M221 130 c3 6 -1 12 2 18 M214 130 c0 6 -2 9 0 13"/>
+          <path class="ln th" d="M206 141 c-3 -1 -4 1 -3 3 M209 150 c3 -1 4 1 3 3 M224 142 c3 -1 4 1 3 3 M213 139 c-2 0 -3 2 -2 3"/>
+          <!-- bunting -->
+          <path class="ln th" d="M232 107 Q 336 117, 440 107"/>
+          <path class="ln" d="M236.2 107.4 L243.6 117.7 L251.0 108.7 Z M259.3 109.3 L266.7 119.2 L274.1 110.2 Z M282.4 110.7 L289.8 120.3 L297.2 111.3 Z M305.5 111.6 L312.9 120.9 L320.3 111.9 Z M328.6 112.0 L336.0 121.0 L343.4 112.0 Z M351.7 111.9 L359.1 120.9 L366.5 111.6 Z M374.8 111.3 L382.2 120.3 L389.6 110.7 Z M397.9 110.2 L405.3 119.2 L412.7 109.3 Z M421.0 108.7 L428.4 117.7 L435.8 107.4 Z"/>
+          <!-- shelf, books, jar, little plant -->
           <path class="ln" d="M226 160 H382 M244 160 v10 l9 -10 M364 160 v10 l-9 -10"/>
-          
-          <path class="ln leaf" d="M372 160 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M372 160 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
+          <path class="ln" d="M232 140 h7 v20 h-7 Z M240 136 h8 v24 h-8 Z M249 142 h7 v18 h-7 Z M257 160 L264 143 L270 146 L263 160 Z"/>
+          <path class="ln th" d="M233 145 h5 M241 141 h6 M241 154 h6 M250 147 h5"/>
+          <path class="ln" d="M338 160 V146 h14 V160 Z M337 146 h16 M340 146 v-3 h10 v3"/>
+          <path class="ln th" d="M341 152 h8"/>
+          <path class="ln" d="M362 160 l-2 -10 h16 l-2 10 Z"/>
+          <path class="ln leaf" d="M368 150 c-4 -6 -2 -12 3 -14 c1 6 0 10 -3 14 M368 150 c3 -5 9 -6 12 -4 c-3 4 -7 5 -12 4"/>
           <!-- lamp -->
           <path class="ln" d="M472 104 V120 M458 132 q14 -18 28 0 Z"/>
-          <path class="glow" d="M458 126 L448 160 H496 L486 126 Z"/>
+          <path class="ln th" d="M466 135 q6 3 12 0"/>
+          <!-- menu board -->
+          <path class="ln th" d="M540 116 L560 106 L580 116"/>
+          <path class="ln" d="M534 116 h52 v30 h-52 Z"/>
+          <path class="ln th" d="M541 124 h20 M541 131 h34 M541 138 h26"/>
+          <path class="ln th" d="M574 122 h6 v4 a3 3 0 0 1 -6 0 Z"/>
           <!-- counter -->
-          <rect class="fill-warm" x="400" y="202" width="192" height="88" rx="3"/>
-          <path class="ln" d="M400 216 H592 M440 240 h40 M440 254 h28"/>
-          <path class="ln fill-soft2" d="M408 202 v-34 h28 v34 M413 176 h18 M417 188 v7 h10 v-7"/>
-          <!-- plant -->
-          <path class="ln fill-soft" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
-          <path class="ln leaf" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
-          <!-- cushions + floor -->
-          <ellipse class="cushion" cx="112" cy="284" rx="40" ry="10"/>
-          <ellipse class="cushion two" cx="300" cy="284" rx="40" ry="10"/>
-          <path class="ln" d="M16 292 H624"/>
-          <!-- steam -->
+          <path class="ln" d="M400 202 H592 V290 H400 Z M396 202 H596 M400 216 H592"/>
+          <path class="ln th" d="M448 216 V290 M496 216 V290 M544 216 V290"/>
+          <path class="ln" d="M408 202 v-34 h28 v34 M413 176 h18 M417 188 v7 h10 v-7"/>
           <path class="ln steam" d="M418 164 c-3 -5 3 -7 0 -11 M426 164 c-3 -5 3 -7 0 -11"/>
+          <!-- cake under a dome -->
+          <path class="ln" d="M450 202 h32 M454 201 C 454 184, 478 184, 478 201 M466 186.5 v-3"/>
+          <path class="ln" d="M458 200 v-7 h16 v7"/>
+          <path class="ln th" d="M458 196 h16"/>
+          <!-- rug, cushions, plant, floor -->
+          <path class="ln th" d="M64 290 C 64 284, 350 284, 350 290 C 350 296, 64 296, 64 290 Z"/>
+          <path class="ln th" d="M64 288 l-5 -1 M64 292 l-5 1 M350 288 l5 -1 M350 292 l5 1"/>
+          <path class="ln fc2" d="M72 284 C 72 270, 152 270, 152 284 C 152 296, 72 296, 72 284 Z"/>
+          <path class="ln fc3" d="M260 284 C 260 270, 340 270, 340 284 C 340 296, 260 296, 260 284 Z"/>
+          <path class="ln th" d="M80 280 Q112 274 144 280 M268 280 Q300 274 332 280"/>
+          <path class="ln" d="M190 290 l-6 -26 h28 l-6 26 Z M184 268 h28"/>
+          <path class="ln leaf" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
+          <path class="ln" d="M604 292 l-3 -18 h24 l-3 18 Z"/>
+          <path class="ln leaf" d="M613 274 c-6 -10 -8 -24 -2 -34 c4 10 5 22 2 34 M613 274 c3 -12 12 -22 20 -24 c-1 10 -9 20 -20 24 M613 274 c-6 -6 -16 -10 -24 -8 c4 7 14 10 24 8"/>
+          <path class="ln" d="M12 292 H628"/>
+          <path class="ln th" d="M30 296 h24 M92 296 h40 M380 296 h30 M470 296 h46 M560 296 h22"/>
         </g>
 
 
@@ -678,7 +741,7 @@
       sv.setAttribute("viewBox", "0 0 " + r[0] + " " + r[1]);
       sv.setAttribute("x", -w / 2); sv.setAttribute("y", -h * (s.base || 1)); sv.setAttribute("width", w); sv.setAttribute("height", h);
       var body = document.createElementNS(NS, "g");
-      if (ink !== "currentColor") body.setAttribute("filter", "url(#cat-solid)");
+      if (ink !== "currentColor") body.setAttribute("filter", s.ill === "sit" ? "url(#cat-solid-sm)" : "url(#cat-solid)");
       [].forEach.call(document.getElementById("ill-" + s.ill).childNodes, function (n) { body.appendChild(n.cloneNode(true)); });
       sv.appendChild(body);
       var g = document.createElementNS(NS, "g");
