@@ -616,3 +616,6 @@ body .site-foot .foot-h { margin: 0 0 4px; font: 500 14px/20px "Geist", system-u
 body .site-foot .foot-col a { font: 400 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; text-transform: none; color: #878787; }
 body .site-foot .foot-col a:hover, body .site-foot .foot-col a:focus-visible { color: #151515; }
 body .site-foot .foot-base span { font: 400 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; color: #878787; }
+
+/* A little more air between the name block and the bio */
+body .intro .bio { margin-top: 28px; }
