@@ -515,3 +515,9 @@ body .tile .meta span + span::before { margin: 0 6px; }
 @media (max-width: 760px) {
   body .intro .bio, body .intro .bio p, body .sec-head p, body .tile .brief, body .about-text, body .about-text p, body .timeline li { font-size: 14px; line-height: 20px; }
 }
+
+/* Same starting point as darinausanova.com: a centred 600px column, photo ~86px from the top */
+@media (min-width: 761px) {
+  body .page:has(> .intro) { padding-top: 84px; padding-left: max(160px, calc((100vw - 600px) / 2)); padding-right: max(24px, calc((100vw - 600px) / 2)); }
+  body .intro, body .cafe { max-width: 600px; }
+}
