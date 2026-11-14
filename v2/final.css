@@ -528,3 +528,6 @@ body .work-hero .cap span, body .grid.work-more .cap span { display: inline; col
 body .work-hero .cap span::before, body .grid.work-more .cap span::before { content: "\00B7"; margin: 0 8px; color: var(--muted); }
 body .work-hero .cap b, body .grid.work-more .cap b { color: var(--ink); font-weight: 500; }
 body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { color: var(--text); margin-top: 6px; }
+
+/* Text colours from darinausanova.com: #151515 for text, #878787 for secondary */
+:root { --ink: #151515; --text: #151515; --muted: #878787; --link: rgba(21, 21, 21, 0.25); }

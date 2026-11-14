@@ -384,3 +384,16 @@ html, body { background: var(--bg); }
 /* Brand pair: orange + Aqua Blue #6EEBFF */
 :root { --aqua: #6eebff; }
 ::selection { background: rgba(110, 235, 255, .55); color: var(--ink); }
+
+/* Text colours from darinausanova.com: #151515 for text, #878787 for secondary */
+:root { --ink: #151515; --text: #151515; --muted: #878787; --link: rgba(21, 21, 21, 0.25); }
+.oi .t, .oi .csv, .oi .ttl { fill: #151515; }
+.oi .it, .oi .it.mu, .oi .lbl, .oi .lb2, .oi .mono, .oi .val { fill: #878787; }
+.oi .val { fill: #151515; }
+.mp-d, .blog .mp-d { color: #151515; }
+/* Headings and leftover hard-coded text colours → Darina's #151515 / #878787 */
+.blog .hero h1, .neel .hero h1, .blog .cs-h2, .blog .cs-h3, .neel .cs-h2, .neel .cs-h3, .blog .part-h, .blog .tag em, .blog .sw-h em, .blog .sw-new { color: #151515; }
+.blog .ex p { color: #878787; }
+.bfaf .bfaf-c.old, .bfaf .bfaf-c.new, .bfaf .bfaf-m { color: #151515; }
+.bfaf .bfaf-h.old, .bfaf .bfaf-h.new { color: #878787; }
+.blog .quotes figcaption, .blog figcaption { color: #878787; }
