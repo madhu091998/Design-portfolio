@@ -566,7 +566,9 @@ body .intro .bio p + p, body .about-text p + p { margin-top: 18px; }
 
 /* Work tiles, minimal hover: pointer cursor + underlined title, nothing else */
 body .tile:not(.soon), body .tile:not(.soon) * { cursor: pointer; }
-body .tile:hover .art > *, body .tile:hover .art.mock > * { transform: none; }
+body .tile .art > * { transition: transform .7s cubic-bezier(.2, .8, .2, 1); }
+body .tile:not(.soon):not(.still):hover .art > * { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { body .tile:hover .art > * { transform: none; } }
 body .tile .cap b { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease; }
 body .tile:hover .cap b { text-decoration-color: #151515; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
