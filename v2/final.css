@@ -626,3 +626,14 @@ body .intro .cat-strip { margin-top: 96px; }
 /* Cat strip: 64px above and below */
 body .intro .cat-strip { margin-top: 64px; }
 body .intro + #work { margin-top: 64px; }
+
+/* Name block: the round photo sits inside a hand-drawn ring with two cat ears, in the same grey ink as the cats */
+body .intro .who { gap: 12px; }
+body .intro .who .avatar-wrap { position: relative; flex: none; width: 64px; height: 64px; margin: -10px 0 -6px -6px; }
+body .intro .who .avatar-wrap .avatar { position: absolute; left: 10px; top: 12px; width: 44px; height: 44px; box-shadow: none; }
+body .intro .who .avatar-ink { position: absolute; inset: 0; width: 64px; height: 64px; overflow: visible; fill: none; stroke: #878787; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+body .intro .who .avatar-ink .fine { stroke-width: .9; }
+body .intro .who .avatar-ink .ear { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .35s cubic-bezier(.34, 1.6, .5, 1); }
+body .intro .who:hover .avatar-ink .ear-l { transform: rotate(-9deg); }
+body .intro .who:hover .avatar-ink .ear-r { transform: rotate(9deg); transition-delay: .05s; }
+@media (prefers-reduced-motion: reduce) { body .intro .who .avatar-ink .ear { transition: none; } }
