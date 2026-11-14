@@ -569,3 +569,14 @@ body .tile:not(.soon), body .tile:not(.soon) * { cursor: pointer; }
 body .tile:hover .art > *, body .tile:hover .art.mock > * { transform: none; }
 body .tile .cap b { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease; }
 body .tile:hover .cap b { text-decoration-color: #151515; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* One paragraph style for the whole landing page: every running-text paragraph matches the bio */
+body .sec-head p, body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief, body .about-text p {
+  font-size: 14px; line-height: 23px; font-weight: 400; letter-spacing: normal; color: var(--body); text-wrap: pretty;
+}
+/* ...and every inline link matches the bio links */
+body .about-text a, body .sec-head p a {
+  color: var(--body); text-decoration: underline; text-decoration-color: rgba(92, 92, 92, .45);
+  text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color .2s ease, text-decoration-color .2s ease;
+}
+body .about-text a:hover, body .sec-head p a:hover { color: #151515; text-decoration-color: #151515; }
