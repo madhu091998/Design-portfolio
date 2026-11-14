@@ -184,39 +184,6 @@
           </g>
         </defs>
 
-        <g class="washes" aria-hidden="true">
-          <defs>
-            <filter id="cafe-wash" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
-            <linearGradient id="cafe-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe6ee"/><stop offset="1" stop-color="#f6efe0"/></linearGradient>
-            <radialGradient id="cafe-lamp" cx="50%" cy="0%" r="90%"><stop offset="0" stop-color="#fbe2b4" stop-opacity=".95"/><stop offset="1" stop-color="#fbe2b4" stop-opacity="0"/></radialGradient>
-          </defs>
-          <g filter="url(#cafe-wash)" transform="translate(1.6 1.4)">
-            <path fill="url(#cafe-sky)" d="M41 123 H171 V187 H41 Z"/>
-            <path class="wash wg" d="M41 176 C 60 166, 78 168, 96 174 C 112 164, 140 162, 171 172 V187 H41 Z"/>
-            <circle class="wash wy" cx="150" cy="136" r="8"/>
-            <path class="wash wb" d="M30 188 H182 V194 H30 Z"/>
-            <path class="wash wb" d="M236.2 107.4 L243.6 117.7 L251.0 108.7 Z"/><path class="wash wy" d="M259.3 109.3 L266.7 119.2 L274.1 110.2 Z"/><path class="wash wc" d="M282.4 110.7 L289.8 120.3 L297.2 111.3 Z"/><path class="wash wg" d="M305.5 111.6 L312.9 120.9 L320.3 111.9 Z"/><path class="wash wb" d="M328.6 112.0 L336.0 121.0 L343.4 112.0 Z"/><path class="wash wy" d="M351.7 111.9 L359.1 120.9 L366.5 111.6 Z"/><path class="wash wc" d="M374.8 111.3 L382.2 120.3 L389.6 110.7 Z"/><path class="wash wg" d="M397.9 110.2 L405.3 119.2 L412.7 109.3 Z"/><path class="wash wb" d="M421.0 108.7 L428.4 117.7 L435.8 107.4 Z"/>
-            <path class="wash wt" d="M207 121 h16 l-2 9 h-12 Z"/>
-            <path class="wash wy" d="M232 140 h7 v20 h-7 Z"/>
-            <path class="wash wc" d="M240 136 h8 v24 h-8 Z"/>
-            <path class="wash wb" d="M249 142 h7 v18 h-7 Z"/>
-            <path class="wash wg" d="M257 160 L264 143 L270 146 L263 160 Z"/>
-            <path class="wash wc" d="M338 146 h14 v14 h-14 Z"/>
-            <path class="wash wt" d="M362 160 l-2 -10 h16 l-2 10 Z"/>
-            <path fill="url(#cafe-lamp)" d="M458 130 L436 200 H508 L486 130 Z"/>
-            <path class="wash wy" d="M458 132 q14 -18 28 0 Z"/>
-            <path class="wash wn" d="M534 116 h52 v30 h-52 Z"/>
-            <path class="wash wk" d="M400 202 H592 V290 H400 Z"/>
-            <path class="wash wd" d="M396 202 H596 V216 H396 Z"/>
-            <path class="wash wn" d="M408 202 v-34 h28 v34 Z"/>
-            <path class="wash wb" d="M458 200 v-7 h16 v7 Z"/>
-            <path class="wash wr" d="M64 290 C 64 284, 350 284, 350 290 C 350 296, 64 296, 64 290 Z"/>
-            <path class="wash wt" d="M190 290 l-6 -26 h28 l-6 26 Z"/>
-            <path class="wash wg" d="M198 264 c-10 -10 -12 -28 -2 -36 c6 10 6 24 2 36 M198 264 c4 -12 16 -20 26 -18 c-4 10 -14 16 -26 18 M198 264 c-8 -6 -20 -6 -26 0 c8 6 18 6 26 0"/>
-            <path class="wash wd" d="M604 292 l-3 -18 h24 l-3 18 Z"/>
-            <path class="wash wg" d="M613 274 c-6 -10 -8 -24 -2 -34 c4 10 5 22 2 34 M613 274 c3 -12 12 -22 20 -24 c-1 10 -9 20 -20 24 M613 274 c-6 -6 -16 -10 -24 -8 c4 7 14 10 24 8"/>
-          </g>
-        </g>
         <g class="scene" filter="url(#cafe-ink)">
           <!-- curtains, rod, window -->
           <path class="ln" d="M24 116 H188"/>
@@ -713,7 +680,7 @@
     var KEY = "madhu-cafe-cats", state = [];
     try { localStorage.removeItem(KEY); } catch (e) {}
     root.style.setProperty("--pick", "#3e3728");
-    var colour = "#e59a8c", layer = root.querySelector(".spots");
+    var colour = "#4a453f", layer = root.querySelector(".spots");
     var sw = root.querySelector(".swatches");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
@@ -797,7 +764,7 @@
       layer.appendChild(g);
       draw(i, false);
     });
-    var coats = [].map.call(root.querySelectorAll(".sw"), function (b) { return b.dataset.c; }), picked = state.some(Boolean);
+    var coats = ["#4a453f"], picked = state.some(Boolean);
     function markPicked(c) {
       root.querySelectorAll(".sw").forEach(function (o) { var on = o.dataset.c === c; o.classList.toggle("on", on); o.setAttribute("aria-checked", on ? "true" : "false"); });
       root.style.setProperty("--pick", c);

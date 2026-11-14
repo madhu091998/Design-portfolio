@@ -438,3 +438,10 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .cafe-svg .wk { fill: #f5ede1; }
 .cafe-svg .wd { fill: #e8dcc8; }
 .cafe-svg .wr { fill: #f1e6d4; }
+
+/* Cat café in black and white: ink lines only, cats in the same ink */
+.cafe-scene { background: radial-gradient(circle, rgba(43,39,34,.16) .9px, transparent 1.2px) 0 0 / 12px 12px, #fff; }
+.cafe-svg .scene .ln, .cafe-svg .scene circle { stroke: #5c564e; }
+.cafe-svg .scene .ln.fc, .cafe-svg .scene .ln.fc2, .cafe-svg .scene .ln.fc3 { fill: #fff; }
+.cafe-svg .scene .ln.steam { stroke: #5c564e; }
+.cafe .swatches { display: none !important; }
