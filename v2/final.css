@@ -606,3 +606,13 @@ body .foot-cats svg { display: block; width: 100%; height: auto; overflow: visib
 body .foot-cats .fc-ground { fill: none; stroke: #c4c4c4; stroke-width: 1.2px; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 body .foot-cats .cs-meow { font: italic 400 15px/1 "Newsreader", Georgia, serif; pointer-events: none; animation: cs-meow 1.2s ease-out forwards; transform-box: fill-box; transform-origin: 50% 100%; }
 @media (prefers-reduced-motion: reduce) { body .foot-cats .cs-meow { animation: cs-meow-still 1.2s linear forwards; } }
+
+/* Footer type in the same system as the rest of the page: serif for the one line, Geist 14px for everything else, no caps or orange */
+body .site-foot .foot-quote { font: 400 24px/30px "Newsreader", Georgia, serif; letter-spacing: normal; color: #151515; max-width: 420px; }
+body .site-foot .foot-quote em { font-style: italic; color: #878787; }
+body .site-foot .foot-made { margin-top: 14px; font: 400 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; text-transform: none; color: #878787; }
+body .site-foot .foot-col { gap: 6px; text-transform: none; letter-spacing: normal; }
+body .site-foot .foot-h { margin: 0 0 4px; font: 500 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; text-transform: none; color: #151515; }
+body .site-foot .foot-col a { font: 400 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; text-transform: none; color: #878787; }
+body .site-foot .foot-col a:hover, body .site-foot .foot-col a:focus-visible { color: #151515; }
+body .site-foot .foot-base span { font: 400 14px/20px "Geist", system-ui, sans-serif; letter-spacing: normal; color: #878787; }

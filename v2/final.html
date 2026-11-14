@@ -169,7 +169,7 @@
       </nav>
     </div>
   <!-- The same five cats again, on the ground. Colours carry over from the strip at the top. -->
-  <div class="foot-cats"><svg viewBox="0 0 600 92" role="group" aria-label="The same five cats again. Click one to colour it in."><path class="fc-ground" d="M0 86.5H118M126 86.2H300M309 86.6H318M327 86.3H470M479 86.5H486M495 86.4H600"/><g transform="translate(0 0)"><g class="cs-cat" data-cat="coffee" data-i="0" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 16.0)"><rect class="cs-hit" width="66.0" height="70.0"/><g class="cs-ink"><use href="#cs-coffee" width="66.0" height="70.0" style="stroke-width:0.24px"/></g></g></g><g transform="translate(92 0)"><g class="cs-cat" data-cat="lounge" data-i="1" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 36.0)"><rect class="cs-hit" width="83.2" height="50.0"/><g class="cs-ink"><use href="#cs-lounge" width="83.2" height="50.0" style="stroke-width:0.00px"/></g></g></g><g class="fc-walker" data-min="192" data-max="310" data-w="79.5" transform="translate(196 0)"><g class="fc-face"><g class="cs-cat" data-cat="walk" data-i="2" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 28.0)"><rect class="cs-hit" width="79.5" height="58.0"/><g class="cs-ink"><use href="#cs-walk" width="79.5" height="58.0" style="stroke-width:0.55px"/></g></g></g></g><g transform="translate(404 0)"><g class="cs-cat" data-cat="sit" data-i="3" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 14.0)"><rect class="cs-hit" width="53.6" height="72.0"/><g class="cs-ink"><use href="#cs-sit" width="53.6" height="72.0" style="stroke-width:1.68px"/></g></g></g><g transform="translate(528 0)"><g class="cs-cat" data-cat="yawn" data-i="4" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 16.0)"><rect class="cs-hit" width="63.3" height="70.0"/><g class="cs-ink"><use href="#cs-yawn" width="63.3" height="70.0" style="stroke-width:1.79px"/></g></g></g></svg></div>
+  <div class="foot-cats"><svg viewBox="0 0 600 92" role="group" aria-label="The same five cats again. Click one to colour it in."><path class="fc-ground" d="M0 86.5H96M104 86.2H236M245 86.6H253M262 86.3H392M401 86.5H408M417 86.4H600"/><g transform="translate(0 0)"><g class="cs-cat" data-cat="coffee" data-i="0" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 16.0)"><rect class="cs-hit" width="66.0" height="70.0"/><g class="cs-ink"><use href="#cs-coffee" width="66.0" height="70.0" style="stroke-width:0.24px"/></g></g></g><g transform="translate(129.7 0)"><g class="cs-cat" data-cat="lounge" data-i="1" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 36.0)"><rect class="cs-hit" width="83.2" height="50.0"/><g class="cs-ink"><use href="#cs-lounge" width="83.2" height="50.0" style="stroke-width:0.00px"/></g></g></g><g transform="translate(276.5 0)"><g class="cs-cat" data-cat="walk" data-i="2" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 28.0)"><rect class="cs-hit" width="79.5" height="58.0"/><g class="cs-ink"><use href="#cs-walk" width="79.5" height="58.0" style="stroke-width:0.55px"/></g></g></g><g transform="translate(419.6 0)"><g class="cs-cat" data-cat="sit" data-i="3" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 14.0)"><rect class="cs-hit" width="53.6" height="72.0"/><g class="cs-ink"><use href="#cs-sit" width="53.6" height="72.0" style="stroke-width:1.68px"/></g></g></g><g transform="translate(536.7 0)"><g class="cs-cat" data-cat="yawn" data-i="4" role="button" tabindex="0" aria-label="Colour this cat" transform="translate(0 16.0)"><rect class="cs-hit" width="63.3" height="70.0"/><g class="cs-ink"><use href="#cs-yawn" width="63.3" height="70.0" style="stroke-width:1.79px"/></g></g></g></svg></div>
 
     <div class="foot-base"><span>Madhumitha</span><span>2026</span></div>
   </footer>
@@ -552,7 +552,6 @@
       svg.appendChild(t);
       setTimeout(function () { t.remove(); }, 1300);
     }
-    window.catSay = say;
     function paint(cat) {
       var id = cat.dataset.cat, k = +cat.dataset.i, n = count[id] = ((count[id] || 0) + 1) % (inks.length + 1);
       var ink = n ? inks[(k + n - 1) % inks.length] : "";
@@ -564,33 +563,6 @@
       cat.addEventListener("click", function () { paint(cat); });
       cat.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); paint(cat); } });
     });
-  })();
-  // Footer: the walking cat strolls up and down its stretch of ground, pausing now and then
-  (function () {
-    var w = document.querySelector(".fc-walker");
-    if (!w || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var face = w.querySelector(".fc-face"), cat = w.querySelector(".cs-cat");
-    var lo = +w.dataset.min, hi = +w.dataset.max, cw = +w.dataset.w;
-    var x = parseFloat(/translate\(([\d.]+)/.exec(w.getAttribute("transform"))[1]), dir = 1, rest = 1.5, last = 0, t = 0, seen = false;
-    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(w.ownerSVGElement);
-    function frame(now) {
-      var dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
-      if (seen && !document.hidden && !cat.matches(":hover")) {
-        if (rest > 0) { rest -= dt; }
-        else {
-          t += dt; x += dir * 16 * dt;
-          if (x >= hi || x <= lo) {
-            x = Math.max(lo, Math.min(hi, x)); dir = -dir; rest = 2 + Math.random() * 3;
-            if (Math.random() < 0.5) window.catSay(cat, getComputedStyle(cat).color, Math.random() < 0.5 ? "mrrp" : "meow");
-          } else if (Math.random() < 0.0015) rest = 1 + Math.random() * 2;
-        }
-        var bob = rest > 0 ? 0 : -Math.abs(Math.sin(t * Math.PI * 2.2)) * 1.2;
-        w.setAttribute("transform", "translate(" + x.toFixed(1) + " " + bob.toFixed(2) + ")");
-        face.setAttribute("transform", dir < 0 ? "translate(" + cw + " 0) scale(-1 1)" : "");
-      }
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
   })();
 </script>
 </body>
