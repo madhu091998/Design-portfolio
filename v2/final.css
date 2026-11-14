@@ -552,3 +552,10 @@ body .intro .bio p { text-wrap: pretty; } body .intro .bio a { text-underline-of
 body .intro .who { display: flex; align-items: center; gap: 14px; }
 body .intro .who .avatar { width: 44px; height: 44px; margin: 0; border-radius: 50%; flex: none; }
 body .intro .who .avatar img { border-radius: 50%; }
+
+/* Third grey for body copy: #151515 headings · #5c5c5c body · #878787 secondary */
+:root { --body: #5c5c5c; }
+body .intro .bio p, body .intro .bio a { color: var(--body); }
+body .intro .bio a { text-decoration-color: rgba(92, 92, 92, .45); }
+body .intro .bio a:hover { color: #151515; text-decoration-color: #151515; }
+body .about-text p { color: var(--body); }
