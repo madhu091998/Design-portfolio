@@ -453,3 +453,41 @@ body .foot-base span, body .foot-made, body .foot-h, body .foot-col a { font-siz
   body .intro .bio, body .intro .bio p, body .sec-head p, body .tile .brief, body .about-text, body .about-text p, body .timeline li { font-size: 15px; line-height: 22px; }
 }
 body .grid.craft .cap, body .grid.craft .cap b, body .grid.craft .cap span { font-size: 15px; line-height: 22px; letter-spacing: -0.24px; } body .grid.craft .cap b { font-weight: 550; }
+
+/* ===== Darina-style structure and colours ===== */
+:root { --d-ink: #151515; --d-grey: #878787; }
+/* one column: intro, café and work share the same width */
+body .intro { max-width: 680px; }
+/* square photo on top, name and role underneath */
+body .intro .who { display: block; }
+body .intro .who .avatar { display: block; width: 64px; height: 64px; border-radius: 8px; overflow: hidden; margin: 0 0 24px; }
+body .intro .who .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+body .intro .who p { display: grid; gap: 2px; margin: 0; }
+body .intro .who b { color: var(--d-ink); font-weight: 500; }
+body .intro .who span { color: var(--d-grey); }
+body .intro .bio { margin-top: 20px; }
+body .intro .bio p { color: var(--d-ink); }
+body .intro .bio a { color: var(--d-ink); text-decoration: underline; text-decoration-color: rgba(21,21,21,.25); text-underline-offset: 3px; }
+body .intro .links { display: flex; flex-wrap: wrap; align-items: center; margin: 18px 0 0; }
+body .intro .links a { font: 400 15px/22px "Geist", system-ui, sans-serif; letter-spacing: -0.24px; color: var(--d-grey); text-decoration: none; transition: color .2s ease; }
+body .intro .links a:hover { color: var(--d-ink); }
+body .intro .links a + a::before { content: "\00B7"; display: inline-block; margin: 0 8px; color: var(--d-grey); }
+/* section intros */
+body .sec-head p { color: var(--d-grey); }
+/* work cards: title, description, grey meta line */
+body .work-hero .cap span, body .grid.work-more .cap span { display: none; }
+body .work-hero .cap b, body .grid.work-more .cap b { color: var(--d-ink); font-weight: 500; }
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { color: var(--d-ink); margin-top: 6px; }
+body .tile .meta { display: flex; flex-wrap: wrap; margin: 6px 0 0; font: 400 15px/22px "Geist", system-ui, sans-serif; letter-spacing: -0.24px; color: var(--d-grey); }
+body .tile .meta span + span::before { content: "\00B7"; display: inline-block; margin: 0 8px; }
+body .tile .more { display: none; }
+body .work-hero .tile, body .grid.work-more .tile { display: block; }
+body .work-hero .tile .art, body .grid.work-more .tile .art { margin-bottom: 20px; }
+/* visual craft: title, then grey line underneath */
+body .grid.craft .cap { display: grid; gap: 2px; }
+body .grid.craft .cap b { color: var(--d-ink); font-weight: 500; }
+body .grid.craft .cap span { color: var(--d-grey); }
+body .grid.craft .cap span::before { content: none; }
+/* about + experience */
+body .about-text p { color: var(--d-ink); }
+body .timeline b { color: var(--d-ink); font-weight: 500; }
