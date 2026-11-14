@@ -582,3 +582,16 @@ body .about-text a, body .sec-head p a {
   text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color .2s ease, text-decoration-color .2s ease;
 }
 body .about-text a:hover, body .sec-head p a:hover { color: #151515; text-decoration-color: #151515; }
+
+/* Cat strip under the intro: outlines in grey, as tall as the 3-line bio paragraph (3 × 23px) */
+body .intro .cat-strip { margin: 40px 0 0; }
+body .cat-strip svg { display: block; width: 100%; height: auto; max-height: 69px; overflow: visible; }
+body .cs-cat { color: #878787; cursor: pointer; outline: none; transition: color .35s ease; }
+body .cs-cat use { fill: currentColor; stroke: currentColor; stroke-linejoin: round; }
+body .cs-cat .cs-hit { fill: transparent; }
+body .cs-cat .cs-ink { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .3s cubic-bezier(.34, 1.6, .5, 1); }
+body .cs-cat:hover .cs-ink { transform: translateY(-2px); }
+body .cs-cat.cs-bump .cs-ink { animation: cs-pop .45s cubic-bezier(.34, 1.6, .5, 1); }
+body .cs-cat:focus-visible .cs-hit { stroke: #151515; stroke-width: 1; stroke-dasharray: 2 3; rx: 4px; }
+@keyframes cs-pop { 0% { transform: translateY(-2px) scale(1); } 40% { transform: translateY(-3px) scale(1.07); } 100% { transform: translateY(-2px) scale(1); } }
+@media (prefers-reduced-motion: reduce) { body .cs-cat .cs-ink { transition: none; animation: none !important; transform: none !important; } }
