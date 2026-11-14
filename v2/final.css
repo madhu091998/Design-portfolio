@@ -547,3 +547,8 @@ body .sec-head p { margin-top: 0; }
 body .sec-head h2 { font: italic 400 18px/24px "Newsreader", Georgia, serif; color: #151515; }
 body .sec-head h2 span { font-style: normal; }
 body .intro .bio p { text-wrap: pretty; } body .intro .bio a { text-underline-offset: 3px; text-decoration-color: rgba(21,21,21,.2); }
+
+/* Round photo beside the name, as before */
+body .intro .who { display: flex; align-items: center; gap: 14px; }
+body .intro .who .avatar { width: 44px; height: 44px; margin: 0; border-radius: 50%; flex: none; }
+body .intro .who .avatar img { border-radius: 50%; }
