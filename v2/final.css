@@ -449,3 +449,12 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .cafe-svg .scene .ln, .cafe-svg .scene circle, .cafe-svg .scene .ln.th, .cafe-svg .scene .ln.steam { stroke: #a39d94; stroke-opacity: 1; opacity: 1; }
 .cafe-svg .scene .ln.th { stroke-width: 1.15; }
 .cafe-svg .mischief .ln, .cafe-svg .mischief .crash { stroke: #a39d94; }
+
+/* Cat café: same width as the intro text, dots fade out at the edges instead of a hard box */
+.cafe { max-width: 620px; margin-top: 44px; }
+.cafe-scene { position: relative; overflow: visible; border-radius: 0; background: none; }
+.cafe-scene::before { content: ""; position: absolute; inset: -6px 0 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle, rgba(62,55,40,.16) .9px, transparent 1.2px) 0 0 / 12px 12px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 45%, transparent 100%);
+          mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 45%, transparent 100%); }
+.cafe-scene > * { position: relative; z-index: 1; }
