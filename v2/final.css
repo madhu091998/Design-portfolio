@@ -595,3 +595,7 @@ body .cs-cat.cs-bump .cs-ink { animation: cs-pop .45s cubic-bezier(.34, 1.6, .5,
 body .cs-cat:focus-visible .cs-hit { stroke: #151515; stroke-width: 1; stroke-dasharray: 2 3; rx: 4px; }
 @keyframes cs-pop { 0% { transform: translateY(-2px) scale(1); } 40% { transform: translateY(-3px) scale(1.07); } 100% { transform: translateY(-2px) scale(1); } }
 @media (prefers-reduced-motion: reduce) { body .cs-cat .cs-ink { transition: none; animation: none !important; transform: none !important; } }
+body .cat-strip .cs-meow { font: italic 400 13px/1 "Newsreader", Georgia, serif; pointer-events: none; animation: cs-meow 1.2s ease-out forwards; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes cs-meow { 0% { opacity: 0; transform: translateY(4px); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(-14px); } }
+@media (prefers-reduced-motion: reduce) { body .cat-strip .cs-meow { animation: cs-meow-still 1.2s linear forwards; } }
+@keyframes cs-meow-still { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }

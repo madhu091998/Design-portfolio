@@ -576,12 +576,24 @@
   // Cat strip: each click colours the cat in the next pastel; after the last one it goes back to an outline
   (function () {
     var inks = ["#e59a8c", "#e897b5", "#9ab8e3", "#95c79a", "#b9a1e0"];
+    var words = ["meow", "mrrppp", "prrr", "mew?", "mrrp", "purr"], wn = 0;
+    function say(cat, ink) {
+      // a little word floats up from above the cat's head, in the cat's colour
+      var m = /translate\(([\d.]+) ([\d.]+)\)/.exec(cat.getAttribute("transform")), hit = cat.querySelector(".cs-hit");
+      var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      t.setAttribute("class", "cs-meow"); t.setAttribute("text-anchor", "middle");
+      t.setAttribute("x", +m[1] + hit.width.baseVal.value / 2); t.setAttribute("y", +m[2] - 6);
+      t.style.fill = ink; t.textContent = words[wn++ % words.length];
+      cat.ownerSVGElement.appendChild(t);
+      setTimeout(function () { t.remove(); }, 1300);
+    }
     document.querySelectorAll(".cs-cat").forEach(function (cat) {
       var k = +cat.dataset.i, n = 0;
       function paint() {
         n = (n + 1) % (inks.length + 1);
         cat.style.color = n ? inks[(k + n - 1) % inks.length] : "";
         cat.classList.remove("cs-bump"); void cat.getBoundingClientRect(); cat.classList.add("cs-bump");
+        say(cat, n ? inks[(k + n - 1) % inks.length] : "#878787");
       }
       cat.addEventListener("click", paint);
       cat.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); paint(); } });
