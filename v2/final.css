@@ -546,3 +546,4 @@ body .sec-head p { margin-top: 0; }
 /* Heading text back in the italic serif; sized so it optically matches the 16px number */
 body .sec-head h2 { font: italic 400 18px/24px "Newsreader", Georgia, serif; color: #151515; }
 body .sec-head h2 span { font-style: normal; }
+body .intro .bio p { text-wrap: pretty; } body .intro .bio a { text-underline-offset: 3px; text-decoration-color: rgba(21,21,21,.2); }
