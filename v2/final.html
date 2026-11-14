@@ -640,17 +640,17 @@
     if (!root) return;
     var NS = "http://www.w3.org/2000/svg", XL = "http://www.w3.org/1999/xlink";
     var spots = [
-      { x: 104, y: 188, ill: "sit", h: 64 },                              // windowsill: party hat
-      { x: 300, y: 160, ill: "hang", h: 82, base: .412 },                  // shelf: draped over the edge
-      { x: 532, y: 202, ill: "walk", h: 52, base: .945, knock: true },    // counter: next to the mug at the edge
-      { x: 112, y: 288, ill: "lounge", w: 92 },                           // cushion: belly up
-      { x: 300, y: 288, ill: "yawn", h: 58, base: .968 }                  // cushion: big stretch and yawn
+      { x: 104, y: 188, ill: "sit", h: 74.2 },                              // windowsill: party hat
+      { x: 300, y: 160, ill: "hang", h: 61.9, base: .412 },                  // shelf: draped over the edge
+      { x: 532, y: 202, ill: "walk", h: 54.6, base: .945, knock: true },    // counter: next to the mug at the edge
+      { x: 112, y: 288, ill: "lounge", w: 82.5 },                           // cushion: belly up
+      { x: 300, y: 288, ill: "yawn", h: 67.4, base: .968 }                  // cushion: big stretch and yawn
     ];
     var VB = { sit: [154.771, 208.213], lounge: [174.142, 104.725], walk: [182.821, 133.225], hang: [195.399, 182.68], yawn: [176.601, 195.634] };
     var KEY = "madhu-cafe-cats", state = [];
     try { localStorage.removeItem(KEY); } catch (e) {}
     root.style.setProperty("--pick", "#3e3728");
-    var colour = "#4a453f", layer = root.querySelector(".spots");
+    var colour = "#e59a8c", layer = root.querySelector(".spots");
     var sw = root.querySelector(".swatches");
     var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (still) root.querySelectorAll("animate").forEach(function (an) { an.remove(); });
@@ -734,7 +734,7 @@
       layer.appendChild(g);
       draw(i, false);
     });
-    var coats = ["#4a453f"], picked = state.some(Boolean);
+    var coats = [].map.call(root.querySelectorAll(".sw"), function (b) { return b.dataset.c; }), picked = state.some(Boolean);
     function markPicked(c) {
       root.querySelectorAll(".sw").forEach(function (o) { var on = o.dataset.c === c; o.classList.toggle("on", on); o.setAttribute("aria-checked", on ? "true" : "false"); });
       root.style.setProperty("--pick", c);

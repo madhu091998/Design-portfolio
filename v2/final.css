@@ -419,5 +419,10 @@ html.has-vc .tile:not(.soon), html.has-vc .tile:not(.soon) * { cursor: pointer; 
 .tile:hover .cap b { text-decoration-color: #6eebff; text-decoration-thickness: 3px; text-underline-offset: 3px; }
 .view-cursor .vc-in { background: #6eebff; color: var(--accent); font-weight: 600; border: 1px solid rgba(213, 62, 9, .25); box-shadow: 0 6px 16px -8px rgba(30, 140, 170, .55); }
 
-/* Cats in dark ink, so no colour picker */
-.cafe .swatches { display: none !important; }
+
+/* Cats: same visual size, and an outline that evens out every cat's line weight */
+.cafe-svg .cat.ill-sit svg path { stroke: currentColor; stroke-width: 1.10; stroke-linejoin: round; paint-order: normal; }
+.cafe-svg .cat.ill-hang svg path { stroke: currentColor; stroke-width: 0.82; stroke-linejoin: round; paint-order: normal; }
+.cafe-svg .cat.ill-walk svg path { stroke: currentColor; stroke-width: 0.56; stroke-linejoin: round; paint-order: normal; }
+.cafe-svg .cat.ill-lounge svg path { stroke: currentColor; stroke-width: 0.00; stroke-linejoin: round; paint-order: normal; }
+.cafe-svg .cat.ill-yawn svg path { stroke: currentColor; stroke-width: 1.46; stroke-linejoin: round; paint-order: normal; }
