@@ -21,6 +21,13 @@
   <a class="resume-btn" href="../../assets/Madhumitha-Resume.pdf" download>Resume<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 10.7l3.5-3.5M3 13.5h10"/></svg></a>
 </div>
 
+<nav class="sidenav" aria-label="On this page">
+  <a href="#top" class="on">Overview</a>
+  <a href="#pepsico">Exploration for PepsiCo</a>
+  <a href="#superbowl">Superbowl player stats</a>
+  <a href="#plant-care">Plant care app</a>
+</nav>
+
 <main class="page" id="top">
   <header class="hero">
     <p class="craft-kicker">Visual craft</p>
@@ -30,21 +37,32 @@
     </div>
   </header>
 
-  <!-- TODO: add more pieces here. Each one is a figure.craft-piece with the picture or video, then its title and a short label. -->
-  <section class="craft-list" aria-label="Interface design">
-    <figure class="craft-piece reveal">
-      <div class="craft-art"><img src="../../assets/visual-craft/interface-design.webp" width="2048" height="1152" alt="Two phone screens: a pre-trip vehicle inspection list and a driver home screen with alerts and store visits" loading="lazy"></div>
-      <figcaption><p class="craft-cap"><b>Exploration for PepsiCo</b><span>POC at Lollypop</span></p><p class="craft-desc">A proof of concept to help win PepsiCo as a client for a project at Lollypop. I tried a few different variations for it.</p></figcaption>
-    </figure>
-    <figure class="craft-piece reveal">
-      <div class="craft-art"><img src="../../assets/visual-craft/superbowl-stats.webp" width="2000" height="959" alt="A player stats dashboard on a tablet: Patrick Mahomes of the Kansas City Chiefs, with career passing numbers and charts on a dark red background" loading="lazy"></div>
-      <figcaption><p class="craft-cap"><b>Superbowl player stats</b><span>Data visualisation</span></p></figcaption>
-    </figure>
-    <figure class="craft-piece reveal">
-      <div class="craft-art"><img src="../../assets/visual-craft/plant-care.webp" width="2000" height="959" alt="Three screens of a plant care app: today's care tasks, a plant profile for Ivy Rose, and choosing a type of pot" loading="lazy"></div>
-      <figcaption><p class="craft-cap"><b>Plant care app</b><span>Mobile app</span></p></figcaption>
-    </figure>
-  </section>
+  <!-- TODO: add more projects here. Each one is a section.craft-project: a numbered heading, a short label,
+       an optional description, then one or more pictures in .craft-shots. Add it to the side nav too. -->
+  <div class="craft-list">
+    <section class="craft-project" id="pepsico" aria-labelledby="pepsico-h">
+      <h2 class="craft-h reveal" id="pepsico-h"><span>01</span>Exploration for PepsiCo</h2>
+      <p class="craft-sub reveal">POC at Lollypop</p>
+      <p class="craft-desc reveal">A proof of concept to help win PepsiCo as a client for a project at Lollypop. I tried a few different variations for it.</p>
+      <div class="craft-shots">
+      <figure class="craft-art reveal"><img src="../../assets/visual-craft/interface-design.webp" width="2048" height="1152" alt="Two phone screens: a pre-trip vehicle inspection list and a driver home screen with alerts and store visits" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="craft-project" id="superbowl" aria-labelledby="superbowl-h">
+      <h2 class="craft-h reveal" id="superbowl-h"><span>02</span>Superbowl player stats</h2>
+      <p class="craft-sub reveal">Data visualisation</p>
+      <div class="craft-shots">
+      <figure class="craft-art reveal"><img src="../../assets/visual-craft/superbowl-stats.webp" width="2000" height="959" alt="A player stats dashboard on a tablet: Patrick Mahomes of the Kansas City Chiefs, with career passing numbers and charts on a dark red background" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="craft-project" id="plant-care" aria-labelledby="plant-care-h">
+      <h2 class="craft-h reveal" id="plant-care-h"><span>03</span>Plant care app</h2>
+      <p class="craft-sub reveal">Mobile app</p>
+      <div class="craft-shots">
+      <figure class="craft-art reveal"><img src="../../assets/visual-craft/plant-care.webp" width="2000" height="959" alt="Three screens of a plant care app: today's care tasks, a plant profile for Ivy Rose, and choosing a type of pot" loading="lazy"></figure>
+      </div>
+    </section>
+  </div>
 
   <footer class="cs-foot">
     <div class="cs-foot-top">
@@ -79,6 +97,19 @@
       items.forEach(function (el) { io.observe(el); });
     }
     if (still) document.querySelectorAll("video").forEach(function (v) { v.autoplay = false; v.pause(); });
+  })();
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll(".sidenav a"));
+    function onScroll() {
+      var y = window.innerHeight * 0.4, cur = links[0];
+      links.forEach(function (a) {
+        var t = document.querySelector(a.getAttribute("href"));
+        if (t && t.getBoundingClientRect().top < y) cur = a;
+      });
+      links.forEach(function (a) { a.classList.toggle("on", a === cur); });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   })();
 </script>
 </body>
