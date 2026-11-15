@@ -429,3 +429,6 @@ html, body { background: var(--bg); }
 .craft-page .craft-h .craft-lab::before { content: "\00B7"; margin: 0 8px; }
 .craft-page .craft-desc { margin: 8px 0 0; }
 .craft-page .craft-h span::after { content: none; }
+/* Empty picture slot until the real picture is added */
+.craft-page .craft-slot { display: grid; place-items: center; background: #f7f7f7; box-shadow: inset 0 0 0 1px #ececec; }
+.craft-page .craft-slot span { font: 400 14px/20px "Geist", system-ui, sans-serif; color: #b0b0b0; }
