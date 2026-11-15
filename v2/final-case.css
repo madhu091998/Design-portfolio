@@ -397,3 +397,14 @@ html, body { background: var(--bg); }
 .bfaf .bfaf-c.old, .bfaf .bfaf-c.new, .bfaf .bfaf-m { color: #151515; }
 .bfaf .bfaf-h.old, .bfaf .bfaf-h.new { color: #878787; }
 .blog .quotes figcaption, .blog figcaption { color: #878787; }
+
+/* Visual craft pages: a simple stack of pieces, each with a "Title · label" caption like the homepage */
+.craft-page .craft-kicker { margin: 0 0 8px; font: 400 14px/20px "Geist", system-ui, sans-serif; color: #878787; }
+.craft-page .craft-list { display: grid; gap: 56px; margin-top: 48px; }
+.craft-page .craft-piece { margin: 0; }
+.craft-page .craft-art { position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 16 / 9; background: #f7f7f7; }
+.craft-page .craft-art img, .craft-page .craft-art video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.craft-page .craft-cap { display: flex; flex-wrap: wrap; align-items: baseline; margin: 20px 0 0; font: 400 14px/20px "Geist", system-ui, sans-serif; }
+.craft-page .craft-cap b { font-weight: 500; color: #151515; }
+.craft-page .craft-cap span { color: #878787; }
+.craft-page .craft-cap span::before { content: "\00B7"; margin: 0 8px; }

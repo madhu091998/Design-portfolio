@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interface design · Madhumitha</title>
+  <meta name="description" content="UI explorations, layouts, typography, and data visualisations.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Geist:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../case.css">
+  <link rel="stylesheet" href="../final-case.css">
+</head>
+<body class="case blog neel craft-page">
+<div class="topbar">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../final.html#craft"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3.5M7.5 4 3.5 8l4 4"/></svg>Back</a></nav>
+  <!-- TODO: add your resume as assets/Madhumitha-Resume.pdf -->
+  <a class="resume-btn" href="../../assets/Madhumitha-Resume.pdf" download>Resume<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7.2 8 10.7l3.5-3.5M3 13.5h10"/></svg></a>
+</div>
+
+<main class="page" id="top">
+  <header class="hero">
+    <p class="craft-kicker">Visual craft</p>
+    <h1>Interface design</h1>
+    <div class="prose intro">
+      <p>UI explorations, layouts, typography, and data visualisations.</p>
+    </div>
+  </header>
+
+  <!-- TODO: add more pieces here. Each one is a figure.craft-piece with the picture or video, then its title and a short label. -->
+  <section class="craft-list" aria-label="Interface design">
+    <figure class="craft-piece reveal">
+      <div class="craft-art"><img src="../../assets/visual-craft/interface-design.webp" width="2048" height="1152" alt="Two phone screens: a pre-trip vehicle inspection list and a driver home screen with alerts and store visits" loading="lazy"></div>
+      <figcaption class="craft-cap"><b>Pre-Trip DVIR</b><span>Mobile app</span></figcaption>
+    </figure>
+    <figure class="craft-piece reveal">
+      <div class="craft-art"><img src="../../assets/visual-craft/superbowl-stats.webp" width="2000" height="959" alt="A player stats dashboard on a tablet: Patrick Mahomes of the Kansas City Chiefs, with career passing numbers and charts on a dark red background" loading="lazy"></div>
+      <figcaption class="craft-cap"><b>Superbowl player stats</b><span>Data visualisation</span></figcaption>
+    </figure>
+    <figure class="craft-piece reveal">
+      <div class="craft-art"><img src="../../assets/visual-craft/plant-care.webp" width="2000" height="959" alt="Three screens of a plant care app: today's care tasks, a plant profile for Ivy Rose, and choosing a type of pot" loading="lazy"></div>
+      <figcaption class="craft-cap"><b>Plant care app</b><span>Mobile app</span></figcaption>
+    </figure>
+  </section>
+
+  <footer class="cs-foot">
+    <div class="cs-foot-top">
+      <div class="cs-foot-sign">
+        <p class="foot-quote">That's all for this one.</p>
+        <a class="cs-foot-more" href="../final.html#craft">Back to everything else<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </div>
+      <nav class="foot-col" aria-label="Elsewhere">
+        <p class="foot-h">Elsewhere</p>
+        <!-- TODO: replace with your real email and LinkedIn -->
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../../assets/Madhumitha-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+    <div class="cs-foot-next">
+      <p class="foot-h">Up next</p>
+      <a href="../illustration-icons/final.html">Illustration &amp; icons<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+    if (still || !("IntersectionObserver" in window)) { items.forEach(function (el) { el.classList.add("in"); }); }
+    else {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    }
+    if (still) document.querySelectorAll("video").forEach(function (v) { v.autoplay = false; v.pause(); });
+  })();
+</script>
+</body>
+</html>
