@@ -637,3 +637,7 @@ body .intro .who .avatar-ink .fine { stroke-width: .9; }
 /* Visual craft laid out exactly like Selected work: one column, 16:9 pictures, "Title · label" captions */
 body .grid.craft.work-more { margin-top: 0; }
 body .grid.craft.work-more .tile .art.photo { aspect-ratio: 16 / 9; }
+
+/* Trying the intro at the case-study body size: 16px / 1.6 */
+body .intro .bio p, body .intro .bio a { font-size: 16px; line-height: 25.6px; }
+body .intro .links a, body .intro .links a + a::before { font-size: 16px; line-height: 24px; }
