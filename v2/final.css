@@ -654,3 +654,10 @@ body .intro .who .links { display: flex; flex-direction: row; flex-wrap: nowrap;
 /* Section headings: the Newsreader title at 20px */
 body .sec-head h2 { font-size: 20px; line-height: 26px; }
 body .sec-head h2 span { line-height: 26px; }
+
+/* Same centred 640px column as the case-study pages */
+@media (min-width: 761px) {
+  body .page:has(> .intro) { padding-left: max(160px, calc((100vw - 640px) / 2)); padding-right: max(24px, calc((100vw - 640px) / 2)); }
+  body .intro { max-width: 640px; }
+}
+body .cat-strip svg { max-height: none; }
