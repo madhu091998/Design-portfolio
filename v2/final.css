@@ -661,6 +661,3 @@ body .sec-head h2 span { line-height: 26px; }
   body .intro { max-width: 640px; }
 }
 body .cat-strip svg { max-height: none; }
-
-/* Trying the name block without the photo (hidden, not deleted, so it is easy to bring back) */
-body .intro .who .avatar-wrap { display: none; }
