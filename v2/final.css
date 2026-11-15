@@ -662,7 +662,5 @@ body .sec-head h2 span { line-height: 26px; }
 }
 body .cat-strip svg { max-height: none; }
 
-/* Project labels as a subheading: on their own line under the title, 14px grey (like "Product Designer" under the name) */
-body .work-hero .cap, body .grid.work-more .cap { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
-body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-more .cap span { display: block; font-size: 14px; line-height: 20px; color: #878787; }
-body .work-hero .cap span::before, body .grid.work-more .cap span::before { content: none; }
+/* Project labels stay on the title line, after a "·", at 14px */
+body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-more .cap span { font-size: 14px; }
