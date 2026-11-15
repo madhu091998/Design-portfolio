@@ -667,3 +667,5 @@ body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-
 /* Whole caption line (title · label) at 14px */
 body main .cap, body main .cap b, body .work-hero .cap b, body .grid.work-more .cap b, body .grid.craft .cap b,
 body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-more .cap span { font-size: 14px; line-height: 20px; }
+/* Project descriptions at 14px too */
+body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief { font-size: 14px; line-height: 23px; }
