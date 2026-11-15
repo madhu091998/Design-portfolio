@@ -650,3 +650,7 @@ body .grid.craft .cap, body .grid.craft .cap b, body .grid.craft .cap span { fon
 body .intro .who { flex-wrap: wrap; }
 body .intro .who .links { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 0; white-space: nowrap; margin: 0 0 0 auto; align-self: center; }
 @media (max-width: 520px) { body .intro .who .links { flex-basis: 100%; margin: 14px 0 0; } }
+
+/* Section headings: the Newsreader title at 20px */
+body .sec-head h2 { font-size: 20px; line-height: 26px; }
+body .sec-head h2 span { line-height: 26px; }
