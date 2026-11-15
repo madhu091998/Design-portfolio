@@ -408,3 +408,4 @@ html, body { background: var(--bg); }
 .craft-page .craft-cap b { font-weight: 500; color: #151515; }
 .craft-page .craft-cap span { color: #878787; }
 .craft-page .craft-cap span::before { content: "\00B7"; margin: 0 8px; }
+.craft-page .craft-desc { margin: 6px 0 0; max-width: 40em; font: 400 14px/23px "Geist", system-ui, sans-serif; color: #5c5c5c; }
