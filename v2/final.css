@@ -645,3 +645,8 @@ body .intro .links a, body .intro .links a + a::before { font-size: 16px; line-h
 body .sec-head p, body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief, body .about-text p, body .about-text a { font-size: 16px; line-height: 25.6px; }
 body main .cap, body main .cap b, body main .cap span, body .work-hero .cap b, body .work-hero .cap span, body .grid.work-more .cap b, body .grid.work-more .cap span,
 body .grid.craft .cap, body .grid.craft .cap b, body .grid.craft .cap span { font-size: 16px; line-height: 24px; }
+
+/* LinkedIn · Email sit on the right of the name row */
+body .intro .who { flex-wrap: wrap; }
+body .intro .who .links { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 0; white-space: nowrap; margin: 0 0 0 auto; align-self: center; }
+@media (max-width: 520px) { body .intro .who .links { flex-basis: 100%; margin: 14px 0 0; } }
