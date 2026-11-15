@@ -420,3 +420,12 @@ html, body { background: var(--bg); }
 .craft-page .craft-desc { margin: 10px 0 0; max-width: 40em; font: 400 14px/23px "Geist", system-ui, sans-serif; color: #5c5c5c; }
 .craft-page .craft-shots { display: grid; gap: 16px; margin-top: 24px; }
 .craft-page .craft-shots .craft-art { margin: 0; }
+
+/* Project headings in the homepage card style: 14px "Title · label", description underneath */
+.craft-page .craft-h { display: flex; flex-wrap: wrap; align-items: baseline; font: 500 14px/20px "Geist", system-ui, sans-serif; color: #151515; }
+.craft-page .craft-h .craft-n { margin-right: 10px; font: 400 14px/20px "Geist", system-ui, sans-serif; color: #878787; }
+.craft-page .craft-h .craft-n::after { content: none; }
+.craft-page .craft-h .craft-lab { font: 400 14px/20px "Geist", system-ui, sans-serif; color: #878787; }
+.craft-page .craft-h .craft-lab::before { content: "\00B7"; margin: 0 8px; }
+.craft-page .craft-desc { margin: 8px 0 0; }
+.craft-page .craft-h span::after { content: none; }
