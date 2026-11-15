@@ -641,3 +641,7 @@ body .grid.craft.work-more .tile .art.photo { aspect-ratio: 16 / 9; }
 /* Trying the intro at the case-study body size: 16px / 1.6 */
 body .intro .bio p, body .intro .bio a { font-size: 16px; line-height: 25.6px; }
 body .intro .links a, body .intro .links a + a::before { font-size: 16px; line-height: 24px; }
+/* ...and the rest of the running text on the landing page at the same 16px / 1.6 */
+body .sec-head p, body .tile .brief, body .work-hero .tile .brief, body .grid.work-more .tile .brief, body .about-text p, body .about-text a { font-size: 16px; line-height: 25.6px; }
+body main .cap, body main .cap b, body main .cap span, body .work-hero .cap b, body .work-hero .cap span, body .grid.work-more .cap b, body .grid.work-more .cap span,
+body .grid.craft .cap, body .grid.craft .cap b, body .grid.craft .cap span { font-size: 16px; line-height: 24px; }
