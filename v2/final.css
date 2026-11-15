@@ -664,3 +664,6 @@ body .cat-strip svg { max-height: none; }
 
 /* Project labels stay on the title line, after a "·", at 14px */
 body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-more .cap span { font-size: 14px; }
+/* Whole caption line (title · label) at 14px */
+body main .cap, body main .cap b, body .work-hero .cap b, body .grid.work-more .cap b, body .grid.craft .cap b,
+body .work-hero .cap span, body .grid.work-more .cap span, body main .grid.work-more .cap span { font-size: 14px; line-height: 20px; }
